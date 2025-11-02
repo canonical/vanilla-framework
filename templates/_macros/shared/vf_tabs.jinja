@@ -1,0 +1,53 @@
+{#-
+    Params
+        - list
+            - attrs (Object) - forwards attributes to the `p-tabs__list` element.
+                Note, `role` cannot be customized - it is always `tablist`.
+            - tabs (Array)
+                - name (String) (Required) - Unique name for the tab.
+                    This is used to link together tabs and contents by their `id` and `aria-controls` attributes.
+                - tab_html (String) (Required)
+                - content_html (String) (Required)
+-#}
+{%- macro vf_tabs(list={}) -%}
+    {%- set list_attrs = list.get("attrs", {}) -%}
+    {%- set list_class = list_attrs.get("class", "") | trim -%}
+    {%- set tabs = list.get("tabs", []) -%}
+    <div class="p-tabs">
+        <div
+            class="p-tabs__list{% if list_class | length > 0 %} {{ list_class -}}{% endif %}"
+            role="tablist"
+            {%- for attr, value in list_attrs.items() -%}
+                {% if attr not in ["class", "role", "tabs"] %}
+                    {{ attr }}="{{ value }}"
+                {%- endif -%}
+            {%- endfor -%}
+        >
+        {%- for tab in tabs -%}
+            {%- set name = tab.get("name", "") -%}
+            <div class="p-tabs__item">
+                <button
+                    class="p-tabs__link"
+                    role="tab"
+                    aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+                    aria-controls="{{ name }}-tab" id="{{ name }}"
+                >
+                    {{ tab.get("tab_html", "") | trim | safe }}
+                </button>
+            </div>
+        {%- endfor -%}
+        </div>
+        {%- for tab in tabs -%}
+            {%- set name = tab.get("name", "") -%}
+            <div
+                tabindex="0"
+                role="tabpanel"
+                id="{{ name }}-tab"
+                aria-labelledby="{{ name }}"
+                {% if not loop.first %}hidden="hidden"{% endif %}
+            >
+               {{ tab.get("content_html", "") | trim | safe }}
+            </div>
+        {%- endfor -%}
+    </div>
+{%- endmacro -%}

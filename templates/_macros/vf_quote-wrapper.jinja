@@ -7,25 +7,25 @@
             - text (str)
  -#}
 {%- macro _quote_wrapper_body_block(body={}) -%}
-    {%- set quote_size = body.get("size", "") | trim | lower -%}
-    {%- set quote_text = body.get("text", "") | trim -%}
+  {%- set quote_size = body.get("size", "") | trim | lower -%}
+  {%- set quote_text = body.get("text", "") | trim -%}
 
-    {# Translate quote size param to quote heading level #}
-    {% if quote_size == 'large' %}
-        {% set quote_heading_level = 2 %}
-    {% elif quote_size == 'small' %}
-        {% set quote_heading_level = 6 %}
-    {% else %}
-        {% set quote_heading_level = 4 %}
-    {% endif %}
+  {# Translate quote size param to quote heading level #}
+  {% if quote_size == 'large' %}
+    {% set quote_heading_level = 2 %}
+  {% elif quote_size == 'small' %}
+    {% set quote_heading_level = 6 %}
+  {% else %}
+    {% set quote_heading_level = 4 %}
+  {% endif %}
 
-    {%- if quote_text | length > 0 -%}
-        <p class="p-heading--{{ quote_heading_level }}">
-            <i>
-                &#8220;{{ quote_text }}&#8221;
-            </i>
-        </p>
-    {%- endif -%}
+  {%- if quote_text | length > 0 -%}
+    <p class="p-heading--{{ quote_heading_level }}">
+      <i>
+        &#8220;{{ quote_text }}&#8221;
+      </i>
+    </p>
+  {%- endif -%}
 {%- endmacro %}
 
 {#-
@@ -36,45 +36,45 @@
             - title
  -#}
 {%- macro _quote_wrapper_citation_block(citation={}) -%}
-    {%- set citation_source_name = citation.get("name", "") | trim -%}
-    {%- set citation_source_title = citation.get("title", "") | trim -%}
-    {%- set citation_source_organisation = citation.get("organisation", "") | trim -%}
+  {%- set citation_source_name = citation.get("name", "") | trim -%}
+  {%- set citation_source_title = citation.get("title", "") | trim -%}
+  {%- set citation_source_organisation = citation.get("organisation", "") | trim -%}
 
-    {%- set has_citation_source_name = citation_source_name | length > 0 -%}
-    {%- set has_citation_source_title = citation_source_title | length > 0 -%}
-    {%- set has_citation_source_organisation = citation_source_organisation | length > 0 -%}
-    {%- set has_citation = has_citation_source_name or has_citation_source_title or has_citation_source_organisation -%}
+  {%- set has_citation_source_name = citation_source_name | length > 0 -%}
+  {%- set has_citation_source_title = citation_source_title | length > 0 -%}
+  {%- set has_citation_source_organisation = citation_source_organisation | length > 0 -%}
+  {%- set has_citation = has_citation_source_name or has_citation_source_title or has_citation_source_organisation -%}
 
-    {%- if has_citation -%}
-        {#- Optional citation block -#}
-        <p>
-            {% if has_citation_source_name -%}
-                {#- Optional citation source name -#}
-                <strong>{{ citation_source_name }}</strong>
-                {% if has_citation_source_title or has_citation_source_organisation -%}
-                    {#- If the citation name is followed by title and/or organisation, add a line break -#}
-                    <br>
-                {% endif -%}
-            {% endif -%}
-            {% if has_citation_source_title or has_citation_source_organisation -%}
-                {#- Optional citation source title and/or organisation -#}
-                <span class="u-text--muted">
+  {%- if has_citation -%}
+    {#- Optional citation block -#}
+    <p>
+      {% if has_citation_source_name -%}
+        {#- Optional citation source name -#}
+        <strong>{{ citation_source_name }}</strong>
+        {% if has_citation_source_title or has_citation_source_organisation -%}
+          {#- If the citation name is followed by title and/or organisation, add a line break -#}
+          <br>
+        {% endif -%}
+      {% endif -%}
+      {% if has_citation_source_title or has_citation_source_organisation -%}
+        {#- Optional citation source title and/or organisation -#}
+        <span class="u-text--muted">
             {% if has_citation_source_title -%}
-                {#- Optional citation source title -#}
-                {{ citation_source_title }}
-                {%- if has_citation_source_organisation %}
-                    {#- Add a line break between the title and org if both are present -#}
-                    <br>
-                {%- endif %}
+              {#- Optional citation source title -#}
+              {{ citation_source_title }}
+              {%- if has_citation_source_organisation %}
+                {#- Add a line break between the title and org if both are present -#}
+                <br>
+              {%- endif %}
             {% endif %}
-                    {%- if has_citation_source_organisation -%}
-                        {#- Optional citation source organisation -#}
-                        {{ citation_source_organisation }}
-                    {%- endif %}
+          {%- if has_citation_source_organisation -%}
+            {#- Optional citation source organisation -#}
+            {{ citation_source_organisation }}
+          {%- endif %}
           </span>
-            {%- endif %}
-        </p>
-    {% endif %}
+      {%- endif %}
+    </p>
+  {% endif %}
 {%- endmacro -%}
 
 {#-
@@ -86,34 +86,34 @@
                 - html
  #}
 {%- macro _quote_wrapper_heading_block(heading={}) %}
-    {%- set heading_title_text = heading.get("title", {}).get("text", "") | trim -%}
-    {%- set heading_link_html = heading.get("link", {}).get("html", "") | trim -%}
-    {%- set has_heading_title = heading_title_text | length > 0 -%}
-    {%- set has_heading_link = heading_link_html | length > 0 -%}
-    {%- set has_heading_row = has_heading_title or has_heading_link -%}
+  {%- set heading_title_text = heading.get("title", {}).get("text", "") | trim -%}
+  {%- set heading_link_html = heading.get("link", {}).get("html", "") | trim -%}
+  {%- set has_heading_title = heading_title_text | length > 0 -%}
+  {%- set has_heading_link = heading_link_html | length > 0 -%}
+  {%- set has_heading_row = has_heading_title or has_heading_link -%}
 
-    {% if has_heading_row -%}
-        {#- Optional heading -#}
-        <div class="p-section--shallow">
-            <div class="grid-row">
-                {%- if has_heading_title %}
-                    {#- Optional heading text -#}
-                    <div class="grid-col-2">
-                        <h2 class="p-muted-heading">{{ heading_title_text }}</h2>
-                    </div>
-                {%- endif -%}
+  {% if has_heading_row -%}
+    {#- Optional heading -#}
+    <div class="p-section--shallow">
+      <div class="grid-row">
+        {%- if has_heading_title %}
+          {#- Optional heading text -#}
+          <div class="grid-col-2">
+            <h2 class="p-muted-heading">{{ heading_title_text }}</h2>
+          </div>
+        {%- endif -%}
 
-                {%- if has_heading_link %}
-                    {#- Optional heading link  -#}
-                    <div class="grid-col-2 grid-col-start-large-7">
-                        <p class="p-text--default">
-                            {{ heading_link_html }}
-                        </p>
-                    </div>
-                {% endif -%}
-            </div>
-        </div>
-    {% endif -%}
+        {%- if has_heading_link %}
+          {#- Optional heading link  -#}
+          <div class="grid-col-2 grid-col-start-large-7">
+            <p class="p-text--default">
+              {{ heading_link_html }}
+            </p>
+          </div>
+        {% endif -%}
+      </div>
+    </div>
+  {% endif -%}
 {%- endmacro %}
 
 {#-
@@ -122,13 +122,13 @@
             - html (String)
 -#}
 {%- macro _quote_wrapper_cta_block(cta={}) -%}
-    {%- set cta_html = cta.get("html", "") | trim -%}
-    {% if cta_html | length > 0 %}
-        {#-  Optional CTA block -#}
-        <div class="p-cta-block">
-            {{- cta_html -}}
-        </div>
-    {%- endif -%}
+  {%- set cta_html = cta.get("html", "") | trim -%}
+  {% if cta_html | length > 0 %}
+    {#-  Optional CTA block -#}
+    <div class="p-cta-block">
+      {{- cta_html -}}
+    </div>
+  {%- endif -%}
 {%- endmacro -%}
 
 {#-
@@ -149,33 +149,33 @@
               - html (String)
  #}
 {%- macro _quote_wrapper_block_contents_column(contents={}) -%}
-    {%- set citation = contents.get("citation", {}) -%}
-    {%- set body = contents.get("body", {}) -%}
-    {%- set cta = contents.get("cta", {}) -%}
-    {%- set image = contents.get("image", {}) -%}
-    {%- set has_citation = (citation.get("name") or citation.get("title") or citation.get("organisation")) | trim | length > 0 -%}
-    {%- set has_cta = cta.get("html") | trim | length > 0 -%}
-    {%- set has_image = image.get("html") | trim | length > 0 -%}
-    {% if has_citation -%}
-        {#-  When a citation is present, wrap the quote and citation in a nested grid to space them properly  -#}
-        <div class="grid-row">
-            <div class="grid-col-4">
-                {{ _quote_wrapper_body_block(body=body) }}
-            </div>
-            <div class="grid-col-2">
-                {{ _quote_wrapper_citation_block(citation=citation) }}
-            </div>
-        </div>
-    {% else -%}
-        {#-  When no citation is present, display quote body without a nested grid  -#}
+  {%- set citation = contents.get("citation", {}) -%}
+  {%- set body = contents.get("body", {}) -%}
+  {%- set cta = contents.get("cta", {}) -%}
+  {%- set image = contents.get("image", {}) -%}
+  {%- set has_citation = (citation.get("name") or citation.get("title") or citation.get("organisation")) | trim | length > 0 -%}
+  {%- set has_cta = cta.get("html") | trim | length > 0 -%}
+  {%- set has_image = image.get("html") | trim | length > 0 -%}
+  {% if has_citation -%}
+    {#-  When a citation is present, wrap the quote and citation in a nested grid to space them properly  -#}
+    <div class="grid-row">
+      <div class="grid-col-4">
         {{ _quote_wrapper_body_block(body=body) }}
-    {% endif -%}
+      </div>
+      <div class="grid-col-2">
+        {{ _quote_wrapper_citation_block(citation=citation) }}
+      </div>
+    </div>
+  {% else -%}
+    {#-  When no citation is present, display quote body without a nested grid  -#}
+    {{ _quote_wrapper_body_block(body=body) }}
+  {% endif -%}
 
-    {#-  Optional CTA and/or image block  -#}
-    {{ _quote_wrapper_cta_block(cta=cta) }}
+  {#-  Optional CTA and/or image block  -#}
+  {{ _quote_wrapper_cta_block(cta=cta) }}
 
-    {#-  Optional image block  -#}
-    {{ image.get("html", "") }}
+  {#-  Optional image block  -#}
+  {{ image.get("html", "") }}
 {%- endmacro -%}
 
 {#-
@@ -184,12 +184,12 @@
             - html (String)
 -#}
 {%- macro _quote_wrapper_block_signpost_column(signpost={}) -%}
-    {%- set signpost_html = signpost.get("image", {}).get("html", "") | trim -%}
-    {%- if signpost_html | length > 0 -%}
-        <div class="p-section--shallow">
-            {{ signpost_html | safe }}
-        </div>
-    {%- endif -%}
+  {%- set signpost_html = signpost.get("image", {}).get("html", "") | trim -%}
+  {%- if signpost_html | length > 0 -%}
+    <div class="p-section--shallow">
+      {{ signpost_html | safe }}
+    </div>
+  {%- endif -%}
 {%- endmacro -%}
 
 {#-
@@ -213,26 +213,26 @@
               - Note: passing a signpost will force this to True.
 -#}
 {%- macro vf_quote_block(signpost={}, contents={}) -%}
-    {%- set signpost_html = signpost.get("image", {}).get("html", "") | trim -%}
-    {%- set has_signpost = signpost_html | length > 0 -%}
-    <div class="grid-row">
-        {%- if has_signpost -%}
-            <div class="grid-col-2 grid-col-medium-1">
-                {%- if contents.get("has_divider", False) -%}
-                    <hr class="p-rule--muted u-hide--medium u-hide--large"/>
-                {%- endif -%}
-                {#- Optional signpost image -#}
-                {{- _quote_wrapper_block_signpost_column(signpost=signpost) -}}
-            </div>
+  {%- set signpost_html = signpost.get("image", {}).get("html", "") | trim -%}
+  {%- set has_signpost = signpost_html | length > 0 -%}
+  <div class="grid-row">
+    {%- if has_signpost -%}
+      <div class="grid-col-2 grid-col-medium-1">
+        {%- if contents.get("has_divider", False) -%}
+          <hr class="p-rule--muted u-hide--medium u-hide--large"/>
         {%- endif -%}
+        {#- Optional signpost image -#}
+        {{- _quote_wrapper_block_signpost_column(signpost=signpost) -}}
+      </div>
+    {%- endif -%}
 
-        <div class="grid-col-6 grid-col-start-large-3 grid-col-medium-3 grid-col-start-medium-2">
-            {%- if contents.get("has_divider", False) -%}
-                <hr class="p-rule--muted u-hide--small"/>
-            {%- endif -%}
-            {{- _quote_wrapper_block_contents_column(contents=contents) -}}
-        </div>
+    <div class="grid-col-6 grid-col-start-large-3 grid-col-medium-3 grid-col-start-medium-2">
+      {%- if contents.get("has_divider", False) -%}
+        <hr class="p-rule--muted u-hide--small"/>
+      {%- endif -%}
+      {{- _quote_wrapper_block_contents_column(contents=contents) -}}
     </div>
+  </div>
 {%- endmacro -%}
 
 {#
@@ -259,19 +259,19 @@
   citation_source_organisation_text="",
   is_shallow=False
 ) -%}
-    {% set heading_link_content = caller('heading_link') %}
-    {% set has_heading_link =  heading_link_content|trim|length > 0 %}
-    {% set has_title = title_text|length > 0 %}
-    {% set has_heading_row = has_title or has_heading_link %}
-    {% set signpost_image_content = caller('signpost_image') %}
-    {% set has_signpost_image = signpost_image_content|trim|length > 0 %}
+  {% set heading_link_content = caller('heading_link') %}
+  {% set has_heading_link =  heading_link_content|trim|length > 0 %}
+  {% set has_title = title_text|length > 0 %}
+  {% set has_heading_row = has_title or has_heading_link %}
+  {% set signpost_image_content = caller('signpost_image') %}
+  {% set has_signpost_image = signpost_image_content|trim|length > 0 %}
 
-    <div class="p-section{% if is_shallow %}--shallow{% endif %}">
-        {#- pattern-level separator -#}
-        {%- if has_heading_row -%}
-            {{ vf_section_top_rule(top_rule_variant="default", is_fixed_width=True) }}
-        {%- endif -%}
-        {{- _quote_wrapper_heading_block(
+  <div class="p-section{% if is_shallow %}--shallow{% endif %}">
+    {#- pattern-level separator -#}
+    {%- if has_heading_row -%}
+      {{ vf_section_top_rule(top_rule_variant="default", is_fixed_width=True) }}
+    {%- endif -%}
+    {{- _quote_wrapper_heading_block(
         heading={
             "title": {
                 "text": title_text
@@ -281,9 +281,9 @@
             }
         }
     ) -}}
-        {#- TODO use `content.has_divider` only for non-first quote blocks once we support multiple quotes per pattern. -#}
-        {#- TODO add shallow spacing between each quote block in the pattern once we support multiple quotes per pattern. -#}
-        {{- vf_quote_block(
+    {#- TODO use `content.has_divider` only for non-first quote blocks once we support multiple quotes per pattern. -#}
+    {#- TODO add shallow spacing between each quote block in the pattern once we support multiple quotes per pattern. -#}
+    {{- vf_quote_block(
         signpost={
           "image": {
             "html": signpost_image_content
@@ -308,5 +308,5 @@
             "has_divider": not has_heading_row
         }
     ) -}}
-    </div>
+  </div>
 {% endmacro -%}

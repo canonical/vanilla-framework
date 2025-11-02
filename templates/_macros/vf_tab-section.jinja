@@ -1,32 +1,87 @@
 {% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
 {% from "_macros/shared/vf_cta-block.jinja" import vf_cta_block %}
 {% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
+{% from "_macros/shared/vf_tabs.jinja" import vf_tabs %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_block %}
 
 {#-
-    Params
-        - title
-            - text (string)
-            - link_attrs (Object)
-            - heading_level (2 | 3 | 4) (default: 2)
-        - description (see vf_description_block())
-            - type
-            - content
-        - cta (see vf_cta_block())
-            - primary
-            - secondaries
-            - link
-        - layout: ("25-75" | "50-50" | "full-width") (default: "full-width")
-        - padding: ("deep" | "shallow" | "default" (default: "default")
-        - top_rule_variant: Type of HR to render at the top of the pattern. ("default" | "muted") (default: "default").
- #}
-{%- macro vf_tab_section(
+FULL-WIDTH ONLY
+Params
+- citation
+- name
+- organisation
+- title
+- body
+- size ("small" | "medium" | "large")
+- text (String)
+- cta
+- html (String)
+- image
+- html (String)
+-#}
+{%- macro _tab_section_quote(contents={}) -%}
+    {#- Accept either the full contents structure expected by `vf_quote_block`,
+            or a flat structure with keys like `citation`, `body`, `cta`, `image`.
+            Normalise into `signpost` and `contents` objects. -#}
+    {%- set signpost = contents.get('signpost', {}) -%}
+    {%- set normalized_contents = {} -%}
+    {%- set normalized_contents = normalized_contents.update({}) or {} -%}
+    {#- Map possible top-level keys into the expected `contents` object -#}
+    {%- set normalized_contents = {
+        'citation': contents.get('citation', {}),
+        'body': contents.get('body', {}),
+        'cta': contents.get('cta', {}),
+        'image': contents.get('image', {}),
+        'has_divider': contents.get('has_divider', False)
+    } -%}
+
+    {{ vf_quote_block(signpost=signpost, contents=normalized_contents) }}
+{%- endmacro -%}
+
+{#-
+Params
+- type (todo flesh these out but its some string union)
+- item (Object) (depends on the schema of that block)
+-#}
+{%- macro _tab_section_tab(tab={}) -%}
+{%- set type = tab.get("type", "") | trim -%}
+{%- set item = tab.get("item", {}) -%}
+{% if type == "quote" %}
+{{ _tab_section_quote(item) }}
+{% endif %}
+{%- endmacro -%}
+
+{#-
+Params
+- title
+- text (string)
+- link_attrs (Object)
+- heading_level (2 | 3 | 4) (default: 2)
+- description (see vf_description_block())
+- type
+- content
+- cta (see vf_cta_block())
+- primary
+- secondaries
+- link
+- layout: ("25-75" | "50-50" | "full-width") (default: "full-width")
+- padding: ("deep" | "shallow" | "default" (default: "default")
+- top_rule_variant: Type of HR to render at the top of the pattern. ("default" | "muted") (default: "default").
+- tabs: Array
+- blocks: Object
+- type: <TODO SOME UNION>
+    - item: Object (depends on the schema of that block)
+
+    #}
+    {%- macro vf_tab_section(
     title={},
     description={},
     cta={},
     layout="50-50",
     padding="default",
-    top_rule_variant="default"
-) -%}
+    top_rule_variant="default",
+    tabs=[]
+    ) -%}
     {#- Marshall values from parameters into variables, apply safe defaults, and trim contents -#}
     {%- set title_text = title.get("text", "") | trim -%}
     {%- set title_link_attrs = title.get("link-attrs", {}) -%}
@@ -41,61 +96,106 @@
 
     {#- Input validation -#}
     {%- if title_heading_level not in [2, 3, 4] -%}
-        {%- set title_heading_level = 2 -%}
+    {%- set title_heading_level = 2 -%}
     {%- endif -%}
 
     {%- if padding not in ["deep", "shallow", "default"] -%}
-        {%- set padding = "default" -%}
+    {%- set padding = "default" -%}
     {%- endif -%}
 
     {%- set padding_classes = "p-section--" + padding -%}
     {%- if padding == "default" -%}
-        {%- set padding_classes = "p-section" -%}
+    {%- set padding_classes = "p-section" -%}
     {%- endif -%}
 
     {%- if layout not in ["50-50", "25-75", "full-width"] -%}
-        {%- set layout = "full-width" -%}
+    {%- set layout = "full-width" -%}
     {%- endif -%}
+
+    {%- if layout == "full-width" -%}
+    {%- set tabs_column_count = 8 -%}
+    {%- elif layout == "50-50" -%}
+    {%- set tabs_column_count = 4 -%}
+    {%- elif layout == "25-75" -%}
+    {%- set tabs_column_count = 2 -%}
+    {%- endif -%}
+    {%- set tabs_column_start = 8 - tabs_column_count + 1 -%}
+
+    {#- Configuration: which block types are allowed per layout.
+        If a layout key is present, only those block types will be rendered
+        for that layout. If a layout is not present in the mapping, all
+        block types are permitted. This provides an easy place to control
+        designer constraints (e.g. quote only allowed in full-width).
+    -#}
+    {%- set allowed_blocks_per_layout = {
+        '50-50': [],
+        '25-75': [],
+        'full-width': [
+            'quote'
+        ]
+    } -%}
 
     {#- Primary layout logic -#}
-    {%- if layout != "full-width" -%}
-        {%- set grid_row_modifier = "--" + layout -%}
-    {%- endif -%}
-
     <section class="{{ padding_classes }}">
-        <div class="grid-row{{ grid_row_modifier or "" }}">
+        <div class="grid-row--50-50-on-large">
             {{ vf_section_top_rule(top_rule_variant) }}
             <div class="grid-col">
                 {%- if title_is_link -%}
-                <a
-                    {% for attr, value in title_link_attrs.items() %}
-                        {{ attr }}="{{ value }}"
-                    {% endfor %}
-                >
-                {%- endif -%}
-                <h{{ title_heading_level }}>
-                    {{ title_text }}
-                </h{{ title_heading_level }}>
-                {%- if title_is_link -%}
+                <a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
+                    {%- endif -%}
+                    <h{{ title_heading_level }}>
+                        {{ title_text }}
+                    </h{{ title_heading_level }}>
+                    {%- if title_is_link -%}
                 </a>
                 {%- endif -%}
             </div>
             {%- if has_secondary_column -%}
-                <div class="grid-col">
-                    {{ vf_description_block(
-                        type=description.get("type"),
-                        content=description.get("content")
-                    )}}
-                    {{ vf_cta_block(
-                        primary=cta.get("primary"),
-                        secondaries=cta.get("secondaries"),
-                        link=cta.get("link")
-                    ) }}
-                </div>
+            <div class="grid-col">
+                {{ vf_description_block(
+                type=description.get("type"),
+                content=description.get("content")
+                )}}
+                {{ vf_cta_block(
+                primary=cta.get("primary"),
+                secondaries=cta.get("secondaries"),
+                link=cta.get("link")
+                ) }}
+            </div>
             {%- endif -%}
+        </div>
+        {#- Build a list of rendered tabs for the `vf_tabs` helper -#}
+        {%- set ns = namespace(rendered_tabs=[]) -%}
+        {%- for tab in tabs -%}
+            {%- set type = tab.get('type', '') | trim -%}
+
+            {#- Enforce allowed blocks per layout if configured - replace `continue` (unsupported) with a render flag -#}
+            {%- set render_tab = true -%}
+            {%- if layout in allowed_blocks_per_layout -%}
+                {%- set allowed = allowed_blocks_per_layout[layout] -%}
+                {%- if not (type in allowed) -%}
+                    {%- set render_tab = false -%}
+                {%- endif -%}
+            {%- endif -%}
+
+            {%- if render_tab -%}
+                {%- set name = tab.get('name', '') | trim -%}
+                {%- if name == '' -%}
+                    {%- set name = 'tab-' ~ loop.index -%}
+                {%- endif -%}
+                {%- set tab_label = tab.get('tab_html', '') or tab.get('label', '') or tab.get('title', '') or ('Tab ' ~ loop.index) -%}
+                {%- set content_html = _tab_section_tab(tab=tab) -%}
+                {%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab_label, 'content_html': content_html } ] -%}
+            {%- endif -%}
+        {%- endfor -%}
+
+        <div class="grid-row">
+            <div class="grid-col-{{ tabs_column_count }} grid-col-start-large-{{ tabs_column_start }}">
+                {{ vf_tabs(list={ 'tabs': ns.rendered_tabs }) }}
+            </div>
         </div>
     </section>
 
 
 
-{%- endmacro -%}
+    {%- endmacro -%}
