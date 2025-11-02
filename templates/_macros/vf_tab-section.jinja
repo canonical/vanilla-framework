@@ -1,0 +1,101 @@
+{% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+{% from "_macros/shared/vf_cta-block.jinja" import vf_cta_block %}
+{% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
+
+{#-
+    Params
+        - title
+            - text (string)
+            - link_attrs (Object)
+            - heading_level (2 | 3 | 4) (default: 2)
+        - description (see vf_description_block())
+            - type
+            - content
+        - cta (see vf_cta_block())
+            - primary
+            - secondaries
+            - link
+        - layout: ("25-75" | "50-50" | "full-width") (default: "full-width")
+        - padding: ("deep" | "shallow" | "default" (default: "default")
+        - top_rule_variant: Type of HR to render at the top of the pattern. ("default" | "muted") (default: "default").
+ #}
+{%- macro vf_tab_section(
+    title={},
+    description={},
+    cta={},
+    layout="50-50",
+    padding="default",
+    top_rule_variant="default"
+) -%}
+    {#- Marshall values from parameters into variables, apply safe defaults, and trim contents -#}
+    {%- set title_text = title.get("text", "") | trim -%}
+    {%- set title_link_attrs = title.get("link-attrs", {}) -%}
+    {%- set title_heading_level = title.get("heading_level", 2) -%}
+    {%- set padding = padding | trim -%}
+
+    {#- Store the existence of optional content -#}
+    {%- set title_is_link = title_link_attrs.items() | length > 0 -%}
+    {%- set has_description = description.get("content") | trim | length > 0 -%}
+    {%- set has_cta = cta.get("primary") or cta.get("secondaries") or cta.get("link") -%}
+    {%- set has_secondary_column = has_description or has_cta -%}
+
+    {#- Input validation -#}
+    {%- if title_heading_level not in [2, 3, 4] -%}
+        {%- set title_heading_level = 2 -%}
+    {%- endif -%}
+
+    {%- if padding not in ["deep", "shallow", "default"] -%}
+        {%- set padding = "default" -%}
+    {%- endif -%}
+
+    {%- set padding_classes = "p-section--" + padding -%}
+    {%- if padding == "default" -%}
+        {%- set padding_classes = "p-section" -%}
+    {%- endif -%}
+
+    {%- if layout not in ["50-50", "25-75", "full-width"] -%}
+        {%- set layout = "full-width" -%}
+    {%- endif -%}
+
+    {#- Primary layout logic -#}
+    {%- if layout != "full-width" -%}
+        {%- set grid_row_modifier = "--" + layout -%}
+    {%- endif -%}
+
+    <section class="{{ padding_classes }}">
+        <div class="grid-row{{ grid_row_modifier or "" }}">
+            {{ vf_section_top_rule(top_rule_variant) }}
+            <div class="grid-col">
+                {%- if title_is_link -%}
+                <a
+                    {% for attr, value in title_link_attrs.items() %}
+                        {{ attr }}="{{ value }}"
+                    {% endfor %}
+                >
+                {%- endif -%}
+                <h{{ title_heading_level }}>
+                    {{ title_text }}
+                </h{{ title_heading_level }}>
+                {%- if title_is_link -%}
+                </a>
+                {%- endif -%}
+            </div>
+            {%- if has_secondary_column -%}
+                <div class="grid-col">
+                    {{ vf_description_block(
+                        type=description.get("type"),
+                        content=description.get("content")
+                    )}}
+                    {{ vf_cta_block(
+                        primary=cta.get("primary"),
+                        secondaries=cta.get("secondaries"),
+                        link=cta.get("link")
+                    ) }}
+                </div>
+            {%- endif -%}
+        </div>
+    </section>
+
+
+
+{%- endmacro -%}
