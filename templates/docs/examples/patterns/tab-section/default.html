@@ -1,0 +1,38 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / Default{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={
+        "text": "The quick brown fox jumps over the lazy dog"
+    },
+    description={
+        "content": "The quick brown fox jumps over the lazy dog"
+    },
+    cta={
+        "primary": {
+            "content_html": "Primary Button",
+            "attrs": {
+                "href": "#"
+            }
+        },
+        "secondaries": [
+            {
+                "content_html": "Secondary Button",
+                "attrs": {
+                    "href": "#"
+                }
+            }
+        ],
+        "link": {
+            "content_html": "Learn more ›",
+            "attrs": {
+                "href": "#"
+            }
+        }
+    }
+) -}}
+{% endblock %}
