@@ -1,0 +1,83 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / Full width{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={
+        "text": "Tab section — full width example"
+    },
+    description={
+        "content": "An example of the tab section using the full-width layout. Quote blocks are allowed here."
+    },
+    cta={},
+    layout="full-width",
+    tabs=[
+        {
+            "type": "quote",
+            "name": "quote-1",
+            "tab_html": "Quote 1",
+            "item": {
+                "signpost": {
+                    "image": {
+                        "html": "<img src=\"https://assets.ubuntu.com/v1/8c8bd206-example-logo-h2.png\" width=\"114\" alt=\"Org A logo\">"
+                    }
+                },
+                "citation": {
+                    "name": "Alice Example",
+                    "organisation": "Org A",
+                    "title": "Lead Designer"
+                },
+                "body": {
+                    "size": "large",
+                    "text": "This is the first quote shown in a full-width tab section."
+                },
+                "cta": {
+                    "html": "<a href=\"#\">Explore careers &rsaquo;</a>"
+                }
+            }
+        },
+        {
+            "type": "quote",
+            "name": "quote-2",
+            "tab_html": "Quote 2",
+            "item": {
+                "signpost": {
+                    "image": {
+                        "html": "<img src=\"https://assets.ubuntu.com/v1/8c8bd206-example-logo-h2.png\" width=\"114\" alt=\"Org B logo\">"
+                    }
+                },
+                "citation": {
+                    "name": "Bob Example",
+                    "organisation": "Org B",
+                    "title": "Head of Product"
+                },
+                "body": {
+                    "size": "medium",
+                    "text": "This is the second quote shown in a full-width tab section."
+                },
+                "cta": {
+                    "html": "<a href=\"#\">Read more case studies &rsaquo;</a>"
+                }
+            }
+        },
+        {
+            "type": "description",
+            "name": "desc-1",
+            "tab_html": "Description (should be filtered out)",
+            "item": {
+                "item": {
+                    "type": "text",
+                    "content": "This description block is not allowed in full-width tabs (per designer spec) and should be omitted."
+                }
+            }
+        }
+    ]
+) -}}
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="/js/tabs.js"></script>
+{% endblock %}
