@@ -74,14 +74,12 @@
                     {#- The consumer must pass in an img.p-image-container__image for the image to be properly formatted -#}
                     {{- image | safe -}}
                   </div>
+                  <hr class="p-rule--highlight"/>
                 {%- endif -%}
               </div>
               {#- Title item -#}
               <div class="p-equal-height-row__item">
                 {%- if title | length > 0 -%}
-                  {%- if image | length > 0 -%}
-                    <hr class="p-rule--highlight"/>
-                  {%- endif -%}
                   <p class="p-heading--{{ subtitle_heading_level }}">{{- title -}}</p>
                 {%- endif -%}
               </div>
