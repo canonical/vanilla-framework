@@ -1187,14 +1187,7 @@
 @mixin vf-p-icon-restart {
   .p-icon--restart {
     @extend %icon;
-    @include vf-icon-restart($colors--light-theme--icon);
-
-    [class*='--dark'] &,
-    body.is-dark &,
-    &.is-light, // DEPRECATED: use is-dark instead
-    &.is-dark {
-      @include vf-icon-restart($colors--dark-theme--icon);
-    }
+    @include vf-icon-restart-themed;
   }
 }
 
@@ -1663,42 +1656,21 @@
 @mixin vf-p-icon-play {
   .p-icon--play {
     @extend %icon;
-    @include vf-icon-play($colors--light-theme--icon);
-
-    [class*='--dark'] &,
-    body.is-dark &,
-    &.is-light, // DEPRECATED: use is-dark instead
-    &.is-dark {
-      @include vf-icon-play($color-mid-x-light);
-    }
+    @include vf-icon-play-themed;
   }
 }
 
 @mixin vf-p-icon-pause {
   .p-icon--pause {
     @extend %icon;
-    @include vf-icon-pause($colors--light-theme--icon);
-
-    [class*='--dark'] &,
-    body.is-dark &,
-    &.is-light, // DEPRECATED: use is-dark instead
-    &.is-dark {
-      @include vf-icon-pause($color-mid-x-light);
-    }
+    @include vf-icon-pause-themed;
   }
 }
 
 @mixin vf-p-icon-stop {
   .p-icon--stop {
     @extend %icon;
-    @include vf-icon-stop($colors--light-theme--icon);
-
-    [class*='--dark'] &,
-    body.is-dark &,
-    &.is-light, // DEPRECATED: use is-dark instead
-    &.is-dark {
-      @include vf-icon-stop($color-mid-x-light);
-    }
+    @include vf-icon-stop-themed;
   }
 }
 
