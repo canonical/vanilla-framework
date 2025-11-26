@@ -6,10 +6,18 @@
   - [Via dotrun](#via-dotrun)
   - [Via Docker](#via-docker)
 - [Viewing documentation and examples](#viewing-documentation-and-examples)
+- [Relationship between docs pages and examples](#relationship-between-docs-pages-and-examples)
 - [QA testing](#qa-testing)
   - [The baseline grid](#the-baseline-grid)
   - [Standalone examples](#standalone-examples)
+  - [Combined examples](#combined-examples)
   - [Cross browser testing](#cross-browser-testing)
+- [Running tests locally](#running-tests-locally)
+- [Percy](#percy)
+- [CI overview](#ci-overview)
+- [Patterns vs Components](#patterns-vs-components)
+- [Class name prefixes](#class-name-prefixes)
+- [Language policy](#language-policy)
 - [Adding new icons](#adding-new-icons)
 
 ## Running the project
@@ -44,6 +52,19 @@ The documentation for the latest version of Vanilla framework is hosted at <http
 
 The [examples directory](/docs/examples) contains example markup for each component of the framework, and these examples can be viewed in the browser at <http://0.0.0.0:8101/docs/examples/>.
 
+## Relationship between docs pages and examples
+
+Vanilla’s documentation pages and example templates live side by side but serve different purposes:
+
+- Docs pages (prose, guidance, and page structure) live under `templates/docs/**`.
+- Example templates (the rendered component/pattern/utility examples) live under `templates/docs/examples/**`.
+
+When adding or updating examples:
+
+- Add or edit the example’s Jinja template under `templates/docs/examples/**`.
+- If a section uses a combined example page (see below), explicitly include your new example in that section’s `combined.html` file.
+- Many URLs and side‑navigation paths still use the legacy `patterns/` segment; this is expected. See Patterns vs Components for the current terminology.
+
 ## QA testing
 
 We rigorously test all new additions to the Vanilla project, and the following are the most commonly used techniques we have in our toolbox.
@@ -68,13 +89,31 @@ will make available a standalone pattern at:
 
 `/docs/examples/standalone/patterns/foo`
 
-When creating a new example, you will need to create a new, appropriately name SCSS file within [`/scss/standalone`](/scss/standalone), and reference it in your example, using the following block:
+When creating a new example, you will need to create a new, appropriately named SCSS file within [`/scss/standalone`](/scss/standalone), and reference it in your example, using the following block:
 
 ```
 {% block standalone_css %}patterns_foo{% endblock %}
 ```
 
 If you are simply updating an existing example, make sure to check the standalone example and, if necessary, add any required includes to that examples standalone SCSS file.
+
+Notes and tips:
+
+- Standalone SCSS filenames generally mirror the example path (e.g., `templates/docs/examples/patterns/accordion/...` → `scss/standalone/patterns_accordion.scss`).
+- Keep the standalone CSS minimal. If you need broader framework CSS for the example, consider whether it belongs in the full (non‑standalone) example instead.
+
+### Combined examples
+
+Combined examples aggregate multiple variants of a component or pattern onto a single page named `combined.html`. We use them primarily to reduce the number of screenshots Percy must take (controlling quota usage and noise).
+
+Rules of thumb:
+
+- Place `combined.html` in the directory that groups the variants (e.g., `templates/docs/examples/patterns/buttons/combined.html`).
+- Explicitly include each example template using `{% include 'path/to/example.html' %}`.
+- Append new includes to the end of the file so later examples don’t shift, which keeps Percy diffs focused on your changes.
+- If any sibling or descendant example includes “responsive” in its name, Percy will capture tablet width in addition to desktop and (for the default theme) mobile. See the Percy workflow guide for details.
+
+See also: [Percy workflow](/guides/percy-workflow.md) for snapshot widths, color themes, how `snapshots.js` discovers examples (including combined pages), and when to update tests.
 
 ### Cross browser testing
 
@@ -89,6 +128,37 @@ Before proposing a pull request, ensure that the tests pass on your local fork. 
 When you have [created a pull request](/guides/pull-requests.md), GitHub actions will automatically kick off the Continuous Integration pipeline, including a [Percy](https://percy.io/) check.
 
 Percy builds your branch, then checks each example for changes against the last version of the project that was approved by Percy. If there are any changes, the CI checks will fail, and the changes it found will be available to review in Percy's dashboard.
+
+## CI overview
+
+This is a brief overview of common checks. See [CI overview](/guides/ci.md) for the full guide.
+
+- Visual testing (Percy): runs on PRs with selective triggers. Combined examples reduce snapshots and quota. See `guides/percy-workflow.md`.
+- Snapshot generation tests (Jest): `tests/snapshots.test.js` validates `snapshots.js` behavior (themes, widths, combined examples). If you add a combined example that includes responsive samples, you may need to update the test list.
+- Parker (CSS metrics): still in use as a practical guardrail though unmaintained upstream. Thresholds are configured in `tests/parker.js`. If Parker fails and your change is justified, update thresholds carefully and explain in the PR.
+- Cypress (limited): experimental coverage (e.g., `cypress/e2e/patterns/accordion.cy.js`); flakes happen — rerunning in GitHub Actions often resolves it. Add new specs only when they provide clear value.
+- Spelling (`mdspell`): scripts currently use en‑GB. Our policy is to write new docs in en‑US. If en‑US words are flagged, add them to `.spelling` temporarily. See the [Language policy](/guides/language.md).
+
+## Patterns vs Components
+
+Historically we called components “patterns,” and this legacy remains in URLs and the side navigation. Today we use:
+
+- Components: smaller, reusable building blocks (historically located under `patterns/` in URLs/paths).
+- Patterns: higher‑level compositions built from components via Jinja macros to create larger sections with a small API.
+
+When contributing, follow existing paths and naming conventions. Do not attempt to rename URL paths or navigation structure unless undertaking a dedicated migration.
+
+## Class name prefixes
+
+- `.p-` — pattern/component selectors (historical naming), e.g., `.p-accordion`, `.p-accordion__tab`.
+- `.u-` — utilities (single‑purpose helpers), e.g., `.u-align-text--right`.
+- `.l-` — layout helpers (grid/layout utilities).
+
+Use these prefixes consistently when adding new selectors.
+
+## Language policy
+
+New documentation should be written in en‑US. Existing en‑GB content remains acceptable. Use the `.spelling` file to suppress `mdspell` warnings for en‑US words and technical terms. See the [Language policy](/guides/language.md) for details.
 
 ## Adding new icons
 

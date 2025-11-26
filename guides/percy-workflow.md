@@ -3,6 +3,8 @@
 We use [Percy](https://percy.io) for visual testing. Percy tests are run against pull requests to
 ensure that PRs do not introduce visual regressions. Your PR will be tested by Percy if it meets the following conditions:
 
+See also: [Hacking](/guides/hacking.md) for general guidance on authoring and organising examples used by Percy.
+
 - PR is against the `main` branch
 - One of the following is true:
   - PR passes Percy selectivity filters
@@ -86,6 +88,8 @@ Combined examples are a way to show all the variants of a component or pattern o
 Percy usage down by only taking one snapshot of a component or pattern, rather than one for each variant.
 Combined examples follow a naming convention: they must be named `combined.html`.
 If `combined.html` is found in a directory, [snapshots.js](../snapshots.js) will assume that every example in that directory (and its subdirectories) is rendered in the `combined.html` file.
+
+Tip: When adding new includes to a `combined.html`, append them to the end of the file to avoid shifting subsequent examples and inflating visual diffs.
 
 **Combined examples do not currently include the JavaScript or CSS that is included in individual examples by `{% block script %}` and `{% block style %}` tags.**
 
