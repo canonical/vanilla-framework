@@ -1,6 +1,7 @@
 {#-
   Params
   - title_text (string) (required): The text to be displayed as the heading
+  - title_id (string) (optional): The id attribute for the title heading
   - subtitle_text (string) (optional): The text to be displayed as the subtitle
   - subtitle_heading_level (int) (optional): The heading level for the subtitle. Can be 4 or 5. Defaults to 5.
   - highlight_images (boolean) (optional): If the images need to be highlighted, which means adding a subtle grey background. Not added by default.
@@ -11,6 +12,7 @@
  -#}
 {%- macro vf_equal_heights(
   title_text,
+  title_id="",
   subtitle_text="",
   subtitle_heading_level=5,
   highlight_images=false,
@@ -38,7 +40,7 @@
       <div class="row--50-50-on-large">
         <div class="col">
     {%- endif -%}
-          <h2{% if not has_two_top_cols %} class="u-fixed-width"{% endif %}>{{ title_text }}</h2>
+          <h2{% if title_id and title_id | trim | length > 0 %} id="{{ title_id | trim }}"{% endif %}{% if not has_two_top_cols %} class="u-fixed-width"{% endif %}>{{ title_text }}</h2>
     {%- if has_two_top_cols -%}
         </div>
     {%- endif -%}
