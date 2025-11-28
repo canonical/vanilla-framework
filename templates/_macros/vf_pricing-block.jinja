@@ -1,6 +1,7 @@
 {#
   Params
   - title_text (string) (required): The text to be displayed as the heading
+  - title_id (string) (optional): The id attribute for the heading
   - top_rule_variant (string) (optional): Variant of the top rule, default is "default". Options are "muted", "highlighted", "default", "none".
   - tiers (Array<{
       tier_name_text: String (optional),
@@ -20,6 +21,7 @@
 {%- macro vf_pricing_block(
   top_rule_variant="default",
   title_text="",
+  title_id="",
   tiers=[]
   ) -%}
   {% set top_rule_variant = top_rule_variant | trim %}
@@ -90,7 +92,7 @@
     {{ _top_rule() }}
     <div class="grid-row">
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
-        <h2>{{ title_text }}</h2>
+        <h2{% if title_id and title_id | trim | length > 0 %} id="{{ title_id | trim }}"{% endif %}>{{ title_text }}</h2>
       </div>
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
         {% if section_description %}<div class="p-section--shallow">{{ section_description }}</div>{% endif %}
