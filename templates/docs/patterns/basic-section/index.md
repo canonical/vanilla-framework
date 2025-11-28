@@ -457,6 +457,23 @@ below.
       </tr>
       <tr>
         <td>
+          <code>title.id</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          The main title ID
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>title.link_attrs</code>
         </td>
         <td>

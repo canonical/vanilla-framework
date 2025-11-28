@@ -279,7 +279,7 @@
 {% endmacro %}
 
 {% macro basic_section_title(title={}) %}
-  <h2>
+  <h2{% if "id" in title and title.get("id", "") | trim | length > 0 %} id="{{ title.get("id", "") | trim }}"{% endif %}>
     {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
       <a
         {% for attr, value in title.get("link_attrs", {}).items() -%}
@@ -293,7 +293,7 @@
 {%- endmacro -%}
 
 # Params
-# title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title).
+# title: A dictionary with "text" and optional "link_attrs" (a dictionary of link attributes for the title) and optional "id" (to add an ID to the h2 element).
 # subtitle: A dictionary with "text" (required) and optional "heading_level" (default is 4).
 # label_text: Muted heading above the title.
 # items: A list of items to be displayed in the section.
