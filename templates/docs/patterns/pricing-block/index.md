@@ -4,7 +4,10 @@ context:
   title: Pricing block | Patterns
 ---
 
-The Pricing block pattern is used to display individual cards representing different tiers of pricing and their associated offerings, positioned below a title and a description of the product. It uses the 4-4-8 grid pattern with subgrid, to retain alignment between rows. There are three variations of the block layout, depending on the number of cards displayed, ranging from two to four:
+The Pricing block pattern is used to display individual cards representing different tiers of pricing and their
+associated offerings, positioned below a title and a description of the product. It uses the 4-4-8 grid pattern with
+subgrid, to retain alignment between rows. There are three variations of the block layout, depending on the number of
+cards displayed, ranging from two to four:
 
 - 4 blocks, 25-25-25-25 split
 - 3 blocks, 25-75 split
@@ -16,24 +19,24 @@ The Pricing block pattern is used to display individual cards representing diffe
 
 The Pricing block pattern is composed of the following elements:
 
-| Element                                                  | Description                                                                   |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Title (**required**)                                     | <code>h2</code> title text                                                    |
-| Description                                              | <code>p</code> description text                                               |
-| Tiers (**required**)                                     | An `Array<Object>` of individual tiers representing different pricing options |
-| Tiers[].Name (**optional**)                              | <code>h2</code> tier title                                                    |
-| Tiers[].Price (**required**)                             | The price of the tier                                                         |
-| Tiers[].Price explanation (**required**)                 | The timeframe/coverage for the pricing tier                                   |
-| Tier[].Description                                       | Descriptive text for the pricing tier                                         |
-| Tier[].List label (**required**)                         | A header for the list of offerings                                            |
-| Tier[].Tier offerings (**required**)                     | An `Array<Object>` of what is offered in this tier                            |
-| Tier[].Tier offerings[].List item style                  | The style of the list item                                                    |
-| Tier[].Tier offerings[].List item content (**required**) | The list item content                                                         |
-| Call to action                                           | [Call to action block](/docs/patterns/cta-block) beneath the list             |
+| Element                                        | Description                                                         |
+| ---------------------------------------------- | ------------------------------------------------------------------- |
+| Title (**required**)                           | <code>h2</code> title text                                          |
+| Description                                    | <code>p</code> description text                                     |
+| Tiers (**required**)                           | A series of individual tiers representing different pricing options |
+| Tier name (**optional**)                       | <code>h2</code> tier title                                          |
+| Tier price (**required**)                      | The price of the tier                                               |
+| Tier price explanation (**required**)          | The timeframe/coverage for the pricing tier                         |
+| Tier description                               | Descriptive text for the pricing tier                               |
+| Tier list label (**required**)                 | A header for the list of offerings                                  |
+| Tier offerings (**required**)                  | What is offered in this tier                                        |
+| Tier offering List item content (**required**) | The list item content                                               |
+| Call to action                                 | [Call to action block](/docs/patterns/cta-block) beneath the list   |
 
 ## 4-blocks
 
-The cards are evenly spread across the available space, with any gaps in content not affecting the alignment of the grid.
+The cards are evenly spread across the available space, with any gaps in content not affecting the alignment of the
+grid.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/4-blocks" class="js-example" data-lang="jinja">
 View example of 4 pricing blocks
@@ -73,7 +76,8 @@ View example of the pricing block with a description
 
 ## Block with a highlighted rule
 
-A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#highlighted">highlighted rule</a> at the top, instead of the <a href="https://vanillaframework.io/docs/patterns/rule#default">default rule</a>
+A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#highlighted">highlighted rule</a> at the
+top, instead of the <a href="https://vanillaframework.io/docs/patterns/rule#default">default rule</a>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-highlighted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with description and a highlighted rule
@@ -81,7 +85,8 @@ View example of the pricing block with description and a highlighted rule
 
 ## Block with a muted rule
 
-A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#muted">muted rule</a> at the top, instead of the <a href="https://vanillaframework.io/docs/patterns/rule#default">default rule</a>
+A pricing block with a <a href="https://vanillaframework.io/docs/patterns/rule#muted">muted rule</a> at the top, instead
+of the <a href="https://vanillaframework.io/docs/patterns/rule#default">default rule</a>
 
 <div class="embedded-example"><a href="/docs/examples/patterns/pricing-block/block-with-muted-rule" class="js-example" data-lang="jinja">
 View example of the pricing block with a muted rule and no description
@@ -89,7 +94,8 @@ View example of the pricing block with a muted rule and no description
 
 ## Jinja Macro
 
-The `vf_pricing_block` Jinja macro can be used to generate a pricing tier comparison. The API for the macro is shown below.
+The `vf_pricing_block` Jinja macro can be used to generate a pricing tier comparison. The API for the macro is shown
+below.
 
 ### Parameters
 
