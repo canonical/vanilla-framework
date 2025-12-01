@@ -197,7 +197,39 @@ New documentation should be written in en‑US. Existing en‑GB content remains
 suppress `mdspell` warnings for en‑US words and technical terms. See the [Language policy](/guides/language.md) for
 details.
 
-## Adding new icons
+## Icons
+
+### Icon architecture
+
+Our icons are generated from SVG files and converted to a set of mixins stored in
+the [icon definitions file](../scss/_base_icon-definitions.scss).
+The mixins are:
+
+- `vf-icon-NAME-url()` - is a function that returns data URL of the SVG generated with the passed color (white/black)
+- `vf-icon-NAME()` - is a legacy mixin for components that want to change the color of the icon, and not depend on the
+  theme
+- `vf-icon-NAME-themed` - is a themed version of the icon, that will automatically respect the theme set on the parent
+  component
+
+The [icon pattern file](../scss/_patterns_icons.scss) then defines mixins for each icon that expose an icon class.
+The icon class consumes a base icon placeholder and the appropriate icon mixin. An example is given below:
+
+```scss
+@mixin vf-p-icon-history {
+  .p-icon--history {
+    @extend %icon;
+    @include vf-icon-history-themed;
+  }
+}
+```
+
+Generating these mixins, and the icon class binding, is assisted by
+a [script](../scripts/convert-svgs-to-icon-mixins.js).
+See [adding new icons](#adding-new-icons) for instructions on how to add new icons,
+and [migrating old icons](#migrating-old-icons-to-new-icon-them)
+for instructions on how to migrate existing icons that don't follow this structure.
+
+### Adding new icons
 
 When adding new icons to Vanilla, we need to convert them from SVGs to data URLs so we can use them as background
 images.
@@ -212,3 +244,82 @@ tick.svg" will output a mixin named "vf-icon-tick".
 
 Bear in mind that the actual SCSS mixins will evolve over time, so you may need to update the mixin output in this
 script to match them.
+
+### Migrating old icons to new icon theming
+
+Some of our icons predate our current icon architecture. Icons that don't consume a `-themed` mixin may not work as
+expected when used in a dark theme.
+
+```scss
+// _base_icon-definitions.scss
+
+// This icon mixin only sets the color of the icon; it does not adjust according to the active theme.
+@mixin vf-icon-restart($color) {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.197 1.15v4.931h-1.5l-.001-2.478a5.5 5.5 0 106.302-.215l.75-1.3a7 7 0 11-8.263.562H1.268v-1.5h4.93z' fill='#{vf-url-friendly-color($color)}'  fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+// _patterns_icons.scss
+@mixin vf-p-icon-restart {
+  .p-icon--restart {
+    @extend %icon;
+    @include vf-icon-restart($colors--light-theme--icon);
+
+    [class*='--dark'] &,
+    body.is-dark &,
+    &.is-light, // DEPRECATED: use is-dark instead
+    &.is-dark {
+      @include vf-icon-restart($colors--dark-theme--icon);
+    }
+  }
+}
+```
+
+There is not currently a script to migrate these icons to the new architecture. To migrate these icons, you can either:
+
+1. Obtain the SVG for the underlying icon following the [adding new icons](#adding-new-icons) process, entirely
+   recreating the icon.
+2. Use the existing icon's data URL and refactor the icon mixin to consume the `-themed` mixin.
+
+Steps for (1) are outlined in the [adding new icons](#adding-new-icons) section. Steps for (2) are outlined below:
+
+1. Copy the existing icon's data URL.
+2. Create a function `vf-icon-NAME-url` in the [icon definitions file](../scss/_base_icon-definitions.scss) that returns
+   the data URL. The function should accept a color as a parameter, and apply that color to the icon using
+   `vf-url-friendly-color()`.
+
+```scss
+@function vf-icon-restart-url($color) {
+  @return url("data:image/svg+xml,%3Csvg width='16' height='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.197 1.15v4.931h-1.5l-.001-2.478a5.5 5.5 0 106.302-.215l.75-1.3a7 7 0 11-8.263.562H1.268v-1.5h4.93z' fill='#{vf-url-friendly-color($color)}'  fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+```
+
+3. Create a mixin `vf-icon-NAME` in the [icon definitions file](../scss/_base_icon-definitions.scss) that consumes the
+   URL function and passes a color parameter (defaulting to
+   `$colors--light-theme--icon`).
+
+```scss
+@mixin vf-icon-restart($color: $colors--light-theme--icon) {
+  background-image: vf-icon-restart-url($color);
+}
+```
+
+4. Create a new mixin `vf-icon-NAME-themed` in the [icon definitions file](../scss/_base_icon-definitions.scss) that
+   uses `vf-themed-icon` to set the icon color based on active theme.
+
+```scss
+@mixin vf-icon-restart-themed {
+  @include vf-themed-icon($light-value: vf-icon-restart-url($colors--light-theme--icon), $dark-value: vf-icon-restart-url($colors--dark-theme--icon));
+}
+```
+
+5. Update the icon pattern file to consume the themed mixin. You can also remove any theme class selectors, as these are
+   handled by `vf-themed-icon`.
+
+```scss
+@mixin vf-p-icon-restart {
+  .p-icon--restart {
+    @extend %icon;
+    @include vf-icon-restart-themed;
+  }
+}
+```
