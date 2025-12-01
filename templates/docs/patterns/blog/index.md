@@ -83,13 +83,15 @@ Be sure to match `articlesContainerSelector` with `template_container_id`, `arti
 ```javascript
 {% raw -%}
 canonicalLatestNews.fetchLatestNews({
-  // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
-  imageClasses: ["p-image-container__image"],
-  // Use `3` with `template_config.layout="3-blocks"` or `4` with `template_config.layout="4-blocks"`
-  limit: "3",
-  articlesContainerSelector: "#articles",
-  articleTemplateSelector: "#template",
-  excerptLength: 180
+    // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+    imageClasses: ["p-image-container__image"],
+    // Use `3` with `template_config.layout="3-blocks"` or `4` with `template_config.layout="4-blocks"`
+    limit: "3",
+    articlesContainerSelector: "#articles",
+    articleTemplateSelector: "#template",
+    excerptLength: 180,
+    // Adjust per your needs.
+    hostname: "ubuntu.com",
 });
 {%- endraw -%}
 ```
