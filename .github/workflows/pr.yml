@@ -11,7 +11,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -29,7 +29,7 @@ jobs:
     name: linkchecker
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Build Docker image
         run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
       - name: Run server with Docker
@@ -45,7 +45,7 @@ jobs:
     name: Cypress
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Build Docker image
         run: DOCKER_BUILDKIT=1 docker build --build-arg BUILD_ID=test --tag testrun .
       - name: Run server with Docker
@@ -62,7 +62,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Check inclusive naming
         uses: canonical/inclusive-naming@main
