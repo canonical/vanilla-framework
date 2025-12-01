@@ -33,9 +33,9 @@ Locally, you’ll see failures from:
 Percy runs visual snapshot tests against the examples site. On PRs, it triggers when:
 
 - The PR targets `main`, and either:
-    - It passes the selectivity filters (changes to `scss/`, `templates/docs/examples/`, `templates/_macros/`,
-      `tokens/`, or `sd.config.json`, and it’s not a draft), or
-    - The PR carries the label `Review: Percy needed`.
+  - It passes the selectivity filters (changes to `scss/`, `templates/docs/examples/`, `templates/_macros/`,
+    `tokens/`, or `sd.config.json`, and it’s not a draft), or
+  - The PR carries the label `Review: Percy needed`.
 
 Key points:
 

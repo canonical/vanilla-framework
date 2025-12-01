@@ -8,17 +8,17 @@ See also: [Hacking](/guides/hacking.md) for general guidance on authoring and or
 
 - PR is against the `main` branch
 - One of the following is true:
-    - PR passes Percy selectivity filters
-        - PR makes changes to any of the following directories or files:
-            - `scss/`
-            - `templates/docs/examples/`
-            - `templates/_macros/`
-            - `tokens/`
-            - `sd.config.json`
-        - PR is not a draft
-    - PR is labeled with "Review: Percy needed"
-        - Note that a Percy (labeled) workflow will be triggered on each labelling and synchronisation event on PRs to
-          `main`. They will be skipped shortly after starting if the PR does not have the "Review: Percy needed" label.
+  - PR passes Percy selectivity filters
+    - PR makes changes to any of the following directories or files:
+      - `scss/`
+      - `templates/docs/examples/`
+      - `templates/_macros/`
+      - `tokens/`
+      - `sd.config.json`
+    - PR is not a draft
+  - PR is labeled with "Review: Percy needed"
+    - Note that a Percy (labeled) workflow will be triggered on each labelling and synchronisation event on PRs to
+      `main`. They will be skipped shortly after starting if the PR does not have the "Review: Percy needed" label.
 
 To ensure optimal Percy usage, we suggest the following PR flow:
 
@@ -84,7 +84,7 @@ widths (in pixels) at which the snapshot should be captured.
 The following table shows the widths at which snapshots are captured and which examples they apply to:
 
 | Device  | Width (px) | Captured on                                                                                                                                    |
-|---------|------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | Desktop | 1,280      | All examples                                                                                                                                   |
 | Tablet  | 800        | All examples with `responsive` in their names, and [combined examples](#combined-examples) that include a `responsive` file in their directory |
 | Mobile  | 375        | Default theme only (currently `light`)                                                                                                         |
@@ -163,27 +163,27 @@ Percy testing.
 #### Files included in Percy tests
 
 - Visual files:
-    - `scss/`
-    - `templates/docs/examples/`
-    - `templates/_macros/`
-    - `tokens/`
-    - `sd.config.json`
+  - `scss/`
+  - `templates/docs/examples/`
+  - `templates/_macros/`
+  - `tokens/`
+  - `sd.config.json`
 - Workflows that are run on the `pull_request` trigger, including (but not limited to):
-    - [Prepare workflow](../.github/workflows/percy-prepare.yml)
-    - [Prepare (labelled) workflow](../.github/workflows/pr-percy-prepare-label.yml)
-    - [Prepare (pushed) workflow](../.github/workflows/pr-percy-prepare-push.yml)
+  - [Prepare workflow](../.github/workflows/percy-prepare.yml)
+  - [Prepare (labelled) workflow](../.github/workflows/pr-percy-prepare-label.yml)
+  - [Prepare (pushed) workflow](../.github/workflows/pr-percy-prepare-push.yml)
 
 Changes to other files should be added to a separate PR and merged before testing a PR that requires their changes.
 Otherwise, the changes will not be included in Percy tests.
 This notably includes:
 
 - Dependencies
-    - `Dockerfile`
-    - `package.json`
-    - `requirements.txt`
+  - `Dockerfile`
+  - `package.json`
+  - `requirements.txt`
 - Workflows that are run on the `workflow_run` trigger:
-    - [PR snapshots workflow](../.github/workflows/pr-percy-snapshots.yml)
-    - [Snapshot action](../.github/actions/percy-snapshot/action.yml)
+  - [PR snapshots workflow](../.github/workflows/pr-percy-snapshots.yml)
+  - [Snapshot action](../.github/actions/percy-snapshot/action.yml)
 - `snapshots.js` and `snapshots.test.js`
 
 ### Additional resources
