@@ -1,0 +1,82 @@
+{% from "_macros/vf_basic-section.jinja" import basic_section_item %}
+
+{#
+  Params
+  - logo_block_config (object): Configuration object for the logo block.
+    - item.logos (array<object>) (required): List of logo dictionaries. Each logo should include attributes for the <img> tag (e.g., src, alt).
+#}
+{%- macro _logo_block(logo_block_config={}) -%}
+  <div class="u-fixed-width">
+    <div class="p-logo-section">
+      <div class="p-logo-section__items">
+        {%- for logo in logo_block_config.get("item", {}).get("logos", []) -%}
+          <div class="p-logo-section__item">
+            <img class="p-logo-section__logo" 
+              {%- for attr, value in logo.items() -%} 
+                {% if attr != "class" %} 
+                  {{ attr }}="{{ value }}" 
+                {%- endif -%} 
+              {%- endfor -%} />
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endmacro -%}
+
+{#
+  Params
+  - title (object) (required): A dictionary with the title configuration.
+    - text (string) (required): The text to be displayed as the title.
+    - link_attrs (object) (optional): A dictionary of link attributes for the title.
+  - padding (string) (optional): Type of padding to apply. Options are "deep", "default". Default is "default".
+  - blocks (array<object>) (required): List of blocks to be displayed in the section. Supported block types include:
+    - cta-block: Configuration for a call-to-action block.
+    - logo-block: Configuration for a logo block. Must include:
+      - item.logos (array): A list of logos to display.
+  
+  Slots
+  - description (optional): Paragraph-style content displayed below the title. Can include one or more paragraphs.
+#}
+{%- macro vf_logo_section(title, padding="regular", blocks=[], caller=None) -%}
+  {% set description_content = caller('description') %}
+  {% set has_description = description_content|trim|length > 0 %}
+  {%- set padding = padding | trim -%}
+  {%- if padding not in ["deep", "default"] -%}
+    {%- set padding = "default" -%}
+  {%- endif -%}
+  {%- if padding == "default" -%}  
+    {%- set padding_classes = "p-section" -%}  
+  {%- else -%}  
+    {%- set padding_classes = "p-section--" + padding -%}  
+  {%- endif -%}
+  {%- set cta_block = blocks | selectattr("type", "equalto", "cta-block") | first -%}
+  {%- set logo_block = blocks | selectattr("type", "equalto", "logo-block") | first -%}
+  {%- macro _title_block(title={}) -%}
+    <h2 class="p-text--small-caps">
+      {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
+        <a {% for attr, value in title.get("link_attrs", {}).items() -%} 
+              {{ attr }}="{{ value }}" 
+          {%- endfor -%}>
+          {{- title.get('text', '') -}}
+        </a>
+      {%- else -%}
+        {{- title.get('text', '') -}}
+      {%- endif -%}
+    </h2>
+  {%- endmacro -%}
+  {%- macro _description_block() -%}
+    {% if has_description %}{{ description_content | safe }}{% endif %}
+  {%- endmacro -%}
+  <section class="{{ padding_classes }}">
+    <hr class="p-rule is-fixed-width" />
+    <div class="grid-row--50-50">
+      <div class="grid-col">{{- _title_block(title) -}}</div>
+      <div class="grid-col">
+        {{- _description_block() -}}
+        {% if cta_block %}{{- basic_section_item(cta_block) -}}{% endif %}
+      </div>
+    </div>
+    {{- _logo_block(logo_block) -}}
+  </section>
+{%- endmacro -%}

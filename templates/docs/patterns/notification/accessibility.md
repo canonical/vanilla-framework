@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Nofitication | Components
+  title: Notification | Components
 ---
 
 ## How it works

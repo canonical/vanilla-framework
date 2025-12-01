@@ -1,0 +1,17 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Logo section / Combined{% endblock %}
+
+{% block standalone_css %}patterns_logo-section{% endblock %}
+
+{% block content %}
+{% with is_combined = true %}
+<section>{% include 'docs/examples/patterns/logo-block/default.html' %}</section>
+<section>{% include 'docs/examples/patterns/logo-block/logo-block-dark.html' %}</section>
+<section>{% include 'docs/examples/patterns/logo-block/logo-block-dense.html' %}</section>
+<section>{% include 'docs/examples/patterns/logo-block/logo-block-fallback.html' %}</section>
+<section>{% include 'docs/examples/patterns/logo-block/logo-block-in-six-column-parent.html' %}</section>
+<section>{% include 'docs/examples/patterns/logo-block/logo-block-lazyloaded.html' %}</section>
+<section>{% include 'docs/examples/patterns/logo-block/logo-block-legacy.html' %}</section>
+<section>{% include 'docs/examples/patterns/logo-block/logo-block-line-breaks.html' %}</section>
+{% endwith %}
+{% endblock %}

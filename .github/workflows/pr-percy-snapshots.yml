@@ -23,13 +23,13 @@ jobs:
     steps:
       # Checkout `main` branch of Vanilla
       - name: Checkout SCM
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Remove SCM directories that will be replaced by artifact files
         run: rm -rf templates/docs/examples/ templates/_macros/ tokens/ sd.config.json scss/
 
       - name: Download artifact from prepare workflow
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "percy-testing-web-artifact"
           github-token: ${{ secrets.GITHUB_TOKEN }}

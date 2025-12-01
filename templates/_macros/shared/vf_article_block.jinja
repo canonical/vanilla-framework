@@ -1,0 +1,187 @@
+{#
+  Helper macro to render the article title with optional link and attributes.
+
+  Parameters:
+    title (object): Title configuration
+      text (string): The title text
+      link_attrs (object) (optional): Link attributes. If passed, wraps the title in a link.
+      attrs (object) (optional): Additional HTML attributes
+      heading_level (integer) (optional): Heading level to use, defaults to 3. Can be 3 or 4.
+    template_mode (boolean) (optional): Whether this is being rendered in template mode
+#}
+{%- macro _article_title(title={}, template_mode=False) -%}
+  {%- set link_attrs = title.get("link_attrs", {}) -%}
+  {%- set heading_level = title.get("heading_level", 3) -%}
+  {%- if heading_level not in [3, 4] -%}
+    {%- set heading_level = 3 -%}
+  {%- endif -%}
+  {#- Assume blog module always sets a link in template mode. -#}
+  {%- set is_link = link_attrs.items() | length > 0 or template_mode -%}
+  {%- if is_link -%}
+    <a
+      class="article-link{%- if link_attrs.get("class") %} {{ link_attrs.get("class", "") }}{%- endif -%}"
+      {% for attr, value in link_attrs.items() %}
+        {% if attr != "class" %}
+          {{ attr }}="{{ value }}"
+        {% endif %}
+      {% endfor %}
+    >
+  {%- endif -%}
+  <h{{ heading_level }}
+    class="p-article-block__title article-title{%- if title.get("class") %} {{ title.get("class", "") }}{%- endif -%}"
+    {% for attr, value in title.items() %}
+      {% if attr not in ["text", "link_attrs", "class", "heading_level"] %}
+        {{ attr }}="{{ value }}"
+      {% endif %}
+    {% endfor %}>
+    {{- title.get("text", "") | trim -}}
+  </h{{ heading_level }}>
+  {%- if is_link -%}
+    </a>
+  {%- endif -%}
+{%- endmacro -%}
+
+{#
+  Helper macro to render the article description.
+
+  Parameters:
+    description (object): Description configuration
+      text (string): The description text
+      attrs (object) (optional): Additional HTML attributes
+#}
+{%- macro _article_description(description={}) -%}
+  {%- set description_attrs = description.get("attrs", {}) -%}
+  {%- set description_class = description_attrs.get("class", "") -%}
+  <p class="p-article-block__description article-excerpt{%- if description_class %} {{ description_class }}{%- endif -%}"
+    {% for attr, value in description_attrs.items() %}
+      {% if attr != "class" %}
+        {{ attr }}="{{ value }}"
+      {% endif %}
+    {% endfor %}
+  >
+    {{- description.get("text", "") | trim -}}
+  </p>
+{%- endmacro -%}
+
+{#
+  Helper macro to render the article metadata with authors and date.
+
+  Parameters:
+    authors (array): List of author objects
+      text (string): Author name
+      link_attrs (object) (optional): Link attributes for the author. If passed, wraps the author in a link.
+
+    date (object): Date configuration
+      text (string): The date text
+      attrs (object) (optional): Additional HTML attributes for the time element
+#}
+{%- macro _article_metadata(authors=[], date={}) -%}
+  {% set has_authors = authors | length > 0 %}
+  {% set has_date = date.get("text", "") | length > 0 %}
+  {%- set date_attrs = date.get("attrs", {}) -%}
+  {%- set date_text = date.get("text", "") | trim -%}
+
+  <div class="p-article-block__metadata">
+    <small class="p-article-block__metadata-item">
+      <span class="article-author">
+        {%- for author in authors -%}
+          {%- set author_text = author.get("text", "") | trim -%}
+          {%- set author_link_attrs = author.get("link_attrs", {}) -%}
+          {%- if author_link_attrs.items() | length > 0 -%}
+            <a
+              {% for attr, value in author_link_attrs.items() %}
+                {{ attr }}="{{ value }}"
+              {% endfor %}
+            >
+          {%- endif -%}
+          {{- author_text -}}
+          {%- if author_link_attrs -%}</a>{%- endif -%}
+          {%- if not loop.last -%}, {% endif -%}
+        {%- endfor -%}
+      </span>
+    </small>
+    <small class="p-article-block__metadata-item">
+      <time
+        datetime="{{ date_text }}"
+        class="article-time{%- if date_attrs.get("class") %} {{ date_attrs.get("class", "") }}{%- endif -%}"
+        {% for attr, value in date_attrs.items() %}
+          {% if attr not in ["datetime", "class"] %}
+            {{ attr }}="{{ value }}"
+          {% endif %}
+        {% endfor %}
+      >
+        {{- date_text -}}
+      </time>
+    </small>
+  </div>
+{%- endmacro -%}
+
+{#
+  Blog article block pattern - displays a single blog article with title, description and metadata.
+
+  Parameters:
+    article_config (object) (required): Article configuration
+      title (object) (required): Title configuration
+        text (string) (required): The title text
+        link_attrs (object) (optional): Link attributes for the title. If passed, wraps the title in a link.
+        attrs (object) (optional): Additional attributes for the title
+      description (object) (optional): Description configuration
+        text (string) (required): Description text
+        attrs (object) (optional): Additional attributes for description paragraph
+      metadata (object) (optional): Metadata configuration
+        authors (array) (optional): List of author objects
+          text (string) (required): Author name
+          link_attrs (object) (optional): Author link attributes. If passed, wraps the author in a link.
+        date (object) (optional): Date configuration
+          text (string) (required): Date text
+          attrs (object) (optional): Date element attributes
+      image_html (string) (optional): Image to render before the title.
+        When used with vf_blog macro, this is automatically populated with a 16:9 cover image
+        from the article's image configuration.
+
+    attrs (object) (optional): Additional attributes for the resource block
+    template_mode (boolean) (optional): Whether this is being rendered in template mode
+#}
+{%- macro vf_article_block(article_config={}, attrs={}, template_mode=False) -%}
+    {%- set title = article_config.get("title", {}) -%}
+    {%- set description = article_config.get("description", {}) -%}
+    {%- set _ = description.setdefault('attrs', {}) -%}
+    {%- set metadata = article_config.get("metadata", {}) -%}
+    {%- set image_html = article_config.get("image_html", "") | trim -%}
+    {%- set authors = metadata.get("authors", []) -%}
+    {%- set date = metadata.get("date", {}) -%}
+
+    <div class="p-article-block{%- if attrs.get("class") %} {{ attrs.get("class", "") }}{%- endif -%}"
+      {% for attr, value in attrs.items() %}
+        {% if attr != "class" %}
+          {{ attr }}="{{ value }}"
+        {% endif %}
+      {% endfor %}
+    >
+      {#-
+        Note: p-article-block relies on subgrid to align items vertically across the grid.
+        This means that we must always create 4 p-article-block__items, even if some are empty.
+        This allows the subgrid to maintain alignment, even when some blocks are missing some items.
+        Note that this means `p-article-block__item` elements should never define padding or margin, as this would cause empty items to take up space.
+      -#}
+      <div class="p-article-block__item">
+        {%- if image_html | length > 0 -%}
+          <div class="p-article-block__image">
+            {{ image_html | safe }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="p-article-block__item">
+        {{ _article_title(title=title, template_mode=template_mode) }}
+      </div>
+
+      <div class="p-article-block__item">
+        {{ _article_description(description=description) }}
+      </div>
+
+      <div class="p-article-block__item">
+        {{ _article_metadata(authors=authors, date=date) }}
+      </div>
+    </div>
+{%- endmacro -%}
