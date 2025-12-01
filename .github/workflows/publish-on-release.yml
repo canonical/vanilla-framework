@@ -2,7 +2,7 @@ name: Publish Vanilla release
 
 on:
   release:
-    types: [published]
+    types: [ published ]
 
 jobs:
   build:
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 24
       - name: Read Vanilla version from package.json
         run: |
           node -p "require('./package.json').version" > VANILLA_VERSION
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
-          node-version: 12
+          node-version: 24
           registry-url: https://registry.npmjs.org/
       - if: ${{ !github.event.release.prerelease }}
         run: npm publish
@@ -50,7 +50,7 @@ jobs:
   publish-assets:
     name: Publish to assets server
     if: ${{ !github.event.release.prerelease }}
-    needs: [build, publish-npm]
+    needs: [ build, publish-npm ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
