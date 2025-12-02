@@ -15,7 +15,7 @@ The equal heights pattern is composed of the following elements:
 | Element                   | Description                                                                                                                                                                                                                                                                     |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | title_text (**required**) | `H2` title text.                                                                                                                                                                                                                                                                |
-| title_id                  | The `id` attribute for the title heading.                                                                                                                                                                                                                                         |
+| attrs                     | Attributes to apply to the equal heights pattern.                                                                                                                                                                                                                                         |
 | subtitle_text             | `H4` or `H5` subtitle text, depending on `subtitle_heading_level`.                                                                                                                                                                                                              |
 | subtitle_heading_level    | Heading level of the subtitles. May be `4` or `5`. Defaults to `5`.                                                                                                                                                                                                             |
 | highlight_images          | If the images need to be [highlighted](https://vanillaframework.io/docs/patterns/images#highlighted-image). Not added by default.                                                                                                                                               |
@@ -116,17 +116,19 @@ shown below.
       </tr>
       <tr>
         <td>
-          <code>title_id</code>
+          <code>attrs</code>
         </td>
         <td>
-          No </td>
-        <td>
-          String </td>
-        <td>
-          N/A
+          No
         </td>
         <td>
-          The <code>id</code> attribute for the <code>H2</code> title heading.
+          <code>&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the equal heights pattern. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
       </tr>
       <tr>
