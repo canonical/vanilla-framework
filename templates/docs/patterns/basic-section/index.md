@@ -20,6 +20,7 @@ The basic section pattern is composed of the following elements:
 | Title (**required**) | Main heading text (h2)                                                                  |
 | Subtitle             | Subtitle text with configurable heading level                                           |
 | Items                | Array of content blocks (descriptions, images, videos, lists, code blocks, logos, CTAs) |
+| Attrs                | A dictionary of attributes to apply to the basic section                                |
 
 The default basic section uses a 50/50 grid layout that splits on large screens and stacks on smaller screens.
 
@@ -454,24 +455,7 @@ below.
         <td>
           The main title text (rendered as h2)
         </td>
-      </tr>
-      <tr>
-        <td>
-          <code>title.id</code>
-        </td>
-        <td>
-          No
-        </td>
-        <td>
-          <code>string</code>
-        </td>
-        <td>
-          <code>N/A</code>
-        </td>
-        <td>
-          The main title ID
-        </td>
-      </tr>
+      </tr>      
       <tr>
         <td>
           <code>title.link_attrs</code>
@@ -629,6 +613,23 @@ below.
         </td>
         <td>
           Variant of <a href="/docs/patterns/rule">horizontal rule</a> to display at the top of the section."
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the basic section. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
       </tr>
     </tbody>
