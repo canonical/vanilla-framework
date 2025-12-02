@@ -19,7 +19,7 @@ The Pricing block pattern is composed of the following elements:
 | Element                                                  | Description                                                                   |
 | -------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | Title (**required**)                                     | <code>h2</code> title text                                                    |
-| Title ID (**optional**)                                  | The <code>id</code> attribute for the <code>h2</code> title text              |
+| Attrs (**optional**)                                     | Attributes to apply to the Pricing block pattern                              |
 | Description                                              | <code>p</code> description text                                               |
 | Tiers (**required**)                                     | An `Array<Object>` of individual tiers representing different pricing options |
 | Tiers[].Name (**optional**)                              | <code>h2</code> tier title                                                    |
@@ -125,19 +125,19 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
       </tr>
       <tr>
         <td>
-          <code>title_id</code>
+          <code>attrs</code>
         </td>
         <td>
           No
         </td>
         <td>
-          <code>string</code>
+          <code>&lt;Object&gt;</code>
         </td>
         <td>
           <code>N/A</code>
         </td>
         <td>
-          Title ID of the pricing section.
+          Attributes to apply to the Pricing block pattern. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
       </tr>
       <tr>

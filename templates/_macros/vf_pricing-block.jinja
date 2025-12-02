@@ -1,8 +1,8 @@
 {#
   Params
   - title_text (string) (required): The text to be displayed as the heading
-  - title_id (string) (optional): The id attribute for the heading
   - top_rule_variant (string) (optional): Variant of the top rule, default is "default". Options are "muted", "highlighted", "default", "none".
+  - attrs (dictionary) (optional): A dictionary of attributes to apply to the pricing block section.
   - tiers (Array<{
       tier_name_text: String (optional),
       tier_price_text: String,
@@ -14,14 +14,14 @@
         list_item_content_html: string
       }>‘,
       cta_html?: String
-    }>) (required)
+    }>) (required)  
   Slots
   - description (optional): paragraph-style content below the title
 #}
 {%- macro vf_pricing_block(
   top_rule_variant="default",
   title_text="",
-  title_id="",
+  attrs={},
   tiers=[]
   ) -%}
   {% set top_rule_variant = top_rule_variant | trim %}
@@ -88,7 +88,7 @@
       <hr class="p-rule{% if top_rule_variant != 'default' %}--{{ rule_class }}{% endif %} is-fixed-width" />
     {% endif %}
   {%- endmacro -%}
-  <div class="p-section">
+  <div class="p-section"{% for attr, value in attrs.items() %} {{ attr }}="{{ value }}"{% endfor %}>
     {{ _top_rule() }}
     <div class="grid-row">
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
