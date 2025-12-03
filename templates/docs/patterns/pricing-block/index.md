@@ -19,7 +19,6 @@ The Pricing block pattern is composed of the following elements:
 | Element                                                  | Description                                                                   |
 | -------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | Title (**required**)                                     | <code>h2</code> title text                                                    |
-| Attrs (**optional**)                                     | Attributes to apply to the Pricing block pattern                              |
 | Description                                              | <code>p</code> description text                                               |
 | Tiers (**required**)                                     | An `Array<Object>` of individual tiers representing different pricing options |
 | Tiers[].Name (**optional**)                              | <code>h2</code> tier title                                                    |

@@ -33,7 +33,13 @@
     {% set subtitle_heading_level=5 %}
   {%- endif -%}
 
-  <div class="p-section" {% for attr, value in attrs.items() %} {{ attr }}="{{ value }}"{% endfor %}>
+  <div class="p-section {{ attrs.get("class", "") -}}"
+    {%- for attr, value in attrs.items() -%}
+      {% if attr != "class" %}
+        {{ attr }}="{{ value }}"
+      {%- endif -%}
+    {%- endfor -%}
+  >
     <hr class="p-rule is-fixed-width"/>
     <div class="p-section--shallow">
     {%- if has_two_top_cols -%}

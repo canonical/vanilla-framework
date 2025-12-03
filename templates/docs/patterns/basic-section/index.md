@@ -20,7 +20,6 @@ The basic section pattern is composed of the following elements:
 | Title (**required**) | Main heading text (h2)                                                                  |
 | Subtitle             | Subtitle text with configurable heading level                                           |
 | Items                | Array of content blocks (descriptions, images, videos, lists, code blocks, logos, CTAs) |
-| Attrs                | Attributes to apply to the basic section                                                |
 
 The default basic section uses a 50/50 grid layout that splits on large screens and stacks on smaller screens.
 

@@ -88,11 +88,17 @@
       <hr class="p-rule{% if top_rule_variant != 'default' %}--{{ rule_class }}{% endif %} is-fixed-width" />
     {% endif %}
   {%- endmacro -%}
-  <div class="p-section"{% for attr, value in attrs.items() %} {{ attr }}="{{ value }}"{% endfor %}>
+  <div class="p-section {{ attrs.get("class", "") -}}"
+    {%- for attr, value in attrs.items() -%}
+      {% if attr != "class" %}
+        {{ attr }}="{{ value }}"
+      {%- endif -%}
+    {%- endfor -%}
+  >
     {{ _top_rule() }}
     <div class="grid-row">
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
-        <h2{% if title_id and title_id | trim | length > 0 %} id="{{ title_id | trim }}"{% endif %}>{{ title_text }}</h2>
+        <h2>{{ title_text }}</h2>
       </div>
       <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
         {% if section_description %}<div class="p-section--shallow">{{ section_description }}</div>{% endif %}

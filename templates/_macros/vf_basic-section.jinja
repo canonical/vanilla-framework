@@ -332,7 +332,13 @@
   {%- set has_label = label_text|length > 0 -%}
   {%- set has_subtitle = subtitle_text|length > 0 -%}
 
-<section class="{{ padding_classes }}"{% for attr, value in attrs.items() %} {{ attr }}="{{ value }}"{% endfor %}>
+<section class="{{ padding_classes }} {{ attrs.get("class", "") -}}" 
+  {%- for attr, value in attrs.items() -%}
+    {% if attr != "class" %}
+      {{ attr }}="{{ value }}"
+    {%- endif -%}
+  {%- endfor -%}
+>
   <div class="grid-row--50-50{%- if not is_split_on_medium -%}-on-large{%- endif -%}">
     {{ vf_section_top_rule(top_rule_variant) }}
     <div class="grid-col">
