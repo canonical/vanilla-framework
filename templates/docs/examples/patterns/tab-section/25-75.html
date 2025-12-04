@@ -1,0 +1,99 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / 25-75{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={
+        "text": "The quick brown fox jumps over the lazy dog"
+    },
+    description={
+        "content": "The quick brown fox jumps over the lazy dog"
+    },
+    cta={
+        "primary": {
+            "content_html": "Primary Button",
+            "attrs": {
+                "href": "#"
+            }
+        },
+        "secondaries": [
+            {
+                "content_html": "Secondary Button",
+                "attrs": {
+                    "href": "#"
+                }
+            }
+        ],
+        "link": {
+            "content_html": "Learn more ›",
+            "attrs": {
+                "href": "#"
+            }
+        }
+    },
+    layout="25-75",
+    tabs=[
+        {
+            "type": "linked-logo",
+            "name": "linked-logo-25-75",
+            "tab_html": "Linked logo",
+            "item": {
+                "title_text": "PostgreSQL, security and support",
+                "links": [
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "Kubeflow",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "432",
+                        "height": "481"
+                      }
+                    },
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "MLflow",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/104192d9-mlflow-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "222",
+                        "height": "481"
+                      }
+                    },
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "Apache Spark",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/855deda8-apache-spark-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "240",
+                        "height": "481"
+                      }
+                    },
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "OpenSearch",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/a8185f91-opensearch-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "330",
+                        "height": "481"
+                      }
+                    }
+                ]
+            }
+        }
+    ]
+) -}}
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="/js/tabs.js"></script>
+{% endblock %}

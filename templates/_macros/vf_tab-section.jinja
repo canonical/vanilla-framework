@@ -3,6 +3,7 @@
 {% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
 {% from "_macros/shared/vf_tabs.jinja" import vf_tabs %}
 {% from "_macros/vf_quote-wrapper.jinja" import vf_quote_block %}
+{% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
 
 {#-
 FULL-WIDTH ONLY
@@ -48,6 +49,9 @@ Params
 {%- set item = tab.get("item", {}) -%}
 {% if type == "quote" %}
 {{ _tab_section_quote(item) }}
+{% endif %}
+{% if type == "linked-logo" or type == "linked-logo-block" %}
+    {{ vf_linked_logo_block({ 'links': item.get('links', []) }) }}
 {% endif %}
 {%- endmacro -%}
 
@@ -117,7 +121,7 @@ Params
     {%- elif layout == "50-50" -%}
     {%- set tabs_column_count = 4 -%}
     {%- elif layout == "25-75" -%}
-    {%- set tabs_column_count = 2 -%}
+    {%- set tabs_column_count = 6 -%}
     {%- endif -%}
     {%- set tabs_column_start = 8 - tabs_column_count + 1 -%}
 
@@ -128,10 +132,10 @@ Params
         designer constraints (e.g. quote only allowed in full-width).
     -#}
     {%- set allowed_blocks_per_layout = {
-        '50-50': [],
-        '25-75': [],
+        '50-50': [ 'linked-logo', 'linked-logo-block' ],
+        '25-75': [ 'linked-logo', 'linked-logo-block' ],
         'full-width': [
-            'quote'
+            'quote', 'linked-logo', 'linked-logo-block'
         ]
     } -%}
 
