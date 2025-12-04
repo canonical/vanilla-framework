@@ -4,6 +4,7 @@
 {% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
 {% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
 {% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
+{% from "_macros/shared/vf_logo-block.jinja" import vf_logo_block %}
 
 {#-
     This helper macro used to entirely implement the description block for this pattern.
@@ -144,34 +145,6 @@
   </pre>
 {% endmacro %}
 
-# logo_block_config
-# - logos: A list of logos to be displayed in the section.
-# - - attrs: A dictionary of attributes to apply to the logo
-# - - is_fixed_width: Boolean to indicate if the logo should be wrapped in a fixed-width container (default is true).
-# - - has_line_break_after: Boolean to indicate if a line break should be included after the logo (default is false). This will be hidden on small screens.
-#       See https://vanillaframework.io/docs/patterns/logo-section#line-breaks
-{% macro _basic_section_logo_block(logo_block_config={}) %}
-  {%- set is_fixed_width = logo_block_config.get("is_fixed_width", true) != false -%}
-  {%- if is_fixed_width -%}<div class="u-fixed-width">{%- endif -%}
-    <div class="p-logo-section">
-      {%- for logo in logo_block_config.get("logos", []) -%}
-        <div class="p-logo-section__item">
-          <img class="p-logo-section__logo {{ logo.get("attrs", {}).get("class", "") -}}"
-            {%- for attr, value in logo.get("attrs", {}).items() -%}
-              {% if attr != "class" %}
-                {{ attr }}="{{ value }}"
-              {%- endif -%}
-            {%- endfor -%}
-          />
-          {%- if logo.get("has_line_break_after", false) -%}
-            <br class="u-hide--small">
-          {%- endif -%}
-        </div>
-      {%- endfor -%}
-    </div>
-  {%- if is_fixed_width -%}</div>{%- endif -%}
-{% endmacro %}
-
 {#-
     This helper macro used to entirely implement the cta block for this pattern.
     The CTA block has since been upstreamed to `templates/_macros/shared/vf_cta-block.jinja`.
@@ -202,7 +175,7 @@
   {%- elif type == "code-block" -%}
     {{- _basic_section_code_block(item_config.get("item", {})) -}}
   {%- elif type =="logo-block" -%}
-    {{- _basic_section_logo_block(item_config.get("item", {})) -}}
+    {{- vf_logo_block(item_config.get("item", {})) -}}
   {%- elif type == "linked-logo-block" -%}
     {{- vf_linked_logo_block(item_config.get("item", {})) -}}
   {%- elif type == "cta-block" -%}
