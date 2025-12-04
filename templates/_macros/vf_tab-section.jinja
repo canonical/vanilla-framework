@@ -4,6 +4,7 @@
 {% from "_macros/shared/vf_tabs.jinja" import vf_tabs %}
 {% from "_macros/vf_quote-wrapper.jinja" import vf_quote_block %}
 {% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
+{% from "_macros/shared/vf_logo-block.jinja" import vf_logo_block %}
 
 {#-
 FULL-WIDTH ONLY
@@ -52,6 +53,9 @@ Params
 {% endif %}
 {% if type == "linked-logo" or type == "linked-logo-block" %}
     {{ vf_linked_logo_block({ 'links': item.get('links', []) }) }}
+{% endif %}
+{% if type == "logo-block" or type == "logo" %}
+    {{ vf_logo_block({ 'logos': item.get('logos', []), 'is_fixed_width': item.get('is_fixed_width', true) }) }}
 {% endif %}
 {%- endmacro -%}
 
@@ -132,10 +136,10 @@ Params
         designer constraints (e.g. quote only allowed in full-width).
     -#}
     {%- set allowed_blocks_per_layout = {
-        '50-50': [ 'linked-logo', 'linked-logo-block' ],
-        '25-75': [ 'linked-logo', 'linked-logo-block' ],
+        '50-50': [ 'linked-logo', 'linked-logo-block', 'logo-block' ],
+        '25-75': [ 'linked-logo', 'linked-logo-block', 'logo-block' ],
         'full-width': [
-            'quote', 'linked-logo', 'linked-logo-block'
+            'quote', 'linked-logo', 'linked-logo-block', 'logo-block'
         ]
     } -%}
 
