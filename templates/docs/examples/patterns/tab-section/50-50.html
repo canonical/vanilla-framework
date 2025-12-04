@@ -1,13 +1,13 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
 
-{% block title %}Tab section / Default{% endblock %}
+{% block title %}Tab section / 50-50{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
 {{- vf_tab_section(
     title={
-        "text": "The quick brown fox jumps over the lazy dog"
+        "text": "Tab section — 50/50 example"
     },
     description={
         "content": "The quick brown fox jumps over the lazy dog"
@@ -36,7 +36,7 @@
     },
     tabs=[
         {
-            "tab_html": "Linked logo",
+            "tab_html": "Linked logos",
             "type": "linked-logo",
             "item": {
                 "title_text": "Come for PostgreSQL, get security and support for your entire stack",
@@ -133,7 +133,7 @@
             }
         },
         {
-            "tab_html": "Logo block",
+            "tab_html": "Logos",
             "type": "logo-block",
             "item": {
                 "title_text": "Our technology partners",
@@ -179,7 +179,7 @@
         }
         ,
         {
-            "tab_html": "Divided section",
+            "tab_html": "Divided",
             "type": "divided-section",
             "item": {
                 "blocks": [
@@ -310,7 +310,7 @@
             "type": "blog",
             "item": {
                 "articles": [
-                                      {
+                    {
                     "title": {
                         "text": "How to enable Real-time Ubuntu on your machine",
                         "link_attrs": {
@@ -415,6 +415,7 @@
             "item": {
                 "template_config": {
                     "enabled": True, 
+                    "layout": "2-blocks",
                     "template_container_id": "articles"
                 }
             }
@@ -434,7 +435,7 @@
             Make sure your article limit and `template_config.layout` match.
             Use "4-blocks" (or no layout, as 4-blocks is the default) with `limit: "4"`.
             */
-            limit: "4",
+            limit: "2",
             articlesContainerSelector: "#articles",
             articleTemplateSelector: "#template",
             excerptLength: 180,
