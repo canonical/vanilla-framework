@@ -454,7 +454,7 @@ below.
         <td>
           The main title text (rendered as h2)
         </td>
-      </tr>
+      </tr>      
       <tr>
         <td>
           <code>title.link_attrs</code>
@@ -612,6 +612,23 @@ below.
         </td>
         <td>
           Variant of <a href="/docs/patterns/rule">horizontal rule</a> to display at the top of the section."
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the basic section. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
       </tr>
     </tbody>

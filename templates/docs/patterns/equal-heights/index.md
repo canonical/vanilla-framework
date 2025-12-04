@@ -115,6 +115,23 @@ shown below.
       </tr>
       <tr>
         <td>
+          <code>attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the equal heights pattern. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>subtitle_text</code>
         </td>
         <td>

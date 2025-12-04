@@ -124,6 +124,23 @@ The `vf_pricing_block` Jinja macro can be used to generate a pricing tier compar
       </tr>
       <tr>
         <td>
+          <code>attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the Pricing block pattern. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>top_rule_variant</code>
         </td>
         <td>

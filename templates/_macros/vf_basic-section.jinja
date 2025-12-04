@@ -300,6 +300,7 @@
 # padding: Type of padding to apply to the pattern - "deep", "shallow", "default" (default is "default").
 # is_split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
 # top_rule_variant: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
+# attrs: A dictionary of attributes to apply to the section element.
 {% macro vf_basic_section(
   title={},
   label_text="",
@@ -307,7 +308,8 @@
   items=[],
   padding="default",
   is_split_on_medium=false,
-  top_rule_variant="default"
+  top_rule_variant="default",
+  attrs={}
 ) -%}
 
   {%- set padding = padding | trim -%}
@@ -330,7 +332,13 @@
   {%- set has_label = label_text|length > 0 -%}
   {%- set has_subtitle = subtitle_text|length > 0 -%}
 
-<section class="{{ padding_classes }}">
+<section class="{{ padding_classes }} {{ attrs.get("class", "") -}}" 
+  {%- for attr, value in attrs.items() -%}
+    {% if attr != "class" %}
+      {{ attr }}="{{ value }}"
+    {%- endif -%}
+  {%- endfor -%}
+>
   <div class="grid-row--50-50{%- if not is_split_on_medium -%}-on-large{%- endif -%}">
     {{ vf_section_top_rule(top_rule_variant) }}
     <div class="grid-col">
