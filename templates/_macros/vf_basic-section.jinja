@@ -3,6 +3,7 @@
 {% from "_macros/shared/vf_cta-block.jinja" import vf_cta_block %}
 {% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
 {% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
+{% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
 
 {#-
     This helper macro used to entirely implement the description block for this pattern.
@@ -171,16 +172,6 @@
   {%- if is_fixed_width -%}</div>{%- endif -%}
 {% endmacro %}
 
-# linked_logo_block_config
-#   - links (array) (required) : Array of links, each including 'href', 'label', 'text', and 'image_attrs'
-{% macro _basic_section_linked_logo_block(linked_logo_block_config={}) %}
-  {{- vf_linked_logo_section(
-    links=linked_logo_block_config.get("links", []),
-    top_rule_variant="none",
-    padding="none"
-  ) -}}
-{% endmacro %}
-
 {#-
     This helper macro used to entirely implement the cta block for this pattern.
     The CTA block has since been upstreamed to `templates/_macros/shared/vf_cta-block.jinja`.
@@ -213,7 +204,7 @@
   {%- elif type =="logo-block" -%}
     {{- _basic_section_logo_block(item_config.get("item", {})) -}}
   {%- elif type == "linked-logo-block" -%}
-    {{- _basic_section_linked_logo_block(item_config.get("item", {})) -}}
+    {{- vf_linked_logo_block(item_config.get("item", {})) -}}
   {%- elif type == "cta-block" -%}
     {{- _basic_section_cta_block(item_config.get("item", {})) -}}
   {%- elif type == "notification" -%}
