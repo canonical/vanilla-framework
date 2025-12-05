@@ -1,6 +1,5 @@
 // This is an example modal implementation inspired by
 // https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/dialog.html
-
 (function () {
   // This is not a production ready code, just serves as an example
   // of how the focus should be controlled within the modal dialog.
@@ -12,7 +11,6 @@
   // Traps the focus within the currently open modal dialog
   function trapFocus(event) {
     if (ignoreFocusChanges) return;
-
     if (currentDialog.contains(event.target)) {
       lastFocus = event.target;
     } else {
@@ -75,6 +73,7 @@
         modal.style.display = 'flex';
         focusFirstDescendant(modal);
         focusAfterClose = sourceEl;
+
         document.addEventListener('focus', trapFocus, true);
       } else {
         modal.style.display = 'none';
@@ -106,14 +105,10 @@
   // Add handler for closing modals using ESC key.
   document.addEventListener('keydown', function (e) {
     e = e || window.event;
-
     if (e.code === 'Escape') {
       closeModals();
     } else if (e.keyCode === 27) {
       closeModals();
     }
   });
-
-  // init the dialog that is initially opened in the example
-  toggleModal(document.querySelector('#modal'), document.querySelector('[aria-controls=modal]'), true);
 })();
