@@ -1,0 +1,23 @@
+{#-
+    Params
+        - type: ("text" | "html") (default is "text")
+        - content: The content of the description. Could be plain text (if type is "text") or HTML (if type is "html").
+-#}
+{% macro vf_description_block(type="text", content="") %}
+    {%- if not type -%}{%- set type = "text" -%}{%- endif -%}
+    {%- if not content -%}{%- set content = "" -%}{%- endif -%}
+
+    {%- set type = type | trim -%}
+    {%- set content = content | trim -%}
+    {%- if type not in ["text", "html"] -%}
+        {%- set type = "text" -%}
+    {%- endif -%}
+
+    {%- if content | length > 0 -%}
+        {%- if type == "text" -%}
+            <p>{{- content -}}</p>
+        {%- elif type == "html" -%}
+            {{- content | safe -}}
+        {%- endif -%}
+    {%- endif -%}
+{% endmacro %}

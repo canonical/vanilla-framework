@@ -1,0 +1,15 @@
+{% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
+
+{#
+  Exported macro for embedding linked-logo content without underscore prefix
+  so it can be imported by other macros. Expects a single config dict:
+  - links: array of link objects
+#}
+{% macro vf_linked_logo_block(linked_logo_block_config={}) -%}
+  {{- vf_linked_logo_section(
+    title_text=linked_logo_block_config.get("title_text", linked_logo_block_config.get("title", "")),
+    links=linked_logo_block_config.get("links", []),
+    top_rule_variant="none",
+    padding="none"
+  ) -}}
+{%- endmacro %}

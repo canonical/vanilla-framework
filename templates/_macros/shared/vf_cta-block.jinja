@@ -1,0 +1,82 @@
+{#-
+    Params
+        - content_html: The inner HTML for the call-to-action button.
+        - button_type: "primary" | "secondary" (default is "primary")
+        - attrs: A dictionary of attributes to apply to the button or link.
+ #}
+{% macro _cta_button(content_html, button_type="", attrs={}) %}
+    {%- set cta_element_tag = "button" -%}
+    {%- if "href" in attrs and attrs.get("href", "") | length > 0 -%}
+        {%- set cta_element_tag = "a" -%}
+    {%- endif -%}
+
+    {%- if button_type not in ["primary", "secondary"] -%}
+        {%- set button_type = "" -%}
+    {%- endif -%}
+
+    {%- set cta_class = "" -%}
+    {%- if button_type == "primary" -%}
+        {%- set cta_class = "p-button--positive" -%}
+    {%- elif button_type == "secondary" -%}
+        {%- set cta_class = "p-button" -%}
+    {%- endif -%}
+
+    <{{ cta_element_tag }} class="{{ cta_class }} {{ attrs.get("class", "") }}"
+    {%- for attr, value in attrs.items() -%}
+        {% if attr != "class" %}
+            {{ attr }}="{{ value }}"
+        {%- endif -%}
+    {%- endfor -%}
+    >
+    {{- content_html | safe -}}
+    </{{ cta_element_tag }}>
+{% endmacro %}
+
+{#-
+    Params
+        - primary (Object)
+            - content_html: The inner HTML for the primary call-to-action button.
+            - attrs: A dictionary of attributes to apply to the primary button.
+        - secondaries (Array) (generally, we recommend using 2):
+            - content_html: The inner HTML for the secondary call-to-action button.
+            - attrs: A dictionary of attributes to apply to the secondary button.
+        - link
+            - content_html: The inner HTML for the link.
+            - attrs: A dictionary of attributes to apply to the link.
+ #}
+{% macro vf_cta_block(primary={}, secondaries=[], link={}) %}
+    {%- if not primary -%}{%- set primary = {} -%}{%- endif -%}
+    {%- if not secondaries -%}{%- set secondaries = [] -%}{%- endif -%}
+    {%- if not link -%}{%- set link = {} -%}{%- endif -%}
+    {%- set primary_content_html = primary.get("content_html", "") | trim -%}
+    {%- set has_primary = primary_content_html | length > 0 -%}
+    {%- set has_secondaries = secondaries | length > 0 -%}
+    {%- set link_content_html = link.get("content_html", "") | trim -%}
+    {%  set has_link = link_content_html | length > 0 -%}
+    {%- if has_primary or has_secondaries or has_ink -%}
+        <div class="p-cta-block u-no-padding--bottom">
+            {%- if has_primary  %}
+                {{ _cta_button(
+                    content_html=primary_content_html,
+                    attrs=primary.get("attrs", {}),
+                    button_type="primary"
+                ) }}
+            {%- endif -%}
+            {%- if has_secondaries %}
+                {%- for secondary in secondaries -%}
+                    {{ _cta_button(
+                      content_html=secondary.get("content_html", ""),
+                      attrs=secondary.get("attrs", {}),
+                      button_type="secondary"
+                    ) }}
+                {%- endfor -%}
+            {%- endif -%}
+            {%- if has_link %}
+                {{ _cta_button(
+                    content_html=link_content_html,
+                    attrs=link.get("attrs", {})
+                ) }}
+            {%- endif -%}
+        </div>
+    {%- endif -%}
+{% endmacro %}

@@ -1,0 +1,71 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / 50-50 / Blog (single){% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={ "text": "Latest posts" },
+    layout="50-50",
+    tabs=[
+        {
+            "tab_html": "Blog",
+            "type": "blog",
+            "name": "50-50-blog-single",
+            "item": {
+                "articles": [
+                   {
+                    "title": {
+                        "text": "How to enable Real-time Ubuntu on your machine",
+                        "link_attrs": {
+                        "href": "#"
+                        }
+                    },
+                    "description": {
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    "metadata": {
+                        "authors": [
+                            {
+                                "text": "John Doe",
+                                "link_attrs": {
+                                    "href": "#"
+                                }
+                            }
+                        ],
+                        "date": {
+                        "text": "15 March 2025"
+                        }
+                    }
+                    },
+                    {
+                    "title": {
+                        "text": "How to enable Real-time Ubuntu on your machine",
+                        "link_attrs": {
+                        "href": "#"
+                        }
+                    },
+                    "description": {
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    "metadata": {
+                        "authors": [
+                        {
+                            "text": "John Doe",
+                            "link_attrs": {
+                            "href": "#"
+                            }
+                        }
+                        ],
+                        "date": {
+                        "text": "15 March 2025"
+                        }
+                    }
+                    }
+                ]
+            }
+        }
+    ]
+) -}}
+{% endblock %}

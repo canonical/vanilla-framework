@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / Full width / Logos (single){% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={ "text": "Partners" },
+    layout="full-width",
+    tabs=[
+        {
+            "tab_html": "Logos",
+            "type": "logo-block",
+            "name": "full-logos-single",
+            "item": {
+                "title_text": "Our technology partners",
+                "logos": [
+                    { "attrs": { "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png", "alt": "Hewlett Packard" } },
+                    { "attrs": { "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png", "alt": "Lenovo" } }
+                ]
+            }
+        }
+    ]
+) -}}
+{% endblock %}
