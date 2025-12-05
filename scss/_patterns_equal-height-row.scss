@@ -22,13 +22,13 @@
         Item element within an equal height row column.
 */
 
+@use 'sass:math';
 @import 'settings';
 
 @mixin vf-p-equal-height-row {
   .p-equal-height-row,
   .p-equal-height-row--wrap {
-    // TODO use new 4/4/8 grid (`%vf-grid-row`)
-    @extend %vf-row;
+    @extend %vf-grid-row;
 
     position: relative;
 
@@ -38,20 +38,20 @@
       border-top-style: solid;
       border-top-width: 1px;
       display: grid;
-      grid-column: span $grid-columns-small;
+      grid-column: span $grid-8-columns-small;
       grid-row: span 4;
       grid-template-rows: subgrid;
       margin-bottom: $spv--small;
       position: relative;
 
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        grid-column: span $grid-columns-medium;
+        grid-column: span $grid-8-columns-medium;
         grid-template-columns: subgrid;
 
         // At medium size, each column item will take half of the available
         // cols from the parent grid
         .p-equal-height-row__item {
-          grid-column: span calc($grid-columns-medium / 2);
+          grid-column: span calc($grid-8-columns-medium / 2);
         }
 
         // At medium size, position the first column item on the left of the
@@ -65,7 +65,7 @@
 
       @media screen and (width >= $breakpoint-large) {
         border: none;
-        grid-column: span calc($grid-columns / 4);
+        grid-column: span calc($grid-8-columns / 4);
         margin-bottom: 0;
       }
     }
@@ -89,7 +89,7 @@
       background-color: $colors--theme--border-low-contrast;
       // Row-level dividers are not visible on smaller screen sizes
       display: none;
-      grid-column-end: span 12;
+      grid-column-end: span $grid-8-columns;
       grid-column-start: 1;
       margin: auto;
 
@@ -129,7 +129,7 @@
     .p-equal-height-row__col {
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
         // Fit 2 columns onto each row at medium size
-        grid-column: span calc($grid-columns-medium / 2);
+        grid-column: span calc($grid-8-columns-medium / 2);
         grid-template-columns: none;
 
         .p-equal-height-row__item {
@@ -147,23 +147,28 @@
 
   // Support for 25-75 split on large screen size
   // TODO implement with new 4/4/8 grid (.grid-row)
+  // TODO this may be a breaking change. we are applying new grid column counts to the old row class, in order to migrate the entire component to the new grid.
+  // This needs to be carefully investigated. It may require a major version update.
+  .grid-row--25-75-on-large >.grid-col,
+  .grid-row > .grid-col-6,
   .row--25-75-on-large > .col,
   .row > .col-9 {
     & .p-equal-height-row,
     & .p-equal-height-row--wrap {
       @media screen and (width >= $breakpoint-large) {
-        grid-template-columns: repeat(9, minmax(0, 1fr));
+        grid-template-columns: repeat(#{(math.div($grid-8-columns, 4) * 3)}, minmax(0, 1fr));
       }
     }
   }
 
+  .grid-row--50-50-on-large > .grid-col,
+  .grid-row > .grid-col-4,
   .row--50-50-on-large > .col,
   .row > .col-6 {
     & .p-equal-height-row,
     & .p-equal-height-row--wrap {
       @media screen and (width >= $breakpoint-large) {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-      }
+        grid-template-columns: repeat(#{math.div($grid-8-columns, 2)}, minmax(0, 1fr));      }
     }
   }
 }
