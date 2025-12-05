@@ -4,6 +4,11 @@ on:
   release:
     types: [published]
 
+# https://docs.npmjs.com/trusted-publishers#step-2-configure-your-cicd-workflow
+permissions:
+  id-token: write # to enable use of OIDC for npm provenance
+  contents: read # to enable reading the contents of the release for publishing
+
 jobs:
   build:
     name: Build Vanilla
@@ -32,10 +37,6 @@ jobs:
     name: Publish to NPM
     needs: build
     runs-on: ubuntu-latest
-    # https://docs.npmjs.com/trusted-publishers#step-2-configure-your-cicd-workflow
-    permissions:
-      contents: read # to enable reading the contents of the release for publishing
-      id-token: write # to enable use of OIDC for npm provenance
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
