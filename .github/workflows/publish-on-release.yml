@@ -43,10 +43,6 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
-      - run: npm --version
-      - name: Update npm
-        run: npm install -g npm@latest
-      - run: npm --version
       - if: ${{ !github.event.release.prerelease }}
         run: npm publish
       - if: ${{ github.event.release.prerelease }}
