@@ -1,4 +1,3 @@
-{% from "_macros/shared/vf_equal-heights-block.jinja" import vf_equal_heights_block %}
 {#-
   Params
   - title_text (string) (required): The text to be displayed as the heading
@@ -10,7 +9,6 @@
   - image_aspect_ratio_medium (string) (optional): The aspect ratio for item images on medium screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "square".
   - image_aspect_ratio_large (string) (optional): The aspect ratio for item images on large screens. Defaults to "2-3". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "2-3".
   - items (array) (required): An array of items, each including 'image_html', 'title_text', 'description_html', and 'cta_html'.
--#}
  -#}
 {%- macro vf_equal_heights(
   title_text,
@@ -35,9 +33,9 @@
     {% set subtitle_heading_level=5 %}
   {%- endif -%}
 
-  <div class="p-section {{ attrs.get('class', '') }}"
+  <div class="p-section {{ attrs.get("class", "") -}}"
     {%- for attr, value in attrs.items() -%}
-      {% if attr != 'class' %}
+      {% if attr != "class" %}
         {{ attr }}="{{ value }}"
       {%- endif -%}
     {%- endfor -%}
@@ -69,14 +67,45 @@
 
     <div class="row">
       <div class="{%- if items | length == 2 -%}col-6 col-start-large-7{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}col-9 col-start-large-4{%- else -%}col{%- endif -%}">
-        {{ vf_equal_heights_block(
-          items=items,
-          subtitle_heading_level=subtitle_heading_level,
-          highlight_images=highlight_images,
-          image_aspect_ratio_small=image_aspect_ratio_small,
-          image_aspect_ratio_medium=image_aspect_ratio_medium,
-          image_aspect_ratio_large=image_aspect_ratio_large
-        ) }}
+        <div class="p-equal-height-row--wrap">
+          {%- for item in items -%}
+            {% set image = item.get("image_html", "") | trim %}
+            {% set title = item.get("title_text", "") | trim %}
+            {% set description = item.get("description_html", "") | trim %}
+            {% set cta = item.get("cta_html", "") | trim %}
+            <div class="p-equal-height-row__col is-borderless">
+              {#- Image item -#}
+              <div class="p-equal-height-row__item">
+                {%- if image | length > 0 %}
+                  <div
+                    class="p-image-container {% if image_aspect_ratio_small != 'auto' %} p-image-container--{{ image_aspect_ratio_small }}-on-small{% endif %}{% if image_aspect_ratio_medium != 'auto' %} p-image-container--{{ image_aspect_ratio_medium }}-on-medium{% endif %}{% if image_aspect_ratio_large != 'auto' %} p-image-container--{{ image_aspect_ratio_large }}-on-large{% endif %} is-cover{% if highlight_images %} is-highlighted{% endif %}" >
+                    {#- The consumer must pass in an img.p-image-container__image for the image to be properly formatted -#}
+                    {{- image | safe -}}
+                  </div>
+                  <hr class="p-rule--highlight"/>
+                {%- endif -%}
+              </div>
+              {#- Title item -#}
+              <div class="p-equal-height-row__item">
+                {%- if title | length > 0 -%}
+                  <p class="p-heading--{{ subtitle_heading_level }}">{{- title -}}</p>
+                {%- endif -%}
+              </div>
+              {#- Description item (optional) -#}
+              <div class="p-equal-height-row__item">
+                {{- description | safe -}}
+              </div>
+              {#- CTA item (optional) -#}
+              <div class="p-equal-height-row__item">
+                {%- if cta | length > 0 -%}
+                  <p>
+                    {{- cta | safe -}}
+                  </p>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+          </div>
       </div>
     </div>
     {%- if has_cta -%}
