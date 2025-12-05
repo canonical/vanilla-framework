@@ -7,6 +7,7 @@
 {% from "_macros/shared/vf_logo-block.jinja" import vf_logo_block %}
 {% from "_macros/shared/vf_divided-section-block.jinja" import vf_divided_section_block %}
 {% from "_macros/shared/vf_blog-block.jinja" import vf_blog_block %}
+{% from "_macros/shared/vf_equal-heights-block.jinja" import vf_equal_heights_block %}
 
 {#-
 FULL-WIDTH ONLY
@@ -66,6 +67,16 @@ Params
     <div class="p-blog grid-row">
         {{ vf_blog_block(articles=item.get('articles', []), template_config=item.get('template_config', {})) }}
     </div>
+{% endif %}
+{% if type == "equal-heights" %}
+    {{ vf_equal_heights_block(
+        items=item.get('items', []),
+        subtitle_heading_level=item.get('subtitle_heading_level', 5),
+        highlight_images=item.get('highlight_images', false),
+        image_aspect_ratio_small=item.get('image_aspect_ratio_small', 'square'),
+        image_aspect_ratio_medium=item.get('image_aspect_ratio_medium', 'square'),
+        image_aspect_ratio_large=item.get('image_aspect_ratio_large', '2-3')
+    ) }}
 {% endif %}
 {%- endmacro -%}
 
@@ -146,9 +157,9 @@ Params
         designer constraints (e.g. quote only allowed in full-width).
     -#}
     {%- set allowed_blocks_per_layout = {
-        '50-50': [ 'linked-logo', 'logo-block', 'divided-section', 'blog' ],
-        '25-75': [ 'linked-logo', 'logo-block', 'blog' ],
-        'full-width': [ 'quote', 'linked-logo', 'logo-block', 'blog' ]
+        '50-50': [ 'linked-logo', 'logo-block', 'divided-section', 'blog', 'equal-heights' ],
+        '25-75': [ 'linked-logo', 'logo-block', 'blog', 'equal-heights' ],
+        'full-width': [ 'quote', 'linked-logo', 'logo-block', 'blog', 'equal-heights' ]
     } -%}
 
     {#- Primary layout logic -#}
