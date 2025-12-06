@@ -9,6 +9,24 @@
 # list_item_title_[1-25]: title element of each child list item
 # list_item_description_[1-25]: description element of each child list item
 # cta: CTA block element
+
+{#- Private helper macro for rendering list item separator -#}
+{% macro _vf_tiered_list_item_separator() -%}
+  <div class="grid-row">
+    <div class="grid-col-6 grid-col-start-large-3">
+      <hr class="is-muted"/>
+    </div>
+  </div>
+{%- endmacro %}
+
+{#- Private helper macro for rendering list item content -#}
+{% macro _vf_tiered_list_item(title_col_classes, description_col_classes, title_content, description_content) -%}
+  <div class="grid-row">
+    <div class="{{ title_col_classes }}">{{ title_content }}</div>
+    <div class="{{ description_col_classes }}">{{ description_content }}</div>
+  </div>
+{%- endmacro %}
+
 {% macro vf_tiered_list(
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true) -%}
@@ -17,16 +35,14 @@
   {%- set has_description = description_content|trim|length > 0 -%}
   {%- set cta_content = caller('cta') -%}
   {%- set has_cta = cta_content|trim|length > 0 -%}
-
   <div class="p-section u-fixed-width">
-    <hr class="p-rule">
+    <hr class="p-rule"/>
     <div class="p-section--shallow">
       {% if has_description == true -%}
         {%- if is_description_full_width_on_desktop == true -%}
           <div class="u-fixed-width">
             {{ title_content }}
           </div>
-
           <div class="grid-row">
             <div class="grid-col-4 grid-col-start-large-5">
               {{ description_content }}
@@ -37,7 +53,6 @@
             <div class="grid-col">
               {{ title_content }}
             </div>
-
             <div class="grid-col">
               {{ description_content }}
             </div>
@@ -49,7 +64,6 @@
         </div>
       {%- endif %}
     </div>
-
     {#-
       When there is a CTA, we use shallow spacing to space the list away from the CTA.
       When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
@@ -62,54 +76,26 @@
         {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
         {%- set list_item_description_content = caller('list_item_description_' + number|string) -%}
         {%- set has_description_content = list_item_description_content|trim|length > 0 -%}
-
         {#- Check to see if title/description content exist, since we're
             iterating through 25 potential list items -#}
         {%- if has_title_content and has_description_content -%}
+          {#- Skip the first HR -#}
+          {%- if number != 1 %}
+            {{ _vf_tiered_list_item_separator() }}
+          {%- endif -%}
           {%- if is_list_full_width_on_tablet == true %}
-            {#- Skip the first HR -#}
-            {%- if number != 1 %}
-              <div class="grid-row">
-                <div class="grid-col-6 grid-col-start-large-3">
-                  <hr class="is-muted">
-                </div>
-              </div>
-            {%- endif -%}
-
-            <div class="grid-row">
-              <div class="grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
-
-              <div class="grid-col-4">{{ list_item_description_content }}</div>
-            </div>
+            {{ _vf_tiered_list_item('grid-col-2 grid-col-start-large-3', 'grid-col-4', list_item_title_content, list_item_description_content) }}
           {%- else %}
-            {#- Skip the first HR -#}
-            {%- if number != 1 %}
-              <div class="grid-row">
-                <div class="grid-col-6 grid-col-start-large-3">
-                  <hr class="is-muted">
-                </div>
-              </div>
-            {%- endif -%}
-
-            <div class="grid-row">
-              <div class="grid-col-medium-2 grid-col-2 grid-col-start-large-3">
-                {{ list_item_title_content }}
-              </div>
-
-              <div class="grid-col-medium-2 grid-col-4">
-                {{ list_item_description_content }}
-              </div>
-            </div>
+            {{ _vf_tiered_list_item('grid-col-medium-2 grid-col-2 grid-col-start-large-3', 'grid-col-medium-2 grid-col-4', list_item_title_content, list_item_description_content) }}
           {%- endif -%}
         {%- endif -%}
       {% endfor %}
       {%- if has_cta -%}
       </div>
     {%- endif -%}
-
     {% if has_cta == true -%}
       <div class="grid-row">
-        <hr class="p-rule--muted">
+        <hr class="p-rule--muted"/>
         <div class="grid-col-4 grid-col-start-large-5">
           <p>
             {{ cta_content }}
