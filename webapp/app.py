@@ -76,8 +76,7 @@ session = requests.Session()
 TEAM_MEMBERS = [
     {"login": "anthonydillon", "role": "Engineering Director"},
     {"login": "advl", "role": "Engineering Manager"},
-    {"login": "lyubomir-popov", "role": "Lead Visual Designer"},
-    {"login": "jmuzina", "role": "Web Engineer"}
+    {"login": "lyubomir-popov", "role": "Lead Visual Designer"}
 ]
 
 
