@@ -12,15 +12,11 @@ A linked logo section is used to display a list of logos which explicitly link t
 
 The linked logo section pattern is composed of the following elements:
 
-| Element                           | Description                                                                               |
-| --------------------------------- | ----------------------------------------------------------------------------------------- |
-| title_text                        | `H2` title text.                                                                          |
-| Layout                            | Defaults to `full-width`, with additional options for `50-50`, and `25-75` layout splits. |
-| Links (**required**)              | An `Array<Object>` of individual image link properties.                                   |
-| Links[].href (**required**)       | The target link for the logo.                                                             |
-| Links[].text (**required**)       | The link text for the logo.                                                               |
-| Links[].label (**required**)      | The `aria-label` for the logo.                                                            |
-| Links[].image_html (**required**) | The logo image element.                                                                   |
+| Element                   | Description                                |
+| ------------------------- | ------------------------------------------ |
+| Title                     | `H2` title text.                           |
+| Links (**required**)      | A series of links and associated metadata. |
+| Link image (**required**) | An image to display for the link.          |
 
 ## Full width
 
@@ -32,7 +28,8 @@ View example of the linked logo section full-width pattern
 
 ## 50/50
 
-This variant can be used for adding a header and the logo section in different columns. This should only be used when there's a maximum of 6 logos to avoid occupying too much vertical space.
+This variant can be used for adding a header and the logo section in different columns. This should only be used when
+there's a maximum of 6 logos to avoid occupying too much vertical space.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/linked-logo-section/50-50" class="js-example" data-lang="jinja">
 View example of the linked logo section 50-50 pattern
@@ -40,7 +37,8 @@ View example of the linked logo section 50-50 pattern
 
 ## 25/75
 
-This variant can be used for adding a header and the logo section in different columns, but can accommodate up to 9 logos. Be aware that the heading only occupies 25% width here, so only very short titles would be appropriate here.
+This variant can be used for adding a header and the logo section in different columns, but can accommodate up to 9
+logos. Be aware that the heading only occupies 25% width here, so only very short titles would be appropriate here.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/linked-logo-section/25-75" class="js-example" data-lang="jinja">
 View example of the linked logo section 25-75 pattern
@@ -48,7 +46,8 @@ View example of the linked logo section 25-75 pattern
 
 ## Jinja Macro
 
-The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo list pattern. The API for the macro is shown below.
+The `vf_linked_logo_section` Jinja macro can be used to generate a linked logo list pattern. The API for the macro is
+shown below.
 
 ### Parameters
 
