@@ -34,7 +34,7 @@
       {%- set item_classes = _get_item_padding_classes_divided(item, loop.last, (divided_blocks|length == 0)) -%}
       <div {%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>{{- basic_section_item(item) -}}</div>
     {%- endfor -%}
-     {%- if divided_blocks | length > 0 -%}<hr class="skimbus p-rule--muted" />{%- endif %}
+     {%- if divided_blocks | length > 0 -%}<hr class="p-rule--muted" />{%- endif %}
   {%- endif -%}
 
   {%- for block in divided_blocks -%}

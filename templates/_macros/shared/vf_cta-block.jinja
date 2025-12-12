@@ -53,7 +53,7 @@
     {%- set has_secondaries = secondaries | length > 0 -%}
     {%- set link_content_html = link.get("content_html", "") | trim -%}
     {%  set has_link = link_content_html | length > 0 -%}
-    {%- if has_primary or has_secondaries or has_ink -%}
+    {%- if has_primary or has_secondaries or has_link -%}
         <div class="p-cta-block u-no-padding--bottom">
             {%- if has_primary  %}
                 {{ _cta_button(
