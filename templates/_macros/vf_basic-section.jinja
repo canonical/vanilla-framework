@@ -6,6 +6,28 @@
 {% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
 {% from "_macros/shared/vf_logo-block.jinja" import vf_logo_block %}
 
+{% macro vf_basic_section_blocks(items=[]) %}
+  {%- for item in items -%}
+    {%- set item_padding = (item.get("padding", "")) | trim -%}
+    {%- if item_padding not in ["shallow"] -%}
+      {%- set item_padding="" -%}
+    {%- endif -%}
+
+    {%- set item_classes = "" -%}
+    {%- if item_padding | length > 0 -%}
+      {%- set item_classes = "p-section--" + item_padding -%}
+    {%- endif -%}
+
+    {#- Last item should not have any additional padding - the pattern itself already has bottom padding -#}
+    {%- if loop.last -%}
+      {%- set item_classes = "" -%}
+    {%- endif -%}
+    <div{%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>
+      {{- basic_section_item(item) -}}
+    </div>
+  {%- endfor -%}
+{% endmacro %}
+
 {#-
     This helper macro used to entirely implement the description block for this pattern.
     The description block has since been upstreamed to `templates/_macros/shared/vf_description-block.jinja`.
@@ -258,25 +280,7 @@
       {%- if has_subtitle -%}
         <p class="p-heading--{{ subtitle_heading_level }}">{{- subtitle_text -}}</p>
       {%- endif -%}
-      {%- for item in items -%}
-        {%- set item_padding = (item.get("padding", "")) | trim -%}
-        {%- if item_padding not in ["shallow"] -%}
-          {%- set item_padding="" -%}
-        {%- endif -%}
-
-        {%- set item_classes = "" -%}
-        {%- if item_padding | length > 0 -%}
-          {%- set item_classes = "p-section--" + item_padding -%}
-        {%- endif -%}
-
-        {#- Last item should not have any additional padding - the pattern itself already has bottom padding -#}
-        {%- if loop.last -%}
-         {%- set item_classes = "" -%}
-        {%- endif -%}
-        <div{%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>
-        {{- basic_section_item(item) -}}
-        </div>
-      {%- endfor -%}
+      {{- vf_basic_section_blocks(items=items) -}}
     </div>
   </div>
 </section>

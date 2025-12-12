@@ -7,6 +7,7 @@
 {% from "_macros/shared/vf_logo-block.jinja" import vf_logo_block %}
 {% from "_macros/shared/vf_divided-section-block.jinja" import vf_divided_section_block %}
 {% from "_macros/shared/vf_blog-block.jinja" import vf_blog_block %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section_blocks %}
 
 {#-
 FULL-WIDTH ONLY
@@ -52,20 +53,18 @@ Params
 {%- set item = tab.get("item", {}) -%}
 {% if type == "quote" %}
 {{ _tab_section_quote(item) }}
-{% endif %}
-{% if type == "linked-logo" %}
+{% elif type == "linked-logo" %}
     {{ vf_linked_logo_block({ 'links': item.get('links', []) }) }}
-{% endif %}
-{% if type == "logo-block" %}
+{% elif type == "logo-block" %}
     {{ vf_logo_block({ 'logos': item.get('logos', []), 'is_fixed_width': item.get('is_fixed_width', true) }) }}
-{% endif %}
-{% if type == "divided-section" %}
+{% elif type == "divided-section" %}
     {{ vf_divided_section_block(blocks=item.get('blocks', [])) }}
-{% endif %}
-{% if type == "blog" %}
+{% elif type == "blog" %}
     <div class="p-blog grid-row">
         {{ vf_blog_block(articles=item.get('articles', []), template_config=item.get('template_config', {})) }}
     </div>
+{% elif type == "basic-section" %}
+    {{ vf_basic_section_blocks(items=item.get('items', [])) }}
 {% endif %}
 {%- endmacro -%}
 
@@ -146,7 +145,7 @@ Params
         designer constraints (e.g. quote only allowed in full-width).
     -#}
     {%- set allowed_blocks_per_layout = {
-        '50-50': [ 'linked-logo', 'logo-block', 'divided-section', 'blog' ],
+        '50-50': [ 'linked-logo', 'logo-block', 'divided-section', 'blog', 'basic-section' ],
         '25-75': [ 'linked-logo', 'logo-block', 'blog' ],
         'full-width': [ 'quote', 'linked-logo', 'logo-block', 'blog' ]
     } -%}
@@ -211,7 +210,4 @@ Params
             </div>
         </div>
     </section>
-
-
-
     {%- endmacro -%}
