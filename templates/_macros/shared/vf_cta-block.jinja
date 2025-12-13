@@ -33,17 +33,33 @@
 {% endmacro %}
 
 {#-
-    Params
-        - primary (Object)
-            - content_html: The inner HTML for the primary call-to-action button.
-            - attrs: A dictionary of attributes to apply to the primary button.
-        - secondaries (Array) (generally, we recommend using 2):
-            - content_html: The inner HTML for the secondary call-to-action button.
-            - attrs: A dictionary of attributes to apply to the secondary button.
-        - link
-            - content_html: The inner HTML for the link.
-            - attrs: A dictionary of attributes to apply to the link.
- #}
+Macro: vf_cta_block
+Purpose: Helper macro to render a container with primary, secondary, and link CTA elements.
+Used by section patterns to display call-to-action buttons and links together.
+
+Parameters:
+- primary (Object, Optional) - Primary call-to-action button configuration. Properties:
+    - content_html (String, Required) - The inner HTML for the primary button
+    - attrs (Object, Optional) - HTML attributes for the button (e.g., href, class)
+    Default: {} (no primary CTA rendered)
+
+- secondaries (Array, Optional) - Array of secondary CTA buttons (typically 2 recommended).
+  Each item has the same structure as primary:
+    - content_html (String, Required) - The inner HTML for the secondary button
+    - attrs (Object, Optional) - HTML attributes for the button
+    Default: [] (no secondary CTAs rendered)
+
+- link (Object, Optional) - Text link configuration. Properties:
+    - content_html (String, Required) - The inner HTML for the link
+    - attrs (Object, Optional) - HTML attributes for the link (e.g., href, class)
+    Default: {} (no link rendered)
+
+Note: If any 'attrs' contains an 'href' attribute, that element will render as an <a> tag.
+Otherwise, it renders as a <button> tag.
+
+Returns: A <div class="p-cta-block"> containing the rendered CTA elements,
+or empty string if no CTAs are provided.
+-#}
 {% macro vf_cta_block(primary={}, secondaries=[], link={}) %}
     {%- if not primary -%}{%- set primary = {} -%}{%- endif -%}
     {%- if not secondaries -%}{%- set secondaries = [] -%}{%- endif -%}

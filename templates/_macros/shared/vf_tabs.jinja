@@ -1,13 +1,31 @@
 {#-
-    Params
-        - list
-            - attrs (Object) - forwards attributes to the `p-tabs__list` element.
-                Note, `role` cannot be customized - it is always `tablist`.
-            - tabs (Array)
-                - name (String) (Required) - Unique name for the tab.
-                    This is used to link together tabs and contents by their `id` and `aria-controls` attributes.
-                - tab_html (String) (Required)
-                - content_html (String) (Required)
+Macro: vf_tabs
+Purpose: Helper macro to render a tabbed interface with tabs and associated content panels.
+This is a low-level building block used by higher-order components like vf_tab_section
+to manage tab rendering and accessibility.
+
+Parameters:
+- list (Object) - Configuration object with the following properties:
+    - attrs (Object, Optional) - HTML attributes to forward to the p-tabs__list element.
+      Note: The 'role' attribute is always set to 'tablist' and cannot be customized.
+      See attribute forwarding docs for more info.
+
+    - tabs (Array, Required) - Array of tab configurations. Each tab must have:
+        - name (String, Required) - Unique identifier for the tab.
+          Used to link tab buttons and content via id and aria-controls attributes.
+          Must be unique within the tabs array.
+
+        - tab_html (String, Required) - HTML content for the tab button/label.
+          This is the visible text/markup shown in the tab bar.
+
+        - content_html (String, Required) - HTML content for the tab panel.
+          This is the content shown when the tab is active.
+
+Accessibility: The macro automatically renders proper ARIA attributes for tab management:
+- First tab is rendered as selected (aria-selected="true")
+- Tab buttons have role="tab" and aria-controls linking to their content panels
+- Content panels have role="tabpanel" and aria-labelledby linking to their tab button
+- All but the first panel are initially hidden with hidden="hidden"
 -#}
 {%- macro vf_tabs(list={}) -%}
     {%- set list_attrs = list.get("attrs", {}) -%}
@@ -24,7 +42,11 @@
             {%- endfor -%}
         >
         {%- for tab in tabs -%}
-            {%- set name = tab.get("name", "") -%}
+          {#-
+              Append the tab index to the name to ensure uniqueness within the tabs
+              If any names are duplicated, the generated IDs would not be unique, causing tabs to control the wrong panels.
+            -#}
+            {%- set name = tab.get("name", "") + "-" + (loop.index | string) -%}
             <div class="p-tabs__item">
                 <button
                     class="p-tabs__link"
@@ -38,7 +60,11 @@
         {%- endfor -%}
         </div>
         {%- for tab in tabs -%}
-            {%- set name = tab.get("name", "") -%}
+            {#-
+              Append the tab index to the name to ensure uniqueness within the tabs
+              If any names are duplicated, the generated IDs would not be unique, causing tabs to control the wrong panels.
+            -#}
+            {%- set name = tab.get("name", "") + "-" + (loop.index | string) -%}
             <div
                 tabindex="0"
                 role="tabpanel"

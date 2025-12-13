@@ -1,0 +1,911 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / Multiple tab sections{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {{- vf_tab_section(
+    title={
+        "text": "Tab section 1"
+    },
+    description={
+        "content": "The quick brown fox jumps over the lazy dog"
+    },
+    cta={
+        "primary": {
+            "content_html": "Primary Button",
+            "attrs": {
+                "href": "#"
+            }
+        },
+        "secondaries": [
+            {
+                "content_html": "Secondary Button",
+                "attrs": {
+                    "href": "#"
+                }
+            }
+        ],
+        "link": {
+            "content_html": "Learn more ›",
+            "attrs": {
+                "href": "#"
+            }
+        }
+    },
+    tabs=[
+        {
+            "tab_html": "Linked logos",
+            "type": "linked-logo",
+            "item": {
+                "title_text": "Come for PostgreSQL, get security and support for your entire stack",
+                "links": [
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "Kubeflow",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "432",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "MLflow",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/104192d9-mlflow-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "222",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "Apache Spark",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/855deda8-apache-spark-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "240",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "OpenSearch",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/a8185f91-opensearch-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "330",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "Kafka",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/d30de1f1-kafka-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "294",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "PostgreSQL",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/f5605b7e-postgre-sql-container-vert-fill.png",
+                            "alt": "",
+                            "width": "432",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "MongoDB",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/efdc8292-mongodb-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "413",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "MySQL",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/692e2b1d-mysql-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "300",
+                            "height": "481"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "tab_html": "Logos",
+            "type": "logo-block",
+            "item": {
+                "title_text": "Our technology partners",
+                "logos": [
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+                            "alt": "Hewlett Packard"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+                            "alt": "Lenovo"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/2ef3c028-amazon-web-services-logo.png",
+                            "alt": "Amazon Web Services"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cb7ef8ac-ibm-cloud-logo.png",
+                            "alt": "IBM Cloud"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/a554a818-google-cloud-logo.png",
+                            "alt": "Google Cloud Platform"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/b3e692f4-oracle-new-logo.png",
+                            "alt": "Oracle"
+                        }
+                    }
+                ]
+            }
+        }
+        ,
+        {
+            "tab_html": "Divided",
+            "type": "divided-section",
+            "item": {
+                "blocks": [
+                    {
+                        "type": "description-block",
+                        "items": [
+                        {
+                            "type": "list",
+                            "item": {
+                            "list_items": [
+                                {
+                                "list_item_type": "tick",
+                                "content": "Enhanced security with AppArmor and live kernel patching"
+                                },
+                                {
+                                "list_item_type": "tick",
+                                "content": "Optimized performance for cloud and container workloads"
+                                },
+                                {
+                                "list_item_type": "tick",
+                                "content": "10-year long term support with regular security updates"
+                                }
+                            ]
+                            },
+                        },
+                        {
+                            "type": "description",
+                            "item": {
+                            "type": "text",
+                            "content": "This description has shallow padding applied, increasing the vertical space between it and the next item."
+                            }
+                        }
+                        ]
+                    },
+                    {
+                        "type": "divided-block",
+                        "bullet_type": "number",
+                        "items": [
+                            {
+                                "title_text": "To get started, install the MicroCeph snap with the following command on each node to be used in the cluster:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo snap install microceph"
+                                    }
+                                }
+                                ]
+                            },
+                            {
+                                "title_text": "Then bootstrap the cluster:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo microceph cluster bootstrap"
+                                    }
+                                }
+                                ]
+                            },
+                            {
+                                "title_text": "Check the cluster status with the following command:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo microceph.ceph status"
+                                    }
+                                },
+                                {
+                                    "type": "description",
+                                    "item": {
+                                    "type": "text",
+                                    "content": "Here you should see that there is a single node in the cluster."
+                                    }
+                                }
+                                ]
+                            },
+                            {
+                                "title_text": "To use MicroCeph as a single node, the default CRUSH rules need to be modified:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "
+                                                sudo microceph.ceph osd crush rule rm replicated_rule
+                                                sudo microceph.ceph osd crush rule create-replicated single
+                                                default osd
+                                                "
+                                    }
+                                },
+                                ]
+                            },
+                            {
+                                "title_text": "Next, add some disks that will be used as OSDs:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo microceph disk add /dev/sd[x] --wipe"
+                                    }
+                                },
+                                {
+                                    "type": "description",
+                                    "item": {
+                                    "type": "text",
+                                    "content": "Repeat for each disk you would like to use as an OSD on that node, and additionally on the other nodes in the cluster. Cluster status can be verified using:"
+                                    }
+                                },
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "
+                                    sudo microceph.ceph status
+                                    sudo microceph.ceph osd status
+                                    "
+                                    }
+                                },
+                                ]
+                            }
+                        ]
+                    },
+                ]
+            }
+        },
+        {
+            "tab_html": "Blog",
+            "type": "blog",
+            "item": {
+                "template_config": {
+                    "enabled": True,
+                    "layout": "2-blocks",
+                    "template_container_id": "articles-1",
+                    "template_id": "template-1"
+                }
+            }
+        },
+        {
+          "tab_html": "Basic",
+          "type": "basic-section",
+          "item": {
+            "items": [
+              {
+                "type": "description",
+                "item": {
+                  "type": "html",
+                  "content": "
+                    <p>
+                      Ubuntu Server provides the best value scale-out performance available.
+                      It includes everything you need to deploy and operate OpenStack, Kubernetes, and a wide range of workloads.
+                    </p>
+                  "
+                }
+              },
+              {
+                "type": "image",
+                "item": {
+                  "aspect_ratio": "16-9",
+                  "caption_html": "Ubuntu Server running in production environment",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+                    "class": "another-classname",
+                    "alt": "Ubuntu Server dashboard"
+                  }
+                }
+              },
+              {
+                "type": "list",
+                "item": {
+                  "list_items": [
+                    {
+                      "list_item_type": "tick",
+                      "content": "Enhanced security with AppArmor and live kernel patching"
+                    },
+                    {
+                      "list_item_type": "tick",
+                      "content": "Optimized performance for cloud and container workloads"
+                    },
+                    {
+                      "list_item_type": "tick",
+                      "content": "10-year long term support with regular security updates"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "code-block",
+                "item": {
+                  "content": '
+                    # Install Ubuntu Server
+                    sudo apt update
+                    sudo apt install ubuntu-server
+
+                    # Enable security features
+                    sudo ufw enable
+                    sudo ufw default deny incoming
+                  '
+                }
+              },
+              {
+                "type": "logo-block",
+                "item": {
+                  "logos": [
+                    {
+                      "attrs": {
+                        "src": "https://assets.ubuntu.com/v1/38fdfd23-Dell-logo.png",
+                        "alt": "Dell Technologies"
+                      }
+                    },
+                    {
+                      "attrs": {
+                        "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+                        "alt": "Hewlett Packard"
+                      }
+                    },
+                    {
+                      "attrs": {
+                        "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+                        "alt": "Lenovo"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "cta-block",
+                "item": {
+                  "primary": {
+                    "content_html": "Download Ubuntu Server",
+                    "attrs": {
+                      "href": "#"
+                    }
+                  },
+                  "secondaries": [
+                    {
+                      "content_html": "View Documentation",
+                      "attrs": {
+                        "href": "#"
+                      }
+                    },
+                    {
+                      "content_html": "Contact Sales",
+                      "attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "link": {
+                    "content_html": "Learn more about Ubuntu Server ›",
+                    "attrs": {
+                      "href": "#"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+    ]
+) -}}
+  {{- vf_tab_section(
+    title={
+        "text": "Tab section 2"
+    },
+    description={
+        "content": "The quick brown fox jumps over the lazy dog"
+    },
+    cta={
+        "primary": {
+            "content_html": "Primary Button",
+            "attrs": {
+                "href": "#"
+            }
+        },
+        "secondaries": [
+            {
+                "content_html": "Secondary Button",
+                "attrs": {
+                    "href": "#"
+                }
+            }
+        ],
+        "link": {
+            "content_html": "Learn more ›",
+            "attrs": {
+                "href": "#"
+            }
+        }
+    },
+    tabs=[
+        {
+            "tab_html": "Linked logos",
+            "type": "linked-logo",
+            "item": {
+                "title_text": "Come for PostgreSQL, get security and support for your entire stack",
+                "links": [
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "Kubeflow",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "432",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "MLflow",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/104192d9-mlflow-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "222",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "Apache Spark",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/855deda8-apache-spark-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "240",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "OpenSearch",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/a8185f91-opensearch-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "330",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "Kafka",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/d30de1f1-kafka-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "294",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "PostgreSQL",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/f5605b7e-postgre-sql-container-vert-fill.png",
+                            "alt": "",
+                            "width": "432",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "MongoDB",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/efdc8292-mongodb-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "413",
+                            "height": "481"
+                        }
+                    },
+                    {
+                        "href": "#",
+                        "text": "Learn more ›",
+                        "label": "MySQL",
+                        "image_attrs": {
+                            "src": "https://assets.ubuntu.com/v1/692e2b1d-mysql-logo-container-vert-fill.png",
+                            "alt": "",
+                            "width": "300",
+                            "height": "481"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "tab_html": "Logos",
+            "type": "logo-block",
+            "item": {
+                "title_text": "Our technology partners",
+                "logos": [
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+                            "alt": "Hewlett Packard"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+                            "alt": "Lenovo"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/2ef3c028-amazon-web-services-logo.png",
+                            "alt": "Amazon Web Services"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cb7ef8ac-ibm-cloud-logo.png",
+                            "alt": "IBM Cloud"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/a554a818-google-cloud-logo.png",
+                            "alt": "Google Cloud Platform"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/b3e692f4-oracle-new-logo.png",
+                            "alt": "Oracle"
+                        }
+                    }
+                ]
+            }
+        }
+        ,
+        {
+            "tab_html": "Divided",
+            "type": "divided-section",
+            "item": {
+                "blocks": [
+                    {
+                        "type": "description-block",
+                        "items": [
+                        {
+                            "type": "list",
+                            "item": {
+                            "list_items": [
+                                {
+                                "list_item_type": "tick",
+                                "content": "Enhanced security with AppArmor and live kernel patching"
+                                },
+                                {
+                                "list_item_type": "tick",
+                                "content": "Optimized performance for cloud and container workloads"
+                                },
+                                {
+                                "list_item_type": "tick",
+                                "content": "10-year long term support with regular security updates"
+                                }
+                            ]
+                            },
+                        },
+                        {
+                            "type": "description",
+                            "item": {
+                            "type": "text",
+                            "content": "This description has shallow padding applied, increasing the vertical space between it and the next item."
+                            }
+                        }
+                        ]
+                    },
+                    {
+                        "type": "divided-block",
+                        "bullet_type": "number",
+                        "items": [
+                            {
+                                "title_text": "To get started, install the MicroCeph snap with the following command on each node to be used in the cluster:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo snap install microceph"
+                                    }
+                                }
+                                ]
+                            },
+                            {
+                                "title_text": "Then bootstrap the cluster:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo microceph cluster bootstrap"
+                                    }
+                                }
+                                ]
+                            },
+                            {
+                                "title_text": "Check the cluster status with the following command:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo microceph.ceph status"
+                                    }
+                                },
+                                {
+                                    "type": "description",
+                                    "item": {
+                                    "type": "text",
+                                    "content": "Here you should see that there is a single node in the cluster."
+                                    }
+                                }
+                                ]
+                            },
+                            {
+                                "title_text": "To use MicroCeph as a single node, the default CRUSH rules need to be modified:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "
+                                                sudo microceph.ceph osd crush rule rm replicated_rule
+                                                sudo microceph.ceph osd crush rule create-replicated single
+                                                default osd
+                                                "
+                                    }
+                                },
+                                ]
+                            },
+                            {
+                                "title_text": "Next, add some disks that will be used as OSDs:",
+                                "contents": [
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "sudo microceph disk add /dev/sd[x] --wipe"
+                                    }
+                                },
+                                {
+                                    "type": "description",
+                                    "item": {
+                                    "type": "text",
+                                    "content": "Repeat for each disk you would like to use as an OSD on that node, and additionally on the other nodes in the cluster. Cluster status can be verified using:"
+                                    }
+                                },
+                                {
+                                    "type": "code-block",
+                                    "item": {
+                                    "content": "
+                                    sudo microceph.ceph status
+                                    sudo microceph.ceph osd status
+                                    "
+                                    }
+                                },
+                                ]
+                            }
+                        ]
+                    },
+                ]
+            }
+        },
+        {
+            "tab_html": "Blog",
+            "type": "blog",
+            "item": {
+                "template_config": {
+                    "enabled": True,
+                    "layout": "2-blocks",
+                    "template_container_id": "articles-2",
+                    "template_id": "template-2"
+                }
+            }
+        },
+        {
+          "tab_html": "Basic",
+          "type": "basic-section",
+          "item": {
+            "items": [
+              {
+                "type": "description",
+                "item": {
+                  "type": "html",
+                  "content": "
+                    <p>
+                      Ubuntu Server provides the best value scale-out performance available.
+                      It includes everything you need to deploy and operate OpenStack, Kubernetes, and a wide range of workloads.
+                    </p>
+                  "
+                }
+              },
+              {
+                "type": "image",
+                "item": {
+                  "aspect_ratio": "16-9",
+                  "caption_html": "Ubuntu Server running in production environment",
+                  "attrs": {
+                    "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+                    "class": "another-classname",
+                    "alt": "Ubuntu Server dashboard"
+                  }
+                }
+              },
+              {
+                "type": "list",
+                "item": {
+                  "list_items": [
+                    {
+                      "list_item_type": "tick",
+                      "content": "Enhanced security with AppArmor and live kernel patching"
+                    },
+                    {
+                      "list_item_type": "tick",
+                      "content": "Optimized performance for cloud and container workloads"
+                    },
+                    {
+                      "list_item_type": "tick",
+                      "content": "10-year long term support with regular security updates"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "code-block",
+                "item": {
+                  "content": '
+                    # Install Ubuntu Server
+                    sudo apt update
+                    sudo apt install ubuntu-server
+
+                    # Enable security features
+                    sudo ufw enable
+                    sudo ufw default deny incoming
+                  '
+                }
+              },
+              {
+                "type": "logo-block",
+                "item": {
+                  "logos": [
+                    {
+                      "attrs": {
+                        "src": "https://assets.ubuntu.com/v1/38fdfd23-Dell-logo.png",
+                        "alt": "Dell Technologies"
+                      }
+                    },
+                    {
+                      "attrs": {
+                        "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+                        "alt": "Hewlett Packard"
+                      }
+                    },
+                    {
+                      "attrs": {
+                        "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+                        "alt": "Lenovo"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "cta-block",
+                "item": {
+                  "primary": {
+                    "content_html": "Download Ubuntu Server",
+                    "attrs": {
+                      "href": "#"
+                    }
+                  },
+                  "secondaries": [
+                    {
+                      "content_html": "View Documentation",
+                      "attrs": {
+                        "href": "#"
+                      }
+                    },
+                    {
+                      "content_html": "Contact Sales",
+                      "attrs": {
+                        "href": "#"
+                      }
+                    }
+                  ],
+                  "link": {
+                    "content_html": "Learn more about Ubuntu Server ›",
+                    "attrs": {
+                      "href": "#"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+    ]
+) -}}
+{% endblock %}
+
+{% block script %}
+  <script type="module" src="/js/tabs.js"></script>
+  <script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
+  <script>
+    canonicalLatestNews.fetchLatestNews({
+      // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+      imageClasses: ["p-image-container__image"],
+      /*
+			Make sure your article limit and `template_config.layout` match.
+			Use "4-blocks" (or no layout, as 4-blocks is the default) with `limit: "4"`.
+			*/
+      limit: "2",
+      articlesContainerSelector: "#articles-1",
+      articleTemplateSelector: "#template-1",
+      excerptLength: 180,
+      gtmEventLabel: "Vanilla Blog pattern template example",
+    })
+    canonicalLatestNews.fetchLatestNews({
+      // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+      imageClasses: ["p-image-container__image"],
+      /*
+			Make sure your article limit and `template_config.layout` match.
+			Use "4-blocks" (or no layout, as 4-blocks is the default) with `limit: "4"`.
+			*/
+      limit: "2",
+      articlesContainerSelector: "#articles-2",
+      articleTemplateSelector: "#template-2",
+      excerptLength: 180,
+      gtmEventLabel: "Vanilla Blog pattern template example",
+    })
+  </script>
+{% endblock %}

@@ -44,9 +44,22 @@ Params
 {%- endmacro -%}
 
 {#-
-Params
-- type (todo flesh these out but its some string union)
-- item (Object) (depends on the schema of that block)
+Internal macro: _tab_section_tab
+Purpose: Renders the appropriate content block based on the tab's type.
+This is an internal helper macro used to dispatch to the correct block renderer.
+
+Params:
+- tab (Object) - Configuration object with the following properties:
+    - type (String) - The type of content block. Must be one of:
+        - "quote" - Quote block (full-width only). See _tab_section_quote
+        - "linked-logo" - Linked logo block. See vf_linked_logo_block
+        - "logo-block" - Logo block. See vf_logo_block
+        - "divided-section" - Divided section block. See vf_divided_section_block
+        - "blog" - Blog articles block. See vf_blog_block
+        - "basic-section" - Basic section with content blocks. See vf_basic_section_blocks
+    - item (Object) - Configuration specific to the block type.
+      The structure depends on the type selected (see referenced macros).
+    - tab_html (String) - HTML content for the tab label
 -#}
 {%- macro _tab_section_tab(tab={}) -%}
 {%- set type = tab.get("type", "") | trim -%}
@@ -69,27 +82,55 @@ Params
 {%- endmacro -%}
 
 {#-
-Params
-- title
-- text (string)
-- link_attrs (Object)
-- heading_level (2 | 3 | 4) (default: 2)
-- description (see vf_description_block())
-- type
-- content
-- cta (see vf_cta_block())
-- primary
-- secondaries
-- link
-- layout: ("25-75" | "50-50" | "full-width") (default: "full-width")
-- padding: ("deep" | "shallow" | "default" (default: "default")
-- top_rule_variant: Type of HR to render at the top of the pattern. ("default" | "muted") (default: "default").
-- tabs: Array
-- blocks: Object
-- type: <TODO SOME UNION>
-    - item: Object (depends on the schema of that block)
+Macro: vf_tab_section
+Purpose: A higher-order component that renders a section with a title, optional description,
+optional call-to-action, and a tabbed interface containing various content blocks.
 
-    #}
+This pattern combines a top heading area with tabs that can contain different types of
+content blocks (quotes, logos, blog articles, etc.). The allowed block types vary by layout.
+
+Parameters:
+- title (Object) - Configuration for the title. Properties:
+    - text (String, Required) - The main title text (rendered as h2 by default)
+    - link_attrs (Object, Optional) - Attributes for the title link (e.g., href, class)
+    - heading_level (Number, Optional) - Heading level for the title (2, 3, or 4). Default: 2
+
+- description (Object, Optional) - Configuration for the secondary description column.
+  Passed directly to vf_description_block. Properties:
+    - content (String) - The description text or HTML content
+    - type (String, Optional) - "text" or "html". Default: "text"
+
+- cta (Object, Optional) - Call-to-action configuration passed to vf_cta_block. Properties:
+    - primary (Object) - Primary button configuration
+    - secondaries (Array) - Array of secondary button configurations
+    - link (Object) - Text link configuration
+
+- layout (String, Optional) - Layout variant. One of:
+    - "full-width" - Tabs span full width. Allows: quote, linked-logo, logo-block, blog
+    - "50-50" - Tabs in right 50% column. Allows: linked-logo, logo-block, divided-section, blog, basic-section
+    - "25-75" - Tabs in right 75% column. Allows: linked-logo, logo-block, blog
+    Default: "50-50"
+
+- padding (String, Optional) - Padding variant. One of:
+    - "deep" - Uses p-section--deep
+    - "shallow" - Uses p-section--shallow
+    - "default" - Uses p-section
+    Default: "default"
+
+- top_rule_variant (String, Optional) - Horizontal rule variant above title. One of:
+    - "default" - Standard horizontal rule
+    - "muted" - Muted horizontal rule
+    - "none" - No rule
+    Default: "default"
+
+- tabs (Array, Required) - Array of tab configurations. Each tab object should have:
+    - type (String, Required) - Block type: "quote", "linked-logo", "logo-block", "divided-section", "blog", or "basic-section"
+    - item (Object, Required) - Configuration specific to the block type
+    - tab_html (String, Optional) - HTML for the tab label. Falls back to 'label', 'title', or auto-generated.
+
+Note: Some block types are only allowed in certain layouts (see allowed_blocks_per_layout).
+Unsupported blocks for a layout will silently be skipped.
+-#}
     {%- macro vf_tab_section(
     title={},
     description={},
@@ -101,7 +142,7 @@ Params
     ) -%}
     {#- Marshall values from parameters into variables, apply safe defaults, and trim contents -#}
     {%- set title_text = title.get("text", "") | trim -%}
-    {%- set title_link_attrs = title.get("link-attrs", {}) -%}
+    {%- set title_link_attrs = title.get("link_attrs", {}) -%}
     {%- set title_heading_level = title.get("heading_level", 2) -%}
     {%- set padding = padding | trim -%}
 
@@ -194,10 +235,13 @@ Params
             {%- endif -%}
 
             {%- if render_tab -%}
-                {%- set name = tab.get('name', '') | trim -%}
-                {%- if name == '' -%}
-                    {%- set name = 'tab-' ~ loop.index -%}
-                {%- endif -%}
+                {#-
+                  Prepend the section title text to the name.
+                  This helps ensure uniqueness of tab section tab names across an entire page,
+                  in case multiple tab sections are used in a single page.
+                  The user still needs to ensure that the page's section titles are unique.
+                -#}
+                {%- set name = title_text | trim | lower | replace(' ', '_') -%}
                 {%- set tab_label = tab.get('tab_html', '') or tab.get('label', '') or tab.get('title', '') or ('Tab ' ~ loop.index) -%}
                 {%- set content_html = _tab_section_tab(tab=tab) -%}
                 {%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab_label, 'content_html': content_html } ] -%}

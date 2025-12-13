@@ -1,0 +1,84 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / Full width / Quote block (single){% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={
+        "text": "Tab section — full width example"
+    },
+    description={
+        "content": "An example of the tab section using the full-width layout. Quote blocks are allowed here."
+    },
+    cta={
+        "primary": {
+            "content_html": "Primary Button",
+            "attrs": {
+                "href": "#"
+            }
+        },
+        "secondaries": [
+            {
+                "content_html": "Secondary Button",
+                "attrs": {
+                    "href": "#"
+                }
+            }
+        ],
+        "link": {
+            "content_html": "Learn more ›",
+            "attrs": {
+                "href": "#"
+            }
+        }
+    },
+    layout="full-width",
+    tabs=[
+        {
+            "type": "quote",
+            "tab_html": "Quote",
+            "item": {
+                "signpost": {
+                    "image": {
+                        "html": "<img src=\"https://assets.ubuntu.com/v1/8c8bd206-example-logo-h2.png\" width=\"114\" alt=\"Org A logo\">"
+                    }
+                },
+                "citation": {
+                    "name": "Alice Example",
+                    "organisation": "Org A",
+                    "title": "Lead Designer"
+                },
+                "body": {
+                    "size": "large",
+                    "text": "This is the first quote shown in a full-width tab section."
+                },
+                "cta": {
+                    "html": "<a href=\"#\">Explore careers &rsaquo;</a>"
+                }
+            }
+        }
+    ]
+) -}}
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="/js/tabs.js"></script>
+    <script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
+    <script>
+        canonicalLatestNews.fetchLatestNews({
+            // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+            imageClasses: ["p-image-container__image"],
+            /*
+            Make sure your article limit and `template_config.layout` match.
+            Use "4-blocks" (or no layout, as 4-blocks is the default) with `limit: "4"`.
+            */
+            limit: "4",
+            articlesContainerSelector: "#articles",
+            articleTemplateSelector: "#template",
+            excerptLength: 180,
+            gtmEventLabel: "Vanilla Blog pattern template example",
+        })
+    </script>
+{% endblock %}

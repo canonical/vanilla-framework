@@ -1,13 +1,14 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
 
-{% block title %}Tab section / Full width{% endblock %}
+{% block title %}Tab section / Full width / Custom heading level{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
 {{- vf_tab_section(
     title={
-        "text": "Tab section — full width example"
+        "text": "Tab section — full width example",
+        "heading_level": 3
     },
     description={
         "content": "An example of the tab section using the full-width layout. Quote blocks are allowed here."
@@ -51,7 +52,7 @@
                     "title": "Lead Designer"
                 },
                 "body": {
-                    "size": "large",
+                    "size": "medium",
                     "text": "This is the first quote shown in a full-width tab section."
                 },
                 "cta": {

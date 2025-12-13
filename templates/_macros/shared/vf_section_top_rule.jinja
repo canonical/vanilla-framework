@@ -1,9 +1,22 @@
-# TODO this file should be renamed `vf_section-top-rule.jinja` for consistency with the other patterns.
-# Helper macro to render a top rule for a section.
-# Parameters:
-#   - top_rule_variant("default" | "muted" | "highlighted" |"none"): variant of horizontal rule to use
-#   - is_fixed_width(Boolean): Whether to constrain the rule by the fixed content width. Default to False.
-#       If you don't use this, you should wrap the rule in a .grid-row.
+{#-
+Macro: vf_section_top_rule
+Purpose: Helper macro to render a horizontal rule at the top of a section.
+This macro is used by various section patterns to add visual separation.
+
+Note: This file should be renamed to `vf_section-top-rule.jinja` for consistency with other patterns.
+
+Parameters:
+- top_rule_variant (String, Optional): Variant of horizontal rule to use. One of:
+    - "default" - Standard horizontal rule
+    - "muted" - Muted/lighter horizontal rule
+    - "highlighted" - Highlighted/emphasized horizontal rule (internally uses p-rule--highlight)
+    - "none" - No rule rendered
+    Default: "default"
+
+- is_fixed_width (Boolean, Optional): Whether to constrain the rule to fixed content width.
+    When false (default), the rule should be wrapped in a .grid-row element.
+    Default: False
+-#}
 {%- macro vf_section_top_rule(
   top_rule_variant="default",
   is_fixed_width=False
