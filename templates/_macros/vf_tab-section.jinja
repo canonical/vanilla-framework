@@ -28,7 +28,7 @@
 {% if type == "quote" %}
   {{ vf_quote_block(signpost=item.get('signpost', {}), contents=item.get('contents', {})) }}
 {% elif type == "linked-logo" %}
-    {{ vf_linked_logo_block(links=item.get('links', [])) }}
+    {{ vf_linked_logo_block({'links': item.get('links', [])}) }}
 {% elif type == "logo-block" %}
     {{ vf_logo_block({'logos': item.get('logos', []), 'is_fixed_width': item.get('is_fixed_width', true)}) }}
 {% elif type == "divided-section" %}

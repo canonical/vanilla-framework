@@ -2,7 +2,9 @@
   - links: array of link objects
   - cols_per_item: How many columns each logo should use. Defaults to 2.
 #}
-{% macro vf_linked_logo_block(links=[], cols_per_item=2) -%}
+{% macro vf_linked_logo_block(linked_logo_config={}) -%}
+  {%- set links = linked_logo_config.get("links", []) -%}
+  {%- set cols_per_item = linked_logo_config.get("cols_per_item", 2) -%}
   {%- if links|length > 1 -%}
     <div class="grid-row">
       {%- for link in links -%}
