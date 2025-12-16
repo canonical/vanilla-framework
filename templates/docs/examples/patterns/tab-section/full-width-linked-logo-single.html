@@ -6,7 +6,12 @@
 
 {% block content %}
 {{- vf_tab_section(
-    title={ "text": "Partners" },
+    title={
+        "text": "The quick brown fox jumps over the lazy dog"
+    },
+    description={
+        "content": "The quick brown fox jumps over the lazy dog"
+    },
     layout="full-width",
     tabs=[
        {
@@ -108,4 +113,8 @@
         }
     ]
 ) -}}
+{% endblock %}
+
+{% block script %}
+  <script type="module" src="/js/tabs.js"></script>
 {% endblock %}

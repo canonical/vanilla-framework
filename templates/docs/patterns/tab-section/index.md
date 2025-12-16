@@ -24,18 +24,11 @@ The tab section pattern is composed of the following elements:
 
 The tab section pattern supports responsive grid layouts that adapt to different screen sizes.
 
-**Note:** the blocks supported vary by layout. See [layout-specific content blocks](#layout-specific-content-blocks) for details.
+**Note:** the blocks supported vary by layout. See [content blocks](#content-blocks) for details.
 
 ### Full-width
 
 The full-width layout spans the entire content area with the tabs taking up all available space.
-
-Allowed content block types:
-
-- Quote
-- Linked logo
-- Logo block
-- Blog
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tab-section/full-width" class="js-example" data-lang="jinja">
 View example of the tab section pattern with full-width layout
@@ -44,15 +37,7 @@ View example of the tab section pattern with full-width layout
 ### 50-50 Layout
 
 The 50-50 layout creates a two-column grid that splits evenly on large screens.
-The left column contains the title (and optional description/CTA), while the right column (50% width) contains the tabs.
-
-Allowed content block types:
-
-- Linked logo
-- Logo block
-- Divided section
-- Blog
-- Basic section
+The first column contains the title (and optional description/CTA), while the second column (50% width) contains the tabs.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tab-section/50-50" class="js-example" data-lang="jinja">
 View example of the tab section pattern with 50-50 layout
@@ -60,14 +45,8 @@ View example of the tab section pattern with 50-50 layout
 
 ### 25-75 Layout
 
-The 25-75 layout creates an asymmetrical two-column layout where the left column (25%) contains the title
-(and optional description/CTA), and the right column (75%) contains the tabs.
-
-Allowed content block types:
-
-- Linked logo
-- Logo block
-- Blog
+The 25-75 layout creates an asymmetrical two-column layout where the first column (25%) contains the title
+(and optional description/CTA), and the second column (75%) contains the tabs.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tab-section/25-75" class="js-example" data-lang="jinja">
 View example of the tab section pattern with 25-75 layout
@@ -84,10 +63,6 @@ Supported variants:
 - **`"muted"`** - Lighter/muted horizontal rule
 - **`"none"`** - No rule displayed
 
-<div class="embedded-example"><a href="/docs/examples/patterns/tab-section/full-width" class="js-example" data-lang="jinja">
-View example of the tab section pattern with different top rule variants
-</a></div>
-
 ## Padding Variants
 
 Tab sections support customizable padding options using the [section pattern](/docs/patterns/section).
@@ -101,15 +76,21 @@ For different spacing needs, you may instead use:
 
 Please refer to the [section documentation](/docs/patterns/section) for more guidance on padding selection.
 
-## Title Options
+## Title
 
-### Basic Title
+The title is the main heading of the section.
+By default, it is an `<h2>` heading.
+You may customize the heading level and/or wrap the title in a link.
 
-The title is the main heading of the section, rendered as an h2 by default.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/tab-section/full-width" class="js-example" data-lang="jinja">
-View example of the tab section pattern with basic title
-</a></div>
+<div class="p-notification--caution">
+  <div class="p-notification__content">
+    <h3 class="p-notification__title">Avoid duplicate section titles.</h3>
+    <p class="p-notification__message">
+      The tab JavaScript relies on section title uniqueness to open the correct content pane.<br/>
+      Duplicate titles will result in tabs controlling incorrect panes.
+    </p>
+  </div>
+</div>
 
 ### Linked title
 
@@ -121,9 +102,11 @@ View example of the tab section pattern with linked title
 
 ```json
 {
-  "text": "Your title here",
-  "link_attrs": {
-    "href": "#"
+  "title": {
+    "text": "Your title here",
+    "link_attrs": {
+      "href": "#"
+    }
   }
 }
 ```
@@ -142,8 +125,10 @@ View example of the tab section pattern with custom heading level
 
 ```json
 {
-  "text": "Your title here",
-  "heading_level": 3
+  "title": {
+    "text": "Your title here",
+    "heading_level": 3
+  }
 }
 ```
 
@@ -153,8 +138,10 @@ Add a description to provide context or additional information.
 
 ```json
 {
-  "content": "Your description text here",
-  "type": "text"
+  "description": {
+    "content": "Your description text here",
+    "type": "text"
+  }
 }
 ```
 
@@ -168,25 +155,27 @@ Add CTA buttons and/or links to encourage user action.
 
 ```json
 {
-  "primary": {
-    "content_html": "Primary button text",
-    "attrs": {
-      "href": "link-url",
-      "class": "optional-css-class"
-    }
-  },
-  "secondaries": [
-    {
-      "content_html": "Secondary button text",
+  "cta": {
+    "primary": {
+      "content_html": "Primary button text",
+      "attrs": {
+        "href": "link-url",
+        "class": "optional-css-class"
+      }
+    },
+    "secondaries": [
+      {
+        "content_html": "Secondary button text",
+        "attrs": {
+          "href": "link-url"
+        }
+      }
+    ],
+    "link": {
+      "content_html": "Link text",
       "attrs": {
         "href": "link-url"
       }
-    }
-  ],
-  "link": {
-    "content_html": "Link text",
-    "attrs": {
-      "href": "link-url"
     }
   }
 }
@@ -366,11 +355,14 @@ View example of the tab section pattern with a quote tab
 }
 ```
 
-- **`blocks`** (Array, Required) - Array of content blocks following the [divided section block schema](/docs/patterns/divided-section#blocks).
+- **`blocks`** (Array, Required) - Array of content blocks following the [divided section block API](/docs/patterns/divided-section#blocks).
 
 ### Blog Block
 
 The blog block displays a grid of blog articles.
+
+Blog articles may be defined statically (as shown below), or pulled dynamically.
+See the [blog docs](/docs/patterns/blog) for more information.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tab-section/full-width-blog-single" class="js-example" data-lang="jinja">
 View example of the tab section pattern with a blog tab
@@ -460,7 +452,8 @@ View example of the tab section pattern with a basic section tab
           "type": "text",
           "content": "Content here"
         }
-      }
+      },
+      {% raw %}{# .. other items, following the basic section content block API #} {% endraw %}
     ]
   }
 }
@@ -568,7 +561,7 @@ The `vf_tab_section` Jinja macro can be used to generate a tab section pattern. 
           <code>{}</code>
         </td>
         <td>
-          Description configuration object with <code>content</code> and optional <code>type</code>. Only displayed in 50-50 and 25-75 layouts.
+          Description configuration object with <code>content</code> and optional <code>type</code>.
         </td>
       </tr>
       <tr>
@@ -701,24 +694,6 @@ The `vf_tab_section` Jinja macro can be used to generate a tab section pattern. 
       </tr>
       <tr>
         <td>
-          <code>tabs[].name</code>
-        </td>
-        <td>
-          No
-        </td>
-        <td>
-          <code>string</code>
-        </td>
-        <td>
-          Auto-generated<br>
-          (e.g., "tab-1")
-        </td>
-        <td>
-          Unique identifier for the tab. Auto-generated if not provided.
-        </td>
-      </tr>
-      <tr>
-        <td>
           <code>tabs[].type</code>
         </td>
         <td>
@@ -762,34 +737,38 @@ The `vf_tab_section` Jinja macro can be used to generate a tab section pattern. 
           <code>tabs[].tab_html</code>
         </td>
         <td>
-          No
+          Yes
         </td>
         <td>
           <code>string</code>
         </td>
         <td>
-          Auto-generated<br>
-          (e.g., "Tab 1")
+          <code>""</code>
         </td>
         <td>
-          HTML content for the tab label. Falls back to 'label', 'title', or auto-generated text if not provided.
+          HTML content for the tab label.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>Object</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the section element, as a dictionary. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-
-## Unique section titles
-
-Each tab and tab panel are linked together by their `id` and `aria-controls` attributes.
-This relationship is used in JavaScript to show/hide the correct tab panel when a tab button is clicked.
-
-It is important that these identifiers are unique across the page.
-If there are any identifier collisions, tabs may control the wrong panel.
-
-To avoid conflicts, tab names are generated using the tab section title and the tab's index in the tab list.
-**Take care to avoid duplicate section titles** when using multiple tab sections on the same page, otherwise duplicates
-will occur.
 
 ## Import
 
@@ -805,6 +784,36 @@ To import the Tab Section Jinja macro, copy the following import statement into 
 
 View the [building with Jinja macros guide](/docs/building-vanilla#jinja-macros)
 for macro installation instructions.
+
+### JavaScript
+
+The tabs JS module must be added to the page in order for tabs to function.
+
+Please follow the [Vanilla JS module installation instructions](/docs/building-vanilla#javascript).
+The specific import depends on your build process:
+
+#### Webpack
+
+If using Webpack to bundle Vanilla JS, import and initialize the tabs component on your page:
+
+```
+// Import the 'tabs' module
+import {tabs} from 'vanilla-framework/js';
+
+// Initialize the tabs component
+tabs.initTabs('[role="tablist"]');
+```
+
+#### No bundler
+
+If not using Webpack or a similar bundler,
+copy the module to your static directory in a build stage, and add the tabs module directly to your page:
+
+```html
+{% raw -%}
+<script type="module" src="/static/js/modules/vanilla-framework/js/tabs.js"></script>
+{% endraw %}
+```
 
 ### SCSS
 

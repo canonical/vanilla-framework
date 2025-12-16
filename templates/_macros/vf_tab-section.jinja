@@ -9,25 +9,11 @@
 {% from "_macros/shared/vf_blog-block.jinja" import vf_blog_block %}
 {% from "_macros/vf_basic-section.jinja" import vf_basic_section_blocks %}
 
-{#-
-FULL-WIDTH ONLY
-Params
-- citation
-- name
-- organisation
-- title
-- body
-- size ("small" | "medium" | "large")
-- text (String)
-- cta
-- html (String)
-- image
-- html (String)
--#}
 {%- macro _tab_section_quote(contents={}) -%}
     {#- Accept either the full contents structure expected by `vf_quote_block`,
             or a flat structure with keys like `citation`, `body`, `cta`, `image`.
-            Normalise into `signpost` and `contents` objects. -#}
+            Normalize into `signpost` and `contents` objects.
+      -#}
     {%- set signpost = contents.get('signpost', {}) -%}
     {%- set normalized_contents = {} -%}
     {%- set normalized_contents = normalized_contents.update({}) or {} -%}
@@ -44,11 +30,6 @@ Params
 {%- endmacro -%}
 
 {#-
-Internal macro: _tab_section_tab
-Purpose: Renders the appropriate content block based on the tab's type.
-This is an internal helper macro used to dispatch to the correct block renderer.
-
-Params:
 - tab (Object) - Configuration object with the following properties:
     - type (String) - The type of content block. Must be one of:
         - "quote" - Quote block (full-width only). See _tab_section_quote
@@ -82,8 +63,7 @@ Params:
 {%- endmacro -%}
 
 {#-
-Macro: vf_tab_section
-Purpose: A higher-order component that renders a section with a title, optional description,
+A higher-order component that renders a section with a title, optional description,
 optional call-to-action, and a tabbed interface containing various content blocks.
 
 This pattern combines a top heading area with tabs that can contain different types of
@@ -126,7 +106,9 @@ Parameters:
 - tabs (Array, Required) - Array of tab configurations. Each tab object should have:
     - type (String, Required) - Block type: "quote", "linked-logo", "logo-block", "divided-section", "blog", or "basic-section"
     - item (Object, Required) - Configuration specific to the block type
-    - tab_html (String, Optional) - HTML for the tab label. Falls back to 'label', 'title', or auto-generated.
+    - tab_html (String, Required) - HTML for the tab control
+
+- attrs (Object, Optional) - Dictionary of attributes to apply to the section element.
 
 Note: Some block types are only allowed in certain layouts (see allowed_blocks_per_layout).
 Unsupported blocks for a layout will silently be skipped.
@@ -138,7 +120,8 @@ Unsupported blocks for a layout will silently be skipped.
     layout="50-50",
     padding="default",
     top_rule_variant="default",
-    tabs=[]
+    tabs=[],
+    attrs={}
     ) -%}
     {#- Marshall values from parameters into variables, apply safe defaults, and trim contents -#}
     {%- set title_text = title.get("text", "") | trim -%}
@@ -191,8 +174,14 @@ Unsupported blocks for a layout will silently be skipped.
         'full-width': [ 'quote', 'linked-logo', 'logo-block', 'blog' ]
     } -%}
 
-    {#- Primary layout logic -#}
-    <section class="{{ padding_classes }}">
+    <section
+      class="{{ padding_classes }} {{ attrs.get("class", "") }}"
+      {%- for attr, value in attrs.items() -%}
+        {% if attr != "class" %}
+          {{ attr }}="{{ value }}"
+        {%- endif -%}
+      {%- endfor -%}
+      >
         <div class="grid-row--50-50-on-large">
             {{ vf_section_top_rule(top_rule_variant) }}
             <div class="grid-col">
@@ -242,9 +231,8 @@ Unsupported blocks for a layout will silently be skipped.
                   The user still needs to ensure that the page's section titles are unique.
                 -#}
                 {%- set name = title_text | trim | lower | replace(' ', '_') -%}
-                {%- set tab_label = tab.get('tab_html', '') or tab.get('label', '') or tab.get('title', '') or ('Tab ' ~ loop.index) -%}
                 {%- set content_html = _tab_section_tab(tab=tab) -%}
-                {%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab_label, 'content_html': content_html } ] -%}
+                {%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab.get('tab_html', ''), 'content_html': content_html } ] -%}
             {%- endif -%}
         {%- endfor -%}
 
