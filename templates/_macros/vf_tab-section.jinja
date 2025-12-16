@@ -30,7 +30,7 @@
 {% elif type == "linked-logo" %}
     {{ vf_linked_logo_block(links=item.get('links', [])) }}
 {% elif type == "logo-block" %}
-    {{ vf_logo_block(logos=item.get('logos', []), is_fixed_width=item.get('is_fixed_width', true)) }}
+    {{ vf_logo_block({'logos': item.get('logos', []), 'is_fixed_width': item.get('is_fixed_width', true)}) }}
 {% elif type == "divided-section" %}
     {{ vf_divided_section_block(blocks=item.get('blocks', [])) }}
 {% elif type == "blog" %}
