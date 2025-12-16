@@ -209,6 +209,9 @@ Always ensure your content blocks match your chosen layout:
 | Blog            | ✓          | ✓     | ✓     |
 | Basic Section   | ✗          | ✓     | ✗     |
 
+Block type can be chosen with the `tabs[].type` property.
+`tabs.item` contains the block's configuration, which varies from block to block and is demonstrated in the JSON snippets below.
+
 ### Quote block
 
 Quote blocks display testimonials or highlighted quotes with optional attribution and images.
@@ -219,15 +222,12 @@ View example of the tab section pattern with a quote tab
 
 ```json
 {
-  "type": "quote",
-  "name": "quote-tab",
-  "tab_html": "Quote",
-  "item": {
-    "signpost": {
-      "image": {
-        "html": "<img src=\"image-url\" alt=\"Logo\">"
-      }
-    },
+  "signpost": {
+    "image": {
+      "html": "<img src=\"image-url\" alt=\"Logo\">"
+    }
+  },
+  "contents": {
     "citation": {
       "name": "Person name",
       "organisation": "Organization",
@@ -242,20 +242,24 @@ View example of the tab section pattern with a quote tab
     },
     "image": {
       "html": "<img src=\"image-url\" alt=\"\">"
-    },
-    "has_divider": false
+    }
   }
 }
 ```
 
-- **`signpost`** (Object, Optional) - Signpost configuration with image
-- **`citation`** (Object, Optional) - Attribution details (name, organisation, title)
-- **`body`** (Object, Optional) - Quote body with:
-  - **`size`**: "small", "medium", or "large"
-  - **`text`**: The quote text
-- **`cta`** (Object, Optional) - Call-to-action HTML
-- **`image`** (Object, Optional) - Additional image HTML
-- **`has_divider`** (Boolean, Optional) - Whether to show a divider. Default: false
+- **`signpost`** (Object, Optional) – Signpost configuration with image
+- **`contents`** (Object, Required) – Quote contents with:
+  - **`citation`** (Object, Optional) - Attribution details:
+    - **`name`** (String, Optional) – Person name
+    - **`organisation`** (String, Optional) – Organization name
+    - **`title`** (String, Optional) – Job title
+  - **`body`** (Object, Optional) – Quote body with:
+    - **`size`**: "small", "medium", or "large"
+    - **`text`**: The quote text
+  - **`cta`** (Object, Optional): CTA configuration with:
+    - **`html`** (String, required): HTML content for the CTA link
+  - **`image`** (Object, Optional): Image configuration with:
+    - **`html`** (String, required): HTML content for the image
 
 ### Linked Logo Block
 
@@ -267,24 +271,19 @@ View example of the tab section pattern with a linked logo tab
 
 ```json
 {
-  "type": "linked-logo",
-  "name": "partners",
-  "tab_html": "Partners",
-  "item": {
-    "links": [
-      {
-        "href": "link-url",
-        "text": "Link text",
-        "label": "Aria label",
-        "image_attrs": {
-          "src": "logo-url",
-          "alt": "alt-text",
-          "width": "200",
-          "height": "100"
-        }
+  "links": [
+    {
+      "href": "link-url",
+      "text": "Link text",
+      "label": "Aria label",
+      "image_attrs": {
+        "src": "logo-url",
+        "alt": "alt-text",
+        "width": "200",
+        "height": "100"
       }
-    ]
-  }
+    }
+  ]
 }
 ```
 
@@ -304,22 +303,16 @@ View example of the tab section pattern with a logos tab
 
 ```json
 {
-  "type": "logo-block",
-  "name": "logos",
-  "tab_html": "Logos",
-  "item": {
-    "is_fixed_width": true,
-    "logos": [
-      {
-        "attrs": {
-          "src": "logo-url",
-          "alt": "alt-text",
-          "class": "optional-css-class"
-        },
-        "has_line_break_after": false
-      }
-    ]
-  }
+  "is_fixed_width": true,
+  "logos": [
+    {
+      "attrs": {
+        "src": "logo-url",
+        "alt": "alt-text"
+      },
+      "has_line_break_after": false
+    }
+  ]
 }
 ```
 
@@ -338,20 +331,15 @@ View example of the tab section pattern with a quote tab
 
 ```json
 {
-  "type": "divided-section",
-  "name": "divided",
-  "tab_html": "Divided",
-  "item": {
-    "blocks": [
-      {
-        "type": "description",
-        "item": {
-          "type": "text",
-          "content": "Content here"
-        }
+  "blocks": [
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "Content here"
       }
-    ]
-  }
+    }
+  ]
 }
 ```
 
@@ -370,61 +358,56 @@ View example of the tab section pattern with a blog tab
 
 ```json
 {
-  "type": "blog",
-  "name": "articles",
-  "tab_html": "Blog",
-  "item": {
-    "articles": [
-      {
-        "title": {
-          "text": "How to enable Real-time Ubuntu on your machine",
-          "link_attrs": {
-            "href": "#"
-          }
-        },
-        "description": {
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        },
-        "metadata": {
-          "authors": [
-            {
-              "text": "John Doe",
-              "link_attrs": {
-                "href": "#"
-              }
-            }
-          ],
-          "date": {
-            "text": "15 March 2025"
-          }
+  "articles": [
+    {
+      "title": {
+        "text": "How to enable Real-time Ubuntu on your machine",
+        "link_attrs": {
+          "href": "#"
         }
       },
-      {
-        "title": {
-          "text": "How to enable Real-time Ubuntu on your machine",
-          "link_attrs": {
-            "href": "#"
-          }
-        },
-        "description": {
-          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-        },
-        "metadata": {
-          "authors": [
-            {
-              "text": "John Doe",
-              "link_attrs": {
-                "href": "#"
-              }
+      "description": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      "metadata": {
+        "authors": [
+          {
+            "text": "John Doe",
+            "link_attrs": {
+              "href": "#"
             }
-          ],
-          "date": {
-            "text": "15 March 2025"
           }
+        ],
+        "date": {
+          "text": "15 March 2025"
         }
       }
-    ]
-  }
+    },
+    {
+      "title": {
+        "text": "How to enable Real-time Ubuntu on your machine",
+        "link_attrs": {
+          "href": "#"
+        }
+      },
+      "description": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      },
+      "metadata": {
+        "authors": [
+          {
+            "text": "John Doe",
+            "link_attrs": {
+              "href": "#"
+            }
+          }
+        ],
+        "date": {
+          "text": "15 March 2025"
+        }
+      }
+    }
+  ]
 }
 ```
 
@@ -441,22 +424,18 @@ View example of the tab section pattern with a basic section tab
 
 ```json
 {
-  "type": "basic-section",
-  "name": "section",
-  "tab_html": "Section",
-  "item": {
-    "items": [
-      {
-        "type": "description",
-        "item": {
-          "type": "text",
-          "content": "Content here"
-        }
-      },
-      {% raw %}{# .. other items, following the basic section content block API #} {% endraw %}
-    ]
-  }
+  "items": [
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "Content here"
+      }
+    },
+    {% raw %}{# .. other items, following the basic section content block API #} {% endraw %}
+  ]
 }
+
 ```
 
 - **`items`** (Array, Required) - Array of basic section content blocks. See [basic section content blocks](/docs/patterns/basic-section#content-blocks) for details.

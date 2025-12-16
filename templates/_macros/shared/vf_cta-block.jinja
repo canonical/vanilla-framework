@@ -33,9 +33,7 @@
 {% endmacro %}
 
 {#-
-Macro: vf_cta_block
-Purpose: Helper macro to render a container with primary, secondary, and link CTA elements.
-Used by section patterns to display call-to-action buttons and links together.
+Helper macro to render a container with primary, secondary, and link CTA elements.
 
 Parameters:
 - primary (Object, Optional) - Primary call-to-action button configuration. Properties:
@@ -56,9 +54,6 @@ Parameters:
 
 Note: If any 'attrs' contains an 'href' attribute, that element will render as an <a> tag.
 Otherwise, it renders as a <button> tag.
-
-Returns: A <div class="p-cta-block"> containing the rendered CTA elements,
-or empty string if no CTAs are provided.
 -#}
 {% macro vf_cta_block(primary={}, secondaries=[], link={}) %}
     {%- if not primary -%}{%- set primary = {} -%}{%- endif -%}

@@ -1,6 +1,5 @@
 {#-
-Macro: vf_description_block
-Purpose: Helper macro to render description/subtitle text content within a section.
+Helper macro to render description/subtitle text content within a section.
 Supports both plain text (wrapped in <p>) and raw HTML rendering.
 
 Parameters:
@@ -13,9 +12,6 @@ Parameters:
   If type is "text", plain text is safe to use.
   If type is "html", pass HTML markup that should be rendered as-is.
   Default: ""
-
-Returns: HTML <p> tag (if type="text" and content is not empty), raw HTML (if type="html"),
-or empty string if content is empty.
 -#}
 {% macro vf_description_block(type="text", content="") %}
     {%- if not type -%}{%- set type = "text" -%}{%- endif -%}

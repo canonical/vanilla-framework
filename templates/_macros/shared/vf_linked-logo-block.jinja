@@ -1,15 +1,32 @@
-{% from "_macros/vf_linked-logo-section.jinja" import vf_linked_logo_section %}
-
 {#
-  Exported macro for embedding linked-logo content without underscore prefix
-  so it can be imported by other macros. Expects a single config dict:
   - links: array of link objects
+  - cols_per_item: How many columns each logo should use. Defaults to 2.
 #}
-{% macro vf_linked_logo_block(linked_logo_block_config={}) -%}
-  {{- vf_linked_logo_section(
-    title_text=linked_logo_block_config.get("title_text", linked_logo_block_config.get("title", "")),
-    links=linked_logo_block_config.get("links", []),
-    top_rule_variant="none",
-    padding="none"
-  ) -}}
+{% macro vf_linked_logo_block(links=[], cols_per_item=2) -%}
+  {%- if links|length > 1 -%}
+    <div class="grid-row">
+      {%- for link in links -%}
+        <div class="grid-col-{{ cols_per_item }} grid-col-medium-{{ cols_per_item }}">
+          <a href="{{ link.href }}" aria-label="{{ link.label }}">
+            <div class="p-image-container--16-9 is-highlighted">
+              {#- If image_attrs is present, use it to generate the image HTML -#}
+              {%- if "image_attrs" in link -%}
+                <img class="p-image-container__image {{ link["image_attrs"]["class"] }}"
+                {% for attr, value in link["image_attrs"].items() %}
+                  {% if attr != "class" %}
+                    {{ attr }}="{{ value }}"
+                  {% endif %}
+                {% endfor %}
+                >
+              {% else %}
+                {{ link.image_html | safe }}
+              {% endif %}
+            </div>
+            <hr class="p-rule--muted">
+            <p>{{ link.text }}</p>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
 {%- endmacro %}
