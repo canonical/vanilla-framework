@@ -5,7 +5,7 @@ to manage tab rendering and accessibility.
 
 Parameters:
 - list (Object) - Configuration object with the following properties:
-    - attrs (Object, Optional) - HTML attributes to forward to the p-tabs__list element.
+    - tabs_list_attrs (Object, Optional) - HTML attributes to forward to the p-tabs__list element.
       Note: The 'role' attribute is always set to 'tablist' and cannot be customized.
       See attribute forwarding docs for more info.
 
@@ -27,14 +27,14 @@ Accessibility: The macro automatically renders proper ARIA attributes for tab ma
 - All but the first panel are initially hidden with hidden="hidden"
 -#}
 {%- macro vf_tabs(list={}) -%}
-    {%- set list_attrs = list.get("attrs", {}) -%}
+    {%- set tabs_list_attrs = list.get("tabs_list_attrs", {}) -%}
     {%- set list_class = list_attrs.get("class", "") | trim -%}
     {%- set tabs = list.get("tabs", []) -%}
     <div class="p-tabs">
         <div
             class="p-tabs__list{% if list_class | length > 0 %} {{ list_class -}}{% endif %}"
             role="tablist"
-            {%- for attr, value in list_attrs.items() -%}
+            {%- for attr, value in tabs_list_attrs.items() -%}
                 {% if attr not in ["class", "role", "tabs"] %}
                     {{ attr }}="{{ value }}"
                 {%- endif -%}
