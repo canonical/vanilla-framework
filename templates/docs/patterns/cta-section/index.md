@@ -149,6 +149,23 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           <code>h2</code> title text
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the CTA section. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -13,6 +13,7 @@
         # title_text: H2 title text - optional
         # variant: default
         # layout: 100
+        # attrs: A dictionary of attributes to apply to the section element
 
     # Slots:
         # cta: The cta link - required
@@ -46,7 +47,7 @@
         # description: Paragraph-style (one or more) content below the title - Optional
         # cta: Call-to-action block (required)
 
-{%- macro vf_cta_section(title_text, variant='default', layout='100', caller=None) -%}
+{%- macro vf_cta_section(title_text, variant='default', layout='100', caller=None, attrs={}) -%}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
@@ -88,7 +89,13 @@
     {%- endif -%}
   {%- endmacro -%}
   <hr class="p-rule is-fixed-width u-no-margin--bottom" />
-  <section class="p-strip is-deep">
+  <section class="p-strip is-deep {{ attrs.get("class", "") -}}"
+    {%- for attr, value in attrs.items() -%}
+      {% if attr != "class" %}
+        {{ attr }}="{{ value }}"
+      {%- endif -%}
+    {%- endfor -%}
+  >
     {%- if layout == "25-75" -%}
       <div class="grid-row">
         <div class="grid-col-start-large-3 grid-col-9">{{ _cta_variant() }}</div>
