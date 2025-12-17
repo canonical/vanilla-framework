@@ -162,32 +162,34 @@ Unsupported blocks for a layout will silently be skipped.
         {%- endif -%}
       {%- endfor -%}
       >
-        <div class="grid-row--50-50-on-large">
-            {{ vf_section_top_rule(top_rule_variant) }}
-            <div class="grid-col">
-                {%- if title_is_link -%}
-                <a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
-                    {%- endif -%}
-                    <h{{ title_heading_level }}>
-                        {{ title_text }}
-                    </h{{ title_heading_level }}>
-                    {%- if title_is_link -%}
-                </a>
-                {%- endif -%}
-            </div>
-            {%- if has_secondary_column -%}
-            <div class="grid-col">
-                {{ vf_description_block(
-                type=description.get("type"),
-                content=description.get("content")
-                )}}
-                {{ vf_cta_block(
-                primary=cta.get("primary"),
-                secondaries=cta.get("secondaries"),
-                link=cta.get("link")
-                ) }}
-            </div>
-            {%- endif -%}
+      <div class="p-section--shallow">
+          <div class="grid-row--50-50-on-large">
+              {{ vf_section_top_rule(top_rule_variant) }}
+              <div class="grid-col">
+                  {%- if title_is_link -%}
+                  <a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
+                      {%- endif -%}
+                      <h{{ title_heading_level }}>
+                          {{ title_text }}
+                      </h{{ title_heading_level }}>
+                      {%- if title_is_link -%}
+                  </a>
+                  {%- endif -%}
+              </div>
+              {%- if has_secondary_column -%}
+              <div class="grid-col">
+                  {{ vf_description_block(
+                  type=description.get("type"),
+                  content=description.get("content")
+                  )}}
+                  {{ vf_cta_block(
+                  primary=cta.get("primary"),
+                  secondaries=cta.get("secondaries"),
+                  link=cta.get("link")
+                  ) }}
+              </div>
+              {%- endif -%}
+          </div>
         </div>
         {#- Build a list of rendered tabs for the `vf_tabs` helper -#}
         {%- set ns = namespace(rendered_tabs=[]) -%}
