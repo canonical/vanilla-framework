@@ -70,9 +70,9 @@ By default, the pattern is wrapped in a regular section with default padding.
 
 For different spacing needs, you may instead use:
 
+- **`"default"`** - p-section for standard spacing (default)
 - **`"deep"`** - p-section--deep for maximum spacing
 - **`"shallow"`** - p-section--shallow for reduced spacing
-- **`"default"`** - p-section for standard spacing (default)
 
 Please refer to the [section documentation](/docs/patterns/section) for more guidance on padding selection.
 
