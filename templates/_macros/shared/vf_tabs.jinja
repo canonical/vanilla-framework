@@ -28,7 +28,7 @@ Accessibility: The macro automatically renders proper ARIA attributes for tab ma
 -#}
 {%- macro vf_tabs(list={}) -%}
     {%- set tabs_list_attrs = list.get("tabs_list_attrs", {}) -%}
-    {%- set list_class = list_attrs.get("class", "") | trim -%}
+    {%- set list_class = tabs_list_attrs.get("class", "") | trim -%}
     {%- set tabs = list.get("tabs", []) -%}
     <div class="p-tabs">
         <div
