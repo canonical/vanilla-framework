@@ -23,23 +23,23 @@
     - tab_html (String) - HTML content for the tab label
 -#}
 {%- macro _tab_section_tab(tab={}) -%}
-{%- set type = tab.get("type", "") | trim -%}
-{%- set item = tab.get("item", {}) -%}
-{% if type == "quote" %}
-  {{ vf_quote_block(signpost=item.get('signpost', {}), contents=item.get('contents', {})) }}
-{% elif type == "linked-logo" %}
-    {{ vf_linked_logo_block({'links': item.get('links', [])}) }}
-{% elif type == "logo-block" %}
-    {{ vf_logo_block({'logos': item.get('logos', []), 'is_fixed_width': item.get('is_fixed_width', true)}) }}
-{% elif type == "divided-section" %}
-    {{ vf_divided_section_block(blocks=item.get('blocks', [])) }}
-{% elif type == "blog" %}
-    <div class="p-blog grid-row">
-        {{ vf_blog_block(articles=item.get('articles', []), template_config=item.get('template_config', {})) }}
-    </div>
-{% elif type == "basic-section" %}
-    {{ vf_basic_section_blocks(items=item.get('items', [])) }}
-{% endif %}
+    {%- set type = tab.get("type", "") | trim -%}
+    {%- set item = tab.get("item", {}) -%}
+    {% if type == "quote" %}
+        {{ vf_quote_block(signpost=item.get('signpost', {}), contents=item.get('contents', {})) }}
+    {% elif type == "linked-logo" %}
+        {{ vf_linked_logo_block({'links': item.get('links', [])}) }}
+    {% elif type == "logo-block" %}
+        {{ vf_logo_block({'logos': item.get('logos', []), 'is_fixed_width': item.get('is_fixed_width', true)}) }}
+    {% elif type == "divided-section" %}
+        {{ vf_divided_section_block(blocks=item.get('blocks', [])) }}
+    {% elif type == "blog" %}
+        <div class="p-blog grid-row">
+            {{ vf_blog_block(articles=item.get('articles', []), template_config=item.get('template_config', {})) }}
+        </div>
+    {% elif type == "basic-section" %}
+        {{ vf_basic_section_blocks(items=item.get('items', [])) }}
+    {% endif %}
 {%- endmacro -%}
 
 {#-
@@ -93,7 +93,7 @@ Parameters:
 Note: Some block types are only allowed in certain layouts (see allowed_blocks_per_layout).
 Unsupported blocks for a layout will silently be skipped.
 -#}
-    {%- macro vf_tab_section(
+{%- macro vf_tab_section(
     title={},
     description={},
     cta={},
@@ -102,7 +102,7 @@ Unsupported blocks for a layout will silently be skipped.
     top_rule_variant="default",
     tabs=[],
     attrs={}
-    ) -%}
+) -%}
     {#- Marshall values from parameters into variables, apply safe defaults, and trim contents -#}
     {%- set title_text = title.get("text", "") | trim -%}
     {%- set title_link_attrs = title.get("link_attrs", {}) -%}
@@ -111,34 +111,34 @@ Unsupported blocks for a layout will silently be skipped.
 
     {#- Store the existence of optional content -#}
     {%- set title_is_link = title_link_attrs.items() | length > 0 -%}
-    {%- set has_description = description.get("content") | trim | length > 0 -%}
+    {%- set has_description = description.get("content", "") | trim | length > 0 -%}
     {%- set has_cta = cta.get("primary") or cta.get("secondaries") or cta.get("link") -%}
     {%- set has_secondary_column = has_description or has_cta -%}
 
     {#- Input validation -#}
     {%- if title_heading_level not in [2, 3, 4] -%}
-    {%- set title_heading_level = 2 -%}
+        {%- set title_heading_level = 2 -%}
     {%- endif -%}
 
     {%- if padding not in ["deep", "shallow", "default"] -%}
-    {%- set padding = "default" -%}
+        {%- set padding = "default" -%}
     {%- endif -%}
 
     {%- set padding_classes = "p-section--" + padding -%}
     {%- if padding == "default" -%}
-    {%- set padding_classes = "p-section" -%}
+        {%- set padding_classes = "p-section" -%}
     {%- endif -%}
 
     {%- if layout not in ["50-50", "25-75", "full-width"] -%}
-    {%- set layout = "full-width" -%}
+        {%- set layout = "full-width" -%}
     {%- endif -%}
 
     {%- if layout == "full-width" -%}
-    {%- set tabs_column_count = 8 -%}
+        {%- set tabs_column_count = 8 -%}
     {%- elif layout == "50-50" -%}
-    {%- set tabs_column_count = 4 -%}
+        {%- set tabs_column_count = 4 -%}
     {%- elif layout == "25-75" -%}
-    {%- set tabs_column_count = 6 -%}
+        {%- set tabs_column_count = 6 -%}
     {%- endif -%}
     {%- set tabs_column_start = 8 - tabs_column_count + 1 -%}
 
@@ -155,41 +155,41 @@ Unsupported blocks for a layout will silently be skipped.
     } -%}
 
     <section
-      class="{{ padding_classes }} {{ attrs.get("class", "") }}"
-      {%- for attr, value in attrs.items() -%}
-        {% if attr != "class" %}
-          {{ attr }}="{{ value }}"
-        {%- endif -%}
-      {%- endfor -%}
-      >
-      <div class="p-section--shallow">
-          <div class="grid-row--50-50-on-large">
-              {{ vf_section_top_rule(top_rule_variant) }}
-              <div class="grid-col">
-                  {%- if title_is_link -%}
-                  <a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
-                      {%- endif -%}
-                      <h{{ title_heading_level }}>
-                          {{ title_text }}
-                      </h{{ title_heading_level }}>
-                      {%- if title_is_link -%}
-                  </a>
-                  {%- endif -%}
-              </div>
-              {%- if has_secondary_column -%}
-              <div class="grid-col">
-                  {{ vf_description_block(
-                  type=description.get("type"),
-                  content=description.get("content")
-                  )}}
-                  {{ vf_cta_block(
-                  primary=cta.get("primary"),
-                  secondaries=cta.get("secondaries"),
-                  link=cta.get("link")
-                  ) }}
-              </div>
-              {%- endif -%}
-          </div>
+        class="{{ padding_classes }} {{ attrs.get("class", "") }}"
+        {%- for attr, value in attrs.items() -%}
+            {% if attr != "class" %}
+                {{ attr }}="{{ value }}"
+            {%- endif -%}
+        {%- endfor -%}
+    >
+        <div class="grid-row{% if has_secondary_column %}--50-50-on-large{% endif %}">
+            {{ vf_section_top_rule(top_rule_variant) }}
+            <div class="grid-col">
+                {%- if title_is_link -%}
+                    <a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
+                {%- endif -%}
+                <h{{ title_heading_level }}>
+                    {{ title_text }}
+                </h{{ title_heading_level }}>
+                {%- if title_is_link -%}
+                    </a>
+                {%- endif -%}
+            </div>
+            {%- if has_secondary_column -%}
+                <div class="grid-col">
+                    <div class="p-section--shallow">
+                        {{ vf_description_block(
+                            type=description.get("type"),
+                            content=description.get("content")
+                        )}}
+                        {{ vf_cta_block(
+                            primary=cta.get("primary"),
+                            secondaries=cta.get("secondaries"),
+                            link=cta.get("link")
+                        ) }}
+                    </div>
+                </div>
+            {%- endif -%}
         </div>
         {#- Build a list of rendered tabs for the `vf_tabs` helper -#}
         {%- set ns = namespace(rendered_tabs=[]) -%}
@@ -224,4 +224,4 @@ Unsupported blocks for a layout will silently be skipped.
             </div>
         </div>
     </section>
-    {%- endmacro -%}
+{%- endmacro -%}

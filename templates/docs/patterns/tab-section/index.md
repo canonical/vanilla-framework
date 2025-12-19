@@ -34,22 +34,22 @@ The full-width layout spans the entire content area with the tabs taking up all 
 View example of the tab section pattern with full-width layout
 </a></div>
 
-### 50-50 Layout
+### 50/50 Layout
 
-The 50-50 layout creates a two-column grid that splits evenly on large screens.
+The 50/50 layout creates a two-column grid that splits evenly on large screens.
 The first column contains the title (and optional description/CTA), while the second column (50% width) contains the tabs.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tab-section/50-50" class="js-example" data-lang="jinja">
-View example of the tab section pattern with 50-50 layout
+View example of the tab section pattern with 50/50 layout
 </a></div>
 
-### 25-75 Layout
+### 25/75 Layout
 
-The 25-75 layout creates an asymmetrical two-column layout where the first column (25%) contains the title
+The 25/75 layout creates an asymmetrical two-column layout where the first column (25%) contains the title
 (and optional description/CTA), and the second column (75%) contains the tabs.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tab-section/25-75" class="js-example" data-lang="jinja">
-View example of the tab section pattern with 25-75 layout
+View example of the tab section pattern with 25/75 layout
 </a></div>
 
 ## Top Rule Variants
@@ -200,7 +200,7 @@ The type of block determines what configuration is required.
 When you provide a tab with an unsupported block type for the selected layout, it will be silently skipped.
 Always ensure your content blocks match your chosen layout:
 
-| Block Type      | Full-width | 50-50 | 25-75 |
+| Block Type      | Full-width | 50/50 | 25/75 |
 | --------------- | ---------- | ----- | ----- |
 | Quote           | ✓          | ✗     | ✗     |
 | Linked Logo     | ✓          | ✓     | ✓     |
@@ -591,7 +591,7 @@ The `vf_tab_section` Jinja macro can be used to generate a tab section pattern. 
           <code>{}</code>
         </td>
         <td>
-          Call-to-action configuration with <code>primary</code>, <code>secondaries</code>, and/or <code>link</code>. Only displayed in 50-50 and 25-75 layouts.
+          Call-to-action configuration with <code>primary</code>, <code>secondaries</code>, and/or <code>link</code>. Only displayed in 50/50 and 25/75 layouts.
         </td>
       </tr>
       <tr>
