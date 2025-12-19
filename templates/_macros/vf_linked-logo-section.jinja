@@ -1,3 +1,5 @@
+{% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
+
 {#
   Params
   - title_text (string): The text to be displayed as the heading
@@ -59,35 +61,6 @@
   {%- set padding_classes = "" -%}
   {%- endif -%}
 
-  {% macro _list(links, cols_per_item=2) %}
-    {%- if links|length > 1 -%}
-      <div class="grid-row">
-        {%- for link in links -%}
-          <div class="grid-col-{{ cols_per_item }} grid-col-medium-{{ cols_per_item }}">
-            <a href="{{ link.href }}" aria-label="{{ link.label }}">
-              <div class="p-image-container--16-9 is-highlighted">
-              {#- If image_attrs is present, use it to generate the image HTML -#}
-              {%- if "image_attrs" in link -%}
-                <img class="p-image-container__image {{ link["image_attrs"]["class"] }}"
-                  {% for attr, value in link["image_attrs"].items() %}
-                    {% if attr != "class" %}
-                      {{ attr }}="{{ value }}"
-                    {% endif %}
-                  {% endfor %}
-                >
-              {% else %}
-                {{ link.image_html | safe }}
-              {% endif %}
-              </div>
-              <hr class="p-rule--muted">
-              <p>{{ link.text }}</p>
-            </a>
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-  {% endmacro %}
-
   {%- if padding == "none" -%}
   <div>
   {%- else -%}
@@ -105,7 +78,7 @@
           </div>
           {% endif %}
           <div class="grid-col-4 grid-col-start-large-5 grid-col-medium-4 grid-col-start-medium-5">
-            {{ _list(links) }}
+            {{ vf_linked_logo_block({'links': links}) }}
           </div>
         </div>
       </div>
@@ -118,7 +91,7 @@
           </div>
           {% endif %}
           <div class="grid-col-6 grid-col-start-large-3">
-            {{ _list(links) }}
+            {{ vf_linked_logo_block({'links': links}) }}
           </div>
         </div>
       </div>
@@ -130,7 +103,7 @@
           </div>
         </div>
       {% endif %}
-      {{ _list(links) }}
+      {{ vf_linked_logo_block({'links': links}) }}
     {%- endif -%}
   {%- if padding == "none" -%}
   </div>

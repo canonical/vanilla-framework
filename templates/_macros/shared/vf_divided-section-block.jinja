@@ -1,0 +1,67 @@
+{% from "_macros/vf_basic-section.jinja" import basic_section_item %}
+
+{#
+  Embeddable right-hand column renderer for divided-section.
+  Renders optional description-block items, then divided-blocks with
+  muted rules between items. Uses shallow bottom padding for items,
+  and ensures the last item of the last block has no bottom padding.
+
+  Params:
+    - blocks: array (same shape as vf_divided_section's `blocks` param)
+#}
+
+{% macro _get_item_padding_classes_divided(item_config={}, isLastLoopItr=False, isLastBlockItr=False) -%}
+  {%- set item_padding = (item_config.get("padding", "")) | trim -%}
+  {%- if item_padding not in ["shallow"] -%}
+    {%- set item_padding = "" -%}
+  {%- endif -%}
+  {%- set item_classes = "" -%}
+  {%- if item_padding | length > 0 -%}
+    {%- set item_classes = "p-section--" + item_padding -%}
+  {%- endif -%}
+  {%- if isLastLoopItr and isLastBlockItr -%}
+    {%- set item_classes = "" -%}
+  {%- endif -%}
+  {{ item_classes | trim }}
+{%- endmacro %}
+
+{% macro vf_divided_section_block(blocks=[]) -%}
+  {%- set description_block = blocks | selectattr("type", "equalto", "description-block") | first -%}
+  {%- set divided_blocks = blocks | selectattr("type", "equalto", "divided-block") | list -%}
+
+  {%- if description_block | length > 0 -%}
+    {%- for item in description_block.get("items", []) -%}
+      {%- set item_classes = _get_item_padding_classes_divided(item, loop.last, (divided_blocks|length == 0)) -%}
+      <div {%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>{{- basic_section_item(item) -}}</div>
+    {%- endfor -%}
+     {%- if divided_blocks | length > 0 -%}<hr class="p-rule--muted" />{%- endif %}
+  {%- endif -%}
+
+  {%- for block in divided_blocks -%}
+    {%- set outer_last = loop.last -%}
+    {%- set ns = namespace(list_element="ul", list_class="p-list") -%}
+    {%- if block.get("bullet_type") == "number" -%}
+      {%- set ns.list_element = "ol" -%}
+      {%- set ns.list_class = "p-stepped-list" -%}
+    {%- endif -%}
+
+    <{{ ns.list_element }} class="p-divided__block {{ ns.list_class }} u-no-padding">
+    {%- for item in block.get("items", []) -%}
+      {%- set list_bullet_type = "has-bullet" if block.bullet_type == "bullet" else "is-ticked" if block.bullet_type == "status" -%}
+      <li class="p-divided__heading u-no-padding--bottom {{ list_bullet_type }}{% if ns.list_class == 'p-stepped-list' %} p-stepped-list__item{% else %} p-list__item{% endif %}">
+        <div class="{%- if not loop.last -%}p-section--shallow{%- endif -%}{% if ns.list_class == 'p-stepped-list' %} p-stepped-list__title{% endif %}">
+          {%- if item.title_text -%}
+            <h3 class="p-heading--5 u-no-padding">{{ item.title_text }}</h3>
+          {%- endif -%}
+          {%- for content in item.contents -%}
+            {%- set item_classes = _get_item_padding_classes_divided(content, loop.last, outer_last) -%}
+            <div {%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>{{- basic_section_item(content) -}}</div>
+          {%- endfor -%}
+        </div>
+      </li>
+      {%- if not loop.last %}<hr class="p-rule--muted" />{% endif %}
+    {%- endfor -%}
+    </{{ ns.list_element }}>
+  {%- endfor -%}
+
+{%- endmacro %}

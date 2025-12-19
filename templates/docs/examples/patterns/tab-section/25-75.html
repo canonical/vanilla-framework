@@ -1,0 +1,171 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / 25/75{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={
+        "text": "The quick brown fox jumps over the lazy dog"
+    },
+    description={
+        "content": "The quick brown fox jumps over the lazy dog"
+    },
+    cta={
+        "primary": {
+            "content_html": "Primary Button",
+            "attrs": {
+                "href": "#"
+            }
+        },
+        "secondaries": [
+            {
+                "content_html": "Secondary Button",
+                "attrs": {
+                    "href": "#"
+                }
+            }
+        ],
+        "link": {
+            "content_html": "Learn more ›",
+            "attrs": {
+                "href": "#"
+            }
+        }
+    },
+    layout="25-75",
+    tabs=[
+        {
+            "type": "linked-logo",
+            "tab_html": "Linked logos",
+            "item": {
+                "title_text": "PostgreSQL, security and support",
+                "links": [
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "Kubeflow",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/cd89477e-kubeflow-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "432",
+                        "height": "481"
+                      }
+                    },
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "MLflow",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/104192d9-mlflow-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "222",
+                        "height": "481"
+                      }
+                    },
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "Apache Spark",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/855deda8-apache-spark-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "240",
+                        "height": "481"
+                      }
+                    },
+                    {
+                      "href": "#",
+                      "text": "Learn more ›",
+                      "label": "OpenSearch",
+                      "image_attrs": {
+                        "src": "https://assets.ubuntu.com/v1/a8185f91-opensearch-logo-container-vert-fill.png",
+                        "alt": "",
+                        "width": "330",
+                        "height": "481"
+                      }
+                    }
+                ]
+            }
+        },
+        {
+            "tab_html": "Logos",
+            "type": "logo-block",
+            "item": {
+                "title_text": "Our technology partners",
+                "logos": [
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png",
+                            "alt": "Hewlett Packard"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png",
+                            "alt": "Lenovo"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/2ef3c028-amazon-web-services-logo.png",
+                            "alt": "Amazon Web Services"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/cb7ef8ac-ibm-cloud-logo.png",
+                            "alt": "IBM Cloud"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/a554a818-google-cloud-logo.png",
+                            "alt": "Google Cloud Platform"
+                        }
+                    },
+                    {
+                        "attrs": {
+                            "src": "https://assets.ubuntu.com/v1/b3e692f4-oracle-new-logo.png",
+                            "alt": "Oracle"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "tab_html": "Blog",
+            "type": "blog",
+            "item": {
+                "template_config": {
+                    "enabled": True, 
+                    "template_container_id": "articles",
+                    "layout": "3-blocks"
+                }
+            }
+        }
+    ]
+) -}}
+
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="/js/tabs.js"></script>
+    <script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
+    <script>
+        canonicalLatestNews.fetchLatestNews({
+            // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+            imageClasses: ["p-image-container__image"],
+            /*
+            Make sure your article limit and `template_config.layout` match.
+            Use "4-blocks" (or no layout, as 4-blocks is the default) with `limit: "4"`.
+            */
+            limit: "3",
+            articlesContainerSelector: "#articles",
+            articleTemplateSelector: "#template",
+            excerptLength: 180,
+            gtmEventLabel: "Vanilla Blog pattern template example",
+        })
+    </script>
+{% endblock %}

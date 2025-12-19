@@ -1,0 +1,23 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}
+
+{% block title %}Quote Wrapper / Multiple quotes{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{% call(slot) vf_quote_wrapper(
+  title_text="Hear from our community",
+  quote_size="small",
+  quote_text="Ubuntu is used so much everywhere that you can get drivers for everything, and there's a great community. It's ease-of-use makes everything faster, and not just for those of us who are already familiar with it. Even engineers without a software background can work on Ubuntu without issue",
+  citation_source_name_text="Sam Watson Jones",
+  citation_source_title_text="CEO, Small Robot Company",
+) -%}{% endcall -%}
+
+{% call(slot) vf_quote_wrapper(
+  quote_size="small",
+  quote_text="We needed an operating system that was open, easy to modify, and reliable.",
+  citation_source_title_text="CEO, Northstar Robotics",
+) -%}{% endcall -%}
+
+{% endblock %}

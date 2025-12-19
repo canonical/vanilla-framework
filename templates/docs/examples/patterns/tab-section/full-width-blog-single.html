@@ -1,0 +1,127 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / Full width / Blog (single){% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={
+        "text": "The quick brown fox jumps over the lazy dog"
+    },
+    description={
+        "content": "The quick brown fox jumps over the lazy dog"
+    },
+    layout="full-width",
+    tabs=[
+        {
+            "tab_html": "Blog",
+            "type": "blog",
+            "item": {
+                "articles": [
+                       {
+                    "title": {
+                        "text": "How to enable Real-time Ubuntu on your machine",
+                        "link_attrs": {
+                        "href": "#"
+                        }
+                    },
+                    "description": {
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    "metadata": {
+                        "authors": [
+                            {
+                                "text": "John Doe",
+                                "link_attrs": {
+                                    "href": "#"
+                                }
+                            }
+                        ],
+                        "date": {
+                        "text": "15 March 2025"
+                        }
+                    }
+                    },
+                    {
+                    "title": {
+                        "text": "How to enable Real-time Ubuntu on your machine",
+                        "link_attrs": {
+                        "href": "#"
+                        }
+                    },
+                    "description": {
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    "metadata": {
+                        "authors": [
+                        {
+                            "text": "John Doe",
+                            "link_attrs": {
+                            "href": "#"
+                            }
+                        }
+                        ],
+                        "date": {
+                        "text": "15 March 2025"
+                        }
+                    }
+                    },
+                    {
+                    "title": {
+                        "text": "How to enable Real-time Ubuntu on your machine",
+                        "link_attrs": {
+                        "href": "#"
+                        }
+                    },
+                    "description": {
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    "metadata": {
+                        "authors": [
+                        {
+                            "text": "John Doe",
+                            "link_attrs": {
+                            "href": "#"
+                            }
+                        }
+                        ],
+                        "date": {
+                        "text": "15 March 2025"
+                        }
+                    }
+                    },
+                    {
+                    "title": {
+                        "text": "How to enable Real-time Ubuntu on your machine",
+                        "link_attrs": {
+                        "href": "#"
+                        }
+                    },
+                    "description": {
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                    },
+                    "metadata": {
+                        "authors": [
+                        {
+                            "text": "John Doe",
+                            "link_attrs": {
+                            "href": "#"
+                            }
+                        }
+                        ],
+                        "date": {
+                        "text": "15 March 2025"
+                        }
+                    }
+                    }
+                ]
+            }
+        }
+    ]
+) -}}
+{% endblock %}
+
+{% block script %}
+  <script type="module" src="/js/tabs.js"></script>
+{% endblock %}

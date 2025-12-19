@@ -1,0 +1,78 @@
+{#-
+Helper macro to render a tabbed interface with tabs and associated content panels.
+This is a low-level building block used by higher-order components like vf_tab_section
+to manage tab rendering and accessibility.
+
+Parameters:
+- list (Object) - Configuration object with the following properties:
+    - tabs_list_attrs (Object, Optional) - HTML attributes to forward to the p-tabs__list element.
+      Note: The 'role' attribute is always set to 'tablist' and cannot be customized.
+      See attribute forwarding docs for more info.
+
+    - tabs (Array, Required) - Array of tab configurations. Each tab must have:
+        - name (String, Required) - Unique identifier for the tab.
+          Used to link tab buttons and content via id and aria-controls attributes.
+          Must be unique within the tabs array.
+
+        - tab_html (String, Required) - HTML content for the tab button/label.
+          This is the visible text/markup shown in the tab bar.
+
+        - content_html (String, Required) - HTML content for the tab panel.
+          This is the content shown when the tab is active.
+
+Accessibility: The macro automatically renders proper ARIA attributes for tab management:
+- First tab is rendered as selected (aria-selected="true")
+- Tab buttons have role="tab" and aria-controls linking to their content panels
+- Content panels have role="tabpanel" and aria-labelledby linking to their tab button
+- All but the first panel are initially hidden with hidden="hidden"
+-#}
+{%- macro vf_tabs(list={}) -%}
+    {%- set tabs_list_attrs = list.get("tabs_list_attrs", {}) -%}
+    {%- set list_class = tabs_list_attrs.get("class", "") | trim -%}
+    {%- set tabs = list.get("tabs", []) -%}
+    <div class="p-tabs">
+        <div
+            class="p-tabs__list{% if list_class | length > 0 %} {{ list_class -}}{% endif %}"
+            role="tablist"
+            {%- for attr, value in tabs_list_attrs.items() -%}
+                {% if attr not in ["class", "role", "tabs"] %}
+                    {{ attr }}="{{ value }}"
+                {%- endif -%}
+            {%- endfor -%}
+        >
+        {%- for tab in tabs -%}
+          {#-
+              Append the tab index to the name to ensure uniqueness within the tabs
+              If any names are duplicated, the generated IDs would not be unique, causing tabs to control the wrong panels.
+            -#}
+            {%- set name = tab.get("name", "") + "-" + (loop.index | string) -%}
+            <div class="p-tabs__item">
+                <button
+                    class="p-tabs__link"
+                    role="tab"
+                    aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+                    aria-controls="{{ name }}-tab" id="{{ name }}"
+                >
+                    {{ tab.get("tab_html", "") | trim | safe }}
+                </button>
+            </div>
+        {%- endfor -%}
+        </div>
+        {%- for tab in tabs -%}
+            {#-
+              Append the tab index to the name to ensure uniqueness within the tabs
+              If any names are duplicated, the generated IDs would not be unique, causing tabs to control the wrong panels.
+            -#}
+            {%- set name = tab.get("name", "") + "-" + (loop.index | string) -%}
+            <div
+                tabindex="0"
+                role="tabpanel"
+                id="{{ name }}-tab"
+                aria-labelledby="{{ name }}"
+                {% if not loop.first %}hidden="hidden"{% endif %}
+            >
+               {{ tab.get("content_html", "") | trim | safe }}
+            </div>
+        {%- endfor -%}
+    </div>
+{%- endmacro -%}

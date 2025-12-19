@@ -1,0 +1,60 @@
+{% from "_macros/shared/vf_article_block.jinja" import vf_article_block %}
+
+{#
+  Shared embeddable blog block.
+  Exposes `vf_blog_block(articles, template_config, template_mode, fallback_image_url)`
+  which renders the articles container (template mode or list) and uses the
+  internal `_blog_article` helper to render each article (image/title/description).
+#}
+
+{%- macro _blog_article(article_config={}, template_mode=False, fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png") -%}
+  {%- set base_image_container_classes = "p-image-container--16-9 is-cover article-image" -%}
+  {%- if not template_mode -%}
+    {%- set default_image_attrs = {
+      'src': fallback_image_url,
+      'alt': 'Blog fallback image'
+      }
+    -%}
+    {%- set input_image_attrs = article_config.get('image', {}).get('attrs', {}) -%}
+    {#- Merge user attributes over the defaults -#}
+    {%- set img_attrs = default_image_attrs.copy() -%}
+    {%- set _ = img_attrs.update(input_image_attrs) -%}
+    {#- class merging -#}
+    {%- set base_image_class = 'p-image-container__image' -%}
+    {%- set input_image_class = input_image_attrs.get('class', '') -%}
+    {%- if input_image_class -%}
+      {%- set final_image_classes = base_image_class + ' ' + input_image_class -%}
+    {%- else -%}
+      {%- set final_image_classes = base_image_class -%}
+    {%- endif -%}
+    {%- set _ = img_attrs.update({'class': final_image_classes}) -%}
+    {#- Build the HTML tag -#}
+    {%- set ns = namespace(image_html="<img") -%}
+    {%- for attr, value in img_attrs.items() -%}
+      {%- set ns.image_html = ns.image_html + " " + attr + "=\"" + value + "\"" -%}
+    {%- endfor -%}
+    {%- set image_html = ns.image_html + ">" -%}
+    {%- set _ = article_config.update({'image_html': '<div class="' + base_image_container_classes + '">\n            ' + image_html + '\n          </div>'}) -%}
+  {%- else -%}
+    {#- template mode - the template JS will fill in the image slot. -#}
+    {%- set _ = article_config.update({'image_html': '<div class="' + base_image_container_classes + '"></div>'}) -%}
+  {%- endif -%}
+  {{ vf_article_block(article_config=article_config, attrs={"class": "grid-col-2 grid-col-medium-2"}, template_mode=template_mode) }}
+
+{%- endmacro -%}
+
+{%- macro vf_blog_block(articles=[], template_config={}, fallback_image_url="https://assets.ubuntu.com/v1/94c82a15-blog_fallback_image.png") -%}
+  {%- if template_config.get("enabled", False) -%}
+    <div id="{{ template_config.get('template_container_id', 'articles') }}" class="p-blog__articles"></div>
+    <template style="display: none;" id="{{ template_config.get('template_id', 'template') }}">
+      {{ _blog_article(template_mode=True) }}
+    </template>
+  {%- else -%}
+    <div class="p-blog__articles grid-row">
+      {%- for article in articles -%}
+        {{ _blog_article(article_config=article, fallback_image_url=fallback_image_url) }}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+{%- endmacro -%}

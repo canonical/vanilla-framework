@@ -1,0 +1,40 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / 50/50 / Divided (single){% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={ "text": "How it works" },
+    layout="50-50",
+    tabs=[
+        {
+            "tab_html": "Divided",
+            "type": "divided-section",
+            "item": {
+                "blocks": [
+                    {
+                        "type": "description-block",
+                        "items": [
+                            { "type": "description", "item": { "type": "text", "content": "Short description of the process." } }
+                        ]
+                    },
+                    {
+                        "type": "divided-block",
+                        "bullet_type": "number",
+                        "items": [
+                            { "title_text": "Step one", "contents": [ { "type": "description", "item": { "type": "text", "content": "Do this first." } } ] },
+                            { "title_text": "Step two", "contents": [ { "type": "description", "item": { "type": "text", "content": "Then do this." } } ] }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+) -}}
+{% endblock %}
+
+{% block script %}
+  <script type="module" src="/js/tabs.js"></script>
+{% endblock %}
