@@ -113,7 +113,6 @@ Unsupported blocks for a layout will silently be skipped.
     {%- set title_is_link = title_link_attrs.items() | length > 0 -%}
     {%- set has_description = description.get("content", "") | trim | length > 0 -%}
     {%- set has_cta = cta.get("primary") or cta.get("secondaries") or cta.get("link") -%}
-    {%- set has_secondary_column = has_description or has_cta -%}
 
     {#- Input validation -#}
     {%- if title_heading_level not in [2, 3, 4] -%}
@@ -140,7 +139,10 @@ Unsupported blocks for a layout will silently be skipped.
     {%- elif layout == "25-75" -%}
         {%- set tabs_column_count = 6 -%}
     {%- endif -%}
+
     {%- set tabs_column_start = 8 - tabs_column_count + 1 -%}
+		{%- set title_row_has_two_columns = has_description or has_cta or (layout == "50-50") -%}
+		{%- set tabs_in_title_row = not has_description and not has_cta and layout == "50-50" -%}
 
     {#- Configuration: which block types are allowed per layout.
         If a layout key is present, only those block types will be rendered
@@ -154,6 +156,34 @@ Unsupported blocks for a layout will silently be skipped.
         'full-width': [ 'quote', 'linked-logo', 'logo-block', 'blog' ]
     } -%}
 
+		{#- Build a list of rendered tabs for the `vf_tabs` helper -#}
+		{%- set ns = namespace(rendered_tabs=[]) -%}
+		{%- for tab in tabs -%}
+				{%- set type = tab.get('type', '') | trim -%}
+
+				{#- Enforce allowed blocks per layout if configured - replace `continue` (unsupported) with a render flag -#}
+				{%- set render_tab = true -%}
+				{%- if layout in allowed_blocks_per_layout -%}
+						{%- set allowed = allowed_blocks_per_layout[layout] -%}
+						{%- if not (type in allowed) -%}
+								{%- set render_tab = false -%}
+						{%- endif -%}
+				{%- endif -%}
+
+				{%- if render_tab -%}
+						{#-
+							Prepend the section title text to the name.
+							This helps ensure uniqueness of tab section tab names across an entire page,
+							in case multiple tab sections are used in a single page.
+							The user still needs to ensure that the page's section titles are unique.
+						-#}
+						{%- set name = title_text | trim | lower | replace(' ', '_') -%}
+						{%- set content_html = _tab_section_tab(tab=tab) -%}
+						{%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab.get('tab_html', ''), 'content_html': content_html } ] -%}
+				{%- endif -%}
+		{%- endfor -%}
+
+
     <section
         class="{{ padding_classes }} {{ attrs.get("class", "") }}"
         {%- for attr, value in attrs.items() -%}
@@ -162,66 +192,47 @@ Unsupported blocks for a layout will silently be skipped.
             {%- endif -%}
         {%- endfor -%}
     >
-        <div class="grid-row{% if has_secondary_column %}--50-50-on-large{% endif %}">
-            {{ vf_section_top_rule(top_rule_variant) }}
-            <div class="grid-col">
-                {%- if title_is_link -%}
-                    <a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
-                {%- endif -%}
-                <h{{ title_heading_level }}>
-                    {{ title_text }}
-                </h{{ title_heading_level }}>
-                {%- if title_is_link -%}
-                    </a>
-                {%- endif -%}
-            </div>
-            {%- if has_secondary_column -%}
-                <div class="grid-col">
-                    <div class="p-section--shallow">
-                        {{ vf_description_block(
-                            type=description.get("type"),
-                            content=description.get("content")
-                        )}}
-                        {{ vf_cta_block(
-                            primary=cta.get("primary"),
-                            secondaries=cta.get("secondaries"),
-                            link=cta.get("link")
-                        ) }}
-                    </div>
-                </div>
-            {%- endif -%}
-        </div>
-        {#- Build a list of rendered tabs for the `vf_tabs` helper -#}
-        {%- set ns = namespace(rendered_tabs=[]) -%}
-        {%- for tab in tabs -%}
-            {%- set type = tab.get('type', '') | trim -%}
-
-            {#- Enforce allowed blocks per layout if configured - replace `continue` (unsupported) with a render flag -#}
-            {%- set render_tab = true -%}
-            {%- if layout in allowed_blocks_per_layout -%}
-                {%- set allowed = allowed_blocks_per_layout[layout] -%}
-                {%- if not (type in allowed) -%}
-                    {%- set render_tab = false -%}
-                {%- endif -%}
-            {%- endif -%}
-
-            {%- if render_tab -%}
-                {#-
-                  Prepend the section title text to the name.
-                  This helps ensure uniqueness of tab section tab names across an entire page,
-                  in case multiple tab sections are used in a single page.
-                  The user still needs to ensure that the page's section titles are unique.
-                -#}
-                {%- set name = title_text | trim | lower | replace(' ', '_') -%}
-                {%- set content_html = _tab_section_tab(tab=tab) -%}
-                {%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab.get('tab_html', ''), 'content_html': content_html } ] -%}
-            {%- endif -%}
-        {%- endfor -%}
-
-        <div class="grid-row">
-            <div class="grid-col-{{ tabs_column_count }} grid-col-start-large-{{ tabs_column_start }}">
-                {{ vf_tabs(list={ 'tabs': ns.rendered_tabs }) }}
-            </div>
-        </div>
+    	{% if not tabs_in_title_row %}
+    		<div class="p-section--shallow">
+    	{% endif %}
+				<div class="grid-row{% if title_row_has_two_columns %}--50-50-on-large{% endif %}">
+					{{ vf_section_top_rule(top_rule_variant) }}
+					<div class="grid-col">
+						{%- if title_is_link -%}
+							<a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
+						{%- endif -%}
+						<h{{ title_heading_level }}>
+							{{ title_text }}
+						</h{{ title_heading_level }}>
+						{%- if title_is_link -%}
+							</a>
+						{%- endif -%}
+					</div>
+					{%- if title_row_has_two_columns -%}
+						<div class="grid-col">
+							{{ vf_description_block(
+								type=description.get("type"),
+								content=description.get("content")
+							)}}
+							{{ vf_cta_block(
+								primary=cta.get("primary"),
+								secondaries=cta.get("secondaries"),
+								link=cta.get("link")
+							) }}
+							{#- On 50-50, if there is no description or CTA, the tabs live in the same row as the title. -#}
+							{% if tabs_in_title_row %}
+								{{ vf_tabs(list={ 'tabs': ns.rendered_tabs }) }}
+						{% endif %}
+					</div>
+				{%- endif -%}
+				</div>
+				{% if not tabs_in_title_row %}
+        	</div>
+					<div class="grid-row">
+							<div class="grid-col-{{ tabs_column_count }} grid-col-start-large-{{ tabs_column_start }}">
+								{{ vf_tabs(list={ 'tabs': ns.rendered_tabs }) }}
+							</div>
+					</div>
+        {% endif %}
     </section>
 {%- endmacro -%}
