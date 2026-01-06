@@ -45,15 +45,15 @@
     <hr class="p-rule is-fixed-width"/>
     <div class="p-section--shallow">
     {%- if has_two_top_cols -%}
-      <div class="row--50-50-on-large">
-        <div class="col">
+      <div class="grid-row--50-50-on-large">
+        <div class="grid-col">
     {%- endif -%}
           <h2{% if not has_two_top_cols %} class="u-fixed-width"{% endif %}>{{ title_text }}</h2>
     {%- if has_two_top_cols -%}
         </div>
     {%- endif -%}
         {%- if has_two_top_cols -%}
-          <div class="col">
+          <div class="grid-col">
             {%- if has_subtitle -%}
               <p class="p-heading--{{ subtitle_heading_level }}">{{ subtitle_text }}</p>
             {%- endif -%}
@@ -67,8 +67,8 @@
     {%- endif -%}
     </div>
 
-    <div class="row">
-      <div class="{%- if items | length == 2 -%}col-6 col-start-large-7{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}col-9 col-start-large-4{%- else -%}col{%- endif -%}">
+    <div class="grid-row">
+      <div class="{%- if items | length == 2 -%}grid-col-4 grid-col-start-large-5{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}grid-col-6 grid-col-start-large-3{%- else -%}grid-col{%- endif -%}">
         {{ vf_equal_heights_block(
           items=items,
           subtitle_heading_level=subtitle_heading_level,
@@ -80,9 +80,9 @@
       </div>
     </div>
     {%- if has_cta -%}
-      <div class="row">
+      <div class="grid-row">
         <hr class="p-rule--muted">
-        <div class="col-6 col-medium-3 col-start-large-7 col-start-medium-4">
+        <div class="grid-col-4 grid-col-medium-2 grid-col-start-large-5 grid-col-start-medium-2">
           <p>
             {{- cta_content -}}
           </p>
