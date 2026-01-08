@@ -1,3 +1,4 @@
+{#- The vf_equal-heights-block has been abstracted to _macros/shared/ folder so that it can be nested and used in other components -#}
 {% from "_macros/shared/vf_equal-heights-block.jinja" import vf_equal_heights_block %}
 {#-
   Params
@@ -11,7 +12,7 @@
   - image_aspect_ratio_large (string) (optional): The aspect ratio for item images on large screens. Defaults to "2-3". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "2-3".
   - items (array) (required): An array of items, each including 'image_html', 'title_text', 'description_html', and 'cta_html'.
 -#}
- -#}
+
 {%- macro vf_equal_heights(
   title_text,
   attrs={},
@@ -68,7 +69,7 @@
     </div>
 
     <div class="grid-row">
-      <div class="{%- if items | length == 2 -%}grid-col-4 grid-col-start-large-5{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}grid-col-6 grid-col-start-large-3{%- else -%}grid-col{%- endif -%}">
+      <div class="{%- if items | length == 2 -%}grid-col-4 grid-col-start-large-5{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}grid-col-6 grid-col-start-large-3{%- else -%}grid-col-8{%- endif -%}">
         {{ vf_equal_heights_block(
           items=items,
           subtitle_heading_level=subtitle_heading_level,
@@ -82,7 +83,7 @@
     {%- if has_cta -%}
       <div class="grid-row">
         <hr class="p-rule--muted">
-        <div class="grid-col-4 grid-col-medium-2 grid-col-start-large-5 grid-col-start-medium-2">
+        <div class="grid-col-4 grid-col-medium-2 grid-col-start-large-5 grid-col-start-medium-3">
           <p>
             {{- cta_content -}}
           </p>

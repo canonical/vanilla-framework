@@ -149,7 +149,7 @@
   // TODO implement with new 4/4/8 grid (.grid-row)
   // TODO this may be a breaking change. we are applying new grid column counts to the old row class, in order to migrate the entire component to the new grid.
   // This needs to be carefully investigated. It may require a major version update.
-  .grid-row--25-75-on-large >.grid-col,
+  .grid-row--25-75-on-large > .grid-col,
   .grid-row > .grid-col-6,
   .row--25-75-on-large > .col,
   .row > .col-9 {
@@ -168,7 +168,8 @@
     & .p-equal-height-row,
     & .p-equal-height-row--wrap {
       @media screen and (width >= $breakpoint-large) {
-        grid-template-columns: repeat(#{math.div($grid-8-columns, 2)}, minmax(0, 1fr));      }
+        grid-template-columns: repeat(#{math.div($grid-8-columns, 2)}, minmax(0, 1fr));
+      }
     }
   }
 }

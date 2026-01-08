@@ -3,12 +3,12 @@
   Renders the inner Equal Heights grid (no outer section/rows), suitable for embedding in other patterns (e.g. tab panels).
 
   Params:
-  - items (array): Each item may include 'image_html', 'title_text', 'description_html', and 'cta_html'.
-  - subtitle_heading_level (int): 4 or 5 (default 5) — used for item titles.
-  - highlight_images (boolean): Whether to add a subtle grey background behind images.
-  - image_aspect_ratio_small (string): "square" | "2-3" | "3-2" | "16-9" | "cinematic" | "auto" (default: "square").
-  - image_aspect_ratio_medium (string): same options as above (default: "square").
-  - image_aspect_ratio_large (string): same options as above (default: "2-3").
+  - items (array) (required): Each item may include 'image_html', 'title_text', 'title_link', 'description_html', and 'cta_html'.
+  - subtitle_heading_level (int) (optional): 4 or 5 (default 5) — used for item titles.
+  - highlight_images (boolean) (optional): Whether to add a subtle grey background behind images.
+  - image_aspect_ratio_small (string) (optional): "square" | "2-3" | "3-2" | "16-9" | "cinematic" | "auto" (default: "square").
+  - image_aspect_ratio_medium (string) (optional): same options as above (default: "square").
+  - image_aspect_ratio_large (string) (optional): same options as above (default: "2-3").
 -#}
 {%- macro vf_equal_heights_block(
   items=[],
@@ -22,6 +22,7 @@
     {%- for item in items -%}
       {%- set image = item.get("image_html", "") | trim -%}
       {%- set title = item.get("title_text", "") | trim -%}
+      {%- set title_link = item.get("title_link", "") | trim -%}
       {%- set description = item.get("description_html", "") | trim -%}
       {%- set cta = item.get("cta_html", "") | trim -%}
       <div class="p-equal-height-row__col is-borderless">
@@ -38,7 +39,15 @@
         {#- Title item -#}
         <div class="p-equal-height-row__item">
           {%- if title | length > 0 -%}
-            <p class="p-heading--{{ subtitle_heading_level }}">{{- title -}}</p>
+            <p class="p-heading--{{ subtitle_heading_level }}">
+              {%- if title_link | length > 0 -%}
+                <a href={{ title_link }}>
+              {%- endif -%}
+              {{- title -}}
+              {%- if title_link | length > 0 -%}
+                </a>
+              {%- endif -%}
+            </p>
           {%- endif -%}
         </div>
         {#- Description item (optional) -#}
