@@ -22,7 +22,7 @@
     {%- for item in items -%}
       {%- set image = item.get("image_html", "") | trim -%}
       {%- set title = item.get("title_text", "") | trim -%}
-      {%- set title_link = item.get("title_link", "") | trim -%}
+      {%- set title_link_attrs = item.get("title_link_attrs", {}) -%}
       {%- set description = item.get("description_html", "") | trim -%}
       {%- set cta = item.get("cta_html", "") | trim -%}
       <div class="p-equal-height-row__col is-borderless">
@@ -40,11 +40,11 @@
         <div class="p-equal-height-row__item">
           {%- if title | length > 0 -%}
             <p class="p-heading--{{ subtitle_heading_level }}">
-              {%- if title_link | length > 0 -%}
-                <a href={{ title_link }}>
+              {%- if title_link_attrs and "href" in title_link_attrs -%}
+                <a {% for attr, value in title_link_attrs.items() -%} {{ attr }}="{{ value }}" {%- endfor -%}>
               {%- endif -%}
-              {{- title -}}
-              {%- if title_link | length > 0 -%}
+                  {{- title -}}
+              {%- if title_link_attrs and "href" in title_link_attrs -%}
                 </a>
               {%- endif -%}
             </p>

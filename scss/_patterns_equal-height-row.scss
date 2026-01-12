@@ -146,9 +146,10 @@
   // ADVANCED GRID SUPPORT
 
   // Support for 25-75 split on large screen size
-  // TODO implement with new 4/4/8 grid (.grid-row)
-  // TODO this may be a breaking change. we are applying new grid column counts to the old row class, in order to migrate the entire component to the new grid.
-  // This needs to be carefully investigated. It may require a major version update.
+  // The equal height row has been moved to the 8-column grid, but we still support the equal height row component
+  // being placed inside legacy grid row to ensure backward compatibility, this works since the ratio of columns
+  // remains the same.
+  // This would break if legacy grid is used inside the component itself.
   .grid-row--25-75-on-large > .grid-col,
   .grid-row > .grid-col-6,
   .row--25-75-on-large > .col,
