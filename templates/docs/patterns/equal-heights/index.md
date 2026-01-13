@@ -23,6 +23,7 @@ The equal heights pattern is composed of the following elements:
 | image_aspect_ratio_large  | The aspect ratio to apply to item images on [large screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference) or "auto" to use the image's original aspect ratio. Defaults to "2-3".     |
 | items (**required**)      | An `Array<Object>` of individual item properties.                                                                                                                                                                                                                               |
 | items[].title_text        | The title for the item.                                                                                                                                                                                                                                                         |
+| items[].title_link_attrs  | Object of attributes of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#attributes">anchor element</a> to link the title of item.                                                                                                            |
 | items[].description_html  | The description for the item.                                                                                                                                                                                                                                                   |
 | items[].image_html        | The image element for the item.                                                                                                                                                                                                                                                 |
 | items[].cta_html          | The call to action element for the item.                                                                                                                                                                                                                                        |
@@ -59,6 +60,14 @@ At a minimum, you should provide a title, at least 3 items, and a title and imag
 View example of the equal heights pattern
 </a></div>
 
+## Highlighted Images
+
+To [highlight](https://vanillaframework.io/docs/patterns/images#highlighted-image) images within the pattern, set `highlight_images=True`. This is generally used when images are illustrations. The example also displays linked item headings.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/4-columns-highlighted-images" class="js-example" data-lang="jinja">
+View example of the equal heights pattern
+</a></div>
+
 ## Parameter consistency
 
 The presence of an element in one of the items establishes a visual rhythm that should be upheld by the other items.
@@ -69,14 +78,6 @@ In the following example, the second and fourth items are missing descriptions, 
 This demonstrates what **not** to do with this pattern.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/mixed-column-items-responsive" class="js-example" data-lang="jinja">
-View example of the equal heights pattern
-</a></div>
-
-## Highlighted Images
-
-To [highlight](https://vanillaframework.io/docs/patterns/images#highlighted-image) images within the pattern, set `highlight_images=True`. This is generally used when images are illustrations.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/4-columns-highlighted-images" class="js-example" data-lang="jinja">
 View example of the equal heights pattern
 </a></div>
 
@@ -253,6 +254,21 @@ shown below.
         </td>
         <td>
           The title for the item.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>items[].title_link_attrs</code>
+        </td>
+        <td>
+          No </td>
+        <td>
+          Object </td>
+        <td>
+          N/A
+        </td>
+        <td>
+           Attributes of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#attributes">anchor element</a>, as a dictionary. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info. Links the title of the item.
         </td>
       </tr>
       <tr>
