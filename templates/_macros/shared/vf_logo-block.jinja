@@ -1,0 +1,29 @@
+{% from "_macros/shared/vf_dedent.jinja" import vf_dedent %}
+
+# logo_block_config
+# - logos: A list of logos to be displayed in the section.
+# - - attrs: A dictionary of attributes to apply to the logo
+# - - is_fixed_width: Boolean to indicate if the logo should be wrapped in a fixed-width container (default is true).
+# - - has_line_break_after: Boolean to indicate if a line break should be included after the logo (default is false). This will be hidden on small screens.
+#       See https://vanillaframework.io/docs/patterns/logo-section#line-breaks
+{% macro vf_logo_block(logo_block_config={}) %}
+  {%- set is_fixed_width = logo_block_config.get("is_fixed_width", true) != false -%}
+  {%- if is_fixed_width -%}<div class="u-fixed-width">{%- endif -%}
+  <div class="p-logo-section">
+    {%- for logo in logo_block_config.get("logos", []) -%}
+      <div class="p-logo-section__item">
+        <img class="p-logo-section__logo {{ logo.get("attrs", {}).get("class", "") -}}"
+        {%- for attr, value in logo.get("attrs", {}).items() -%}
+          {% if attr != "class" %}
+            {{ attr }}="{{ value }}"
+          {%- endif -%}
+        {%- endfor -%}
+        />
+        {%- if logo.get("has_line_break_after", false) -%}
+          <br class="u-hide--small">
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+  {%- if is_fixed_width -%}</div>{%- endif -%}
+{% endmacro %}
