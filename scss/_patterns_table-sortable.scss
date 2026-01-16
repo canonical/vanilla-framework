@@ -24,15 +24,37 @@
     &[aria-sort] {
       align-items: center;
       cursor: pointer;
-      white-space: nowrap;
       outline-color: $colors--theme--focus;
+      white-space: nowrap;
 
-      &:hover, &:focus-visible {
+      &:hover,
+      &:focus-visible {
         color: $colors--theme--link-default;
       }
 
       .p-table__sort-button {
+        // "inherit" styles are used to ensure this uses th styles instead of button defaults
+        background: inherit;
+        border: none;
+        color: inherit;
+        display: inline-block;
+        font: inherit;
+        height: 100%;
+        // Cancel the focus outline space to avoid affecting layout
+        margin: -2px -#{$sph--x-small};
+        max-width: 100%;
         outline-color: inherit;
+        overflow: inherit;
+        // Small spacer for the focus outline
+        padding: 2px $sph--x-small;
+        text-align: inherit;
+        text-decoration: inherit;
+        text-indent: inherit;
+        text-overflow: inherit;
+        text-transform: inherit;
+        text-wrap: inherit;
+        vertical-align: inherit;
+        white-space: inherit;
       }
     }
 

@@ -65,21 +65,9 @@ function sortTable(header, table) {
   }
 }
 
-/**
- * Sets up interaction events for a sortable table header.
- * @param {HTMLTableElement} table - The table containing the header
- * @param {HTMLTableCellElement} header - The header to enable sorting on
- */
-function setupInteractionEvents(table, header) {
+function setupClickableHeader(table, header) {
   header.addEventListener('click', function () {
     sortTable(header, table);
-  });
-  const kbTarget = header.querySelector('.p-table__sort-button');
-  kbTarget?.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      sortTable(header, table);
-    }
   });
 }
 
@@ -96,10 +84,10 @@ function setupSortableTable(table) {
   }
 
   // Select sortable column headers.
-  var interactableHeaders = table.querySelectorAll('th[aria-sort]');
-  // Attach the interaction event for each header.
-  for (var i = 0, ii = interactableHeaders.length; i < ii; i += 1) {
-    setupInteractionEvents(table, interactableHeaders[i]);
+  var clickableHeaders = table.querySelectorAll('th[aria-sort]');
+  // Attach the click event for each header.
+  for (var i = 0, ii = clickableHeaders.length; i < ii; i += 1) {
+    setupClickableHeader(table, clickableHeaders[i]);
   }
 }
 
