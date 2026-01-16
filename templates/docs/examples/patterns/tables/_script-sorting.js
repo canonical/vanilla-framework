@@ -71,16 +71,11 @@ function sortTable(header, table) {
  * @param {HTMLTableCellElement} header - The header to enable sorting on
  */
 function setupInteractionEvents(table, header) {
-  /**
-   *  Button is the accessible target, as it allows keyboard interaction.
-   *  If there's no button, use the header itself (for backwards compatibility).
-   */
-  const target = header.querySelector('.p-table__sort-button') || header;
-
-  target.addEventListener('click', function () {
+  header.addEventListener('click', function () {
     sortTable(header, table);
   });
-  target.addEventListener('keydown', function (event) {
+  const kbTarget = header.querySelector('.p-table__sort-button');
+  kbTarget?.addEventListener('keydown', function (event) {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       sortTable(header, table);

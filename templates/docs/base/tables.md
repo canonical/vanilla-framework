@@ -48,21 +48,22 @@ View example of the base table
 ## Sortable
 
 Assigning `aria-sort` to `<th>` elements will make given table columns sortable. With javascript toggling between `ascending` and `descending` for the `aria-sort` attribute it will change the chevron icon in that direction.
-Sortable header text should be wrapped in a `<button class="p-table__sort-button">` 
+Sortable header text should be wrapped in a `<span role="button" tabindex="0" class="p-table__sort-button">` 
 to enable sorting by keyboard.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tables/table-sortable/" class="js-example">
 View example of the table sortable pattern
 </a></div>
 
-
-{{ status("Deprecated") }}
-
-Sortable table headers should include `<button class="p-table__sort-button">` to support keyboard interactions. The use of a sortable table header without a sort button is deprecated, but supported for backwards compatibility.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/tables/table-sortable-legacy/" class="js-example">
-View example of the legacy (inaccessible) sortable table
-</a></div>
+<div class="p-notification--information">
+  <div class="p-notification__content">
+    <h5 class="p-notification__title">Sorting via keyboard</h5>
+    <p class="p-notification__message">
+      In Vanilla 4.39.1 we added support for sorting tables with the keyboard.<br>
+      To enable sorting by keyboard, please wrap your header text in <code>&lt;span role=&quot;button&quot; tabindex=&quot;0&quot; class=&quot;p-table__sort-button&quot;&gt;</code> and copy the updated JS script from the example above.
+    </p>
+  </div>
+</div>
 
 
 ## Expanding
