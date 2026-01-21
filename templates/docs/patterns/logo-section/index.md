@@ -151,6 +151,14 @@ View example of the logo section pattern without CTA block
 View example of the logo section pattern without description and CTA block
 </a></div>
 
+#### Logo section at a block level
+
+Logo section can also be used as a block within other patterns, such as [Tiered list](/docs/patterns/tiered-list)
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/block-scoped" class="js-example" data-lang="jinja">
+View example of the block scoped logo section
+</a></div>
+
 ## Jinja Macro
 
 The `vf_logo_section` Jinja macro can be used to generate a logo section pattern. The API for the macro is shown
@@ -247,13 +255,52 @@ below.
         <td>
           One of:<br>
           <code>'deep'</code>,<br>
-          <code>'default'</code>
+          <code>'default'</code>,<br>
+          <code>'none'</code>
         </td>
         <td>
           <code>'default'</code>
         </td>
         <td>
           Padding variant for the entire section
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>top_rule_variant</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'default'</code>,<br>
+          <code>'none'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Variant of <a href="/docs/patterns/rule">horizontal rule</a> to display at the top of the section."
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>scope</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'section'</code>,<br>
+          <code>'block'</code>
+        </td>
+        <td>
+          <code>'section'</code>
+        </td>
+        <td>
+          Which root element the macro renders. Renders <code>&lt;section&gt;</code> or <code>&lt;div&gt;</code> depending on the value.
         </td>
       </tr>
     </tbody>
