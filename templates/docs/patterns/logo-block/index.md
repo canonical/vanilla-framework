@@ -7,8 +7,8 @@ context:
 {% from "docs/macros/notice.jinja" import documentation_notice %}
 
 {{- documentation_notice(
-    icon_class="p-notification--information",
-    message_text="Please use this component if you would like to simply display logos within another section, as it should be treated as a building block that can be inserted into other patterns, without needing to include a title. If you would instead like to use a designated logo section with an accompanying heading and optional description, please use the <a href='/docs/patterns/logo-section'>Logo section</a> pattern."
+    icon_class="p-notification--negative",
+    message_text="Logo block is now deprecated in favor of the new <a href='/docs/patterns/logo-section'>Logo section</a> pattern."
 ) }}
 
 The logo block can be used to showcase a group of related images, such as a group of customer or partner logos.

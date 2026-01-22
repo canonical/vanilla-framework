@@ -9,11 +9,6 @@ context:
 
 {{- pattern_wip_notice() }}
 
-{{- documentation_notice(
-    icon_class="p-notification--information",
-    message_text="Please use this pattern if you would like to use a designated logo section with an accompanying heading and optional description. If you would instead like to simply display logos within another section, please use the <a href='/docs/patterns/logo-block'>Logo block component</a>, which should be treated as a building block that can be inserted into other patterns without needing to include a title."
-) }}
-
 The logo section is a pattern where the logo block serves as the main content, combined with a muted heading, optional description, and a CTA block.
 
 It is composed of the following elements:
