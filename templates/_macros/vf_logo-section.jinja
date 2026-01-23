@@ -35,15 +35,15 @@
     - logo-block: Configuration for a logo block. Must include:
       - item.logos (array): A list of logos to display.
   - top_rule_variant (string) (optional): The variant of the top rule to apply. Options are "default", "none". Default is "default".
-  - scope (string) (optional): Which root element the macro renders. Allowed values: "section" or "block". 
-      "section" (default): renders a <section> as the root element (suitable when used standalone).
-      "block": renders a <div> as the root element (suitable when used inside another section).
-      If an unknown value is provided, default behavior is "section".
+  - mode (string) (optional): The layout mode. Allowed values: "full" or "minimal".
+      "full" (default): renders a <section> as the root element, and includes title, description and cta (suitable when used standalone).
+      "minimal": renders a <div> as the root element, and does not render title, description and cta (suitable when used inside another section).
+      If an unknown value is provided, default behavior is "full".
 
   Slots
   - description (optional): Paragraph-style content displayed below the title. Can include one or more paragraphs.
 #}
-{%- macro vf_logo_section(title, padding="default", blocks=[], top_rule_variant="default", scope="section", caller=None) -%}
+{%- macro vf_logo_section(title, padding="default", blocks=[], top_rule_variant="default", mode="full", caller=None) -%}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {%- set padding = padding | trim -%}
@@ -61,9 +61,9 @@
   {%- if top_rule_variant not in ["default", "none"] -%}
     {%- set top_rule_variant = "default" -%}
   {%- endif -%}
-  {%- set scope = scope | trim -%}
-  {%- if scope not in ["section", "block"] -%}
-    {%- set scope = "section" -%}
+  {%- set mode = mode | trim -%}
+  {%- if mode not in ["full", "minimal"] -%}
+    {%- set mode = "full" -%}
   {%- endif -%}
   {%- macro _title_block(title={}) -%}
     <h2 class="p-text--small-caps">
@@ -82,21 +82,26 @@
     {% if has_description %}{{ description_content | safe }}{% endif %}
   {%- endmacro -%}
 
-  {%- set rootElement = "div" if scope == "block" else "section" -%}
+  {%- set rootElement = "div" if mode == "minimal" else "section" -%}
 
-  <{{ rootElement }}{%- if padding != 'none' %} class="{{ padding_classes }}"{% endif %}>
-    {%- if top_rule_variant == "default" -%}
-      <hr class="p-rule is-fixed-width" />
-    {%- endif -%}
-    {%- if title.get('text') or description_content | trim | length > 0 -%}
-    <div class="grid-row--50-50">
-      <div class="grid-col">{{- _title_block(title) -}}</div>
-      <div class="grid-col">
-        {{- _description_block() -}}
-        {% if cta_block %}{{- basic_section_item(cta_block) -}}{% endif %}
+  <{{ rootElement }}{%- if padding != 'none' %} class="{{ padding_classes }}"{% endif %}>    
+    {%- if mode == "full" -%}
+      {%- if top_rule_variant == "default" -%}
+        <hr class="p-rule is-fixed-width" />
+      {%- endif -%}
+      <div class="grid-row--50-50">
+        {%- if title and title.get('text') -%}
+          <div class="grid-col">{{- _title_block(title) -}}</div>
+        {%- endif -%}
+        {%- if has_description or cta_block -%}
+          <div class="grid-col">
+            {{- _description_block() -}}
+            {% if cta_block %}{{- basic_section_item(cta_block) -}}{% endif %}
+          </div>
+        {%- endif -%}
       </div>
-    </div>
     {%- endif -%}
+
     {{- _logo_block(logo_block) -}}
   </{{ rootElement }}>
 {%- endmacro -%}

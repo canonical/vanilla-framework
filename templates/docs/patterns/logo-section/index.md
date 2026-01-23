@@ -146,12 +146,54 @@ View example of the logo section pattern without CTA block
 View example of the logo section pattern without description and CTA block
 </a></div>
 
-#### Logo section at a block level
+#### Full vs Minimal mode
 
-Logo section can also be used as a block within other patterns, such as [Tiered list](/docs/patterns/tiered-list)
+Use the <code>mode</code> parameter to control how much content the pattern renders. Two modes are supported: "full" and "minimal".
 
-<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/block-scoped" class="js-example" data-lang="jinja">
-View example of the block scoped logo section
+- full (default)
+
+  - Renders the title with a top rule, description, CTA, and logo block.
+  - Renders the root element as a <code>&lt;section&gt;</code>
+
+- minimal
+  - Renders a compact layout that displays only the logo block.
+  - Title, description slot and CTA are not rendered (useful inside other patterns or tight page areas).
+  - Renders the root element as a <code>&lt;div&gt;</code>
+
+Usage
+
+- Add the mode property at the pattern level when invoking the macro.
+
+Example: full
+
+```json
+{
+  "title": {"text": "Trusted by organisations worldwide"},
+  "mode": "full",
+  "description": "<p>We power the digital services of many public sector organisations.</p>",
+  "blocks": [
+    {"type": "logo-block", "item": {"logos": [{"attrs": {"src": "logo.png", "alt": "Org"}}]}},
+    {"type": "cta-block", "item": {"link": {"content_html": "Learn more", "attrs": {"href": "/about"}}}}
+  ]
+}
+```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/default" class="js-example" data-lang="jinja">
+View example of the "full" mode Logo section
+</a></div>
+
+Example: minimal
+
+```json
+{
+  "title": {"text": "Trusted by organisations worldwide"},
+  "mode": "minimal",
+  "blocks": [{"type": "logo-block", "item": {"logos": [{"attrs": {"src": "logo.png", "alt": "Org"}}]}}]
+}
+```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/minimal" class="js-example" data-lang="jinja">
+View example of the "minimal" mode Logo section
 </a></div>
 
 ## Jinja Macro
@@ -281,21 +323,25 @@ below.
       </tr>
       <tr>
         <td>
-          <code>scope</code>
+          <code>mode</code>
         </td>
         <td>
           No
         </td>
         <td>
           One of:<br>
-          <code>'section'</code>,<br>
-          <code>'block'</code>
+          <code>'full'</code>,<br>
+          <code>'minimal'</code>
         </td>
         <td>
-          <code>'section'</code>
+          <code>'full'</code>
         </td>
         <td>
-          Which root element the macro renders. Renders <code>&lt;section&gt;</code> or <code>&lt;div&gt;</code> depending on the value.
+          Layout for the pattern.
+          <ul>
+            <li>"full" (default): renders a &lt;section&gt; as the root element, and renders title, description and cta (suitable when used standalone).</li>
+            <li>"minimal": renders a &lt;div&gt; as the root element, and does not render title, description and cta (suitable when used inside another section).</li>
+          </ul>
         </td>
       </tr>
     </tbody>

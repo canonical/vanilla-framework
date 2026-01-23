@@ -1,38 +1,11 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_logo-section.jinja" import vf_logo_section %}
-{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
-{% block title %}Logo section / Default{% endblock %}
+{% block title %}Logo section / Minimal mode{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% set is_paper = true %}
 {% block content %}
-  {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
-    {%- if slot == 'title' -%}
-      <h2>H2 - up to two lines; ideally one.</h2>
-    {%- endif -%}
-
-    {%- if slot == 'description' -%}
-      <p>A <a href="#">private cloud</a> provides organisations with on-demand
-        compute, storage and other resources that can be accessed over the network
-        and that are reserved exclusively for them - either in their own data centre
-        or via a 3rd party.
-      </p>
-    {%- endif -%}
-
-    {%- if slot == 'list_item_title_1' -%}
-      <h3 class="p-heading--5">Rich portfolio of products</h3>
-    {%- endif -%}
-
-    {%- if slot == 'list_item_description_1' -%}
-      <p>Resell the full range of Canonical’s portfolio of private and public
-        cloud products: OpenStack, Kubernetes, IoT, support, security and
-        compliance for Ubuntu.
-      </p>
-
-    {% call(slot) vf_logo_section(
-        title={"text": ""},
-        top_rule_variant="none",
-        padding="none",
-        scope="block",
+  {% call(slot) vf_logo_section(
+        mode="minimal",
         blocks=[
         {
           "type": "logo-block",
@@ -76,10 +49,4 @@
     ]
     ) -%}
     {% endcall -%}
-
-      <div class="p-cta-block">
-        <a href="#">Learn more &rsaquo;</a>
-      </div>
-    {%- endif -%}
-  {% endcall -%}
 {% endblock %}
