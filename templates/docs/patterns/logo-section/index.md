@@ -146,11 +146,11 @@ View example of the logo section pattern without CTA block
 View example of the logo section pattern without description and CTA block
 </a></div>
 
-#### Full vs Minimal mode
+#### Default vs Minimal mode
 
-Use the <code>mode</code> parameter to control how much content the pattern renders. Two modes are supported: "full" and "minimal".
+Use the <code>mode</code> parameter to control how much content the pattern renders. Two modes are supported: "default" and "minimal".
 
-- full (default)
+- default
 
   - Renders the title with a top rule, description, CTA, and logo block.
   - Renders the root element as a <code>&lt;section&gt;</code>
@@ -164,13 +164,13 @@ Usage
 
 - Add the mode property at the pattern level when invoking the macro.
 
-Example: full
+##### Example: default
 
 ```json
 {
-  "title": {"text": "Trusted by organisations worldwide"},
-  "mode": "full",
-  "description": "<p>We power the digital services of many public sector organisations.</p>",
+  "title": {"text": "Trusted by organizations worldwide"},
+  "mode": "default",
+  "description": "<p>We power the digital services of many public sector organizations.</p>",
   "blocks": [
     {"type": "logo-block", "item": {"logos": [{"attrs": {"src": "logo.png", "alt": "Org"}}]}},
     {"type": "cta-block", "item": {"link": {"content_html": "Learn more", "attrs": {"href": "/about"}}}}
@@ -179,14 +179,14 @@ Example: full
 ```
 
 <div class="embedded-example"><a href="/docs/examples/patterns/logo-section/default" class="js-example" data-lang="jinja">
-View example of the "full" mode Logo section
+View example of the "default" mode Logo section
 </a></div>
 
-Example: minimal
+##### Example: minimal
 
 ```json
 {
-  "title": {"text": "Trusted by organisations worldwide"},
+  "title": {"text": "Trusted by organizations worldwide"},
   "mode": "minimal",
   "blocks": [{"type": "logo-block", "item": {"logos": [{"attrs": {"src": "logo.png", "alt": "Org"}}]}}]
 }
@@ -330,16 +330,16 @@ below.
         </td>
         <td>
           One of:<br>
-          <code>'full'</code>,<br>
+          <code>'default'</code>,<br>
           <code>'minimal'</code>
         </td>
         <td>
-          <code>'full'</code>
+          <code>'default'</code>
         </td>
         <td>
           Layout for the pattern.
           <ul>
-            <li>"full" (default): renders a &lt;section&gt; as the root element, and renders title, description and cta (suitable when used standalone).</li>
+            <li>"default": renders a &lt;section&gt; as the root element, and renders title, description and cta (suitable when used standalone).</li>
             <li>"minimal": renders a &lt;div&gt; as the root element, and does not render title, description and cta (suitable when used inside another section).</li>
           </ul>
         </td>

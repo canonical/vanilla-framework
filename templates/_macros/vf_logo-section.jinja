@@ -35,15 +35,14 @@
     - logo-block: Configuration for a logo block. Must include:
       - item.logos (array): A list of logos to display.
   - top_rule_variant (string) (optional): The variant of the top rule to apply. Options are "default", "none". Default is "default".
-  - mode (string) (optional): The layout mode. Allowed values: "full" or "minimal".
-      "full" (default): renders a <section> as the root element, and includes title, description and cta (suitable when used standalone).
+  - mode (string) (optional): The layout mode. Allowed values: "default" or "minimal".
+      "default": renders a <section> as the root element, and includes title, description and cta (suitable when used standalone).
       "minimal": renders a <div> as the root element, and does not render title, description and cta (suitable when used inside another section).
-      If an unknown value is provided, default behavior is "full".
 
   Slots
   - description (optional): Paragraph-style content displayed below the title. Can include one or more paragraphs.
 #}
-{%- macro vf_logo_section(title, padding="default", blocks=[], top_rule_variant="default", mode="full", caller=None) -%}
+{%- macro vf_logo_section(title, padding="default", blocks=[], top_rule_variant="default", mode="default", caller=None) -%}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {%- set padding = padding | trim -%}
@@ -62,8 +61,8 @@
     {%- set top_rule_variant = "default" -%}
   {%- endif -%}
   {%- set mode = mode | trim -%}
-  {%- if mode not in ["full", "minimal"] -%}
-    {%- set mode = "full" -%}
+  {%- if mode not in ["default", "minimal"] -%}
+    {%- set mode = "default" -%}
   {%- endif -%}
   {%- macro _title_block(title={}) -%}
     <h2 class="p-text--small-caps">
@@ -85,7 +84,7 @@
   {%- set rootElement = "div" if mode == "minimal" else "section" -%}
 
   <{{ rootElement }}{%- if padding != 'none' %} class="{{ padding_classes }}"{% endif %}>    
-    {%- if mode == "full" -%}
+    {%- if mode == "default" -%}
       {%- if top_rule_variant == "default" -%}
         <hr class="p-rule is-fixed-width" />
       {%- endif -%}
