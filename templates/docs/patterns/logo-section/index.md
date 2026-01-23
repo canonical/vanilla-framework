@@ -9,11 +9,6 @@ context:
 
 {{- pattern_wip_notice() }}
 
-{{- documentation_notice(
-    icon_class="p-notification--information",
-    message_text="Please use this pattern if you would like to use a designated logo section with an accompanying heading and optional description. If you would instead like to simply display logos within another section, please use the <a href='/docs/patterns/logo-block'>Logo block component</a>, which should be treated as a building block that can be inserted into other patterns without needing to include a title."
-) }}
-
 The logo section is a pattern where the logo block serves as the main content, combined with a muted heading, optional description, and a CTA block.
 
 It is composed of the following elements:
@@ -151,6 +146,56 @@ View example of the logo section pattern without CTA block
 View example of the logo section pattern without description and CTA block
 </a></div>
 
+#### Default vs Minimal mode
+
+Use the <code>mode</code> parameter to control how much content the pattern renders. Two modes are supported: "default" and "minimal".
+
+- default
+
+  - Renders the title with a top rule, description, CTA, and logo block.
+  - Renders the root element as a <code>&lt;section&gt;</code>
+
+- minimal
+  - Renders a compact layout that displays only the logo block.
+  - Title, description slot and CTA are not rendered (useful inside other patterns or tight page areas).
+  - Renders the root element as a <code>&lt;div&gt;</code>
+
+Usage
+
+- Add the mode property at the pattern level when invoking the macro.
+
+##### Example: default
+
+```json
+{
+  "title": {"text": "Trusted by organizations worldwide"},
+  "mode": "default",
+  "description": "<p>We power the digital services of many public sector organizations.</p>",
+  "blocks": [
+    {"type": "logo-block", "item": {"logos": [{"attrs": {"src": "logo.png", "alt": "Org"}}]}},
+    {"type": "cta-block", "item": {"link": {"content_html": "Learn more", "attrs": {"href": "/about"}}}}
+  ]
+}
+```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/default" class="js-example" data-lang="jinja">
+View example of the "default" mode Logo section
+</a></div>
+
+##### Example: minimal
+
+```json
+{
+  "title": {"text": "Trusted by organizations worldwide"},
+  "mode": "minimal",
+  "blocks": [{"type": "logo-block", "item": {"logos": [{"attrs": {"src": "logo.png", "alt": "Org"}}]}}]
+}
+```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/logo-section/minimal" class="js-example" data-lang="jinja">
+View example of the "minimal" mode Logo section
+</a></div>
+
 ## Jinja Macro
 
 The `vf_logo_section` Jinja macro can be used to generate a logo section pattern. The API for the macro is shown
@@ -247,13 +292,56 @@ below.
         <td>
           One of:<br>
           <code>'deep'</code>,<br>
-          <code>'default'</code>
+          <code>'default'</code>,<br>
+          <code>'none'</code>
         </td>
         <td>
           <code>'default'</code>
         </td>
         <td>
           Padding variant for the entire section
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>top_rule_variant</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'default'</code>,<br>
+          <code>'none'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Variant of <a href="/docs/patterns/rule">horizontal rule</a> to display at the top of the section."
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>mode</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'default'</code>,<br>
+          <code>'minimal'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Layout for the pattern.
+          <ul>
+            <li>"default": renders a &lt;section&gt; as the root element, and renders title, description and cta (suitable when used standalone).</li>
+            <li>"minimal": renders a &lt;div&gt; as the root element, and does not render title, description and cta (suitable when used inside another section).</li>
+          </ul>
         </td>
       </tr>
     </tbody>
