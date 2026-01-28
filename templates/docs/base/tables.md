@@ -60,7 +60,7 @@ View example of the table sortable pattern
   <div class="p-notification__content">
     <h5 class="p-notification__title">Sorting via keyboard</h5>
     <p class="p-notification__message">
-      In Vanilla 4.39.1 we added support for sorting tables with the enter and space keys.<br>
+      In Vanilla 4.41.0 we added support for sorting tables with the Enter and Space keys.<br>
       To enable sorting by keyboard, please wrap your header text in <code>&lt;button class=&quot;p-table__sort-button&quot;&gt;</code>.
     </p>
   </div>
