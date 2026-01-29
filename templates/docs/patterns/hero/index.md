@@ -113,6 +113,142 @@ This places the title and subtitle in their own row above the rest of the hero c
 View example of the hero pattern in fallback configuration
 </a></div>
 
+## Blocks
+
+### Description
+
+Description blocks can be used to display elaborative text content.
+
+By default, the description contents are rendered within a `<p>` tag, but you can also use `type:"html"` to render raw HTML
+content.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/description-block" class="js-example" data-lang="jinja">
+View example of the Hero section with description block
+</a></div>
+
+```json
+{
+  "type": "description",
+  "item": {
+    "type": "text" | "html",
+    "content": "Your content here"
+  }
+}
+```
+
+- **`type`**: Either `"text"` (default) or `"html"`. Text content is wrapped in `<p>` tags, HTML content is rendered as-is.
+- **`content`**: The text or HTML content to display.
+
+### CTA
+
+The CTA block allows you to include call-to-action elements within the section.
+
+It supports three types of CTA items:
+
+- **Primary**: 1 main call-to-action button
+- **Secondary**: Supporting action buttons
+- **Link**: Text link
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/cta-block" class="js-example" data-lang="jinja">
+View example of the Hero section with CTA block
+</a></div>
+
+```json
+{
+  "type": "cta-block",
+  "item": {
+    "primary": {
+      "content_html": "Primary button text",
+      "attrs": {
+        "href": "link-url",
+        "class": "optional-css-class"
+      }
+    },
+    "secondaries": [
+      {
+        "content_html": "Secondary button text",
+        "attrs": {
+          "href": "link-url"
+        }
+      }
+    ],
+    "link": {
+      "content_html": "Link text",
+      "attrs": {
+        "href": "link-url"
+      }
+    }
+  }
+}
+```
+
+- **`primary`**: Optional primary button configuration.
+- **`secondaries`**: Optional array of secondary button configurations.
+- **`link`**: Optional text link configuration.
+
+Each of the CTA configurations accepts the following properties:
+
+- **`content_html`**: The inner HTML of the CTA item.
+- **`attrs`**: Dictionary of button/link attributes. These are applied to the CTA element. If `href` is present, the CTA item will be an `<a>`, otherwise it will be a `<button>`. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
+
+### Image
+
+Image block allows you to include an image within the section, and can have configurable aspect ratios and a caption.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/image-block" class="js-example" data-lang="jinja">
+View example of the Hero section with image block
+</a></div>
+
+```json
+{
+  "type": "image",
+  "item": {
+    "aspect_ratio": "16-9" | "3-2" | "",
+    "caption_html": "Optional caption with HTML",
+    "is_highlighted": "Optional boolean to enable/disable background highlighting. Default is true",
+    "attrs": {
+      "src": "image-url",
+      "alt": "alt-text"
+    }
+  }
+}
+```
+
+- **`aspect_ratio`**: Optional aspect ratio constraint. Valid values: `"16-9"`, `"3-2"`, or empty string for default.
+- **`caption_html`**: Optional HTML caption. If provided, the image and caption are wrapped in a `<figure>` element.
+- **`is_highlighted`**: Optional boolean which defaults to true. Wraps image in a <a href="/docs/patterns/images#highlighted-image">highlighted image
+  container</a>.
+- **`attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
+
+### Signpost image
+
+Signpost image block allows you to include a signpost page, in a small column beside the primary hero content.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/signpost-image-block" class="js-example" data-lang="jinja">
+View example of the Hero section with signpost image block
+</a></div>
+
+```json
+{
+  "type": "signpost_image",
+  "item": {
+    "aspect_ratio": "16-9" | "3-2" | "",
+    "caption_html": "Optional caption with HTML",
+    "is_highlighted": "Optional boolean to enable/disable background highlighting. Default is true",
+    "attrs": {
+      "src": "image-url",
+      "alt": "alt-text"
+    }
+  }
+}
+```
+
+- **`aspect_ratio`**: Optional aspect ratio constraint. Valid values: `"16-9"`, `"3-2"`, or empty string for default.
+- **`caption_html`**: Optional HTML caption. If provided, the image and caption are wrapped in a `<figure>` element.
+- **`is_highlighted`**: Optional boolean which defaults to true. Wraps image in a <a href="/docs/patterns/images#highlighted-image">highlighted image
+  container</a>.
+- **`attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
+
 ## Jinja Macro
 
 The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for the macro is shown below.
@@ -225,7 +361,9 @@ The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for th
   </table>
 </div>
 
-### Slots
+### Slots <span class="p-chip--negative is-readonly is-inline is-dense">Deprecated</span>
+
+Hero section slots are now deprecated, and will be removed in the future version of Vanilla. Please visit [blocks](#blocks) for recommended implementation.
 
 <div style="overflow: auto;">
   <table>
