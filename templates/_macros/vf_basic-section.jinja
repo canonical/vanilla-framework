@@ -43,6 +43,7 @@
 # image_config
 # - aspect_ratio: "16-9" | "3-2" | "" (default is "")
 # - caption_html: The HTML content for the caption of the image (optional). Will be wrapped in <figcaption>, and the image and caption will be wrapped in a <figure>.
+# - is_highlighted: Whether to apply the "is-highlighted" class to the image container (default is true).
 # - attrs: A dictionary of attributes to apply to the image
 {% macro _basic_section_image(image_config={}) %}
   {%- set aspect_ratio = image_config.get("aspect_ratio", "") | trim -%}
@@ -53,10 +54,12 @@
   {%- set caption_html = image_config.get("caption_html", "") | trim -%}
   {%- set has_caption = caption_html | length > 0 -%}
 
+  {%- set is_highlighted = image_config.get("is_highlighted", true) -%}
+
   {%- if has_caption -%}
   <figure>
   {%- endif -%}
-  <div class="p-image-container{%- if aspect_ratio | length > 0 -%}--{{- aspect_ratio -}}{%- endif %} is-highlighted">
+  <div class="p-image-container{%- if aspect_ratio | length > 0 -%}--{{- aspect_ratio -}}{%- endif %}{%- if is_highlighted %} is-highlighted{% endif -%}">
     <img class="p-image-container__image {{ image_config.get("attrs", {}).get("class", "") -}}"
       {%- for attr, value in image_config.get("attrs", {}).items() -%}
         {% if attr != "class" %}

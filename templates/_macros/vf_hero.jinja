@@ -1,3 +1,6 @@
+{% from "_macros/shared/vf_cta-block.jinja" import vf_cta_block %}
+{% from "_macros/vf_basic-section.jinja" import basic_section_item %}
+
 # Params
 # title_text: Hero title text (required)
 # subtitle_text: Hero subtitle text
@@ -5,28 +8,34 @@
 # is_split_on_medium: whether the layout is split on tablet in 50/50, 25/75, and 75/25 layouts.
 #   If false, the layout is stacked on tablet.
 #   If true, the layout is split on tablet.
-# Slots
-# description: paragraph-style content below the title and subtitle
-# cta: call-to-action block below the description
-# image: slot for image content
-# signpost_image: slot for signpost (left column) image content in 25/75 layout. Required for 25/75 layout.
 # display_blank_signpost_image_space: whether to indent the content for 25/75 layout on large screens.
+# Slots
+# description (deprecated): paragraph-style content below the title and subtitle
+# cta (deprecated): call-to-action block below the description
+# image (deprecated): slot for image content
+# signpost_image (deprecated): slot for signpost (left column) image content in 25/75 layout. Required for 25/75 layout.
 {% macro vf_hero(
   title_text,
   subtitle_text='',
   layout="fallback",
   is_split_on_medium=false,
-  display_blank_signpost_image_space=false
+  display_blank_signpost_image_space=false,
+  blocks=[]
 ) -%}
+  {%- set description_blocks = blocks | selectattr("type", "equalto", "description") | list -%}
+  {%- set cta_block = blocks | selectattr("type", "equalto", "cta-block") | list | first | default(None) -%}
+  {%- set image_block = blocks | selectattr("type", "equalto", "image") | list | first | default(None) -%}
+  {%- set signpost_image_block = blocks | selectattr("type", "equalto", "signpost_image") | list | first | default(None) -%}
+
   {% set has_subtitle = subtitle_text|trim|length > 0 %}
   {% set description_content = caller('description') %}
-  {% set has_description = description_content|trim|length > 0 %}
+  {% set has_description = description_blocks | length > 0 or description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
-  {% set has_cta = cta_content|trim|length > 0 %}
+  {% set has_cta = cta_block or cta_content|trim|length > 0 %}
   {% set image_content = caller('image') %}
-  {% set has_image = image_content|trim|length > 0 %}
+  {% set has_image = image_block or image_content|trim|length > 0 %}
   {% set signpost_image_content = caller('signpost_image') %}
-  {% set has_signpost_image = signpost_image_content|trim|length > 0 or display_blank_signpost_image_space %}
+  {% set has_signpost_image = signpost_image_block or signpost_image_content|trim|length > 0 or display_blank_signpost_image_space %}
 
   {#- User can pass layout as "X-Y" or "X/Y" -#}
   {% set layout = layout | trim | replace('/', '-') %}
@@ -98,7 +107,9 @@
   {%- endmacro %}
 
   {%- macro _hero_cta_block() -%}
-    {% if has_cta -%}
+    {%- if cta_block -%}
+      {{- basic_section_item(cta_block) -}}
+    {% elif has_cta -%}
       <div class="p-cta-block">
         {{ cta_content }}
       </div>
@@ -106,19 +117,34 @@
   {%- endmacro %}
 
   {%- macro _hero_description_block() -%}
-    {% if has_description %}
+    {%- if description_blocks | length > 0 -%}
+      {% for description_block in description_blocks %}
+        {{ basic_section_item(description_block) }}
+      {% endfor %}
+    {% elif has_description %}
       <div class="p-section--shallow">
         {{ description_content }}
       </div>
     {% endif %}
   {%- endmacro %}
 
-  {%- macro _hero_signpost_image_block() -%}
-    {% if layout == '25-75' and has_signpost_image -%}
-      <div class="p-section--shallow">
-        {{ signpost_image_content }}
-      </div>
+  {%- macro _hero_image_block() -%}
+    {%- if image_block -%}
+      {{- basic_section_item(image_block) -}}
+    {% elif has_image -%}
+      {{ image_content }}
     {% endif %}
+  {%- endmacro %}
+
+  {%- macro _hero_signpost_image_block() -%}
+    <div class="p-section--shallow">
+      {%- if signpost_image_block -%}
+        {%- set x=signpost_image_block.__setitem__("type",  "image") -%}
+        {{- basic_section_item(signpost_image_block) -}}
+      {% else -%}
+        {{ signpost_image_content }}
+      {% endif %}
+    </div>
   {%- endmacro %}
 
   <section class="p-section--hero">
@@ -140,7 +166,7 @@
         </div>
         {% if has_image -%}
           <div class="{{ col_classes[1] }}">
-            {{ image_content }}
+            {{ _hero_image_block() }}
           </div>
         {% endif -%}
       {% elif (has_full_width_image and not has_signpost_image) or is_50_50_no_image %}
@@ -156,8 +182,8 @@
           {{- _hero_description_block() -}}
           {{- _hero_cta_block() -}}
         </div>
-        {{ image_content -}}
-      {% elif has_signpost_image %}
+        {{ _hero_image_block() }}
+      {% elif has_signpost_image and layout == '25-75' %}
         {#- 25/75 Signpost layout -#}
         <div class="{{ col_classes[0] }}">
           {{ _hero_signpost_image_block() -}}
@@ -172,7 +198,7 @@
         </div>
         {% if has_image %}
           {#- Signpost with image is always full-width, so set it after the columns -#}
-          {{- image_content }}
+          {{- _hero_image_block() }}
         {% endif -%}
       {% else %}
         <div class="{{ col_classes[0] }}">
@@ -185,7 +211,7 @@
         </div>
         {% if has_image -%}
           <div class="{{ col_classes[1] }}">
-            {{ image_content }}
+            {{ _hero_image_block() }}
           </div>
         {% endif -%}
       {% endif -%}
