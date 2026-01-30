@@ -13,10 +13,14 @@ Depending on the size and composition of your content, you can choose from a var
 
 - [50/50](#5050)
 - [50/50 with full-width image](#5050-with-full-width-image)
-- [50/50 with no image](#5050-with-no-image-new)
+- [50/50 with no image](#5050-with-no-image)
 - [25/75 Signpost](#2575-signpost)
 - [75/25](#7525)
 - [Fallback](#fallback)
+- [Usage with description block](#description)
+- [Usage with cta block](#description)
+- [Usage with image block](#image)
+- [Usage with signpost image block](#signpost-image)
 
 The hero pattern is composed of the following elements:
 
@@ -65,7 +69,7 @@ This will make the image take up the full width of the hero.
 View example of the hero pattern in 50/50 split with a full-width image
 </a></div>
 
-### 50/50 with no image {{ status("new") }}
+### 50/50 with no image
 
 This layout positions the title in the left half of the hero, and the rest of the text content in the right half.
 
@@ -361,7 +365,7 @@ The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for th
   </table>
 </div>
 
-### Slots <span class="p-chip--negative is-readonly is-inline is-dense">Deprecated</span>
+### Slots
 
 Hero section slots are now deprecated, and will be removed in the future version of Vanilla. Please visit [blocks](#blocks) for recommended implementation.
 
@@ -377,7 +381,7 @@ Hero section slots are now deprecated, and will be removed in the future version
     <tbody>
       <tr>
         <td>
-          <code>description</code>
+          <code>description {{ status("deprecated") }}</code>
         </td>
         <td>
           No
@@ -388,7 +392,7 @@ Hero section slots are now deprecated, and will be removed in the future version
       </tr>
       <tr>
         <td>
-          <code>cta</code>
+          <code>cta {{ status("deprecated") }}</code>
         </td>
         <td>
           Yes
@@ -400,7 +404,7 @@ Hero section slots are now deprecated, and will be removed in the future version
       </tr>
       <tr>
         <td>
-          <code>image</code>
+          <code>image {{ status("deprecated") }}</code>
         </td>
         <td>
           Yes, when <code>layout='50/50-full-width-image'</code>
@@ -411,7 +415,7 @@ Hero section slots are now deprecated, and will be removed in the future version
       </tr>
       <tr>
         <td>
-          <code>signpost_image</code>
+          <code>signpost_image {{ status("deprecated") }}</code>
         </td>
         <td>
           Yes, when <code>layout='25/75'</code>

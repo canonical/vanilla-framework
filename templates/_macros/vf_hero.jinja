@@ -9,6 +9,7 @@
 #   If false, the layout is stacked on tablet.
 #   If true, the layout is split on tablet.
 # display_blank_signpost_image_space: whether to indent the content for 25/75 layout on large screens.
+# blocks: list of content blocks for the hero section. Includes description, cta, image, and signpost_image blocks.
 # Slots
 # description (deprecated): paragraph-style content below the title and subtitle
 # cta (deprecated): call-to-action block below the description
@@ -139,7 +140,8 @@
   {%- macro _hero_signpost_image_block() -%}
     <div class="p-section--shallow">
       {%- if signpost_image_block -%}
-        {%- set x=signpost_image_block.__setitem__("type",  "image") -%}
+        {% set _ = signpost_image_block.update(type="image") %}
+        {% set _ = signpost_image_block.item.attrs.update({"class": "u-no-margin"}) %}
         {{- basic_section_item(signpost_image_block) -}}
       {% else -%}
         {{ signpost_image_content }}
