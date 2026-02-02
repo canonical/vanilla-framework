@@ -207,9 +207,10 @@ View example of the Hero section with image block
 {
   "type": "image",
   "item": {
-    "aspect_ratio": "16-9" | "3-2" | "",
+    "aspect_ratio": "16-9" | "3-2" | "2-3" | "cinematic" | "",
     "caption_html": "Optional caption with HTML",
     "is_highlighted": "Optional boolean to enable/disable background highlighting. Default is true",
+    "is_cover": "Optional boolean to add 'is-cover' class to image container. Default is false",
     "attrs": {
       "src": "image-url",
       "alt": "alt-text"
@@ -221,6 +222,8 @@ View example of the Hero section with image block
 - **`aspect_ratio`**: Optional aspect ratio constraint. Valid values: `"16-9"`, `"3-2"`, or empty string for default.
 - **`caption_html`**: Optional HTML caption. If provided, the image and caption are wrapped in a `<figure>` element.
 - **`is_highlighted`**: Optional boolean which defaults to true. Wraps image in a <a href="/docs/patterns/images#highlighted-image">highlighted image
+  container</a>.
+- **`is_cover`**: Optional boolean which defaults to false. Wraps image in a <a href="/docs/patterns/images#cover-image">cover image
   container</a>.
 - **`attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
@@ -236,9 +239,10 @@ View example of the Hero section with signpost image block
 {
   "type": "signpost_image",
   "item": {
-    "aspect_ratio": "16-9" | "3-2" | "",
+    "aspect_ratio": "16-9" | "3-2" | "2-3" | "cinematic" | "",
     "caption_html": "Optional caption with HTML",
     "is_highlighted": "Optional boolean to enable/disable background highlighting. Default is true",
+    "is_cover": "Optional boolean to add 'is-cover' class to image container. Default is false",
     "attrs": {
       "src": "image-url",
       "alt": "alt-text"
@@ -250,6 +254,8 @@ View example of the Hero section with signpost image block
 - **`aspect_ratio`**: Optional aspect ratio constraint. Valid values: `"16-9"`, `"3-2"`, or empty string for default.
 - **`caption_html`**: Optional HTML caption. If provided, the image and caption are wrapped in a `<figure>` element.
 - **`is_highlighted`**: Optional boolean which defaults to true. Wraps image in a <a href="/docs/patterns/images#highlighted-image">highlighted image
+  container</a>.
+- **`is_cover`**: Optional boolean which defaults to false. Wraps image in a <a href="/docs/patterns/images#cover-image">cover image
   container</a>.
 - **`attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
