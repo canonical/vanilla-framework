@@ -6,12 +6,14 @@ context:
 
 This guide will help you address common accessibility pitfalls in web applications and content websites.
 
+We aim to comply with the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/), level AA. WCAG has been adopted as the standard for accessibility legislation around the world.
+
 
 ## Why accessibility is important
 
 Designing and coding for accessibility helps everyone, not just a specific group. People with disabilities or age-related challenges that affect seeing, hearing, moving, speaking, or understanding information need accessible design. But disabilities can also be temporary or situational, like having an injury, being in a noisy place, or dealing with glare.
 
-We aim to comply with the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/), level AA. WCAG has been adopted as the standard for accessibility legislation around the world. The guidelines ensure that the interface is:
+The [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/) ensure that the interface is:
 
 <dl>
   <dt>Perceivable</dt>
@@ -25,11 +27,20 @@ We aim to comply with the [Web Content Accessibility Guidelines (WCAG) 2.2](http
 </dl>
 
 
+## When using Vanilla
+
+Components, styles and documentation for Vanilla are written with accessibility in mind, but do not guarantee an accessible experience for your website or web application.
+
+To make the most of Vanilla, check the Accessibility tab in each component's documentation. We also suggest that you check the code examples, which follow best practices.
+
+Whether you are using Vanilla or not, using correct HTML markup and semantics already go a long way into making your website or application more accessible.
+
+
 ## Automated tools
 
 Automated tools can identify many issues with markup and styles. However, they are not sufficient for doing a full accessibility audit. For instance, they will generally fail to evaluate the quality of labels and may throw false positives for contrast.
 
-- **Online validators**: for an initial assessment, you may use tools such as [WAVE](https://wave.webaim.org/) and [PageSpeed Insights](https://pagespeed.web.dev/), or Lighthouse within Google Chrome's developer tools. Note a score of 100 doesn't mean your page is accessible.
+- **Online validators**: for an initial assessment, you may use tools such as [WAVE](https://wave.webaim.org/) and [PageSpeed Insights](https://pagespeed.web.dev/), or Lighthouse within Google Chrome's developer tools. Note [a score of 100 doesn't mean your page is accessible](https://savvasstephanides.hashnode.dev/my-lighthouse-accessibility-score-is-100-does-that-mean-my-website-is-100-accessible).
 - **Browser extensions**:
     * [Axe DevTools browser extension](https://www.deque.com/axe/browser-extensions/) can scan any given page for accessibility issues, providing guidance on how to fix them. Paid version also provides guided tests and testing full flows.
     * [WAVE browser extension](https://wave.webaim.org/extension/): flags issues but also lets you visually check the accessibility tree, focus order and labels.
@@ -173,6 +184,8 @@ For a more thorough test, you need these shortcuts:
 - There are no focus traps: it is possible to escape all loops, for instance by pressing the <kbd>Esc</kbd> key
 - Focus moves from one element to the next in a logical order
     * In most of our apps, that usually means sidebar (if open), then body; and top to bottom, left to right (or right to left for RTL languages such as Arabic or Hebrew).
+- A skip link is provided at the beginning of the page to bypass navigation
+    - Check [skip link](/docs/patterns/links#skip-link) in Vanilla
 - When a dialog opens, focus moves to the dialog
 - When a dialog closes, focus moves back to the element that triggered the dialog
 - Dialogs close by hitting the <kbd>Escape</kbd> key
@@ -400,20 +413,26 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
 
 - All interactive elements (buttons, fields, links…) have a label and a role that is read out loud by the screen reader
     * Use the right HTML elements so screen readers can rely on their implied roles. Check [W3C documentation on roles](https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/).
-    * You may use the [off-screen Vanilla utility](https://vanillaframework.io/docs/utilities/off-screen) (`.u-off-screen`) to make a label readable only for screen reader.
+    * You may use the [off-screen Vanilla utility](/docs/utilities/off-screen) (`.u-off-screen`) to make a label readable only for screen reader.
+- The HTML document has a `lang` attribute on the root element (e.g., `<html lang="en">`)
+- HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>`) and ARIA landmarks are used to define page regions
 - All labels are descriptive, meaningful and concise
 - All labels are unique, unless they trigger the exact same action.
     * For example, if there's more than one share button, each label should mention what it refers to ("Share [item name 1]", "Share [item name 2]")
+- Links have descriptive text that makes sense out of context (avoid "click here" or "read more")
 - All pages have a meaningful title or main heading
 - All headings are unique and meaningful
 - Headings follow a sequential order, without skipping any levels.
     * For example, H3 headings are always under an H1 and an H2 heading.
-    * Use the right markup for heading levels regardless of how they are styled. You can achieve this by using heading styles, for example: `<h2 class="p-heading--3">`
+    * Use the right markup for heading levels regardless of how they are styled. You can achieve this by using [heading classes](/docs/base/typography#heading-classes), for example: `<h2 class="p-heading--3">`
 - When changing to a new page, either the page title or the main heading is announced (whichever is more meaningful)
 - Errors are announced and readable with the screen reader
     * Check the [aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) attribute
 - For images that are not strictly decorative, provide alternative text that can be read out loud by the screen reader
-    * Get guidance on how to write good alternative text in the [Vanilla content guidelines](https://vanillaframework.io/docs/content-guidelines#alt-text-for-images)
+    * Get guidance on how to write good alternative text in the [Vanilla content guidelines](/docs/content-guidelines#alt-text-for-images)
+    * Avoid using images or icons in CSS pseudo-elements (`:before`, `:after`) as they are not accessible to screen readers
+- Decorative elements are hidden from screen readers using `aria-hidden="true"` or appropriate CSS techniques
+- SVG graphics have appropriate `<title>` and `<desc>` elements, or use `aria-label` or `aria-labelledby`
 - All visual content in videos is [described](https://www.w3.org/WAI/media/av/description/) by a narrator, in the transcript, or in adjacent text.
 
 
@@ -422,9 +441,12 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
 Besides the more common checks above, you should also keep in mind these:
 
 - All UI text is reasonably short and easy to understand
-    * Check the [Vanilla content guidelines](https://vanillaframework.io/docs/content-guidelines) for guidance.
+    * Check the [Vanilla content guidelines](/docs/content-guidelines) for guidance.
+- The content is organized with a clear and logical structure that makes sense
+- Layout and design patterns are consistent throughout the interface
 - When there's an error submitting data or in a flow, a meaningful error message is shown
     * Good error messages explain to the user how to avoid them, or at least explain the cause of the error.
+- If an experience cannot be made accessible, provide an alternative for users to access the same information or functionality
 - Search functionality is provided whenever possible so users have an alternative way to find the page or section they are looking for
 - All interactive elements have a width and height of at least 24px, or have [sufficient space around them](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
 - Large interactive elements have at least 24px of either vertical or horizontal spacing
@@ -441,4 +463,27 @@ When auditing an app, check any outstanding accessibility issues in the app repo
 
 ## Report accessibility issues
 
-If you found an accessibility issue, please open an issue in the relevant repository. Repositories for Canonical products are generally hosted on [GitHub](https://github.com/canonical). Describe the issue in as much detail as you can, and provide instructions to test it. Screenshots and screen recordings also help. You can propose a fix for the issue, but it's not strictly necessary.
+If you spot an accessibility problem in Vanilla, let us know  by [filing an issue](https://github.com/canonical/vanilla-framework/issues) on GitHub.
+
+If you found an accessibility issue in another project, please file an issue in the relevant repository.
+
+Describe the issue in as much detail as you can, and provide instructions to test it. Screenshots and screen recordings also help. You can propose a fix for the issue, but it's not strictly necessary.
+
+
+## References
+
+The volume of information on the WCAG website can be disorienting. We keep the following links handy for quick reference:
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/): The complete W3C standard, including principles, guidelines, and success criteria
+- [Understanding WCAG 2.2](https://www.w3.org/WAI/WCAG22/Understanding/): Detailed reference with intent, benefits to people with disabilities, examples, resources, and techniques
+- [How to Meet WCAG 2.2](https://www.w3.org/WAI/WCAG22/quickref/): A customizable quick reference with guidelines, success criteria, and techniques
+- [Techniques for WCAG 2.2](https://www.w3.org/WAI/WCAG22/Techniques/): Instructions for developers, including browser and assistive technology support notes, examples, code, resources, and test procedures
+
+
+### Additional resources
+
+The web is abundant in tools that help to create and test for accessible sites. We find the following particularly useful:
+
+- [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/): A comprehensive guide for understanding how to use WAI-ARIA to create accessible Rich Internet Applications. It provides guidance on the appropriate application of WAI-ARIA, describes recommended usage patterns, and explains concepts behind them.
+- [Web Accessibility in Mind (WebAIM)](https://webaim.org/): Extensive resources and tools for web accessibility
+- [Chrome DevTools Accessibility Reference](https://developer.chrome.com/docs/devtools/accessibility/reference/): Built-in accessibility testing features in Chrome
