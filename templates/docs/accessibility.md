@@ -11,36 +11,27 @@ We aim to comply with the [Web Content Accessibility Guidelines (WCAG) 2.2](http
 
 ## Why accessibility is important
 
-Designing and coding for accessibility helps everyone, not just a specific group. People with disabilities or age-related challenges that affect seeing, hearing, moving, speaking, or understanding information need accessible design. But disabilities can also be temporary or situational, like having an injury, being in a noisy place, or dealing with glare.
+Designing and coding for accessibility helps everyone. People with disabilities or age-related challenges that affect seeing, hearing, moving, speaking, or understanding information need accessible design. But disabilities can also be temporary or situational, like having an injury, being in a noisy place, or dealing with glare.
 
-The [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/) ensure that the interface is:
-
-<dl>
-  <dt>Perceivable</dt>
-  <dd>All users can perceive it</dd>
-  <dt>Operable</dt>
-  <dd>All users can interact with it</dd>
-  <dt>Understandable</dt>
-  <dd>All users can comprehend it</dd>
-  <dt>Robust</dt>
-  <dd>The interface is compatible with accessibility features (also called assistive technologies)</dd>
-</dl>
+The Web Content Accessibility Guidelines (WCAG) ensure that interfaces are [perceivable, operable, understandable and robust](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility).
 
 
 ## When using Vanilla
 
 Components, styles and documentation for Vanilla are written with accessibility in mind, but do not guarantee an accessible experience for your website or web application.
 
-To make the most of Vanilla, check the Accessibility tab in each component's documentation. We also suggest that you check the code examples, which follow best practices.
+When you use Vanilla, check the Accessibility tab in each component's documentation. We also suggest that you check the code examples, which follow best practices.
 
-Whether you are using Vanilla or not, using correct HTML markup and semantics already go a long way into making your website or application more accessible.
+Whether you are using Vanilla or not, make sure to use correct HTML markup and semantics to make the most of browsers' built-in accessibility features.
 
 
 ## Automated tools
 
-Automated tools can identify many issues with markup and styles. However, they are not sufficient for doing a full accessibility audit. For instance, they will generally fail to evaluate the quality of labels and may throw false positives for contrast.
+Automated tools can identify many issues with markup and styles. However, they are not sufficient for conducting a comprehensive accessibility audit. Use them mindfully, and do rely as well on manual reviews.
 
-- **Online validators**: for an initial assessment, you may use tools such as [WAVE](https://wave.webaim.org/) and [PageSpeed Insights](https://pagespeed.web.dev/), or Lighthouse within Google Chrome's developer tools. Note [a score of 100 doesn't mean your page is accessible](https://savvasstephanides.hashnode.dev/my-lighthouse-accessibility-score-is-100-does-that-mean-my-website-is-100-accessible).
+Here are some tools that may help you:
+
+- **Online validators**: for an initial assessment, you may use tools such as [WAVE](https://wave.webaim.org/) and [PageSpeed Insights](https://pagespeed.web.dev/), or Lighthouse within Google Chrome's developer tools. Note that [a score of 100 doesn't mean your page is accessible](https://savvasstephanides.hashnode.dev/my-lighthouse-accessibility-score-is-100-does-that-mean-my-website-is-100-accessible).
 - **Browser extensions**:
     * [Axe DevTools browser extension](https://www.deque.com/axe/browser-extensions/) can scan any given page for accessibility issues, providing guidance on how to fix them. Paid version also provides guided tests and testing full flows.
     * [WAVE browser extension](https://wave.webaim.org/extension/): flags issues but also lets you visually check the accessibility tree, focus order and labels.
@@ -88,12 +79,12 @@ These checks support people with low vision (cataracts), color vision deficienci
 <dl>
     <dt>High contrast mode</dt>
     <dd>Go to <strong>Settings</strong> &gt; <strong>Accessibility</strong> &gt; <strong>Contrast themes</strong> (or "High contrast" on Windows 10). Select a theme from the drop-down menu and click <strong>Apply</strong>.</dd>
-    <dd>Shortcut: Press <kbd>Left Alt</kbd> + <kbd>Left Shift</kbd> + <kbd>Print Screen</kbd> to toggle High Contrast on or off.</em></dd>
+    <dd>Shortcut: Press <kbd>Left Alt</kbd> + <kbd>Left Shift</kbd> + <kbd>Print Screen</kbd> to toggle High Contrast on or off.</dd>
     <dt>Dark theme</dt>
     <dd>Go to <strong>Settings</strong> &gt; <strong>Personalization</strong> &gt; <strong>Colors</strong>. Under "Choose your mode," select <strong>Dark</strong>.</dd>
     <dt>Large text</dt>
     <dd>Go to <strong>Settings</strong> &gt; <strong>Accessibility</strong> &gt; <strong>Text size</strong>. Drag the slider to your desired size and click <strong>Apply</strong>.</dd>
-    <dd>To make everything bigger (apps and text), go to <strong>Settings</strong> &gt; <strong>System</strong> &gt; <strong>Display</strong> and adjust the "Scale" percentage.</em></dd>
+    <dd>To make everything bigger (apps and text), go to <strong>Settings</strong> &gt; <strong>System</strong> &gt; <strong>Display</strong> and adjust the "Scale" percentage.</dd>
     <dt>Reduced motion</dt>
     <dd>Settings &gt; Accessibility &gt; Visual Effects &gt; Animation Effects</dd>
 </dl>
@@ -103,7 +94,7 @@ These checks support people with low vision (cataracts), color vision deficienci
 <dl>
     <dt>Increase contrast (High contrast)</dt>
     <dd>Go to <strong>System Settings</strong> &gt; <strong>Accessibility</strong> &gt; <strong>Display</strong>. Toggle the switch for <strong>Increase contrast</strong>.</dd>
-    <dd>For a more drastic effect, you can also toggle "Invert colours" in the same menu.</em></dd>
+    <dd>For a more drastic effect, you can also toggle "Invert colours" in the same menu.</dd>
     <dt>Dark theme</dt>
     <dd>Go to <strong>System Settings</strong> &gt; <strong>Appearance</strong>. Select <strong>Dark</strong>.</dd>
     <dt>Large text</dt>
@@ -136,7 +127,7 @@ These checks support people with low vision (cataracts), color vision deficienci
 
 ### Contrast checks
 
-Contrast is usually properly handled by Vanilla, but you should ensure all elements have enough color contrast so all text and controls are perceivable:
+Default styles from Vanilla already provide sufficient contrast out of the box, but you should double check elements have enough color contrast so all content is perceivable:
 
 - For text: 4.5:1 or higher contrast with background
 - For everything else (for instance, icons on background): 3:1 or higher contrast with background
@@ -155,7 +146,7 @@ For checking color contrast:
 - On most browsers, including [Firefox](https://css-irl.info/testing-colour-accessibility-with-dev-tools/) and [Chrome](https://developer.chrome.com/docs/devtools/accessibility/contrast), you can check contrast ratio by inspecting an element and clicking on the colour swatch next to the CSS value. Remember we are aiming at level AA at least.
 - Install a checker, such as [Kontrast](https://snapcraft.io/kontrast) or [Contrast](https://flathub.org/en/apps/org.gnome.design.Contrast) in Ubuntu, and pick the foreground and background colors.
 
-Be mindful of text on images, and the use of transparency: some automatic tests may evaluate contrast incorrectly in those cases. Common sense may help flag up problems too: if text looks unreadable to that will mean it's not accessible, no matter what the contrast checker says.
+Be mindful of text on images, and the use of transparency: some automatic tests may evaluate contrast incorrectly in those cases. Common sense may help flag up problems too: if text looks unreadable to you, it's not accessible no matter what the contrast checker says.
 
 
 ## Check keyboard navigation
@@ -194,7 +185,7 @@ For a more thorough test, you need these shortcuts:
 
 ## Check screen reading
 
-All graphical interfaces in Ubuntu Desktop should be readable with the built-in [Orca screen reader](https://documentation.ubuntu.com/desktop/en/latest/how-to/accessibility/orca/read-screen-aloud/). Screen readers benefit blind and visually impaired users who rely on audio feedback to navigate interfaces. To work properly, screen readers require good markup, labelling, and logical content structure.
+All graphical interfaces should be readable with common screen readers. Screen readers benefit blind and visually impaired users who rely on audio feedback to navigate interfaces. To work properly, screen readers require good markup, labelling, and logical content structure.
 
 
 ### Use the screen reader
@@ -256,7 +247,7 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
         <td><kbd>Insert</kbd>+<kbd>Space</kbd></td>
     </tr>
     <tr>
-        <td>Toggle flat review</td>
+        <td>Toggle [flat review](https://documentation.ubuntu.com/desktop/en/latest/how-to/accessibility/orca/navigate-the-screen-using-the-screen-reader/#examine-a-window)</td>
         <td><kbd>CapsLock</kbd>+<kbd>P</kbd></td>
         <td><kbd>Insert</kbd>+<kbd>-</kbd> on the numeric keypad</td>
     </tr>
@@ -288,12 +279,9 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
 
 <div tabindex="0" role="tabpanel" id="windows-screen-reader-tab" aria-labelledby="windows-screen-reader" hidden="hidden">    <p>For testing on Windows, we recommend <a href="https://www.nvaccess.org/download/">NVDA</a> (NonVisual Desktop Access), a free, open-source screen reader. Once installed, you can start it via the desktop shortcut or by pressing <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>N</kbd>.</p>
 
-<p>Important definitions:</p>
+<p>You need to become familiar with keyboard shortcuts to use the screen reader. By default, the <kbd>NVDA</kbd> key is mapped to the <kbd>Insert</kbd> key (Desktop) or <kbd>Caps Lock</kbd> (Laptop), depending on how you configured it during setup.</p>
 
-<ul>
-    <li>NVDA key: By default, this is mapped to the <kbd>Insert</kbd> key (Desktop) or <kbd>Caps Lock</kbd> (Laptop), depending on how you configured it during setup.</li>
-    <li>Modes: NVDA uses "Browse Mode" (for reading web pages) and "Focus Mode" (for typing in forms). It usually switches automatically, but knowing this distinction is vital for testing.</li>
-</ul>
+<p>NVDA uses "Browse Mode" (for reading web pages) and "Focus Mode" (for typing in forms). It usually switches automatically, but knowing this distinction is vital for testing.</p>
 
 <table>
     <thead>
@@ -343,14 +331,11 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
 </table>
 </div>
 
-<div tabindex="0" role="tabpanel" id="macos-screen-reader-tab" aria-labelledby="macos-screen-reader" hidden="hidden">    <p>VoiceOver is the default screen reader in macOS. Go to <strong>System Settings</strong> &gt; <strong>Accessibility</strong> &gt; <strong>VoiceOver</strong> to toggle it on. You can also quickly toggle it using the shortcut <kbd>Command</kbd> + <kbd>F5</kbd> (or <kbd>Command</kbd> + Triple-press <kbd>Touch ID</kbd> on laptops with Touch ID).</p>
+<div tabindex="0" role="tabpanel" id="macos-screen-reader-tab" aria-labelledby="macos-screen-reader" hidden="hidden">    <p><a href="https://support.apple.com/guide/voiceover/welcome/mac">VoiceOver</a> is the default screen reader in macOS. Go to <strong>System Settings</strong> &gt; <strong>Accessibility</strong> &gt; <strong>VoiceOver</strong> to toggle it on. You can also quickly toggle it using the shortcut <kbd>Command</kbd> + <kbd>F5</kbd> (or <kbd>Command</kbd> + Triple-press <kbd>Touch ID</kbd> on laptops with Touch ID).</p>
 
-<p>Important definitions:</p>
+<p>You need to become familiar with keyboard shortcuts to use the screen reader. The <kbd>VO</kbd> key is the modifier key used for almost all commands. It is mapped to <kbd>Control</kbd> + <kbd>Option</kbd> pressed together. You can also configure <kbd>Caps Lock</kbd> to act as the VO key in settings.</p>
 
-<ul>
-    <li>VO key: This is the modifier key used for almost all commands. It is mapped to <kbd>Control</kbd> + <kbd>Option</kbd> pressed together. You can also configure <kbd>Caps Lock</kbd> to act as the VO key in settings.</li>
-    <li>Quick nav: VoiceOver has a feature called "Quick nav" (toggle with <kbd>Left Arrow</kbd> + <kbd>Right Arrow</kbd>) that allows you to navigate using single arrow keys without holding the VO keys.</li>
-</ul>
+<p>VoiceOver has a feature called "Quick nav" (toggle with <kbd>Left Arrow</kbd> + <kbd>Right Arrow</kbd>) that allows you to navigate using single arrow keys without holding the VO keys.</p>
 
 <table>
     <thead>
@@ -414,7 +399,7 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
 - All interactive elements (buttons, fields, links…) have a label and a role that is read out loud by the screen reader
     * Use the right HTML elements so screen readers can rely on their implied roles. Check [W3C documentation on roles](https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/).
     * You may use the [off-screen Vanilla utility](/docs/utilities/off-screen) (`.u-off-screen`) to make a label readable only for screen reader.
-- The HTML document has a `lang` attribute on the root element (e.g., `<html lang="en">`)
+- The HTML document has an appropriate `lang` attribute on the root element (e.g., `<html lang="en">`)
 - HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>`) and ARIA landmarks are used to define page regions
 - All labels are descriptive, meaningful and concise
 - All labels are unique, unless they trigger the exact same action.
@@ -425,7 +410,6 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
 - Headings follow a sequential order, without skipping any levels.
     * For example, H3 headings are always under an H1 and an H2 heading.
     * Use the right markup for heading levels regardless of how they are styled. You can achieve this by using [heading classes](/docs/base/typography#heading-classes), for example: `<h2 class="p-heading--3">`
-- When changing to a new page, either the page title or the main heading is announced (whichever is more meaningful)
 - Errors are announced and readable with the screen reader
     * Check the [aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) attribute
 - For images that are not strictly decorative, provide alternative text that can be read out loud by the screen reader
@@ -440,25 +424,28 @@ All graphical interfaces in Ubuntu Desktop should be readable with the built-in 
 
 Besides the more common checks above, you should also keep in mind these:
 
+- All interactive elements have a width and height of at least 24px, or have [sufficient space around them](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
+    * If interactive elements are too close, users might activate them by accident, for example when [scrolling on touch screens](https://axesslab.com/hand-tremors/).
 - All UI text is reasonably short and easy to understand
     * Check the [Vanilla content guidelines](/docs/content-guidelines) for guidance.
 - The content is organized with a clear and logical structure that makes sense
 - Layout and design patterns are consistent throughout the interface
 - When there's an error submitting data or in a flow, a meaningful error message is shown
     * Good error messages explain to the user how to avoid them, or at least explain the cause of the error.
-- If an experience cannot be made accessible, provide an alternative for users to access the same information or functionality
 - Search functionality is provided whenever possible so users have an alternative way to find the page or section they are looking for
-- All interactive elements have a width and height of at least 24px, or have [sufficient space around them](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
-- Large interactive elements have at least 24px of either vertical or horizontal spacing
-    * If interactive elements are too close, users might activate them by accident, for example when [scrolling on touch screens](https://axesslab.com/hand-tremors/).
 - Audio or video that lasts more than 3 seconds does not play automatically
 - Audio or video that lasts more than 3 seconds can be paused or muted
-- Provide text alternatives (for instance, transcriptions or captions) for audio and video content
+- If an experience cannot be made accessible, provide an alternative for users to access the same information or functionality
+    * Provide text alternatives (for instance, transcriptions or captions) for audio and video content
+    * Provide good labels or a table as an alternative for data charts.
+
 
 
 ## Look for user feedback
 
 When auditing an app, check any outstanding accessibility issues in the app repository. Actual users are the best source for accessibility issues.
+
+You should proactively test your interface with a diverse group of users, including people who use assistive technologies. You can recruit testers through specialized agencies or by reaching out to colleagues and friends.
 
 
 ## Report accessibility issues
@@ -487,3 +474,4 @@ The web is abundant in tools that help to create and test for accessible sites. 
 - [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/): A comprehensive guide for understanding how to use WAI-ARIA to create accessible Rich Internet Applications. It provides guidance on the appropriate application of WAI-ARIA, describes recommended usage patterns, and explains concepts behind them.
 - [Web Accessibility in Mind (WebAIM)](https://webaim.org/): Extensive resources and tools for web accessibility
 - [Chrome DevTools Accessibility Reference](https://developer.chrome.com/docs/devtools/accessibility/reference/): Built-in accessibility testing features in Chrome
+- [Accessibility guidelines from Vox Media](https://accessibility.voxmedia.com): provides checklists per discipline, including design, engineering, project management, QA and editorial. 
