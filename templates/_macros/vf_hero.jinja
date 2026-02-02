@@ -1,5 +1,5 @@
 {% from "_macros/shared/vf_cta-block.jinja" import vf_cta_block %}
-{% from "_macros/vf_basic-section.jinja" import basic_section_item %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section_blocks %}
 
 # Params
 # title_text: Hero title text (required)
@@ -109,7 +109,7 @@
 
   {%- macro _hero_cta_block() -%}
     {%- if cta_block -%}
-      {{- basic_section_item(cta_block) -}}
+      {{- vf_basic_section_blocks(items=[cta_block], override_last_item_padding=true) -}}
     {% elif has_cta -%}
       <div class="p-cta-block">
         {{ cta_content }}
@@ -120,7 +120,7 @@
   {%- macro _hero_description_block() -%}
     {%- if description_blocks | length > 0 -%}
       {% for description_block in description_blocks %}
-        {{ basic_section_item(description_block) }}
+        {{ vf_basic_section_blocks(items=[description_block], override_last_item_padding=true) }}
       {% endfor %}
     {% elif has_description %}
       <div class="p-section--shallow">
@@ -131,7 +131,7 @@
 
   {%- macro _hero_image_block() -%}
     {%- if image_block -%}
-      {{- basic_section_item(image_block) -}}
+      {{- vf_basic_section_blocks(items=[image_block], override_last_item_padding=true) -}}
     {% elif has_image -%}
       {{ image_content }}
     {% endif %}
@@ -142,7 +142,7 @@
       {%- if signpost_image_block -%}
         {% set _ = signpost_image_block.update(type="image") %}
         {% set _ = signpost_image_block.item.attrs.update({"class": "u-no-margin"}) %}
-        {{- basic_section_item(signpost_image_block) -}}
+        {{- vf_basic_section_blocks(items=[signpost_image_block], override_last_item_padding=true) -}}
       {% else -%}
         {{ signpost_image_content }}
       {% endif %}

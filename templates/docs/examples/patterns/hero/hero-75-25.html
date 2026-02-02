@@ -10,22 +10,47 @@
   title_text='H1 - ideally one line, up to two',
   subtitle_text='H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
   layout='75/25',
-  is_split_on_medium=true
+  is_split_on_medium=true,
+  blocks=[
+    {
+      "type": "description",
+      "padding": "shallow",
+      "item": {
+        "type": "text",
+        "content": "Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side."
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "content_html": "Learn more",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "link": {
+          "content_html": "Contact us ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "2-3",
+        "is_highlighted": false,
+        "is_cover": true,
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/6c909bd8-datacenter-tall.jpeg",
+          "alt": "alt-text"
+        }
+      }
+    },
+  ]
 ) -%}
-    {%- if slot == 'description' -%}
-      <p>
-        Generally, the height of the right hand side of a 50/50 split should contain more content than the left
-        hand side.
-      </p>
-    {%- endif -%}
-    {%- if slot == 'cta' -%}
-      <a href="#" class="p-button--positive">Learn more</a>
-      <a href="#">Contact us ›</a>
-    {%- endif -%}
-    {%- if slot == 'image' -%}
-      <div class="p-image-container--2-3 is-cover u-hide--small">
-        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/6c909bd8-datacenter-tall.jpeg" alt="">
-      </div>
-    {%- endif -%}
   {% endcall -%}
 {% endblock %}
