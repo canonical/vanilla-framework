@@ -17,10 +17,6 @@ Depending on the size and composition of your content, you can choose from a var
 - [25/75 Signpost](#2575-signpost)
 - [75/25](#7525)
 - [Fallback](#fallback)
-- [Usage with description block](#description)
-- [Usage with cta block](#description)
-- [Usage with image block](#image)
-- [Usage with signpost image block](#signpost-image)
 
 The hero pattern is composed of the following elements:
 
