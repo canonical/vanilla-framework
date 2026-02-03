@@ -6,7 +6,7 @@
 {% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
 {% from "_macros/shared/vf_logo-block.jinja" import vf_logo_block %}
 
-{% macro vf_basic_section_blocks(items=[]) %}
+{% macro vf_basic_section_blocks(items=[], override_last_item_padding=false) %}
   {%- for item in items -%}
     {%- set item_padding = (item.get("padding", "")) | trim -%}
     {%- if item_padding not in ["shallow"] -%}
@@ -19,7 +19,7 @@
     {%- endif -%}
 
     {#- Last item should not have any additional padding - the pattern itself already has bottom padding -#}
-    {%- if loop.last -%}
+    {%- if loop.last and not override_last_item_padding -%}
       {%- set item_classes = "" -%}
     {%- endif -%}
     <div{%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>
@@ -41,22 +41,27 @@
 {%- endmacro -%}
 
 # image_config
-# - aspect_ratio: "16-9" | "3-2" | "" (default is "")
+# - aspect_ratio: "16-9" | "3-2" | "2-3", "cinematic" | "" (default is "")
 # - caption_html: The HTML content for the caption of the image (optional). Will be wrapped in <figcaption>, and the image and caption will be wrapped in a <figure>.
+# - is_highlighted: Whether to apply the "is-highlighted" class to the image container (default is true).
+# - is_cover: Whether to apply the "is-cover" class to the image container (default is false).
 # - attrs: A dictionary of attributes to apply to the image
 {% macro _basic_section_image(image_config={}) %}
   {%- set aspect_ratio = image_config.get("aspect_ratio", "") | trim -%}
-  {%- if aspect_ratio not in ["16-9", "3-2"] -%}
+  {%- if aspect_ratio not in ["16-9", "3-2", "2-3", "cinematic"] -%}
     {%- set aspect_ratio = "" -%}
   {%- endif -%}
 
   {%- set caption_html = image_config.get("caption_html", "") | trim -%}
   {%- set has_caption = caption_html | length > 0 -%}
 
+  {%- set is_highlighted = image_config.get("is_highlighted", true) -%}
+  {%- set is_cover = image_config.get("is_cover", false) -%}
+
   {%- if has_caption -%}
   <figure>
   {%- endif -%}
-  <div class="p-image-container{%- if aspect_ratio | length > 0 -%}--{{- aspect_ratio -}}{%- endif %} is-highlighted">
+  <div class="p-image-container{%- if aspect_ratio | length > 0 -%}--{{- aspect_ratio -}}{%- endif %}{%- if is_highlighted %} is-highlighted{% endif -%}{%- if is_cover %} is-cover{% endif -%}">
     <img class="p-image-container__image {{ image_config.get("attrs", {}).get("class", "") -}}"
       {%- for attr, value in image_config.get("attrs", {}).items() -%}
         {% if attr != "class" %}
@@ -238,6 +243,7 @@
   padding="default",
   is_split_on_medium=false,
   top_rule_variant="default",
+  override_last_item_padding=false,
   attrs={}
 ) -%}
 
@@ -280,7 +286,7 @@
       {%- if has_subtitle -%}
         <p class="p-heading--{{ subtitle_heading_level }}">{{- subtitle_text -}}</p>
       {%- endif -%}
-      {{- vf_basic_section_blocks(items=items) -}}
+      {{- vf_basic_section_blocks(items=items, override_last_item_padding=override_last_item_padding) -}}
     </div>
   </div>
 </section>

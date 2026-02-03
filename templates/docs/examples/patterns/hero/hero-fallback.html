@@ -10,29 +10,51 @@
   title_text='H1 - ideally one line, up to two',
   subtitle_text='H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
   layout='fallback',
-  is_split_on_medium=true
-) -%}
-    {%- if slot == 'description' -%}
-      <p>
-        Use this variant when there is a lot of content, so that it looks balanced with the image to the right. Works
+  is_split_on_medium=true,
+  blocks=[
+    {
+      "type": "description",
+      "padding": "shallow",
+      "item": {
+        "type": "html",
+        "content": "<p>Use this variant when there is a lot of content, so that it looks balanced with the image to the right. Works
         best when the image is in portrait format. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.
-      </p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate.
-      </p>
-    {%- endif -%}
-    {%- if slot == 'cta' -%}
-      <a href="#" class="p-button--positive">Learn more</a>
-      <a href="#">Contact us ›</a>
-    {%- endif -%}
-    {%- if slot == 'image' -%}
-      <div class="p-image-container--3-2 is-cover">
-        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg"
-             alt="">
-      </div>
-    {%- endif -%}
+        consequat. Duis aute irure dolor in reprehenderit in voluptate.</p>"
+      }
+    },
+    {
+      "type": "cta-block",
+      "item": {
+        "primary": {
+          "content_html": "Learn more",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "link": {
+          "content_html": "Contact us ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "3-2",
+        "is_highlighted": false,
+        "is_cover": true,
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg",
+          "alt": "alt-text"
+        }
+      }
+    },
+  ]
+) -%}
   {% endcall -%}
 {% endblock %}

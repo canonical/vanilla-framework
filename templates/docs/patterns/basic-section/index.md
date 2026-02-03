@@ -96,6 +96,7 @@ By default, items have no additional padding, but you can set `padding: "shallow
 
 The last block will always have no additional padding, regardless of the item padding setting.
 This way, the [pattern padding](#pattern-level) is the only padding at the bottom of the pattern.
+This setting can be overridden by passing <code>override_last_item_padding=true</code> to the pattern.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/basic-section/item-padding" class="js-example" data-lang="jinja">
 View example of the basic section pattern with item padding options
@@ -148,8 +149,10 @@ ratios</a> and a [caption](/docs/patterns/images#image-with-caption).
 {
   "type": "image",
   "item": {
-    "aspect_ratio": "16-9" | "3-2" | "",
+    "aspect_ratio": "16-9" | "3-2" | "2-3" | "cinematic" | "",
     "caption_html": "Optional caption with HTML",
+    "is_highlighted": "Optional boolean to enable/disable background highlighting. Default is true",
+    "is_cover": "Optional boolean to add 'is-cover' class to image container. Default is false",
     "attrs": {
       "src": "image-url",
       "alt": "alt-text"
@@ -158,8 +161,12 @@ ratios</a> and a [caption](/docs/patterns/images#image-with-caption).
 }
 ```
 
-- **`aspect_ratio`**: Optional aspect ratio constraint. Valid values: `"16-9"`, `"3-2"`, or empty string for default.
+- **`aspect_ratio`**: Optional aspect ratio constraint. Valid values: `"16-9"`, `"3-2"`, `"2-3"`, `"cinematic"`, or empty string for default.
 - **`caption_html`**: Optional HTML caption. If provided, the image and caption are wrapped in a `<figure>` element.
+- **`is_highlighted`**: Optional boolean which defaults to true. Wraps image in a <a href="/docs/patterns/images#highlighted-image">highlighted image
+  container</a>.
+- **`is_cover`**: Optional boolean which defaults to false. Wraps image in a <a href="/docs/patterns/images#cover-image">cover image
+  container</a>.
 - **`attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
 #### Videos
@@ -629,6 +636,23 @@ below.
         </td>
         <td>
           Attributes to apply to the basic section. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>override_last_item_padding</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>&lt;boolean&gt;</code>
+        </td>
+        <td>
+          <code>false</code>
+        </td>
+        <td>
+          The last block will always have no additional padding, regardless of the item padding setting. This setting can be overridden by passing <code>override_last_item_padding=true</code> to the pattern.
         </td>
       </tr>
     </tbody>
