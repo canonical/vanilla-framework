@@ -1,0 +1,59 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_in-page-navigation.jinja" import vf_in_page_navigation %}
+
+{% block title %}In page navigation / Manual{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+  {% set page_navigation_data = [
+    {
+      "id": "introduction",
+      "text": "Introduction"
+    },
+    {
+      "id": "installation",
+      "text": "Installation",
+      "children": [
+        {
+          "id": "prerequisites",
+          "text": "Prerequisites"
+        },
+        {
+          "id": "download",
+          "text": "Download"
+        }
+      ]
+    },
+    {
+      "id": "configuration",
+      "text": "Configuration"
+    },
+    {
+      "id": "installation-2",
+      "text": "Installation 2",
+      "children": [
+        {
+          "id": "prerequisites-2",
+          "text": "Prerequisites 2"
+        },
+        {
+          "id": "download-2",
+          "text": "Download 2"
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "text": "Conclusion"
+    }
+  ] %}
+
+  {{ vf_in_page_navigation(title="Section contents",
+    navigation_items=page_navigation_data) }}
+
+  <script>
+    {% include "docs/examples/patterns/side-navigation/_example_script.js" %}
+    {% include "docs/examples/patterns/side-navigation/_toggle_script.js" %}
+  </script>
+{% endblock %}
