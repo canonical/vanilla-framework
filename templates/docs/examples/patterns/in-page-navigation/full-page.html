@@ -8,49 +8,129 @@
 
   {% set page_navigation_data = [
     {
-      "id": "introduction",
-      "text": "Introduction"
+      "id": "identifying-a-kernel",
+      "text": "Identifying a kernel"
     },
     {
-      "id": "installation",
-      "text": "Installation",
+      "id": "kernel-and-os-releases",
+      "text": "Kernel and OS releases"
+    },
+    {
+      "id": "kernel-security",
+      "text": "Kernel security",
       "children": [
         {
-          "id": "prerequisites",
-          "text": "Prerequisites"
+          "id": "general-availability-ga-and-variant-ubuntu-kernels",
+          "text": "General Availability (GA) and variant Ubuntu kernels"
         },
         {
-          "id": "download",
-          "text": "Download"
-        }
-      ]
-    },
-    {
-      "id": "configuration",
-      "text": "Configuration"
-    },
-    {
-      "id": "installation-2",
-      "text": "Installation 2",
-      "children": [
-        {
-          "id": "prerequisites-2",
-          "text": "Prerequisites 2"
+          "id": "optimized-kernels",
+          "text": "Optimized kernels"
         },
         {
-          "id": "download-2",
-          "text": "Download 2"
+          "id": "optimized-kernels-again",
+          "text": "Optimized kernels again"
         }
       ]
-    },
-    {
-      "id": "conclusion",
-      "text": "Conclusion"
     }
   ] %}
 
-  {{ vf_in_page_navigation(title="On this page",
-    navigation_items=page_navigation_data) }}
+  <section class="p-section--hero">
+    <div class="grid-row">
+      <div class="grid-col-6 grid-col-start-large-3">
+        <h1>What is the Linux kernel?</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section">
+    <div class="grid-row">
+      <div class="grid-col-2">
+        {{ vf_in_page_navigation(title="On this page",
+                navigation_items=page_navigation_data) }}
+      </div>
+      <div class="grid-col-4">
+        <h2>Identifying a kernel</h2>
+        <p>The easiest way to determine the kernel you’re running is to type</p>
+        <div class="p-code-snippet">
+          <pre class="p-code-snippet__block--icon is-wrapped"><code>cat /proc/version_signature</code></pre>
+        </div>
+        <p>on the terminal. For example:</p>
+        <div class="p-code-snippet">
+          <pre class="p-code-snippet__block--icon is-wrapped"><code>cat /proc/version_signature</code><br /><code>Ubuntu 5.4.0-12.15-generic 5.4.8</code></pre>
+        </div>
+        <p>This output provides important information about the kernel:</p>
+        <hr class="p-rule--muted" />
+        <ul class="p-list--divided u-no-margin--bottom">
+          <li class="p-list__item has-bullet">
+            Canonical adds “<code>Ubuntu</code>” to the build number to indicate that this is an official build from the Ubuntu archive
+          </li>
+          <li class="p-list__item has-bullet">
+            Ubuntu kernel-release = <code>5.4.0-12.15-generic</code>
+            <ul class="p-list--divided u-no-margin--bottom">
+              <li class="p-list__item has-bullet">
+                kernel version is <code>5.4</code>, which is identical to upstream stable kernel version
+              </li>
+              <li class="p-list__item has-bullet">
+                <code>.0</code> is an obsolete parameter left over from older upstream kernel version naming practices
+              </li>
+              <li class="p-list__item has-bullet">
+                <code>-12</code> application binary interface (ABI) bump for this kernel
+              </li>
+              <li class="p-list__item has-bullet">
+                <code>.15</code> upload number for this kernel
+              </li>
+              <li class="p-list__item has-bullet">
+                <code>-generic</code> is kernel flavor parameter, where <code>-generic</code> is the default Ubuntu kernel flavor
+              </li>
+              <li class="p-list__item has-bullet">
+                Mainline kernel-version = <code>5.4.8</code>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h2 id="kernel-and-os-releases">Kernel and OS releases</h2>
+        <p>
+          Canonical provides long-term support (LTS) kernels for <a href="/about/release-cycle">Ubuntu LTS releases</a>. Canonical also provides interim operating system releases with updated kernels every 6 months.
+        </p>
+        <p>
+          For customers and business partners that don’t have specialized bleeding-edge workloads or latest hardware needs, the latest  LTS release “-generic” kernel is the best option for them such as the 4.15 default kernel in Ubuntu 18.04 LTS. Customers who need the latest hardware support capability can install the latest HWE kernel such as the ones contained in interim releases, keeping in mind the shorter support lifespan associated with these kernels (9 months). HWE kernel customers are recommended to upgrade to a newer LTS release that supports their hardware and/or software needs as soon as it is available. Another option for customers is to use point releases. For example, there is an 18.04.4 point release as of February 2020, which includes an updated 5.3.x kernel but is also considered LTS, exactly like the original GA 4.15 kernel in 18.04.
+        </p>
+        <div class="p-cta-block">
+          <a href="/kernel/lifecycle">Learn more about the Ubuntu kernel support lifecycle&nbsp;›</a>
+        </div>
+        <h2 id="kernel-security">Kernel security</h2>
+        <p>
+          The Canonical Kernel Team’s primary focus is the careful maintenance of kernels and their variants for regular delivery via the <a href="https://wiki.ubuntu.com/StableReleaseUpdates">Ubuntu SRU process</a>, and the Canonical <a href="/security/livepatch">livepatch service</a>. This includes rigorous management of Common Vulnerabilities and Exposures (CVEs) assigned to the Linux kernel and application of relevant patches for all critical and serious kernel defects and then rigorously testing newly updated kernels end-to-end each SRU cycle.
+        </p>
+        <h3 id="general-availability-ga-and-variant-ubuntu-kernels">
+          General Availability (GA) and
+          <br class="u-hide--small" />
+          variant Ubuntu kernels
+        </h3>
+        <p>
+          The complete functionality of any given kernel is determined by the included modules and the kernel configuration for both hardware and the expected workloads that are run on it.
+        </p>
+        <p>
+          Kernel modules are binary programs that extend a kernel’s ability to control the computing system’s hardware or add additional system capabilities like high-performance networking or non-standard graphics, etc.   The GA kernel that is shipped by default, with the Canonical Ubuntu Long Term Support (LTS) and Hardware Enablement (HWE) releases, are tuned for stable, reliable, secure, high-performance operation over a wide variety of hardware platforms and workloads.
+        </p>
+        <p>
+          A kernel variant is a kernel that deviates from the generic GA kernel by changes to its configuration, and/or by having modules added and/or removed.
+        </p>
+        <div class="p-cta-block">
+          <a href="/kernel/variants">Learn more about Ubuntu kernel variants from Canonical&nbsp;›</a>
+        </div>
+        <h3 id="optimized-kernels">Optimized kernels</h3>
+        <p>
+          Canonical advocates for customers to use the GA kernel shipped with Ubuntu as the best and most cost-effective option in their business environment. We also offer the option for customers to customize their own Ubuntu kernels. Several of our enterprise, Telco and cloud provider customers have systems and workload needs, which justify both the time investment to optimize their kernels and the pay to develop and maintain those optimized kernels over time.
+        </p>
+        <h3 id="optimized-kernels-again">Optimized kernels again</h3>
+        <p>
+          Canonical advocates for customers to use the GA kernel shipped with Ubuntu as the best and most cost-effective option in their business environment. We also offer the option for customers to customize their own Ubuntu kernels. Several of our enterprise, Telco and cloud provider customers have systems and workload needs, which justify both the time investment to optimize their kernels and the pay to develop and maintain those optimized kernels over time.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <script>
     {% include "docs/examples/patterns/side-navigation/_example_script.js" %}
