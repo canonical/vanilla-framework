@@ -5,10 +5,32 @@
       - id (string) (required): The ID of the section to link to.
       - text (string) (required): The text to be displayed for the navigation item.
       - level (string) (required): The heading level of the section. Accepts 'primary' or 'secondary'.
+    - scope (string) (optional): Rendering mode for navigation items.
+      - 'manual' (default): Render from `navigation_items`.
+      - 'full-page': Autogenerate from headings via JS.
+    - primary_heading (string) (optional, requires scope='full-page'): The heading level to treat as primary. Accepts 'h2' or 'h3'.
+    - secondary_heading (string) (optional, requires primary_heading): The heading level to treat as secondary. Accepts 'h3' or 'h4' 
 #}
 
-{%- macro vf_in_page_navigation(title=None, navigation_items=[]) -%}
-  <div class="p-in-page-navigation is-sticky">
+{%- macro vf_in_page_navigation(title=None, navigation_items=[], scope='full-page', primary_heading='h2', secondary_heading=None) -%}
+  {%- set nav_id = "in-page-navigation-list" -%}
+  {%- set valid_primary_headings = ["h2", "h3"] %}
+  {%- set valid_secondary_headings = ["h3", "h4"] %}
+  {%- set valid_scopes = ['full-page', 'manual'] %}
+  {%- if scope not in valid_scopes -%}
+    {%- set scope = 'full-page' -%}
+  {%- endif -%}
+  
+  <div class="p-in-page-navigation"
+      data-in-page-navigation-scope="{{ scope }}"
+      {%- if scope == 'full-page' -%}
+        {%- if primary_heading and primary_heading in valid_primary_headings -%}
+          data-in-page-navigation-primary="{{ primary_heading }}"
+          {%- if secondary_heading and secondary_heading in valid_secondary_headings -%}
+            data-in-page-navigation-secondary="{{ secondary_heading }}"
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}>
 
     <nav class="p-in-page-navigation__container" aria-label="In-page navigation">
 
@@ -16,27 +38,43 @@
         <h3 class="p-in-page-navigation__heading">{{ title | safe }}</h3>
       {%- endif -%}
 
-      <ul class="p-in-page-navigation__list" id="in-page-navigation-list">
-        {%- for item in navigation_items -%}
-          <li class="p-in-page-navigation__item">
-            <a class="p-in-page-navigation__link" href="#{{ item.id }}">{{ item.text }}</a>
-            {%- if item.children -%}
-              <ul class="p-in-page-navigation__list">
-                {%- for child in item.children -%}
-                  <li class="p-in-page-navigation__item--secondary">
-                    <a class="p-in-page-navigation__link" href="#{{ child.id }}">{{ child.text }}</a>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
+      <ul class="p-in-page-navigation__list js-in-page-nav-list" id="{{ nav_id }}" aria-expanded="false">
+        {%- if scope != 'full-page' -%}
+          {%- for item in navigation_items -%}
+            <li class="p-in-page-navigation__item">
+              <a class="p-in-page-navigation__link {% if loop.index == 1%} is-active{% endif %}" href="#{{ item.id }}">{{ item.text }}</a>
+              {%- if item.children -%}
+                <ul class="p-in-page-navigation__list">
+                  {%- for child in item.children -%}
+                    <li class="p-in-page-navigation__item">
+                      <a class="p-in-page-navigation__link" href="#{{ child.id }}">{{ child.text }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        {%- endif -%}
       </ul>
-      <button class="p-in-page-navigation__dropdown-toggle" aria-expanded="false" aria-controls="in-page-navigation-list">
+
+      <button class="p-in-page-navigation__dropdown-toggle" aria-expanded="false" aria-controls="{{ nav_id}}">
         <i class="p-icon--chevron-down p-in-page-navigation__dropdown-toggle-icon"></i>
         <i class="p-icon--chevron-up p-in-page-navigation__dropdown-toggle-icon u-hide"></i>
       </button>
 
     </nav>
   </div>
+
+  {# Templates for JS autogeneration (used when scope='full-page') #}
+  {%- if scope == 'full-page' -%}
+    <template class="js-in-page-nav-template-item">
+      <li class="p-in-page-navigation__item">
+        <a class="p-in-page-navigation__link" href="#"></a>
+      </li>
+    </template>
+    <template class="js-in-page-nav-template-sublist">
+      <ul class="p-in-page-navigation__list">
+      </ul>
+    </template>
+  {%- endif -%}
 {%- endmacro -%}
