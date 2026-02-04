@@ -30,11 +30,11 @@
             Screen overlay to display when side navigation drawer is open on small screens.
 
     Drawer:
-        .p-in-page-navigation__drawer:
+        .p-in-page-navigation__container:
             Side navigation drawer (to allow expanding and collapsing the navigation on small screens).
 
     Drawer header:
-        .p-in-page-navigation__drawer-header:
+        .p-in-page-navigation__container-header:
             Header of the side navigation drawer.
 
     Toggle button:
@@ -43,11 +43,15 @@
         .p-in-page-navigation__toggle--in-drawer:
             Side navigation toggle button in drawer (to close navigation on small screens).
 
+    Dropdown toggle:
+        .p-in-page-navigation__dropdown-toggle:
+            Button to toggle between horizontal and vertical dropdown navigation on small/medium screens.
+        .p-in-page-navigation__dropdown-toggle-icon:
+            Chevron icon inside the dropdown toggle button.
+
     Items list heading:
         .p-in-page-navigation__heading:
             Heading for side navigation items group (text only).
-        .p-in-page-navigation__heading--linked:
-            Heading for side navigation items group that contains a link (`.p-in-page-navigation__link`).
 
     Items list:
         .p-in-page-navigation__list:
@@ -56,10 +60,6 @@
     Item element:
         .p-in-page-navigation__item:
             Single item in side navigation (usually a `<li>` element). May contain nested items lists.
-        .p-in-page-navigation__item--title:
-            Single title item in side navigation (usually a `<li>` element).
-        "&.has-active-child":
-            Set `.has-active-child` on a item that contains an active nested item. This is used in collapsible side navigation in application layout.
 
     Item link:
         .p-in-page-navigation__link:
@@ -83,246 +83,23 @@
 */
 
 @mixin vf-p-in-page-navigation {
-  // STYLING OF SIDE NAVIGATION RESPONSIVE DRAWER
-
-  @keyframes vf-p-in-page-navigation-expand {
-    0% {
-      transform: translate(-100%);
-    }
-
-    100% {
-      transform: translate(0);
-    }
-  }
-
-  @keyframes vf-p-in-page-navigation-collapse {
-    0% {
-      transform: translate(0);
-    }
-
-    100% {
-      transform: translate(-100%);
-    }
-  }
-
-  .p-in-page-navigation__drawer {
-    background: $colors--theme--background-default;
-    bottom: 0;
-    color: $colors--theme--text-default;
-    left: 0;
-    overflow: auto;
-    position: fixed;
-    top: 0;
-    transform: translateX(-100%);
-    width: 100%;
-    z-index: 102;
-
-    // is-expanded and is-collapsed are deprecated and replaced by is-drawer-expanded and is-drawer-collapsed
-    .p-in-page-navigation.is-expanded &,
-    .p-in-page-navigation.is-drawer-expanded &,
-    [class*='p-in-page-navigation--'].is-expanded &,
-    [class*='p-in-page-navigation--'].is-drawer-expanded & {
-      @extend %vf-has-box-shadow;
-
-      @media (max-width: $threshold-6-12-col - 1px) {
-        animation: vf-p-in-page-navigation-expand map-get($animation-duration, brisk);
-        transform: translateX(0);
-      }
-    }
-
-    .p-in-page-navigation.is-collapsed &,
-    .p-in-page-navigation.is-drawer-collapsed &,
-    [class*='p-in-page-navigation--'].is-collapsed &,
-    [class*='p-in-page-navigation--'].is-drawer-collapsed & {
-      @media (max-width: $threshold-6-12-col - 1px) {
-        animation: vf-p-in-page-navigation-collapse map-get($animation-duration, brisk);
-      }
-    }
-
-    .p-in-page-navigation.is-drawer-hidden &,
-    [class*='p-in-page-navigation--'].is-drawer-hidden & {
-      display: none;
-      @media (min-width: $threshold-6-12-col) {
-        display: block;
-      }
-    }
-
-    @media (min-width: $breakpoint-x-small) {
-      max-width: 20rem;
-    }
-  }
-
-  .p-in-page-navigation__overlay {
-    @include vf-transition(opacity);
-
-    background: $colors--theme--background-overlay;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 101;
-
-    .p-in-page-navigation.is-expanded &,
-    .p-in-page-navigation.is-drawer-expanded &,
-    [class*='p-in-page-navigation--'].is-expanded &,
-    [class*='p-in-page-navigation--'].is-drawer-expanded & {
-      opacity: 1;
-      pointer-events: all;
-    }
-  }
-
-  .p-in-page-navigation__drawer-header {
-    background: $colors--theme--background-default;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-color: $colors--theme--border-low-contrast;
-    margin-bottom: $spv--small;
-    padding-bottom: calc($spv--small - 1px); // compensate for border thickness
-    padding-left: 0.25rem; // nudge to visually align icon with text
-    padding-top: $spv--small;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-
-  .p-in-page-navigation__toggle,
-  .p-in-page-navigation__toggle--in-drawer {
-    @extend %vf-button-base;
-    &::before {
-      @extend %icon;
-
-      content: '';
-      margin-left: -$sph--small;
-      margin-right: $sph--small;
-    }
-  }
-
-  .p-in-page-navigation__toggle {
-    @include vf-button-pattern;
+  // Left border style for the main navigation list
+  .p-in-page-navigation__container > .p-in-page-navigation__list {
+    @extend %vf-pseudo-border--left;
 
     &::before {
-      @include vf-icon-chevron-themed;
-      transform: rotate(-90deg);
+      background-color: $colors--theme--border-low-contrast;
+      width: 3px;
     }
   }
 
-  .p-in-page-navigation__toggle--in-drawer {
-    @include vf-button-pattern(
-      $button-background-color: $color-transparent,
-      $button-border-color: $colors--theme--border-high-contrast,
-      $button-text-color: $colors--theme--text-inactive,
-      $button-hover-background-color: $colors--theme--background-hover,
-      $button-hover-border-color: $colors--theme--border-high-contrast,
-      $button-active-background-color: $colors--theme--background-active,
-      $button-active-border-color: $color-transparent
-    );
-    margin-bottom: $sp-unit * 2 - $spv-nudge * 2;
-
-    &::before {
-      @include vf-icon-chevron-themed;
-      transform: rotate(90deg);
-    }
-
-    &[aria-expanded='true'] {
-      background-color: $color-transparent;
-
-      &:hover {
-        background: $colors--theme--background-hover;
-        color: $colors--theme--text-default;
-      }
-    }
-  }
-
-  @media (min-width: $threshold-6-12-col) {
-    // make whole navigation sticky on large screens
-    .p-in-page-navigation.is-sticky,
-    [class*='p-in-page-navigation--'].is-sticky {
-      max-height: 100dvh;
-      overflow-y: auto;
-      position: sticky;
-      top: 0;
-    }
-
-    .p-in-page-navigation__toggle,
-    .p-in-page-navigation__toggle--in-drawer,
-    .p-in-page-navigation__drawer-header {
-      display: none;
-    }
-
-    .p-in-page-navigation__drawer,
-    // fight specificity of expanded version
-    .p-in-page-navigation.is-expanded .p-in-page-navigation__drawer,
-    .p-in-page-navigation.is-drawer-expanded .p-in-page-navigation__drawer,
-    [class*='p-in-page-navigation--'].is-expanded .p-in-page-navigation__drawer,
-    [class*='p-in-page-navigation--'].is-drawer-expanded .p-in-page-navigation__drawer {
-      box-shadow: none;
-      display: block;
-      max-width: none;
-      overflow: visible;
-      position: static;
-      transform: translateX(0);
-    }
-
-    .p-in-page-navigation__overlay {
-      display: none;
-    }
-  }
-
-  // STYLING OF SIDE NAVIGATION LINKS LIST
-
-  // space for the right hand icon with default inner spacing on the left
-  $sp-sidenav--icon-width: map-get($icon-sizes, default);
-
-  %in-page-navigation__list {
+  .p-in-page-navigation__list,
+  .p-in-page-navigation__list--secondary {
     @extend %vf-list;
-    @extend %vf-pseudo-border--bottom;
     color: $colors--theme--text-inactive;
-
-    &::after {
-      @include vf-in-page-navigation-spacing-left($prop: left);
-
-      background: $colors--theme--border-low-contrast;
-      bottom: -0.5 * $spv--x-large; // place border in the middle of the margin
-    }
-
-    .p-in-page-navigation--icons &::after {
-      @include vf-in-page-navigation-spacing-left($prop: left, $multiplier: 2, $offset: $sp-sidenav--icon-width);
-    }
-
-    .p-in-page-navigation--accordion &::after {
-      @include vf-in-page-navigation-spacing-left($prop: left, $multiplier: 2);
-    }
 
     &:last-of-type::after {
       content: none;
-    }
-  }
-
-  .p-in-page-navigation__list {
-    @extend %in-page-navigation__list;
-
-    // accordion styles
-    &[aria-expanded] {
-      @include vf-transition(#{transform, opacity}, fast);
-      &.has-tick-elements {
-        padding-left: 1em;
-      }
-    }
-    &[aria-expanded='false'] {
-      height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transform: translate3d(0, -0.5rem, 0);
-      visibility: hidden;
-    }
-    &[aria-expanded='true'] {
-      height: auto;
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-      visibility: visible;
     }
   }
 
@@ -333,53 +110,42 @@
     padding-bottom: $spv--x-small;
     padding-right: $sph--large;
     padding-top: $spv--x-small;
-
-    .p-in-page-navigation__item--title > & {
-      color: $colors--theme--text-default;
-      font-weight: $font-weight-bold;
-    }
   }
 
-  %in-page-navigation__heading {
+  .p-in-page-navigation__heading {
     @extend %in-page-navigation__text;
-
     // reset heading styles
     @extend %common-default-text-properties;
-    @extend %bold;
+    @extend %small-caps-text;
 
     display: block;
     font-size: map-get($base-font-sizes, base);
+    font-weight: $font-weight-bold;
     margin: 0;
     max-width: none;
+    color: $colors--theme--text-default;
+    padding-left: unset;
+    padding-bottom: $spv--small;
   }
 
-  %in-page-navigation__link {
+  .p-in-page-navigation__link {
     @include vf-focus-themed;
 
-    &,
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $colors--theme--text-muted;
+
     &:visited {
-      color: $colors--theme--text-inactive;
+      color: $colors--theme--text-muted;
     }
 
     &:hover {
-      background: $colors--theme--background-hover;
       color: $colors--theme--text-default;
       text-decoration: none;
-    }
-
-    &:active,
-    &.is-active,
-    &[aria-current='page'],
-    &[aria-current='true'] {
-      background: $colors--theme--background-active;
-      color: $colors--theme--text-default;
-      cursor: default;
-    }
-
-    &.is-active,
-    &[aria-current='page'],
-    &[aria-current='true'] {
-      @include vf-highlight-bar($colors--theme--text-default, left);
     }
 
     // vf-highlight-bar is rendered above focus outline
@@ -393,251 +159,162 @@
     &:focus:not(:focus-visible)::before {
       display: block;
     }
+
+    &.is-active,
+    &[aria-current='true'] {
+      @extend %vf-pseudo-border--left;
+      
+      color: $colors--theme--text-default;
+      cursor: default;
+
+      &::before {
+        background-color: $colors--theme--text-default;
+        width: 3px;
+      }
+    }
   }
 
+  .p-in-page-navigation__text,
   .p-in-page-navigation__link {
-    @extend %in-page-navigation__link;
+    @extend %in-page-navigation__text;
 
-    &:visited {
-      color: $colors--theme--text-inactive;
+    // nested 2nd level of navigation
+    .p-in-page-navigation__item .p-in-page-navigation__item--secondary & {
+      @include vf-in-page-navigation-spacing-left($multiplier: 2);
     }
   }
 
-  .p-in-page-navigation__accordion-button {
-    // reset default button styles
-    background-color: inherit;
-    border: 0;
-    border-radius: 0;
-    color: inherit;
-    font-size: inherit;
-    justify-content: flex-start;
-    margin-bottom: 0;
-    text-align: left;
-    width: 100%;
+  // SMALL AND MEDIUM SCREEN HORIZONTAL LAYOUT
+  @media (max-width: $threshold-6-12-col - 1px) {
+    .p-in-page-navigation__container {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: $spv--x-large;
 
-    &::before {
-      @extend %icon;
-      @include vf-icon-chevron-themed;
-      @include vf-transition($property: transform, $duration: fast);
-
-      align-self: center;
-      content: '';
-      flex-shrink: 0;
-      margin-left: calc(-1 * ($sph--large + $sp-sidenav--icon-width));
-      margin-right: $sph--large;
+      // Full-width bottom border using viewport units
+      &::after {
+        background-color: $colors--theme--border-low-contrast;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 100vw;
+      }
     }
+
+    // Target only the main top-level list, not nested lists
+    .p-in-page-navigation__container > .p-in-page-navigation__list {
+      flex: 1;
+      min-width: 0;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      white-space: nowrap;
+      margin-bottom: 0;
+
+      scrollbar-width: none; // Firefox
+      -ms-overflow-style: none; // IE/Edge
+
+      &::-webkit-scrollbar {
+        display: none; // Chrome/Safari/Opera
+      }
+
+      // Remove left border
+      &::before {
+        content: none;
+      }
+    }
+
+    .p-in-page-navigation__item {
+      display: inline;
+
+      // Hide secondary nested lists in horizontal layout
+      > .p-in-page-navigation__list {
+        display: none;
+      }
+    }
+
+    .p-in-page-navigation__item--secondary {
+      display: none;
+    }
+
+    .p-in-page-navigation__heading {
+      display: none;
+    }
+
+    .p-in-page-navigation__item > .p-in-page-navigation__link {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: $spv--medium $spv--small $spv--medium $spv--large;
+      max-width: 50vw;
+
+      // Override active state pseudo-element for horizontal layout
+      &.is-active,
+      &[aria-current='true'] {
+        &::before {
+          // Reduce height and center vertically
+          height: 50%;
+          top: 25%;
+        }
+      }
+    }
+  }
+
+  // Medium screens: limit link width to 1/3 of viewport
+  @media (min-width: $threshold-4-6-col) and (max-width: $threshold-6-12-col - 1px) {
+    .p-in-page-navigation__item > .p-in-page-navigation__link {
+      max-width: 33.33vw;
+    }
+  }
+
+  // DROPDOWN TOGGLE BUTTON
+  .p-in-page-navigation__dropdown-toggle {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex; // Hidden by default, shown on small/medium screens
+    flex-shrink: 0;
+    justify-content: center;
+    margin: 0;
+    padding: $spv--large $sph--x-large;
+    line-height: $spv--medium;
 
     &:hover {
       background: $colors--theme--background-hover;
-      color: $colors--theme--text-default;
     }
 
-    // aria-selected controls the open and closed state for the accordion tab
-    &[aria-expanded='true'] {
-      // override base expanded button styles
-      background-color: inherit;
-
-      &:hover {
-        background: $colors--theme--background-hover;
-        color: $colors--theme--text-default;
-      }
-      @include vf-transition(#{background-color, border-color});
-    }
-
-    &[aria-expanded='false'] {
-      &::before {
-        transform: rotate(-90deg);
-      }
-
-      @include vf-transition(#{background-color, border-color});
+    &:focus {
+      @include vf-focus;
     }
   }
 
-  .p-in-page-navigation__heading,
-  .p-in-page-navigation__text,
-  .p-in-page-navigation__link,
-  .p-in-page-navigation__accordion-button {
-    // offset for accordion chevrons is icon size + twice spacing around it
-    // we don't use grid width spacing for accordion (as we do in icon version)
-    $sp-sidenav--accordion-offset: $sp-sidenav--icon-width + 2 * $sph--large;
-    @extend %in-page-navigation__text;
-
-    .p-in-page-navigation--icons & {
-      @include vf-in-page-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--icon-width);
-      position: relative;
-    }
-
-    .p-in-page-navigation--accordion & {
-      @include vf-in-page-navigation-spacing-left($multiplier: 0, $offset: $sp-sidenav--accordion-offset);
-    }
-
-    // nested 2nd level of navigation
-    .p-in-page-navigation__item--title .p-in-page-navigation__item &,
-    .p-in-page-navigation__item .p-in-page-navigation__item & {
-      @include vf-in-page-navigation-spacing-left($multiplier: 2);
-
-      // add spacing for variant with right side icons
-      .p-in-page-navigation--icons & {
-        @include vf-in-page-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--icon-width);
-      }
-
-      // add spacing for variant with accordions
-      .p-in-page-navigation--accordion & {
-        @include vf-in-page-navigation-spacing-left($multiplier: 1, $offset: $sp-sidenav--accordion-offset);
-      }
-    }
-
-    // nested 3rd level of navigation
-    .p-in-page-navigation__item--title .p-in-page-navigation__item .p-in-page-navigation__item &,
-    .p-in-page-navigation__item .p-in-page-navigation__item .p-in-page-navigation__item & {
-      @include vf-in-page-navigation-spacing-left($multiplier: 3);
-
-      // add spacing for variant with right side icons
-      .p-in-page-navigation--icons & {
-        @include vf-in-page-navigation-spacing-left($multiplier: 4, $offset: $sp-sidenav--icon-width);
-      }
-
-      // add spacing for variant with accordions
-      .p-in-page-navigation--accordion & {
-        @include vf-in-page-navigation-spacing-left($multiplier: 2, $offset: $sp-sidenav--accordion-offset);
-      }
-    }
-
-    // nested 4th level of navigation
-    .p-in-page-navigation__item--title .p-in-page-navigation__item .p-in-page-navigation__item .p-in-page-navigation__item &,
-    .p-in-page-navigation__item .p-in-page-navigation__item .p-in-page-navigation__item .p-in-page-navigation__item & {
-      @include vf-in-page-navigation-spacing-left($multiplier: 4);
-
-      // add spacing for variant with right side icons
-      .p-in-page-navigation--icons & {
-        @include vf-in-page-navigation-spacing-left($multiplier: 5, $offset: $sp-sidenav--icon-width);
-      }
-
-      // add spacing for variant with accordions
-      .p-in-page-navigation--accordion & {
-        @include vf-in-page-navigation-spacing-left($multiplier: 3, $offset: $sp-sidenav--accordion-offset);
-      }
+  @media (max-width: $threshold-4-6-col) {
+    .p-in-page-navigation__dropdown-toggle {
+      padding: $spv--large $spv--large;
     }
   }
 
-  .p-in-page-navigation--icons {
-    .p-in-page-navigation__icon {
-      @include vf-in-page-navigation-spacing-left($prop: left);
-
-      position: absolute;
-      top: $spv--small;
-    }
+  .p-in-page-navigation__dropdown-toggle-icon {
+    height: map-get($icon-sizes, default);
+    width: map-get($icon-sizes, default);
   }
 
-  .p-in-page-navigation__status {
-    margin-left: auto;
-    padding-left: $spv--small;
-  }
-
-  .p-in-page-navigation__heading,
-  .p-in-page-navigation__heading--linked {
-    @extend %in-page-navigation__heading;
-  }
-
-  .p-in-page-navigation__heading--linked {
-    padding: 0; // padding will come from the link in heading
-  }
-
-  .p-in-page-navigation__heading,
-  .p-in-page-navigation__heading--linked .p-in-page-navigation__link,
-  .p-in-page-navigation__item--title,
-  .p-in-page-navigation__item--title .p-in-page-navigation__link {
-    color: $colors--theme--text-default;
-  }
-
-  // Styles for markup in raw HTML docs variant
-  .p-in-page-navigation--raw-html {
-    // stylelint-disable selector-max-type -- we support raw HTML markup for discourse-generated side nav
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @extend %in-page-navigation__heading;
-      color: $colors--theme--text-default;
-    }
-
-    ul {
-      @extend %in-page-navigation__list;
-
-      &::after {
-        background: $colors--theme--border-low-contrast;
-      }
-    }
-
-    li > a {
-      @extend %in-page-navigation__link;
-
-      &,
-      &:visited {
-        color: $colors--theme--text-inactive;
-      }
-
-      &:hover {
-        background: $colors--theme--background-hover;
-        color: $colors--theme--text-default;
-      }
-
-      &:active,
-      &.is-active,
-      &[aria-current='page'],
-      &[aria-current='true'] {
-        @include vf-highlight-bar($colors--theme--text-default, left);
-
-        background: $colors--theme--background-active;
-        color: $colors--theme--text-default;
-      }
-    }
-
-    li > span,
-    li > strong,
-    li > a {
-      @extend %in-page-navigation__text;
-
-      display: block;
-    }
-
-    li li > span,
-    li li > strong,
-    li li > a {
-      @include vf-in-page-navigation-spacing-left($multiplier: 2);
-    }
-
-    li li li > span,
-    li li li > strong,
-    li li li > a {
-      @include vf-in-page-navigation-spacing-left($multiplier: 3);
-    }
-    // stylelint-enable selector-max-type
-  }
-
-  @if mixin-exists(vf-application-layout--when-collapsed) {
-    .p-in-page-navigation__item.has-active-child {
-      // parent element that has active child should be selected when navigation is collapsed
-      @include vf-application-layout--when-collapsed() {
-        // @include vf-highlight-bar($color-sidenav-item-border-highlight, left);
-        @include vf-highlight-bar($colors--theme--text-default, left);
-
-        background: $colors--theme--background-hover;
-        color: $colors--theme--text-default;
-      }
-
-      // parent element with active child should not be selected when navigation is expanded
-      @include vf-application-layout--when-expanded() {
-        @include vf-highlight-bar(transparent, left);
-
-        background: transparent;
-        color: $colors--theme--text-inactive;
-      }
+  @media (min-width: $threshold-6-12-col) {
+    // make whole navigation sticky on large screens
+    .p-in-page-navigation.is-sticky,
+    [class*='p-in-page-navigation--'].is-sticky {
+      max-height: 100dvh;
+      overflow-y: auto;
+      position: sticky;
+      top: 0;
     }
   }
 }
-
 // helper
 
 // elements in side nav should be aligned from left based on grid margin for given screen size
@@ -647,12 +324,10 @@
   $prop: padding-left,
   // how many times grid margin width should be multiplied (for nested navigation levels)
   $multiplier: 1,
-  // offset to use for additional spacing (for icons)
-  $offset: 0
 ) {
-  #{$prop}: $multiplier * map-get($grid-margin-widths, small) + $offset;
+  #{$prop}: $multiplier * map-get($grid-margin-widths, small);
 
   @media (min-width: $threshold-4-6-col) {
-    #{$prop}: $multiplier * map-get($grid-margin-widths, default) + $offset;
+    #{$prop}: $multiplier * map-get($grid-margin-widths, default);
   }
 }

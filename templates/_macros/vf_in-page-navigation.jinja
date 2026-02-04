@@ -8,31 +8,22 @@
 #}
 
 {%- macro vf_in_page_navigation(title=None, navigation_items=[]) -%}
-  <div class="p-in-page-navigation" aria-label="">
-    <button class="p-in-page-navigation__toggle js-drawer-toggle"
-            aria-controls="drawer">Toggle side navigation</button>
-    <div class="p-in-page-navigation__overlay js-drawer-toggle"
-         aria-controls="drawer"></div>
+  <div class="p-in-page-navigation is-sticky">
 
-    <nav class="p-in-page-navigation__drawer" aria-label="Side navigation">
-      <div class="p-in-page-navigation__drawer-header">
-        <button class="p-in-page-navigation__toggle--in-drawer js-drawer-toggle"
-                aria-controls="drawer">Toggle side navigation</button>
-      </div>
+    <nav class="p-in-page-navigation__container" aria-label="In-page navigation">
 
       {%- if title -%}
         <h3 class="p-in-page-navigation__heading">{{ title | safe }}</h3>
       {%- endif -%}
 
-      <ul class="p-in-page-navigation__list">
+      <ul class="p-in-page-navigation__list" id="in-page-navigation-list">
         {%- for item in navigation_items -%}
           <li class="p-in-page-navigation__item">
             <a class="p-in-page-navigation__link" href="#{{ item.id }}">{{ item.text }}</a>
-
             {%- if item.children -%}
               <ul class="p-in-page-navigation__list">
                 {%- for child in item.children -%}
-                  <li class="p-in-page-navigation__item">
+                  <li class="p-in-page-navigation__item--secondary">
                     <a class="p-in-page-navigation__link" href="#{{ child.id }}">{{ child.text }}</a>
                   </li>
                 {%- endfor -%}
@@ -41,6 +32,11 @@
           </li>
         {%- endfor -%}
       </ul>
+      <button class="p-in-page-navigation__dropdown-toggle" aria-expanded="false" aria-controls="in-page-navigation-list">
+        <i class="p-icon--chevron-down p-in-page-navigation__dropdown-toggle-icon"></i>
+        <i class="p-icon--chevron-up p-in-page-navigation__dropdown-toggle-icon u-hide"></i>
+      </button>
+
     </nav>
   </div>
 {%- endmacro -%}
