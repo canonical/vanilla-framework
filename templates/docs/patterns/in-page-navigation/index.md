@@ -44,11 +44,11 @@ View example of the in-page navigation component in 'full-page' mode
 
 This is an example of "full-page" mode with mock content. The navigation has been auto-generated:
 
-<a href="http://0.0.0.0:8101/docs/examples/patterns/in-page-navigation/full-page">Full-page mode example with mock content</a>
+<a href="/docs/examples/patterns/in-page-navigation/full-page">Full-page mode example with mock content</a>
 
 This is an example of "manual" mode, where a dictionary of headings was passed to the Jinja macro. In this instance it is found half way down the page:
 
-<a href="http://0.0.0.0:8101/docs/examples/patterns/in-page-navigation/manual">Manual mode example with mock content</a>
+<a href="/docs/examples/patterns/in-page-navigation/manual">Manual mode example with mock content</a>
 
 ## Jinja Macro
 
