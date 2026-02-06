@@ -119,9 +119,9 @@ function initNavigationInteraction(navRoot) {
    */
   function updateActiveLink (headingId) {
     const targetLink = navRoot.querySelector(`a[href='#${headingId}']`);
-
     // Ignore links that are hidden in horizontal layout
     const parentList = targetLink ? targetLink.closest('.p-in-page-navigation__list') : null;
+
     if (!targetLink || !parentList || window.getComputedStyle(parentList, null).display === "none") {
       return;
     }
@@ -137,8 +137,8 @@ function initNavigationInteraction(navRoot) {
   };
 
   // Compute the default "first" section to use at the top of the page.
-  const firstHeadingId = headings[0]?.id;
-  const lastHeadingId = headings[headings.length - 1]?.id;
+  // const firstHeadingId = headings[0]?.id;
+  // const lastHeadingId = headings[headings.length - 1]?.id;
 
   const observer = new IntersectionObserver(
     function (entries) {
