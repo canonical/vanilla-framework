@@ -4,7 +4,6 @@
     - navigation_items (list<object>) (optional): A list of navigation items to be included in the in-page navigation. Each item is an object with the following properties:
       - id (string) (required): The ID of the section to link to.
       - text (string) (required): The text to be displayed for the navigation item.
-      - level (string) (required): The heading level of the section. Accepts "primary" or "secondary".
     - scope (string) (optional): Rendering mode for navigation items.
       - "manual" (default): Render from `navigation_items`.
       - "full-page": Autogenerate from headings via JS.
@@ -47,7 +46,7 @@
         {%- if scope != "full-page" -%}
           {%- for item in navigation_items -%}
             <li class="p-in-page-navigation__item p-tooltip--right" aria-describedby="{{ item.id }}-tooltip">
-              <a class="p-in-page-navigation__link is-active" href="#{{ item.id }}">{{ item.text }}</a>
+              <a class="p-in-page-navigation__link{% if loop.first %} is-active{% endif %}" href="#{{ item.id }}">{{ item.text }}</a>
               <span class="p-tooltip__message u-hide" role="tooltip" id="{{ item.id }}-tooltip">{{ item.text }}</span>
               {%- if item.children -%}
                 <ul class="p-in-page-navigation__list">
