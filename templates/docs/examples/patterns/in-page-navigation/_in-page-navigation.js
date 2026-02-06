@@ -3,8 +3,8 @@
  *  - Generates in page navigation if scope is set to "full-page".
  *  - Initializes navigation interactions.
  */
-document.addEventListener("DOMContentLoaded", () => {
-  const documentBody = document.querySelector("body");
+document.addEventListener('DOMContentLoaded', () => {
+  const documentBody = document.querySelector('body');
   const navRoots = documentBody.querySelectorAll('.p-in-page-navigation');
   navRoots.forEach((navRoot) => {
     buildInPageNavigation(navRoot);
@@ -117,24 +117,24 @@ function initNavigationInteraction(navRoot) {
    * Also scrolls the active link into view if it's in horizontal layout.
    * @param {string} headingId - The ID of the currently active heading.
    */
-  function updateActiveLink (headingId) {
+  function updateActiveLink(headingId) {
     const targetLink = navRoot.querySelector(`a[href='#${headingId}']`);
     // Ignore links that are hidden in horizontal layout
     const parentList = targetLink ? targetLink.closest('.p-in-page-navigation__list') : null;
 
-    if (!targetLink || !parentList || window.getComputedStyle(parentList, null).display === "none") {
+    if (!targetLink || !parentList || window.getComputedStyle(parentList, null).display === 'none') {
       return;
     }
 
     navigationLinks.forEach((link) => {
-      if (link.getAttribute("href") === `#${headingId}`) {
-        link.classList.add("is-active");
+      if (link.getAttribute('href') === `#${headingId}`) {
+        link.classList.add('is-active');
         scrollActiveNavItemIntoView(link);
       } else {
-        link.classList.remove("is-active");
+        link.classList.remove('is-active');
       }
     });
-  };
+  }
 
   // Compute the default "first" section to use at the top of the page.
   // const firstHeadingId = headings[0]?.id;
@@ -159,9 +159,9 @@ function initNavigationInteraction(navRoot) {
       });
     },
     {
-      rootMargin: "-5% 0px -87% 0px",
+      rootMargin: '-5% 0px -87% 0px',
       threshold: 0.5,
-    }
+    },
   );
 
   headings.forEach((heading) => observer.observe(heading));
@@ -183,11 +183,11 @@ function initNavigationInteraction(navRoot) {
 
   // Handle navigation link clicks
   navigationLinks.forEach(function (link) {
-    link.addEventListener("click", function () {
+    link.addEventListener('click', function () {
       navigationLinks.forEach(function (navLink) {
-        navLink.classList.remove("is-active");
+        navLink.classList.remove('is-active');
       });
-      link.classList.add("is-active");
+      link.classList.add('is-active');
     });
   });
 
@@ -203,7 +203,7 @@ function initNavigationInteraction(navRoot) {
   // Add scroll margin to headings
   headings.forEach(function (heading) {
     if (!heading.style.scrollMarginTop) {
-      heading.style.scrollMarginTop = "80px";
+      heading.style.scrollMarginTop = '80px';
     }
   });
 }
@@ -219,7 +219,7 @@ function getHeadings(navRoot) {
   const selectors = generateSelectors(navRoot);
   const headings = Array.from(document.querySelectorAll(selectors.query));
   const excludes = getHeadingExcludes(navRoot, headings);
-  return headings.filter(heading => !excludes.includes(heading));
+  return headings.filter((heading) => !excludes.includes(heading));
 }
 
 /**
@@ -237,13 +237,17 @@ function getHeadingExcludes(navRoot, headings) {
     return [];
   }
 
-  const excludeRules = excludeAttr.trim().split(",").map(s => s.trim()).filter(Boolean);
+  const excludeRules = excludeAttr
+    .trim()
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
   const excludeList = [];
 
   excludeRules.forEach((rule) => {
-    if (rule.toLowerCase().startsWith("text:")) {
+    if (rule.toLowerCase().startsWith('text:')) {
       // Text-based exclusion
-      const textToMatch = rule.split("text:")[1].trim().toLowerCase();
+      const textToMatch = rule.split('text:')[1].trim().toLowerCase();
       headings.forEach((heading) => {
         if (heading.textContent.trim().toLowerCase() === textToMatch) {
           excludeList.push(heading);
@@ -273,27 +277,26 @@ function generateSelectors(navRoot) {
   const primarySelector = navRoot.dataset.inPageNavigationPrimary;
   const secondarySelector = navRoot.dataset.inPageNavigationSecondary ?? null;
   const query = secondarySelector ? `${primarySelector}, ${secondarySelector}` : primarySelector;
-  return { primarySelector, secondarySelector, query };
+  return {primarySelector, secondarySelector, query};
 }
-
 
 /**
  * Checks for heading ID and generates on from text content if missing
  * @param {HTMLElement} heading
  * @returns {string} The heading ID
  */
-function generateHeadingId(heading) { 
+function generateHeadingId(heading) {
   if (heading.id && !document.getElementById(heading.id)) {
     return heading.id;
   }
 
   let baseId = slugify(heading.textContent);
   let id = baseId;
-  
+
   // Handle duplicate IDs
   let counter = 1;
   while (document.getElementById(id)) {
-    appendix = counter == 1 ? "" : `-${counter}`;
+    appendix = counter == 1 ? '' : `-${counter}`;
     id = baseId + appendix;
     counter++;
   }
@@ -347,7 +350,7 @@ function scrollActiveNavItemIntoView(link) {
     listItem.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
-      inline: 'start'
+      inline: 'start',
     });
   }
 }
