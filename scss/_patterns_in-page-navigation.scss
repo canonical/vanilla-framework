@@ -45,13 +45,13 @@
 
   @media (max-width: ($threshold-6-12-col - 1px)) {
     // We make the parent column (of any size) sticky on small/medium screens
-    [class^="grid-col"]:has(> .p-in-page-navigation) {
+    [class^='grid-col']:has(> .p-in-page-navigation) {
       position: sticky;
       z-index: 1;
       top: 0;
     }
 
-    [class^="grid-col"]:has(> .p-in-page-navigation) > .p-in-page-navigation {
+    [class^='grid-col']:has(> .p-in-page-navigation) > .p-in-page-navigation {
       position: static;
     }
 
@@ -276,8 +276,7 @@
       }
 
       // Override for when there is no heading
-      &:not(:has(> .p-in-page-navigation__heading))
-        > .p-in-page-navigation__list {
+      &:not(:has(> .p-in-page-navigation__heading)) > .p-in-page-navigation__list {
         grid-row: 1;
         margin-top: $spv--medium;
       }
