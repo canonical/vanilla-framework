@@ -1,12 +1,13 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: Check your web interface for accessibility
+  title: Accessibility
 ---
 
-This guide will help you address common accessibility pitfalls in web applications and content websites.
-
 We aim to comply with the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/), level AA. WCAG has been adopted as the standard for accessibility legislation around the world.
+
+You can follow the guidance in this page to identify and address common accessibility pitfalls in web applications and content websites.
+
 
 ## Why accessibility is important
 
@@ -18,9 +19,13 @@ The Web Content Accessibility Guidelines (WCAG) ensure that interfaces are [perc
 
 Components, styles and documentation for Vanilla are written with accessibility in mind, but do not guarantee an accessible experience for your website or web application.
 
-When you use Vanilla, check the Accessibility tab in each component's documentation. We also suggest that you check the code examples, which follow best practices.
+When you use Vanilla:
 
-Whether you are using Vanilla or not, make sure to use correct HTML markup and semantics to make the most of browsers' built-in accessibility features.
+- Follow the guidance in the Accessibility tab in each component's documentation.
+- Check the code examples, which follow best practices.
+- Go through the checks in this page to ensure the experience is indeed accessible.
+
+Whether you are using Vanilla or not, use correct HTML markup and semantics to make the most of browsers' built-in accessibility features.
 
 ## Automated tools
 
