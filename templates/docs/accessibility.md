@@ -34,8 +34,8 @@ Here are some tools that may help you:
 - **Online validators**: for an initial assessment, you may use tools such as [WAVE](https://wave.webaim.org/) and [PageSpeed Insights](https://pagespeed.web.dev/), or Lighthouse within Google Chrome's developer tools. Note that [a score of 100 doesn't mean your page is accessible](https://savvasstephanides.hashnode.dev/my-lighthouse-accessibility-score-is-100-does-that-mean-my-website-is-100-accessible).
 - **Browser extensions**:
     * [Axe DevTools browser extension](https://www.deque.com/axe/browser-extensions/) can scan any given page for accessibility issues, providing guidance on how to fix them. Paid version also provides guided tests and testing full flows.
-    * [WAVE browser extension](https://wave.webaim.org/extension/): flags issues but also lets you visually check the accessibility tree, focus order and labels.
-- **Code editor linters**: check [Axe Linter for Visual Studio Code](https://www.deque.com/axe/devtools/linter/)
+    * [WAVE browser extension](https://wave.webaim.org/extension/) flags issues but also lets you visually check the accessibility tree, focus order and labels.
+- **Code editor linters**: [Axe Linter for Visual Studio Code](https://www.deque.com/axe/devtools/linter/) highlights common accessibility issues in source files directly in your editor.
 - **CLI tools**: [Pa11y](https://pa11y.org/) and [Axe](https://www.npmjs.com/package/@axe-core/cli) offer similar functionality by detecting issues. Both can be used for continuous integration (check also [axe Linter GitHub action](https://github.com/marketplace/axe-linter))
 
 
@@ -44,8 +44,9 @@ Here are some tools that may help you:
 These checks support people with low vision (cataracts), color vision deficiencies (color blindness), photosensitivity, or reading difficulties by ensuring clear contrast, readable text at any size, no reliance on color alone, and safe, non-distracting visuals.
 
 
-### Enable the visual features
+### Enable the visual accessibility settings
 
+When testing, you will need to enable some visual accessibility features on your operating system's settings or accessibility menu.
 
 <div class="p-tabs">
 <div class="p-tabs__list" role="tablist" aria-label="Operating systems">
