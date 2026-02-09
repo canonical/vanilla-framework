@@ -8,13 +8,11 @@ This guide will help you address common accessibility pitfalls in web applicatio
 
 We aim to comply with the [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/), level AA. WCAG has been adopted as the standard for accessibility legislation around the world.
 
-
 ## Why accessibility is important
 
 Designing and coding for accessibility helps everyone. People with disabilities or age-related challenges that affect seeing, hearing, moving, speaking, or understanding information need accessible design. But disabilities can also be temporary or situational, like having an injury, being in a noisy place, or dealing with glare.
 
 The Web Content Accessibility Guidelines (WCAG) ensure that interfaces are [perceivable, operable, understandable and robust](https://www.w3.org/WAI/WCAG22/Understanding/intro#understanding-the-four-principles-of-accessibility).
-
 
 ## When using Vanilla
 
@@ -24,7 +22,6 @@ When you use Vanilla, check the Accessibility tab in each component's documentat
 
 Whether you are using Vanilla or not, make sure to use correct HTML markup and semantics to make the most of browsers' built-in accessibility features.
 
-
 ## Automated tools
 
 Automated tools can identify many issues with markup and styles. However, they are not sufficient for conducting a comprehensive accessibility audit. Use them mindfully, and do rely as well on manual reviews.
@@ -33,16 +30,14 @@ Here are some tools that may help you:
 
 - **Online validators**: for an initial assessment, you may use tools such as [WAVE](https://wave.webaim.org/) and [PageSpeed Insights](https://pagespeed.web.dev/), or Lighthouse within Google Chrome's developer tools. Note that [a score of 100 doesn't mean your page is accessible](https://savvasstephanides.hashnode.dev/my-lighthouse-accessibility-score-is-100-does-that-mean-my-website-is-100-accessible).
 - **Browser extensions**:
-    * [Axe DevTools browser extension](https://www.deque.com/axe/browser-extensions/) can scan any given page for accessibility issues, providing guidance on how to fix them. Paid version also provides guided tests and testing full flows.
-    * [WAVE browser extension](https://wave.webaim.org/extension/) flags issues but also lets you visually check the accessibility tree, focus order and labels.
+  - [Axe DevTools browser extension](https://www.deque.com/axe/browser-extensions/) can scan any given page for accessibility issues, providing guidance on how to fix them. Paid version also provides guided tests and testing full flows.
+  - [WAVE browser extension](https://wave.webaim.org/extension/) flags issues but also lets you visually check the accessibility tree, focus order and labels.
 - **Code editor linters**: [Axe Linter for Visual Studio Code](https://www.deque.com/axe/devtools/linter/) highlights common accessibility issues in source files directly in your editor.
 - **CLI tools**: [Pa11y](https://pa11y.org/) and [Axe](https://www.npmjs.com/package/@axe-core/cli) offer similar functionality by detecting issues. Both can be used for continuous integration (check also [axe Linter GitHub action](https://github.com/marketplace/axe-linter))
-
 
 ## Check visual accessibility
 
 These checks support people with low vision (cataracts), color vision deficiencies (color blindness), photosensitivity, or reading difficulties by ensuring clear contrast, readable text at any size, no reliance on color alone, and safe, non-distracting visuals.
-
 
 ### Enable the visual accessibility settings
 
@@ -107,24 +102,22 @@ When testing, you will need to enable some visual accessibility features on your
 </div>
 </div>
 
-
 ### Visual accessibility checklist
 
 - All elements are visible and all text is legible in all themes
-    * If your framework supports dark theme or high contrast mode, check all possible combinations.
+  - If your framework supports dark theme or high contrast mode, check all possible combinations.
 - All text wraps instead of overflowing/cropping when enabling large text mode
 - All text wraps instead of overflowing/cropping when zooming 200%
 - All text wraps instead of overflowing/cropping when the window is resized
 - Meaning is conveyed through text or icons, not by color alone.
-    * For example: for errors, an error message is shown in addition to a red border.
+  - For example: for errors, an error message is shown in addition to a red border.
 - Animations are disabled or reduced when reduced motion is enabled in the system settings
-    * Large positional shifts, parallax scrolling, sliding panels, carousels, rotating spinners, or auto-playing loops are problematic and should be disabled.
-    * Subtle opacity fades, color changes, shadows, or small local micro-interactions are OK.
-    * Use CSS's `prefers-reduced-motion` to honour system settings.
+  - Large positional shifts, parallax scrolling, sliding panels, carousels, rotating spinners, or auto-playing loops are problematic and should be disabled.
+  - Subtle opacity fades, color changes, shadows, or small local micro-interactions are OK.
+  - Use CSS's `prefers-reduced-motion` to honour system settings.
 - No flashing (there should not be more than 3 flashes per second)
 - All elements have enough contrast with their background
-    * Read [contrast checks](#contrast-checks) for further guidance.
-
+  - Read [contrast checks](#contrast-checks) for further guidance.
 
 ### Contrast checks
 
@@ -149,11 +142,9 @@ For checking color contrast:
 
 Be mindful of text on images, and the use of transparency: some automatic tests may evaluate contrast incorrectly in those cases. Common sense may help flag up problems too: if text looks unreadable to you, it's not accessible no matter what the contrast checker says.
 
-
 ## Check keyboard navigation
 
 These checks ensure a good experience for keyboard-only users, including people with motor disabilities that cannot use a mouse or trackpad, blind users who rely on screen readers, and power users who just prefer to use their keyboard.
-
 
 ### Try keyboard shortcuts
 
@@ -161,13 +152,12 @@ For a simple test, select the window you want to test. Then hit the <kbd>Tab</kb
 
 For a more thorough test, you need these shortcuts:
 
-| Action | Shortcut |
-|--------|----------|
-| Move to next interactive item | <kbd>Tab</kbd> |
+| Action                            | Shortcut                        |
+| --------------------------------- | ------------------------------- |
+| Move to next interactive item     | <kbd>Tab</kbd>                  |
 | Move to previous interactive item | <kbd>Shift</kbd>+<kbd>Tab</kbd> |
-| Interact with an item or group | <kbd>Enter</kbd> |
-| Exit a group | <kbd>Esc</kbd> |
-
+| Interact with an item or group    | <kbd>Enter</kbd>                |
+| Exit a group                      | <kbd>Esc</kbd>                  |
 
 ### Keyboard navigation checklist
 
@@ -175,19 +165,17 @@ For a more thorough test, you need these shortcuts:
 - All interactive elements have a visible focus state (ideally a focus ring)
 - There are no focus traps: it is possible to escape all loops, for instance by pressing the <kbd>Esc</kbd> key
 - Focus moves from one element to the next in a logical order
-    * In most of our apps, that usually means sidebar (if open), then body; and top to bottom, left to right (or right to left for RTL languages such as Arabic or Hebrew).
+  - In most of our apps, that usually means sidebar (if open), then body; and top to bottom, left to right (or right to left for RTL languages such as Arabic or Hebrew).
 - A skip link is provided at the beginning of the page to bypass navigation
-    - Check [skip link](/docs/patterns/links#skip-link) in Vanilla
+  - Check [skip link](/docs/patterns/links#skip-link) in Vanilla
 - When a dialog opens, focus moves to the dialog
 - When a dialog closes, focus moves back to the element that triggered the dialog
 - Dialogs close by hitting the <kbd>Escape</kbd> key
 - If an element doesn't have a visible label but does have a tooltip on hover, the tooltip should also be visible on focus
 
-
 ## Check screen reading
 
 All graphical interfaces should be readable with common screen readers. Screen readers benefit blind and visually impaired users who rely on audio feedback to navigate interfaces. To work properly, screen readers require good markup, labelling, and logical content structure.
-
 
 ### Use the screen reader
 
@@ -394,53 +382,49 @@ All graphical interfaces should be readable with common screen readers. Screen r
 </table>
 </div>
 
-
 ### Screen reading checklist
 
 - All interactive elements (buttons, fields, links…) have a label and a role that is read out loud by the screen reader
-    * Use the right HTML elements so screen readers can rely on their implied roles. Check [W3C documentation on roles](https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/).
-    * You may use the [off-screen Vanilla utility](/docs/utilities/off-screen) (`.u-off-screen`) to make a label readable only for screen reader.
+  - Use the right HTML elements so screen readers can rely on their implied roles. Check [W3C documentation on roles](https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/).
+  - You may use the [off-screen Vanilla utility](/docs/utilities/off-screen) (`.u-off-screen`) to make a label readable only for screen reader.
 - The HTML document has an appropriate `lang` attribute on the root element (e.g., `<html lang="en">`)
 - HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>`) and ARIA landmarks are used to define page regions
 - All labels are descriptive, meaningful and concise
 - All labels are unique, unless they trigger the exact same action.
-    * For example, if there's more than one share button, each label should mention what it refers to ("Share [item name 1]", "Share [item name 2]")
+  - For example, if there's more than one share button, each label should mention what it refers to ("Share [item name 1]", "Share [item name 2]")
 - Links have descriptive text that makes sense out of context (avoid "click here" or "read more")
 - All pages have a meaningful title or main heading
 - All headings are unique and meaningful
 - Headings follow a sequential order, without skipping any levels.
-    * For example, H3 headings are always under an H1 and an H2 heading.
-    * Use the right markup for heading levels regardless of how they are styled. You can achieve this by using [heading classes](/docs/base/typography#heading-classes), for example: `<h2 class="p-heading--3">`
+  - For example, H3 headings are always under an H1 and an H2 heading.
+  - Use the right markup for heading levels regardless of how they are styled. You can achieve this by using [heading classes](/docs/base/typography#heading-classes), for example: `<h2 class="p-heading--3">`
 - Errors are announced and readable with the screen reader
-    * Check the [aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) attribute
+  - Check the [aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) attribute
 - For images that are not strictly decorative, provide alternative text that can be read out loud by the screen reader
-    * Get guidance on how to write good alternative text in the [Vanilla content guidelines](/docs/content-guidelines#alt-text-for-images)
-    * Avoid using images or icons in CSS pseudo-elements (`:before`, `:after`) as they are not accessible to screen readers
+  - Get guidance on how to write good alternative text in the [Vanilla content guidelines](/docs/content-guidelines#alt-text-for-images)
+  - Avoid using images or icons in CSS pseudo-elements (`:before`, `:after`) as they are not accessible to screen readers
 - Decorative elements are hidden from screen readers using `aria-hidden="true"` or appropriate CSS techniques
 - SVG graphics have appropriate `<title>` and `<desc>` elements, or use `aria-label` or `aria-labelledby`
 - All visual content in videos is [described](https://www.w3.org/WAI/media/av/description/) by a narrator, in the transcript, or in adjacent text.
-
 
 ## Check additional accessibility
 
 Besides the more common checks above, you should also keep in mind these:
 
 - All interactive elements have a width and height of at least 24px, or have [sufficient space around them](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
-    * If interactive elements are too close, users might activate them by accident, for example when [scrolling on touch screens](https://axesslab.com/hand-tremors/).
+  - If interactive elements are too close, users might activate them by accident, for example when [scrolling on touch screens](https://axesslab.com/hand-tremors/).
 - All UI text is reasonably short and easy to understand
-    * Check the [Vanilla content guidelines](/docs/content-guidelines) for guidance.
+  - Check the [Vanilla content guidelines](/docs/content-guidelines) for guidance.
 - The content is organized with a clear and logical structure that makes sense
 - Layout and design patterns are consistent throughout the interface
 - When there's an error submitting data or in a flow, a meaningful error message is shown
-    * Good error messages explain to the user how to avoid them, or at least explain the cause of the error.
+  - Good error messages explain to the user how to avoid them, or at least explain the cause of the error.
 - Search functionality is provided whenever possible so users have an alternative way to find the page or section they are looking for
 - Audio or video that lasts more than 3 seconds does not play automatically
 - Audio or video that lasts more than 3 seconds can be paused or muted
 - If an experience cannot be made accessible, provide an alternative for users to access the same information or functionality
-    * Provide text alternatives (for instance, transcriptions or captions) for audio and video content
-    * Provide good labels or a table as an alternative for data charts.
-
-
+  - Provide text alternatives (for instance, transcriptions or captions) for audio and video content
+  - Provide good labels or a table as an alternative for data charts.
 
 ## Look for user feedback
 
@@ -448,15 +432,13 @@ When auditing an app, check any outstanding accessibility issues in the app repo
 
 You should proactively test your interface with a diverse group of users, including people who use assistive technologies. You can recruit testers through specialized agencies or by reaching out to colleagues and friends.
 
-
 ## Report accessibility issues
 
-If you spot an accessibility problem in Vanilla, let us know  by [filing an issue](https://github.com/canonical/vanilla-framework/issues) on GitHub.
+If you spot an accessibility problem in Vanilla, let us know by [filing an issue](https://github.com/canonical/vanilla-framework/issues) on GitHub.
 
 If you found an accessibility issue in another project, please file an issue in the relevant repository.
 
 Describe the issue in as much detail as you can, and provide instructions to test it. Screenshots and screen recordings also help. You can propose a fix for the issue, but it's not strictly necessary.
-
 
 ## References
 
@@ -467,7 +449,6 @@ The volume of information on the WCAG website can be disorienting. We keep the f
 - [How to Meet WCAG 2.2](https://www.w3.org/WAI/WCAG22/quickref/): A customizable quick reference with guidelines, success criteria, and techniques
 - [Techniques for WCAG 2.2](https://www.w3.org/WAI/WCAG22/Techniques/): Instructions for developers, including browser and assistive technology support notes, examples, code, resources, and test procedures
 
-
 ### Additional resources
 
 The web is abundant in tools that help to create and test for accessible sites. We find the following particularly useful:
@@ -475,4 +456,4 @@ The web is abundant in tools that help to create and test for accessible sites. 
 - [WAI-ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/): A comprehensive guide for understanding how to use WAI-ARIA to create accessible Rich Internet Applications. It provides guidance on the appropriate application of WAI-ARIA, describes recommended usage patterns, and explains concepts behind them.
 - [Web Accessibility in Mind (WebAIM)](https://webaim.org/): Extensive resources and tools for web accessibility
 - [Chrome DevTools Accessibility Reference](https://developer.chrome.com/docs/devtools/accessibility/reference/): Built-in accessibility testing features in Chrome
-- [Accessibility guidelines from Vox Media](https://accessibility.voxmedia.com): provides checklists per discipline, including design, engineering, project management, QA and editorial. 
+- [Accessibility guidelines from Vox Media](https://accessibility.voxmedia.com): provides checklists per discipline, including design, engineering, project management, QA and editorial.
