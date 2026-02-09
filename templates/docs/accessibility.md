@@ -8,7 +8,6 @@ We aim to comply with the [Web Content Accessibility Guidelines (WCAG) 2.2](http
 
 You can follow the guidance in this page to identify and address common accessibility pitfalls in web applications and content websites.
 
-
 ## Why accessibility is important
 
 Designing and coding for accessibility helps everyone. People with disabilities or age-related challenges that affect seeing, hearing, moving, speaking, or understanding information need accessible design. But disabilities can also be temporary or situational, like having an injury, being in a noisy place, or dealing with glare.
