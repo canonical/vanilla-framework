@@ -45,7 +45,7 @@ These checks support people with low vision (cataracts), color vision deficienci
 
 ### Enable the visual accessibility settings
 
-When testing, you will need to enable some visual accessibility features on your operating system's settings or accessibility menu.
+When testing, you will need to toggle some visual accessibility settings on your operating system. Browsers rely on these settings to adapt the styles to the user's preferences.
 
 <div class="p-tabs">
 <div class="p-tabs__list" role="tablist" aria-label="Operating systems">
