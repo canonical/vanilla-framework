@@ -19,6 +19,8 @@ We follow two guideline documents that align with the practices that the Canonic
 - [HTML code standards](https://webteam.canonical.com/practices/html-code-standards)
 - [Stylesheet code standards](https://webteam.canonical.com/practices/css)
 
+Also check your contribution is [accessible](/docs/accessibility).
+
 ## File a bug
 
 We use [GitHub issues](https://github.com/canonical/vanilla-framework/issues) to track all our bugs and feature requests.
