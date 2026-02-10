@@ -30,13 +30,15 @@ The in-page navigation component is composed of the following elements:
 
 The navigation is always expected to be used within the grid (whether in "manual" or "full-page" mode). It should have a grid column as a direct parent and preferably be in 2 columns on large screens, and 4 colums on medium and small screens.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component-no-heading" class="js-example" data-lang="jinja">
 View example of the in-page navigation component in 'full-page' mode
 </a></div>
 
-## Manual mode, no heading
+## Manual mode, with optional heading
 
-<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component-no-heading" class="js-example" data-lang="jinja">
+There is an option to add a heading on top of the in-page navigation component, which can be helpful in cases where the in-page navigation targets a specific section, not the entire page.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component" class="js-example" data-lang="jinja">
 View example of the in-page navigation component in 'full-page' mode
 </a></div>
 
