@@ -183,11 +183,20 @@ function initNavigationInteraction(navRoot) {
 
   // Handle navigation link clicks
   navigationLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Handle active state
       navigationLinks.forEach(function (navLink) {
         navLink.classList.remove('is-active');
       });
       link.classList.add('is-active');
+      // Handle smooth scroll
+      const targetId = link.getAttribute('href');
+      const targetHeading = document.querySelector(targetId);
+      if (targetHeading) {
+        targetHeading.scrollIntoView({ behavior: 'smooth' });
+        history.pushState(null, null, targetId);
+      }
     });
   });
 
