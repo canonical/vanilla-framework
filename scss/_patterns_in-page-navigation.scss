@@ -34,7 +34,26 @@
 
 @mixin vf-p-in-page-navigation {
   // Use a consistent border width for left-highlight and list border
-  $in-page-navigation-border-width: 3px;
+  $in-page-navigation-border-width: 3px; 
+
+  // Define scroll margins
+  .grid-row:has(.p-in-page-navigation) {
+    h2, h3, h4 {
+      scroll-margin-top: 72px;
+
+      @media screen and (width >= $threshold-4-8-col) {
+        scroll-margin-top: 24px;
+      }
+
+      @at-root body:has(.p-navigation.is-sticky) &, body:has(.p-navigation--sliding.is-sticky) & {
+        scroll-margin-top: 120px;
+
+        @media screen and (width >= $threshold-4-8-col) {
+          scroll-margin-top: 80px;
+        }
+      }
+    }
+  }
 
   // Sticky in-page navigation (default)
   .p-in-page-navigation {
@@ -43,7 +62,7 @@
     top: $spv--strip-shallow;
   }
 
-  @media (max-width: ($threshold-6-12-col - 1px)) {
+  @media screen and (max-width: ($threshold-4-8-col - 1px)) {
     // We make the parent column (of any size) sticky on small/medium screens
     [class^='grid-col']:has(> .p-in-page-navigation) {
       position: sticky;
@@ -93,7 +112,7 @@
     padding-right: 0;
     padding-top: $spv--x-small;
 
-    @media (max-width: ($threshold-6-12-col - 1px)) {
+    @media screen and (width < $threshold-4-8-col) {
       padding-right: $spv--large;
     }
   }
@@ -167,7 +186,7 @@
   }
 
   // Small and medium screen layout
-  @media (max-width: ($threshold-6-12-col - 1px)) {
+  @media screen and (width < $threshold-4-8-col) {
     .p-in-page-navigation__container {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -244,14 +263,14 @@
   }
 
   // Medium screens: limit link width to 1/3
-  @media (min-width: $threshold-4-6-col) and (max-width: ($threshold-6-12-col - 1px)) {
+  @media screen and (width >= $threshold-4-small-4-med-col) and (max-width < $threshold-4-8-col) {
     .p-in-page-navigation__item > .p-in-page-navigation__link {
       max-width: 33.33vw;
     }
   }
 
   // Small and medium screen expanded dropdown layout
-  @media (max-width: ($threshold-6-12-col - 1px)) {
+  @media screen and (width < $threshold-4-8-col) {
     .p-in-page-navigation__container:has(.p-in-page-navigation__list[aria-expanded='true']) {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -306,13 +325,13 @@
     }
   }
 
-  @media (max-width: $threshold-4-6-col) {
+  @media screen and (width < $threshold-4-small-4-med-col) {
     .p-in-page-navigation__dropdown-toggle {
       padding: $spv--large $spv--large;
     }
   }
 
-  @media (max-width: ($threshold-6-12-col - 1px)) {
+  @media screen and (width < $threshold-4-8-col) {
     .p-in-page-navigation__dropdown-toggle {
       padding-top: $spv--medium;
       padding-bottom: $spv--medium;
@@ -337,7 +356,7 @@
 ) {
   #{$prop}: $multiplier * map-get($grid-margin-widths, small);
 
-  @media (min-width: $threshold-4-6-col) {
+  @media screen and (width >= $threshold-4-small-4-med-col) {
     #{$prop}: $multiplier * map-get($grid-margin-widths, default);
   }
 }
