@@ -136,22 +136,11 @@ function initNavigationInteraction(navRoot) {
     });
   }
 
-  // Compute the default "first" section to use at the top of the page.
-  // const firstHeadingId = headings[0]?.id;
-  // const lastHeadingId = headings[headings.length - 1]?.id;
-
   const observer = new IntersectionObserver(
     function (entries) {
-      // // If at the top of the page, skip
-      // if (window.scrollY === 0) {
-      //   return;
-      // }
-
-      // // If at bottom of page, skip
-      // if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-      //   return;
-      // }
-
+      if (navItemClicked) {
+        return;
+      }
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           updateActiveLink(entry.target.id);
@@ -159,37 +148,26 @@ function initNavigationInteraction(navRoot) {
       });
     },
     {
-      rootMargin: '-5% 0px -87% 0px',
+      rootMargin: '-40% 0px -50% 0px',
       threshold: 0.5,
     },
   );
 
   headings.forEach((heading) => observer.observe(heading));
 
-  // Check if we are at the bottom or top of the page.
-  // Active bottom or top link accordingly.
-  // window.addEventListener('scroll', () => {
-  //   if (window.scrollY === 0) {
-  //     if (firstHeadingId) {
-  //       updateActiveLink(firstHeadingId);
-  //     }
-  //     return;
-  //   }
-
-  //   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-  //     updateActiveLink(lastHeadingId);
-  //   }
-  // });
-
   // Handle navigation link clicks
+  let navItemClicked = false;
   navigationLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
+      navItemClicked = true;
+
       // Handle active state
       navigationLinks.forEach(function (navLink) {
         navLink.classList.remove('is-active');
       });
       link.classList.add('is-active');
+
       // Handle smooth scroll
       const targetId = link.getAttribute('href');
       const targetHeading = document.querySelector(targetId);
@@ -197,6 +175,10 @@ function initNavigationInteraction(navRoot) {
         targetHeading.scrollIntoView({ behavior: 'smooth' });
         history.pushState(null, null, targetId);
       }
+      // We use a timeout to prevent the IntersectionObserver from immediately
+      // overiding the active state. As the IntersectionObserver points at the
+      // center of the screen
+      setTimeout(() => {navItemClicked = false;}, 1000);
     });
   });
 
@@ -206,13 +188,6 @@ function initNavigationInteraction(navRoot) {
       const linkContainer = link.parentNode;
       const tooltip = linkContainer.querySelector('.p-tooltip__message');
       tooltip.classList.remove('u-hide');
-    }
-  });
-
-  // Add scroll margin to headings
-  headings.forEach(function (heading) {
-    if (!heading.style.scrollMarginTop) {
-      heading.style.scrollMarginTop = '80px';
     }
   });
 }
