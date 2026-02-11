@@ -192,7 +192,7 @@
       grid-template-columns: 1fr auto;
       align-items: center;
       position: relative;
-      background-color: $colors--theme--background-alt;
+      background-color: $colors--theme--background-default;
       margin: 0 (-$spv--large); // Break out the grid
 
       // Full-width bottom border using viewport units
@@ -208,19 +208,26 @@
       }
     }
 
+    // Account for negative margin of the container
+    .p-in-page-navigation__container > .p-in-page-navigation__list {
+      background-color: $colors--theme--background-default;
+      padding-left: $spv--large;
+
+      > .p-in-page-navigation__item {
+        scroll-margin-left: $spv--large;
+      }
+    }
+
     // Hide heading and nested lists in horizontal layout
     .p-in-page-navigation__heading,
     .p-in-page-navigation__item .p-in-page-navigation__list {
       display: none;
     }
 
-    // Account for negative margin of the container
-    .p-in-page-navigation__container > .p-in-page-navigation__list {
-      padding-left: $spv--large;
-
-      > .p-in-page-navigation__item {
-        scroll-margin-left: $spv--large;
-      }
+    // Show background highlight when dropdown is expanded
+    .p-in-page-navigation__container:has(.p-in-page-navigation__list[aria-expanded='true']),
+    .p-in-page-navigation__container > .p-in-page-navigation__list[aria-expanded='true'] {
+      background-color: $colors--theme--background-alt;
     }
 
     // Horizontal layout (not expanded)
@@ -232,7 +239,6 @@
       scroll-behavior: smooth;
       white-space: nowrap;
       margin-bottom: 0;
-      background-color: $colors--theme--background-default;
 
       scrollbar-width: none; // Firefox
       -ms-overflow-style: none; // IE/Edge
