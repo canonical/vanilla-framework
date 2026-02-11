@@ -148,7 +148,7 @@ function initNavigationInteraction(navRoot) {
       });
     },
     {
-      rootMargin: '-40% 0px -50% 0px',
+      rootMargin: '-10% 0px -50% 0px',
       threshold: 0.5,
     },
   );
@@ -172,6 +172,8 @@ function initNavigationInteraction(navRoot) {
       const targetId = link.getAttribute('href');
       const targetHeading = document.querySelector(targetId);
       if (targetHeading) {
+        targetHeading.setAttribute('tabindex', '-1');
+        targetHeading.focus({ preventScroll: true });
         targetHeading.scrollIntoView({ behavior: 'smooth' });
         history.pushState(null, null, targetId);
       }
