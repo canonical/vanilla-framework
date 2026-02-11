@@ -192,6 +192,8 @@
       grid-template-columns: 1fr auto;
       align-items: center;
       position: relative;
+      background-color: $colors--theme--background-alt;
+      margin: 0 (-$spv--large); // Break out the grid
 
       // Full-width bottom border using viewport units
       &::after {
@@ -212,6 +214,15 @@
       display: none;
     }
 
+    // Account for negative margin of the container
+    .p-in-page-navigation__container > .p-in-page-navigation__list {
+      padding-left: $spv--large;
+
+      > .p-in-page-navigation__item {
+        scroll-margin-left: $spv--large;
+      }
+    }
+
     // Horizontal layout (not expanded)
     .p-in-page-navigation__container > .p-in-page-navigation__list:not([aria-expanded='true']) {
       grid-column: 1;
@@ -221,6 +232,7 @@
       scroll-behavior: smooth;
       white-space: nowrap;
       margin-bottom: 0;
+      background-color: $colors--theme--background-default;
 
       scrollbar-width: none; // Firefox
       -ms-overflow-style: none; // IE/Edge
@@ -304,6 +316,7 @@
         grid-column: 2 / 3;
         grid-row: 1;
         justify-self: end;
+        background-color: $colors--theme--background-alt;
       }
     }
   }
@@ -321,13 +334,7 @@
     }
 
     &:hover {
-      background: unset;
-    }
-  }
-
-  @media screen and (width < $threshold-4-small-4-med-col) {
-    .p-in-page-navigation__dropdown-toggle {
-      padding: $spv--large $spv--large;
+      background: $colors--theme--background-default;
     }
   }
 
@@ -335,6 +342,12 @@
     .p-in-page-navigation__dropdown-toggle {
       padding-top: $spv--medium;
       padding-bottom: $spv--medium;
+    }
+  }
+
+  @media screen and (width < $threshold-4-small-4-med-col) {
+    .p-in-page-navigation__dropdown-toggle {
+      padding: $spv--large $spv--large;
     }
   }
 
