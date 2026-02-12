@@ -1,7 +1,7 @@
 ---
 wrapper_template: '_layouts/docs.html'
 context:
-  title: In page navigation | Patterns
+  title: In-page navigation | Patterns
 ---
 
 {% from "docs/macros/patterns/wip-notice.jinja" import pattern_wip_notice %}

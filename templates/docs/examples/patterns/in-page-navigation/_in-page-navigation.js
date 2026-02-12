@@ -1,6 +1,6 @@
 /**
  * Init:
- *  - Generates in page navigation if scope is set to "full-page".
+ *  - Generates in-page navigation if scope is set to "full-page".
  *  - Initializes navigation interactions.
  */
 document.addEventListener('DOMContentLoaded', () => {
@@ -248,7 +248,7 @@ function getHeadingExcludes(navRoot, headings) {
           excludeList.push(matched);
         }
       } catch (e) {
-        console.warn(`In page navigation: Invalid exclude selector "${rule}"`);
+        console.warn(`In-page navigation: Invalid exclude selector "${rule}"`);
       }
     }
   });
