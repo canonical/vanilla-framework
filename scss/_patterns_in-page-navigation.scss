@@ -34,7 +34,7 @@
 
 @mixin vf-p-in-page-navigation {
   // Use a consistent border width for left-highlight and list border
-  $in-page-navigation-border-width: 3px; 
+  $in-page-navigation-border-width: 3px;
 
   // Shares text styles
   %in-page-navigation__text {
@@ -51,24 +51,29 @@
 
   // Shared link styles for large screens and expanded dropdown
   %in-page-navigation__link--vertical {
+    -webkit-box-orient: vertical;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
-    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   // Scroll margins for headings withing the parent grid section
   .grid-row:has(.p-in-page-navigation) {
-    h2, h3, h4 {
+    /* stylelint-disable selector-max-type */
+    h2,
+    h3,
+    h4 {
+      /* stylelint-enable selector-max-type */
       scroll-margin-top: 72px;
 
       @media screen and (width >= $threshold-4-8-col) {
         scroll-margin-top: 24px;
       }
 
-      @at-root body:has(.p-navigation.is-sticky) &, body:has(.p-navigation--sliding.is-sticky) & {
+      @at-root body:has(.p-navigation.is-sticky) &,
+        body:has(.p-navigation--sliding.is-sticky) & {
         scroll-margin-top: 120px;
 
         @media screen and (width >= $threshold-4-8-col) {
@@ -90,8 +95,8 @@
     // We make the parent column (of any size) sticky on small/medium screens
     [class^='grid-col']:has(> .p-in-page-navigation) {
       position: sticky;
-      z-index: 1;
       top: 0;
+      z-index: 1;
     }
 
     [class^='grid-col']:has(> .p-in-page-navigation) > .p-in-page-navigation {
@@ -153,8 +158,8 @@
     font-weight: $font-weight-bold;
     margin: 0;
     max-width: none;
-    padding-left: unset;
     padding-bottom: $spv--small;
+    padding-left: unset;
 
     // We hide the heading on small/medium screens, unless the dropdown is expanded
     @media screen and (width < $threshold-4-8-col) {
@@ -207,12 +212,12 @@
     // Small/medium screens
     @media screen and (width < $threshold-4-8-col) {
       display: inline-block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding: $spv--medium $spv--large $spv--medium $spv--large;
-      max-width: 33.33vw; // Limit link width to 1/3 viewport
-      vertical-align: middle;
       line-height: $spv--x-large;
+      max-width: 33.33vw; // Limit link width to 1/3 viewport
+      overflow: hidden;
+      padding: $spv--medium $spv--large $spv--medium $spv--large;
+      text-overflow: ellipsis;
+      vertical-align: middle;
 
       // Adjust active state pseudo-border for horizontal layout
       &.is-active,
@@ -232,12 +237,12 @@
 
   // Dropdown toggle button
   .p-in-page-navigation__dropdown-toggle {
+    background-color: $colors--theme--background-default;
     border: 0;
+    display: none;
+    line-height: map-get($icon-sizes, default);
     margin: 0;
     padding: $spv--large $sph--x-large;
-    display: none;
-    background-color: $colors--theme--background-default;
-    line-height: map-get($icon-sizes, default);
 
     &:focus {
       @include vf-focus;
@@ -262,12 +267,12 @@
   // Small/medium screens - horizontal layout, dropdown closed
   .p-in-page-navigation__container {
     @media screen and (width < $threshold-4-8-col) {
+      align-items: center;
+      background-color: $colors--theme--background-default;
       display: grid;
       grid-template-columns: 1fr auto;
-      align-items: center;
-      position: relative;
-      background-color: $colors--theme--background-default;
       margin: 0 (-$spv--x-large); // Break the background out the grid
+      position: relative;
 
       // Full-width bottom border using viewport units
       &::after {
@@ -278,7 +283,7 @@
         left: 50%;
         position: absolute;
         transform: translateX(-50%);
-        width: 100%
+        width: 100%;
       }
     }
 
@@ -321,10 +326,10 @@
     }
 
     @media screen and (width < $threshold-4-8-col) {
+      align-items: start;
       background-color: $colors--theme--background-alt;
       display: grid;
       grid-template-columns: 1fr auto;
-      align-items: start;
 
       .p-in-page-navigation__item .p-in-page-navigation__list {
         display: block;
@@ -332,18 +337,18 @@
 
       .p-in-page-navigation__heading {
         display: block;
-        padding-top: $spv--medium;
-        padding-bottom: $spv--medium;
-        padding-left: $spv--large;
         grid-column: 1 / 2;
         grid-row: 1;
+        padding-bottom: $spv--medium;
+        padding-left: $spv--large;
+        padding-top: $spv--medium;
       }
 
       > .p-in-page-navigation__list {
+        background-color: $colors--theme--background-alt;
         grid-column: 1 / 2;
         grid-row: 2;
         margin-bottom: $spv--large;
-        background-color: $colors--theme--background-alt;
       }
 
       // Override for when there is no heading
@@ -353,29 +358,29 @@
       }
 
       .p-in-page-navigation__dropdown-toggle {
+        background-color: $colors--theme--background-alt;
+        display: block;
         grid-column: 2 / 3;
         grid-row: 1;
         justify-self: end;
-        background-color: $colors--theme--background-alt;
-        display: block;
       }
     }
   }
 
   // Small/medium screens - collapsed dropdown
-  .p-in-page-navigation__container:has(> .p-in-page-navigation__list:not([aria-expanded='true'])) { 
+  .p-in-page-navigation__container:has(> .p-in-page-navigation__list:not([aria-expanded='true'])) {
     @media screen and (width < $threshold-4-8-col) {
       .p-in-page-navigation__list {
         grid-column: 1;
+        margin-bottom: 0;
         min-width: 0;
+        -ms-overflow-style: none; // IE/Edge
         overflow-x: auto;
         overflow-y: hidden;
         scroll-behavior: smooth;
-        white-space: nowrap;
-        margin-bottom: 0;
 
         scrollbar-width: none; // Firefox
-        -ms-overflow-style: none; // IE/Edge
+        white-space: nowrap;
         &::-webkit-scrollbar {
           display: none; // Chrome/Safari/Opera
         }
@@ -396,9 +401,9 @@
       }
 
       .p-in-page-navigation__dropdown-toggle {
+        display: block;
         grid-column: 2;
         justify-self: end;
-        display: block;
       }
     }
   }

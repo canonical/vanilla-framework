@@ -147,7 +147,7 @@ function initNavigationInteraction(navRoot) {
     // Prevent recreating the observer if state hasn't changed
     if (lastViewportState === isLargeView) {
       return;
-    } 
+    }
     lastViewportState = isLargeView;
 
     // Cleanup existing observer
@@ -167,7 +167,7 @@ function initNavigationInteraction(navRoot) {
       {
         rootMargin: isLargeView ? '-10% 0px -50% 0px' : '-10% 0px -75% 0px',
         threshold: 0.5,
-      }
+      },
     );
 
     headings.forEach((heading) => observer.observe(heading));
@@ -197,14 +197,16 @@ function initNavigationInteraction(navRoot) {
       const targetHeading = document.querySelector(targetId);
       if (targetHeading) {
         targetHeading.setAttribute('tabindex', '-1');
-        targetHeading.focus({ preventScroll: true });
-        targetHeading.scrollIntoView({ behavior: 'smooth' });
+        targetHeading.focus({preventScroll: true});
+        targetHeading.scrollIntoView({behavior: 'smooth'});
         history.pushState(null, null, targetId);
       }
       // We use a timeout to prevent the IntersectionObserver from immediately
       // overiding the active state. As the IntersectionObserver points at the
       // center of the screen
-      setTimeout(() => {navItemClicked = false;}, 1000);
+      setTimeout(() => {
+        navItemClicked = false;
+      }, 1000);
     });
   });
 
@@ -373,11 +375,7 @@ function scrollActiveNavItemIntoView(link) {
  * @returns {number} The width of the viewport in pixels
  */
 function getCurrentViewportWidth() {
-  return Math.max(
-    document.documentElement.clientWidth || 
-    0, window.innerWidth || 
-    0
-  );
+  return Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 }
 
 /**
