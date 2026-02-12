@@ -100,6 +100,7 @@ function initNavigationInteraction(navRoot) {
         navList.setAttribute('aria-expanded', 'false');
         toggle.querySelector('.p-icon--chevron-down').classList.remove('u-hide');
         toggle.querySelector('.p-icon--chevron-up').classList.add('u-hide');
+        scrollActiveNavItemIntoView();
       } else {
         toggle.setAttribute('aria-expanded', 'true');
         navList.setAttribute('aria-expanded', 'true');
@@ -255,7 +256,7 @@ function getHeadingExcludes(navRoot, headings) {
 }
 
 /**
- * Generate CSS selectors for heading retrieval based.
+ * Generate CSS selectors for query based heading retrieval.
  * @param {HTMLElement} navRoot
  * @returns {Object} An object containing primarySelector, secondarySelector, and a query string
  */
@@ -331,6 +332,9 @@ function isLineClamped(element) {
  * @param {HTMLElement} link - The active navigation link
  */
 function scrollActiveNavItemIntoView(link) {
+  if (!link) {
+    link = document.querySelector('.p-in-page-navigation__link.is-active');
+  }
   const listItem = link.closest('.p-in-page-navigation__item');
   if (listItem) {
     listItem.scrollIntoView({
