@@ -36,7 +36,30 @@
   // Use a consistent border width for left-highlight and list border
   $in-page-navigation-border-width: 3px; 
 
-  // Define scroll margins
+  // Shares text styles
+  %in-page-navigation__text {
+    @include vf-in-page-navigation-spacing-left;
+
+    padding-bottom: $spv--x-small;
+    padding-right: 0;
+    padding-top: $spv--x-small;
+
+    @media screen and (width < $threshold-4-8-col) {
+      padding-right: $spv--large;
+    }
+  }
+
+  // Shared link styles for large screens and expanded dropdown
+  %in-page-navigation__link--vertical {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // Scroll margins for headings withing the parent grid section
   .grid-row:has(.p-in-page-navigation) {
     h2, h3, h4 {
       scroll-margin-top: 72px;
@@ -55,13 +78,14 @@
     }
   }
 
-  // Sticky in-page navigation (default)
+  // Sticky styles for large screens
   .p-in-page-navigation {
     max-height: 100dvh;
     position: sticky;
     top: $spv--strip-shallow;
   }
 
+  // Sticky styles small/medium screens
   @media screen and (max-width: ($threshold-4-8-col - 1px)) {
     // We make the parent column (of any size) sticky on small/medium screens
     [class^='grid-col']:has(> .p-in-page-navigation) {
@@ -81,18 +105,32 @@
     }
   }
 
-  // Style for the main navigation list
+  // Shared style for the top level navigation list
   .p-in-page-navigation__container > .p-in-page-navigation__list {
-    @extend %vf-pseudo-border--left;
+    @extend %vf-pseudo-border--left; // Left hand border
 
     margin-bottom: $spv--strip-regular;
     max-height: 100vh;
     // Allow tooltips to overflow scrollable container
     overflow: visible;
 
+    // Left hand border
     &::before {
       background-color: $colors--theme--border-low-contrast;
       width: $in-page-navigation-border-width;
+    }
+
+    @media screen and (width < $threshold-4-8-col) {
+      background-color: $colors--theme--background-default;
+      padding-left: $spv--large;
+
+      &::before {
+        left: $spv--large;
+      }
+
+      > .p-in-page-navigation__item {
+        scroll-margin-left: $spv--large;
+      }
     }
   }
 
@@ -105,21 +143,8 @@
     }
   }
 
-  %in-page-navigation__text {
-    @include vf-in-page-navigation-spacing-left;
-
-    padding-bottom: $spv--x-small;
-    padding-right: 0;
-    padding-top: $spv--x-small;
-
-    @media screen and (width < $threshold-4-8-col) {
-      padding-right: $spv--large;
-    }
-  }
-
   .p-in-page-navigation__heading {
     @extend %in-page-navigation__text;
-    // reset heading styles
     @extend %common-default-text-properties;
     @extend %small-caps-text;
 
@@ -128,21 +153,20 @@
     font-weight: $font-weight-bold;
     margin: 0;
     max-width: none;
-    color: $colors--theme--text-default;
     padding-left: unset;
     padding-bottom: $spv--small;
+
+    // We hide the heading on small/medium screens, unless the dropdown is expanded
+    @media screen and (width < $threshold-4-8-col) {
+      display: none;
+    }
   }
 
   .p-in-page-navigation__link {
     @extend %in-page-navigation__text;
+    @extend %in-page-navigation__link--vertical;
     @include vf-focus-themed;
 
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: $colors--theme--text-muted;
 
     &:visited {
@@ -166,6 +190,7 @@
       display: block;
     }
 
+    // Active state for current navigation item
     &.is-active,
     &[aria-current='true'] {
       @extend %vf-pseudo-border--left;
@@ -178,22 +203,71 @@
         width: $in-page-navigation-border-width;
       }
     }
+
+    // Small/medium screens
+    @media screen and (width < $threshold-4-8-col) {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: $spv--medium $spv--large $spv--medium $spv--large;
+      max-width: 33.33vw; // Limit link width to 1/3 viewport
+      vertical-align: middle;
+      line-height: $spv--x-large;
+
+      // Adjust active state pseudo-border for horizontal layout
+      &.is-active,
+      &[aria-current='true'] {
+        &::before {
+          height: 50%;
+          top: 25%;
+        }
+      }
+    }
+
+    // Small screens only
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      max-width: 50vw; // Limit link width to 1/2 viewport
+    }
   }
 
-  // Nested 2nd level of navigation indentation
-  .p-in-page-navigation__item .p-in-page-navigation__list .p-in-page-navigation__link {
-    @include vf-in-page-navigation-spacing-left($multiplier: 2);
+  // Dropdown toggle button
+  .p-in-page-navigation__dropdown-toggle {
+    border: 0;
+    margin: 0;
+    padding: $spv--large $sph--x-large;
+    display: none;
+    background-color: $colors--theme--background-default;
+    line-height: map-get($icon-sizes, default);
+
+    &:focus {
+      @include vf-focus;
+    }
+
+    &:hover {
+      background: $colors--theme--background-default;
+    }
+
+    .p-in-page-navigation__dropdown-toggle-icon {
+      height: map-get($icon-sizes, default);
+      width: map-get($icon-sizes, default);
+    }
+
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      .p-in-page-navigation__dropdown-toggle {
+        padding: $spv--large $spv--large;
+      }
+    }
   }
 
-  // Small and medium screen layout
-  @media screen and (width < $threshold-4-8-col) {
-    .p-in-page-navigation__container {
+  // Small/medium screens - horizontal layout, dropdown closed
+  .p-in-page-navigation__container {
+    @media screen and (width < $threshold-4-8-col) {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       position: relative;
       background-color: $colors--theme--background-default;
-      margin: 0 (-$spv--large); // Break out the grid
+      margin: 0 (-$spv--x-large); // Break the background out the grid
 
       // Full-width bottom border using viewport units
       &::after {
@@ -204,94 +278,50 @@
         left: 50%;
         position: absolute;
         transform: translateX(-50%);
-        width: 100vw;
+        width: 100%
       }
     }
 
-    // Account for negative margin of the container
-    .p-in-page-navigation__container > .p-in-page-navigation__list {
-      background-color: $colors--theme--background-default;
-      padding-left: $spv--large;
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      margin: 0 (-$spv--large); // Break the background out the grid
+    }
+  }
 
-      > .p-in-page-navigation__item {
-        scroll-margin-left: $spv--large;
-      }
+  // Nested 2nd level of navigation indentation
+  .p-in-page-navigation__item .p-in-page-navigation__list .p-in-page-navigation__link {
+    // Apply double indentation on large screens
+    @media screen and (width >= $threshold-4-8-col) {
+      @include vf-in-page-navigation-spacing-left($multiplier: 2);
     }
 
-    // Hide heading and nested lists in horizontal layout
-    .p-in-page-navigation__heading,
-    .p-in-page-navigation__item .p-in-page-navigation__list {
-      display: none;
+    // Also apply when dropdown is expanded on small/medium
+    @media screen and (width < $threshold-4-8-col) {
+      .p-in-page-navigation__container:has(.p-in-page-navigation__list[aria-expanded='true']) & {
+        @include vf-in-page-navigation-spacing-left($multiplier: 2);
+      }
     }
+  }
 
-    // Show background highlight when dropdown is expanded
-    .p-in-page-navigation__container:has(.p-in-page-navigation__list[aria-expanded='true']),
-    .p-in-page-navigation__container > .p-in-page-navigation__list[aria-expanded='true'] {
-      background-color: $colors--theme--background-alt;
-    }
+  // Small/medium screens - expanded dropdown
+  .p-in-page-navigation__container:has(.p-in-page-navigation__list[aria-expanded='true']) {
+    // Reset link style to large screen styles
+    .p-in-page-navigation__link {
+      @extend %in-page-navigation__text;
+      @extend %in-page-navigation__link--vertical;
 
-    // Horizontal layout (not expanded)
-    .p-in-page-navigation__container > .p-in-page-navigation__list:not([aria-expanded='true']) {
-      grid-column: 1;
-      min-width: 0;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-behavior: smooth;
-      white-space: nowrap;
-      margin-bottom: 0;
+      &.is-active,
+      &[aria-current='true'] {
+        @extend %vf-pseudo-border--left;
 
-      scrollbar-width: none; // Firefox
-      -ms-overflow-style: none; // IE/Edge
-      &::-webkit-scrollbar {
-        display: none; // Chrome/Safari/Opera
-      }
-
-      // Remove left border
-      &::before {
-        content: none;
-      }
-
-      .p-in-page-navigation__item {
-        display: inline-block;
-      }
-
-      .p-in-page-navigation__item .p-in-page-navigation__link {
-        display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding: $spv--medium $spv--large $spv--medium $spv--large;
-        max-width: 50vw; // Small screens: limit link width to 1/2
-        vertical-align: top;
-        line-height: 1rem;
-
-        // Adjust active state pseudo-border for horizontal layout
-        &.is-active,
-        &[aria-current='true'] {
-          &::before {
-            height: 50%;
-            top: 25%;
-          }
+        &::before {
+          background-color: $colors--theme--text-default;
+          width: $in-page-navigation-border-width;
         }
       }
     }
 
-    .p-in-page-navigation__container .p-in-page-navigation__dropdown-toggle {
-      grid-column: 2;
-      justify-self: end;
-      display: block;
-    }
-  }
-
-  // Medium screens: limit link width to 1/3
-  @media screen and (width >= $threshold-4-small-4-med-col) and (max-width < $threshold-4-8-col) {
-    .p-in-page-navigation__item > .p-in-page-navigation__link {
-      max-width: 33.33vw;
-    }
-  }
-
-  // Small and medium screen expanded dropdown layout
-  @media screen and (width < $threshold-4-8-col) {
-    .p-in-page-navigation__container:has(.p-in-page-navigation__list[aria-expanded='true']) {
+    @media screen and (width < $threshold-4-8-col) {
+      background-color: $colors--theme--background-alt;
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: start;
@@ -304,6 +334,7 @@
         display: block;
         padding-top: $spv--medium;
         padding-bottom: $spv--medium;
+        padding-left: $spv--large;
         grid-column: 1 / 2;
         grid-row: 1;
       }
@@ -312,6 +343,7 @@
         grid-column: 1 / 2;
         grid-row: 2;
         margin-bottom: $spv--large;
+        background-color: $colors--theme--background-alt;
       }
 
       // Override for when there is no heading
@@ -325,43 +357,50 @@
         grid-row: 1;
         justify-self: end;
         background-color: $colors--theme--background-alt;
+        display: block;
       }
     }
   }
 
-  // Dropdown toggle button
-  .p-in-page-navigation__dropdown-toggle {
-    border: 0;
-    margin: 0;
-    padding: $spv--large $sph--x-large;
-    display: none;
-    background-color: $colors--theme--background-default;
+  // Small/medium screens - collapsed dropdown
+  .p-in-page-navigation__container:has(> .p-in-page-navigation__list:not([aria-expanded='true'])) { 
+    @media screen and (width < $threshold-4-8-col) {
+      .p-in-page-navigation__list {
+        grid-column: 1;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        white-space: nowrap;
+        margin-bottom: 0;
 
-    &:focus {
-      @include vf-focus;
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE/Edge
+        &::-webkit-scrollbar {
+          display: none; // Chrome/Safari/Opera
+        }
+
+        // Remove left side border
+        &::before {
+          content: none;
+        }
+
+        .p-in-page-navigation__item {
+          display: inline-block;
+        }
+      }
+
+      // Hide nested lists
+      .p-in-page-navigation__item .p-in-page-navigation__list {
+        display: none;
+      }
+
+      .p-in-page-navigation__dropdown-toggle {
+        grid-column: 2;
+        justify-self: end;
+        display: block;
+      }
     }
-
-    &:hover {
-      background: $colors--theme--background-default;
-    }
-  }
-
-  @media screen and (width < $threshold-4-8-col) {
-    .p-in-page-navigation__dropdown-toggle {
-      padding-top: $spv--medium;
-      padding-bottom: $spv--medium;
-    }
-  }
-
-  @media screen and (width < $threshold-4-small-4-med-col) {
-    .p-in-page-navigation__dropdown-toggle {
-      padding: $spv--large $spv--large;
-    }
-  }
-
-  .p-in-page-navigation__dropdown-toggle-icon {
-    height: map-get($icon-sizes, default);
-    width: map-get($icon-sizes, default);
   }
 }
 
