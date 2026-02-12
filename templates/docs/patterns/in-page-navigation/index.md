@@ -26,7 +26,7 @@ The in-page navigation component is composed of the following elements:
 | secondary_heading | The level of the secondary headings ('h3' or 'h4')             |
 | excludes          | An optional list of headings to ignore                         |
 
-## Manual mode
+## Manual
 
 The navigation is always expected to be used within the grid (whether in "manual" or "full-page" mode). It should have a grid column as a direct parent and preferably be in 2 columns on large screens, and 4 colums on medium and small screens.
 
@@ -34,7 +34,7 @@ The navigation is always expected to be used within the grid (whether in "manual
 View example of the in-page navigation component in 'full-page' mode
 </a></div>
 
-## Manual mode, with optional heading
+## In-page navigation / manual
 
 There is an option to add a heading on top of the in-page navigation component, which can be helpful in cases where the in-page navigation targets a specific section, not the entire page.
 
