@@ -100,6 +100,7 @@ function initNavigationInteraction(navRoot) {
         navList.setAttribute('aria-expanded', 'false');
         toggle.querySelector('.p-icon--chevron-down').classList.remove('u-hide');
         toggle.querySelector('.p-icon--chevron-up').classList.add('u-hide');
+        // Ensure active item is visible in horizontal layout
         scrollActiveNavItemIntoView();
       } else {
         toggle.setAttribute('aria-expanded', 'true');
@@ -137,24 +138,46 @@ function initNavigationInteraction(navRoot) {
     });
   }
 
-  const observer = new IntersectionObserver(
-    function (entries) {
-      if (navItemClicked) {
-        return;
-      }
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          updateActiveLink(entry.target.id);
-        }
-      });
-    },
-    {
-      rootMargin: '-10% 0px -50% 0px',
-      threshold: 0.5,
-    },
-  );
+  const BREAKPOINTLARGE = 1036;
+  let observer;
+  let lastViewportState = null;
+  function manageObserver() {
+    const isLargeView = getCurrentViewportWidth() >= BREAKPOINTLARGE;
 
-  headings.forEach((heading) => observer.observe(heading));
+    // Prevent recreating the observer if state hasn't changed
+    if (lastViewportState === isLargeView) {
+      return;
+    } 
+    lastViewportState = isLargeView;
+
+    // Cleanup existing observer
+    if (observer) observer.disconnect();
+
+    observer = new IntersectionObserver(
+      function (entries) {
+        if (typeof navItemClicked !== 'undefined' && navItemClicked) {
+          return;
+        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            updateActiveLink(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: isLargeView ? '-10% 0px -50% 0px' : '-10% 0px -75% 0px',
+        threshold: 0.5,
+      }
+    );
+
+    headings.forEach((heading) => observer.observe(heading));
+  }
+
+  // Initialize observer
+  manageObserver();
+
+  // Update observer rootMargins on viewpoert resize
+  window.addEventListener('resize', debounce(manageObserver, 250));
 
   // Handle navigation link clicks
   let navItemClicked = false;
@@ -343,4 +366,31 @@ function scrollActiveNavItemIntoView(link) {
       inline: 'start',
     });
   }
+}
+
+/**
+ * Returns the current viewport width.
+ * @returns {number} The width of the viewport in pixels
+ */
+function getCurrentViewportWidth() {
+  return Math.max(
+    document.documentElement.clientWidth || 
+    0, window.innerWidth || 
+    0
+  );
+}
+
+/**
+ * Debounce helper
+ * @param {Function} func - The function to debounce
+ * @param {number} wait - The debounce delay in milliseconds
+ * @return {Function} A debounced version of the input function
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
 }
