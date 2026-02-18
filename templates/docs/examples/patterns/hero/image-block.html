@@ -1,0 +1,35 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+{% block title %}Hero | Image block{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% set is_paper = true %}
+{% block content %}
+
+{% call(slot) vf_hero(
+  title_text='H1 - ideally one line, up to two',
+  layout='50/50',
+  blocks=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "Generally, the height of the right hand side of a 50/50 split should contain more content than the left hand side."
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "16-9",
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/9b4c074f-Kernelt%20industries-80-short.png",
+          "alt": "alt-text"
+        }
+      }
+    },
+  ]
+) -%}
+{% endcall -%}
+
+{% endblock %}

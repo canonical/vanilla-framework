@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+{% block title %}Hero | Description block{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% set is_paper = true %}
+{% block content %}
+
+{% call(slot) vf_hero(
+  title_text='H1 - ideally one line, up to two',
+  subtitle_text='H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
+  layout='50/50',
+  blocks=[
+    {
+      "type": "description",
+      "item": {
+        "type": "text",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate."
+      }
+    }
+  ]
+) -%}
+{% endcall -%}
+
+{% endblock %}

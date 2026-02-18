@@ -1,7 +1,7 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_hero.jinja" import vf_hero %}
 
-{% block title %}Hero / 50/50 / Without image{% endblock %}
+{% block title %}Hero | CTA block{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% set is_paper = true %}
@@ -13,34 +13,30 @@
   layout='50/50',
   blocks=[
     {
-      "type": "description",
-      "padding": "shallow",
-      "item": {
-        "type": "text",
-        "content": "Generally, the height of the right hand side of a 50/50 split should contain more content than the left
-        hand side."
-      }
-    },
-    {
       "type": "cta-block",
-      "padding": "shallow",
       "item": {
         "primary": {
-          "content_html": "Learn more",
+          "content_html": "Contact us",
           "attrs": {
             "href": "#"
           }
         },
         "link": {
-          "content_html": "Contact us ›",
+          "content_html": "Learn more &rsaquo;",
           "attrs": {
             "href": "#"
           }
         }
       }
-    },
+    }
   ]
 ) -%}
+    {%- if slot == 'description' -%}
+      <p>
+        Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side.
+      </p>
+    {%- endif -%}
 {% endcall -%}
 
 {% endblock %}
