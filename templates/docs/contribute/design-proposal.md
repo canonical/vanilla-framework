@@ -14,7 +14,7 @@ Generally speaking, we accept proposals that:
 - Consider how other designers might use the design in the future
 - Match the styles from the design foundations of the Design System (font scale, colors, spacing)
 <!-- TODO revisit/replace Vanilla-specific references when ready to add contribution process for the new design system -->
-- Consider how [accessibility](/accessibility) will be taken into account
+- Consider how [accessibility](/docs/accessibility) will be taken into account
 - Include [research](#the-design-process) such as benchmarking, how you understood the problem, how you came to your solution
 - Include clear and detailed [documentation](#document-your-proposal)
 
@@ -109,7 +109,7 @@ Clarify the intended use and limitations:
 
 ### How is your contribution accessible?
 
-Show how you meet accessibility requirements. You can follow the [accessibility checklist](/accessibility).
+Show how you meet accessibility requirements. You can follow the [accessibility checklist](/docs/accessibility).
 
 <!-- TODO Re-add table when issues fixed in Vanilla -->
 <!-- <table>
@@ -176,7 +176,7 @@ Show how you meet accessibility requirements. You can follow the [accessibility 
     <tr>
       <td>How is your contribution accessible?</td>
       <td>Show how you meet accessibility requirements</td>
-      <td>Follow this <a href="/accessibility">accessibility checklist</a></td>
+      <td>Follow this <a href="/docs/accessibility">accessibility checklist</a></td>
     </tr>
   </tbody>
 </table> -->
