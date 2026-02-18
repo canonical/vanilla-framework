@@ -20,7 +20,7 @@ Components, styles and documentation for Vanilla are written with accessibility 
 
 When you use Vanilla:
 
-- Follow the guidance in the Accessibility tab in each component's documentation.
+- Follow the guidance in the Accessibility tab in each component's documentation ([example](/docs/patterns/buttons/accessibility)).
 - Check the code examples, which follow best practices.
 - Go through the checks in this page to ensure the experience is indeed accessible.
 
@@ -171,7 +171,7 @@ For a more thorough test, you need these shortcuts:
 - Focus moves from one element to the next in a logical order
   - In most of our apps, that usually means sidebar (if open), then body; and top to bottom, left to right (or right to left for RTL languages such as Arabic or Hebrew).
 - A skip link is provided at the beginning of the page to bypass navigation
-  - Check [skip link](/docs/patterns/links#skip-link) in Vanilla
+  - Check [skip link](/docs/patterns/links#skip-link)
 - When a dialog opens, focus moves to the dialog
 - When a dialog closes, focus moves back to the element that triggered the dialog
 - Dialogs close by hitting the <kbd>Escape</kbd> key
@@ -390,7 +390,7 @@ All graphical interfaces should be readable with common screen readers. Screen r
 
 - All interactive elements (buttons, fields, links…) have a label and a role that is read out loud by the screen reader
   - Use the right HTML elements so screen readers can rely on their implied roles. Check [W3C documentation on roles](https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/).
-  - You may use the [off-screen Vanilla utility](/docs/utilities/off-screen) (`.u-off-screen`) to make a label readable only for screen reader.
+  - You may use the [off-screen utility](/docs/utilities/off-screen) (`.u-off-screen`) to make a label readable only for screen reader.
 - The HTML document has an appropriate `lang` attribute on the root element (e.g., `<html lang="en">`)
 - HTML5 semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>`) and ARIA landmarks are used to define page regions
 - All labels are descriptive, meaningful and concise
@@ -405,7 +405,7 @@ All graphical interfaces should be readable with common screen readers. Screen r
 - Errors are announced and readable with the screen reader
   - Check the [aria-live](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live) attribute
 - For images that are not strictly decorative, provide alternative text that can be read out loud by the screen reader
-  - Get guidance on how to write good alternative text in the [Vanilla content guidelines](/docs/content-guidelines#alt-text-for-images)
+  - Get guidance on how to write good alternative text in the [content guidelines](/docs/content-guidelines#alt-text-for-images)
   - Avoid using images or icons in CSS pseudo-elements (`:before`, `:after`) as they are not accessible to screen readers
 - Decorative elements are hidden from screen readers using `aria-hidden="true"` or appropriate CSS techniques
 - SVG graphics have appropriate `<title>` and `<desc>` elements, or use `aria-label` or `aria-labelledby`
@@ -418,7 +418,7 @@ Besides the more common checks above, you should also keep in mind these:
 - All interactive elements have a width and height of at least 24px, or have [sufficient space around them](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
   - If interactive elements are too close, users might activate them by accident, for example when [scrolling on touch screens](https://axesslab.com/hand-tremors/).
 - All UI text is reasonably short and easy to understand
-  - Check the [Vanilla content guidelines](/docs/content-guidelines) for guidance.
+  - Check the [content guidelines](/docs/content-guidelines) for guidance.
 - The content is organized with a clear and logical structure that makes sense
 - Layout and design patterns are consistent throughout the interface
 - When there's an error submitting data or in a flow, a meaningful error message is shown
