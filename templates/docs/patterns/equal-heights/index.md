@@ -12,21 +12,15 @@ The equal heights pattern is used to display rich content about multiple items i
 
 The equal heights pattern is composed of the following elements:
 
-| Element                   | Description                                                                                                                                                                                                                                                                     |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title_text (**required**) | `H2` title text.                                                                                                                                                                                                                                                                |
-| subtitle_text             | `H4` or `H5` subtitle text, depending on `subtitle_heading_level`.                                                                                                                                                                                                              |
-| subtitle_heading_level    | Heading level of the subtitles. May be `4` or `5`. Defaults to `5`.                                                                                                                                                                                                             |
-| highlight_images          | If the images need to be [highlighted](https://vanillaframework.io/docs/patterns/images#highlighted-image). Not added by default.                                                                                                                                               |
-| image_aspect_ratio_small  | The aspect ratio to apply to item images on [small screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference) or "auto" to use the image's original aspect ratio. Defaults to "square".  |
-| image_aspect_ratio_medium | The aspect ratio to apply to item images on [medium screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference) or "auto" to use the image's original aspect ratio. Defaults to "square". |
-| image_aspect_ratio_large  | The aspect ratio to apply to item images on [large screens](/docs/settings/breakpoint-settings). Can be any of the [image container aspect ratio identifiers](/docs/patterns/images#class-reference) or "auto" to use the image's original aspect ratio. Defaults to "2-3".     |
-| items (**required**)      | An `Array<Object>` of individual item properties.                                                                                                                                                                                                                               |
-| items[].title_text        | The title for the item.                                                                                                                                                                                                                                                         |
-| items[].title_link_attrs  | Object of attributes of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#attributes">anchor element</a> to link the title of item.                                                                                                            |
-| items[].description_html  | The description for the item.                                                                                                                                                                                                                                                   |
-| items[].image_html        | The image element for the item.                                                                                                                                                                                                                                                 |
-| items[].cta_html          | The call to action element for the item.                                                                                                                                                                                                                                        |
+| Element              | Description                      |
+| -------------------- | -------------------------------- |
+| Title (**required**) | `H2` title text.                 |
+| Subtitle             | `H4` or `H5` subtitle text.      |
+| Items (**required**) | A series of equal heights items. |
+| Item title           | Title for the item               |
+| Item description     | Description for the item         |
+| Item image           | Image for the item               |
+| Item CTA             | Call to action for the item      |
 
 ## 4 columns
 
@@ -38,7 +32,8 @@ View example of the equal heights pattern
 
 ## 3 columns
 
-If the number of items is evenly divisible by 3, but not evenly divisible by 4 (for example, 6 items), the items will be laid out in 3 columns on large screens.
+If the number of items is evenly divisible by 3, but not evenly divisible by 4 (for example, 6 items), the items will be
+laid out in 3 columns on large screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/3-columns-responsive" class="js-example" data-lang="jinja">
 View example of the equal heights pattern
@@ -72,12 +67,23 @@ View example of the equal heights pattern
 
 The presence of an element in one of the items establishes a visual rhythm that should be upheld by the other items.
 For optimal visual consistency, the properties of the individual `items` should be consistent in each invocation
-of the pattern. For example, if one item has a `description_html` property, all items should have a `description_html` property.
+of the pattern. For example, if one item has a `description_html` property, all items should have a `description_html`
+property.
 
-In the following example, the second and fourth items are missing descriptions, and the third and fourth items are missing CTAs.
+In the following example, the second and fourth items are missing descriptions, and the third and fourth items are
+missing CTAs.
 This demonstrates what **not** to do with this pattern.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/mixed-column-items-responsive" class="js-example" data-lang="jinja">
+View example of the equal heights pattern
+</a></div>
+
+## Highlighted Images
+
+To [highlight](https://vanillaframework.io/docs/patterns/images#highlighted-image) images within the pattern, set
+`highlight_images=True`. This is generally used when images are illustrations.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/4-columns-highlighted-images" class="js-example" data-lang="jinja">
 View example of the equal heights pattern
 </a></div>
 
