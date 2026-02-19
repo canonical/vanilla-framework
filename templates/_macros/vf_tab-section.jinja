@@ -1,0 +1,238 @@
+{% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+{% from "_macros/shared/vf_cta-block.jinja" import vf_cta_block %}
+{% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
+{% from "_macros/shared/vf_tabs.jinja" import vf_tabs %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_block %}
+{% from "_macros/shared/vf_linked-logo-block.jinja" import vf_linked_logo_block %}
+{% from "_macros/shared/vf_logo-block.jinja" import vf_logo_block %}
+{% from "_macros/shared/vf_divided-section-block.jinja" import vf_divided_section_block %}
+{% from "_macros/shared/vf_blog-block.jinja" import vf_blog_block %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section_blocks %}
+
+{#-
+- tab (Object) - Configuration object with the following properties:
+    - type (String) - The type of content block. Must be one of:
+        - "quote" - Quote block (full-width only). See _tab_section_quote
+        - "linked-logo" - Linked logo block. See vf_linked_logo_block
+        - "logo-block" - Logo block. See vf_logo_block
+        - "divided-section" - Divided section block. See vf_divided_section_block
+        - "blog" - Blog articles block. See vf_blog_block
+        - "basic-section" - Basic section with content blocks. See vf_basic_section_blocks
+    - item (Object) - Configuration specific to the block type.
+      The structure depends on the type selected (see referenced macros).
+    - tab_html (String) - HTML content for the tab label
+-#}
+{%- macro _tab_section_tab(tab={}) -%}
+    {%- set type = tab.get("type", "") | trim -%}
+    {%- set item = tab.get("item", {}) -%}
+    {% if type == "quote" %}
+        {{ vf_quote_block(signpost=item.get('signpost', {}), contents=item.get('contents', {})) }}
+    {% elif type == "linked-logo" %}
+        {{ vf_linked_logo_block({'links': item.get('links', [])}) }}
+    {% elif type == "logo-block" %}
+        {{ vf_logo_block({'logos': item.get('logos', []), 'is_fixed_width': item.get('is_fixed_width', true)}) }}
+    {% elif type == "divided-section" %}
+        {{ vf_divided_section_block(blocks=item.get('blocks', [])) }}
+    {% elif type == "blog" %}
+        <div class="p-blog grid-row">
+            {{ vf_blog_block(articles=item.get('articles', []), template_config=item.get('template_config', {})) }}
+        </div>
+    {% elif type == "basic-section" %}
+        {{ vf_basic_section_blocks(items=item.get('items', [])) }}
+    {% endif %}
+{%- endmacro -%}
+
+{#-
+A higher-order component that renders a section with a title, optional description,
+optional call-to-action, and a tabbed interface containing various content blocks.
+
+This pattern combines a top heading area with tabs that can contain different types of
+content blocks (quotes, logos, blog articles, etc.). The allowed block types vary by layout.
+
+Parameters:
+- title (Object) - Configuration for the title. Properties:
+    - text (String, Required) - The main title text (rendered as h2 by default)
+    - link_attrs (Object, Optional) - Attributes for the title link (e.g., href, class)
+    - heading_level (Number, Optional) - Heading level for the title (2, 3, or 4). Default: 2
+
+- description (Object, Optional) - Configuration for the secondary description column.
+  Passed directly to vf_description_block. Properties:
+    - content (String) - The description text or HTML content
+    - type (String, Optional) - "text" or "html". Default: "text"
+
+- cta (Object, Optional) - Call-to-action configuration passed to vf_cta_block. Properties:
+    - primary (Object) - Primary button configuration
+    - secondaries (Array) - Array of secondary button configurations
+    - link (Object) - Text link configuration
+
+- layout (String, Optional) - Layout variant. One of:
+    - "full-width" - Tabs span full width. Allows: quote, linked-logo, logo-block, blog
+    - "50-50" - Tabs in right 50% column. Allows: linked-logo, logo-block, divided-section, blog, basic-section
+    - "25-75" - Tabs in right 75% column. Allows: linked-logo, logo-block, blog
+    Default: "50-50"
+
+- padding (String, Optional) - Padding variant. One of:
+    - "deep" - Uses p-section--deep
+    - "shallow" - Uses p-section--shallow
+    - "default" - Uses p-section
+    Default: "default"
+
+- top_rule_variant (String, Optional) - Horizontal rule variant above title. One of:
+    - "default" - Standard horizontal rule
+    - "muted" - Muted horizontal rule
+    - "none" - No rule
+    Default: "default"
+
+- tabs (Array, Required) - Array of tab configurations. Each tab object should have:
+    - type (String, Required) - Block type: "quote", "linked-logo", "logo-block", "divided-section", "blog", or "basic-section"
+    - item (Object, Required) - Configuration specific to the block type
+    - tab_html (String, Required) - HTML for the tab control
+
+- attrs (Object, Optional) - Dictionary of attributes to apply to the section element.
+
+Note: Some block types are only allowed in certain layouts (see allowed_blocks_per_layout).
+Unsupported blocks for a layout will silently be skipped.
+-#}
+{%- macro vf_tab_section(
+    title={},
+    description={},
+    cta={},
+    layout="50-50",
+    padding="default",
+    top_rule_variant="default",
+    tabs=[],
+    attrs={}
+) -%}
+    {#- Marshall values from parameters into variables, apply safe defaults, and trim contents -#}
+    {%- set title_text = title.get("text", "") | trim -%}
+    {%- set title_link_attrs = title.get("link_attrs", {}) -%}
+    {%- set title_heading_level = title.get("heading_level", 2) -%}
+    {%- set padding = padding | trim -%}
+
+    {#- Store the existence of optional content -#}
+    {%- set title_is_link = title_link_attrs.items() | length > 0 -%}
+    {%- set has_description = description.get("content", "") | trim | length > 0 -%}
+    {%- set has_cta = cta.get("primary") or cta.get("secondaries") or cta.get("link") -%}
+
+    {#- Input validation -#}
+    {%- if title_heading_level not in [2, 3, 4] -%}
+        {%- set title_heading_level = 2 -%}
+    {%- endif -%}
+
+    {%- if padding not in ["deep", "shallow", "default"] -%}
+        {%- set padding = "default" -%}
+    {%- endif -%}
+
+    {%- set padding_classes = "p-section--" + padding -%}
+    {%- if padding == "default" -%}
+        {%- set padding_classes = "p-section" -%}
+    {%- endif -%}
+
+    {%- if layout not in ["50-50", "25-75", "full-width"] -%}
+        {%- set layout = "full-width" -%}
+    {%- endif -%}
+
+    {%- if layout == "full-width" -%}
+        {%- set tabs_column_count = 8 -%}
+    {%- elif layout == "50-50" -%}
+        {%- set tabs_column_count = 4 -%}
+    {%- elif layout == "25-75" -%}
+        {%- set tabs_column_count = 6 -%}
+    {%- endif -%}
+
+    {%- set tabs_column_start = 8 - tabs_column_count + 1 -%}
+		{%- set title_row_has_two_columns = has_description or has_cta or (layout == "50-50") -%}
+		{%- set tabs_in_title_row = not has_description and not has_cta and layout == "50-50" -%}
+
+    {#- Configuration: which block types are allowed per layout.
+        If a layout key is present, only those block types will be rendered
+        for that layout. If a layout is not present in the mapping, all
+        block types are permitted. This provides an easy place to control
+        designer constraints (e.g. quote only allowed in full-width).
+    -#}
+    {%- set allowed_blocks_per_layout = {
+        '50-50': [ 'linked-logo', 'logo-block', 'divided-section', 'blog', 'basic-section' ],
+        '25-75': [ 'linked-logo', 'logo-block', 'blog' ],
+        'full-width': [ 'quote', 'linked-logo', 'logo-block', 'blog' ]
+    } -%}
+
+		{#- Build a list of rendered tabs for the `vf_tabs` helper -#}
+		{%- set ns = namespace(rendered_tabs=[]) -%}
+		{%- for tab in tabs -%}
+				{%- set type = tab.get('type', '') | trim -%}
+
+				{#- Enforce allowed blocks per layout if configured - replace `continue` (unsupported) with a render flag -#}
+				{%- set render_tab = true -%}
+				{%- if layout in allowed_blocks_per_layout -%}
+						{%- set allowed = allowed_blocks_per_layout[layout] -%}
+						{%- if not (type in allowed) -%}
+								{%- set render_tab = false -%}
+						{%- endif -%}
+				{%- endif -%}
+
+				{%- if render_tab -%}
+						{#-
+							Prepend the section title text to the name.
+							This helps ensure uniqueness of tab section tab names across an entire page,
+							in case multiple tab sections are used in a single page.
+							The user still needs to ensure that the page's section titles are unique.
+						-#}
+						{%- set name = title_text | trim | lower | replace(' ', '_') -%}
+						{%- set content_html = _tab_section_tab(tab=tab) -%}
+						{%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab.get('tab_html', ''), 'content_html': content_html } ] -%}
+				{%- endif -%}
+		{%- endfor -%}
+
+
+    <section
+        class="{{ padding_classes }} {{ attrs.get("class", "") }}"
+        {%- for attr, value in attrs.items() -%}
+            {% if attr != "class" %}
+                {{ attr }}="{{ value }}"
+            {%- endif -%}
+        {%- endfor -%}
+    >
+    	{% if not tabs_in_title_row %}
+    		<div class="p-section--shallow">
+    	{% endif %}
+				<div class="grid-row{% if title_row_has_two_columns %}--50-50-on-large{% endif %}">
+					{{ vf_section_top_rule(top_rule_variant) }}
+					<div class="grid-col">
+						{%- if title_is_link -%}
+							<a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
+						{%- endif -%}
+						<h{{ title_heading_level }}>
+							{{ title_text }}
+						</h{{ title_heading_level }}>
+						{%- if title_is_link -%}
+							</a>
+						{%- endif -%}
+					</div>
+					{%- if title_row_has_two_columns -%}
+						<div class="grid-col">
+							{{ vf_description_block(
+								type=description.get("type"),
+								content=description.get("content")
+							)}}
+							{{ vf_cta_block(
+								primary=cta.get("primary"),
+								secondaries=cta.get("secondaries"),
+								link=cta.get("link")
+							) }}
+							{#- On 50-50, if there is no description or CTA, the tabs live in the same row as the title. -#}
+							{% if tabs_in_title_row %}
+								{{ vf_tabs(list={ 'tabs': ns.rendered_tabs }) }}
+						{% endif %}
+					</div>
+				{%- endif -%}
+				</div>
+				{% if not tabs_in_title_row %}
+        	</div>
+					<div class="grid-row">
+							<div class="grid-col-{{ tabs_column_count }} grid-col-start-large-{{ tabs_column_start }}">
+								{{ vf_tabs(list={ 'tabs': ns.rendered_tabs }) }}
+							</div>
+					</div>
+        {% endif %}
+    </section>
+{%- endmacro -%}

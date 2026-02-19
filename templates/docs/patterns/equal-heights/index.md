@@ -55,6 +55,14 @@ At a minimum, you should provide a title, at least 3 items, and a title and imag
 View example of the equal heights pattern
 </a></div>
 
+## Highlighted Images
+
+To [highlight](https://vanillaframework.io/docs/patterns/images#highlighted-image) images within the pattern, set `highlight_images=True`. This is generally used when images are illustrations. The example also displays linked item headings.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/4-columns-highlighted-images" class="js-example" data-lang="jinja">
+View example of the equal heights pattern
+</a></div>
+
 ## Parameter consistency
 
 The presence of an element in one of the items establishes a visual rhythm that should be upheld by the other items.
@@ -110,6 +118,23 @@ shown below.
         </td>
         <td>
           <code>H2</code> title text.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>&lt;Object&gt;</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Attributes to apply to the equal heights pattern. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
       </tr>
       <tr>
@@ -235,6 +260,21 @@ shown below.
         </td>
         <td>
           The title for the item.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>items[].title_link_attrs</code>
+        </td>
+        <td>
+          No </td>
+        <td>
+          Object </td>
+        <td>
+          N/A
+        </td>
+        <td>
+           Attributes of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a#attributes">anchor element</a>, as a dictionary. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info. Links the title of the item.
         </td>
       </tr>
       <tr>

@@ -1,0 +1,33 @@
+{#-
+Helper macro to render description/subtitle text content within a section.
+Supports both plain text (wrapped in <p>) and raw HTML rendering.
+
+Parameters:
+- type (String, Optional): Content type. One of:
+    - "text" (default) - Content is rendered within a <p> tag
+    - "html" - Content is rendered as raw HTML without wrapping
+    Default: "text"
+
+- content (String, Optional): The description content.
+  If type is "text", plain text is safe to use.
+  If type is "html", pass HTML markup that should be rendered as-is.
+  Default: ""
+-#}
+{% macro vf_description_block(type="text", content="") %}
+    {%- if not type -%}{%- set type = "text" -%}{%- endif -%}
+    {%- if not content -%}{%- set content = "" -%}{%- endif -%}
+
+    {%- set type = type | trim -%}
+    {%- set content = content | trim -%}
+    {%- if type not in ["text", "html"] -%}
+        {%- set type = "text" -%}
+    {%- endif -%}
+
+    {%- if content | length > 0 -%}
+        {%- if type == "text" -%}
+            <p>{{- content -}}</p>
+        {%- elif type == "html" -%}
+            {{- content | safe -}}
+        {%- endif -%}
+    {%- endif -%}
+{% endmacro %}

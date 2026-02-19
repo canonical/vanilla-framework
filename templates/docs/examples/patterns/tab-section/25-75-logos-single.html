@@ -1,0 +1,33 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / 25/75 / Logos (single){% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{- vf_tab_section(
+    title={
+        "text": "The quick brown fox jumps over the lazy dog"
+    },
+    layout="25-75",
+    tabs=[
+        {
+            "tab_html": "Logos",
+            "type": "logo-block",
+            "item": {
+                "title_text": "Our technology partners",
+                "logos": [
+                    { "attrs": { "src": "https://assets.ubuntu.com/v1/cd5f636a-hp-logo.png", "alt": "Hewlett Packard" } },
+                    { "attrs": { "src": "https://assets.ubuntu.com/v1/f90702cd-lenovo-logo.png", "alt": "Lenovo" } },
+                    { "attrs": { "src": "https://assets.ubuntu.com/v1/2ef3c028-amazon-web-services-logo.png", "alt": "Amazon Web Services" } }
+                ]
+            }
+        }
+    ]
+) -}}
+{% endblock %}
+
+
+{% block script %}
+  <script type="module" src="/js/tabs.js"></script>
+{% endblock %}

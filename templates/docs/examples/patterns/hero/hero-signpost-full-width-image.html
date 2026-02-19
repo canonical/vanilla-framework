@@ -9,26 +9,59 @@
 {% call(slot) vf_hero(
   title_text='H1 - ideally one line, up to two',
   subtitle_text='H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
-  layout='25/75'
+  layout='25/75',
+  blocks=[
+    {
+      "type": "description",
+      "padding": "shallow",
+      "item": {
+        "type": "text",
+        "content": "Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side."
+      }
+    },
+    {
+      "type": "cta-block",
+      "padding": "shallow",
+      "item": {
+        "primary": {
+          "content_html": "Learn more",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "link": {
+          "content_html": "Contact us ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    },
+    {
+      "type": "signpost_image",
+      "item": {
+        "is_highlighted": false,
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/fe20126d-RISC-V-logo.svg",
+          "alt": "alt-text"
+        }
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "cinematic",
+        "is_highlighted": false,
+        "is_cover": true,
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg",
+          "alt": "alt-text"
+        }
+      }
+    },
+  ]
 ) -%}
-    {%- if slot == 'signpost_image' -%}
-      <img src="https://assets.ubuntu.com/v1/fe20126d-RISC-V-logo.svg" alt="">
-    {%- endif -%}
-    {%- if slot == 'description' -%}
-      <p>
-        Generally, the height of the right hand side of a 50/50 split should contain more content than the left
-        hand side.
-      </p>
-    {%- endif -%}
-    {%- if slot == 'cta' -%}
-      <a href="#" class="p-button--positive">Learn more</a>
-      <a href="#">Contact us ›</a>
-    {%- endif -%}
-    {%- if slot == 'image' -%}
-      <div class="p-image-container--cinematic is-cover">
-        <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="">
-      </div>
-    {%- endif -%}
 {% endcall -%}
 
 {% endblock %}

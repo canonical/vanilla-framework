@@ -1,0 +1,68 @@
+{#-
+  vf_equal_heights_block
+  Renders the inner Equal Heights grid (no outer section/rows), suitable for embedding in other patterns (e.g. tab panels).
+
+  Params:
+  - items (array) (required): Each item may include 'image_html', 'title_text', 'title_link', 'description_html', and 'cta_html'.
+  - subtitle_heading_level (int) (optional): 4 or 5 (default 5) — used for item titles.
+  - highlight_images (boolean) (optional): Whether to add a subtle grey background behind images.
+  - image_aspect_ratio_small (string) (optional): "square" | "2-3" | "3-2" | "16-9" | "cinematic" | "auto" (default: "square").
+  - image_aspect_ratio_medium (string) (optional): same options as above (default: "square").
+  - image_aspect_ratio_large (string) (optional): same options as above (default: "2-3").
+-#}
+{%- macro vf_equal_heights_block(
+  items=[],
+  subtitle_heading_level=5,
+  highlight_images=false,
+  image_aspect_ratio_small="square",
+  image_aspect_ratio_medium="square",
+  image_aspect_ratio_large="2-3"
+) -%}
+  <div class="p-equal-height-row--wrap">
+    {%- for item in items -%}
+      {%- set image = item.get("image_html", "") | trim -%}
+      {%- set title = item.get("title_text", "") | trim -%}
+      {%- set title_link_attrs = item.get("title_link_attrs", {}) -%}
+      {%- set description = item.get("description_html", "") | trim -%}
+      {%- set cta = item.get("cta_html", "") | trim -%}
+      <div class="p-equal-height-row__col is-borderless">
+        {#- Image item -#}
+        <div class="p-equal-height-row__item">
+          {%- if image | length > 0 %}
+            <div
+              class="p-image-container{% if image_aspect_ratio_small != 'auto' %} p-image-container--{{ image_aspect_ratio_small }}-on-small{% endif %}{% if image_aspect_ratio_medium != 'auto' %} p-image-container--{{ image_aspect_ratio_medium }}-on-medium{% endif %}{% if image_aspect_ratio_large != 'auto' %} p-image-container--{{ image_aspect_ratio_large }}-on-large{% endif %} is-cover{% if highlight_images %} is-highlighted{% endif %}">
+              {{- image | safe -}}
+            </div>
+            <hr class="p-rule--highlight"/>
+          {%- endif -%}
+        </div>
+        {#- Title item -#}
+        <div class="p-equal-height-row__item">
+          {%- if title | length > 0 -%}
+            <p class="p-heading--{{ subtitle_heading_level }}">
+              {%- if title_link_attrs and "href" in title_link_attrs -%}
+                <a {% for attr, value in title_link_attrs.items() -%} {{ attr }}="{{ value }}" {%- endfor -%}>
+              {%- endif -%}
+                  {{- title -}}
+              {%- if title_link_attrs and "href" in title_link_attrs -%}
+                </a>
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+        </div>
+        {#- Description item (optional) -#}
+        <div class="p-equal-height-row__item">
+          {{- description | safe -}}
+        </div>
+        {#- CTA item (optional) -#}
+        <div class="p-equal-height-row__item">
+          {%- if cta | length > 0 -%}
+            <p>
+              {{- cta | safe -}}
+            </p>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+{%- endmacro -%}

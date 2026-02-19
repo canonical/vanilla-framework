@@ -3,6 +3,7 @@
 #   desktop vs. 50/50 split between title/description
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet vs. 50/50 split between title/description
+# padding: Type of padding to apply. Options are "deep", "shallow", "default". Default is "default".
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -10,6 +11,7 @@
 # list_item_description_[1-25]: description element of each child list item
 # cta: CTA block element
 {% macro vf_tiered_list(
+  padding="default",
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true) -%}
   {%- set title_content = caller('title') -%}
@@ -17,8 +19,17 @@
   {%- set has_description = description_content|trim|length > 0 -%}
   {%- set cta_content = caller('cta') -%}
   {%- set has_cta = cta_content|trim|length > 0 -%}
+  {%- set padding = padding | trim -%}
+  {%- if padding not in ["deep", "shallow", "default"] -%}
+    {%- set padding = "default" -%}
+  {%- endif -%}
+  {%- if padding == "default" -%}  
+    {%- set padding_classes = "p-section" -%}  
+  {%- else -%}  
+    {%- set padding_classes = "p-section--" + padding -%}  
+  {%- endif -%}
 
-  <div class="p-section u-fixed-width">
+  <div class="{{ padding_classes }} u-fixed-width">
     <hr class="p-rule">
     <div class="p-section--shallow">
       {% if has_description == true -%}

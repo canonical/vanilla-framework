@@ -566,6 +566,26 @@ The Resources block allows you to specify categories and resource items to appea
           Time element attributes object, see <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding</a>
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>padding</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'deep'</code>,<br>
+          <code>'shallow'</code>,<br>
+          <code>'default'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Padding variant for the section
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

@@ -29,20 +29,24 @@
   - title (object) (required): A dictionary with the title configuration.
     - text (string) (required): The text to be displayed as the title.
     - link_attrs (object) (optional): A dictionary of link attributes for the title.
-  - padding (string) (optional): Type of padding to apply. Options are "deep", "default". Default is "default".
+  - padding (string) (optional): Type of padding to apply. Options are "deep", "default", "none". Default is "default".
   - blocks (array<object>) (required): List of blocks to be displayed in the section. Supported block types include:
     - cta-block: Configuration for a call-to-action block.
     - logo-block: Configuration for a logo block. Must include:
       - item.logos (array): A list of logos to display.
-  
+  - top_rule_variant (string) (optional): The variant of the top rule to apply. Options are "default", "none". Default is "default".
+  - mode (string) (optional): The layout mode. Allowed values: "default" or "minimal".
+      "default": renders a <section> as the root element, and includes title, description and cta (suitable when used standalone).
+      "minimal": renders a <div> as the root element, and does not render title, description and cta (suitable when used inside another section).
+
   Slots
   - description (optional): Paragraph-style content displayed below the title. Can include one or more paragraphs.
 #}
-{%- macro vf_logo_section(title, padding="regular", blocks=[], caller=None) -%}
+{%- macro vf_logo_section(title, padding="default", blocks=[], top_rule_variant="default", mode="default", caller=None) -%}
   {% set description_content = caller('description') %}
   {% set has_description = description_content|trim|length > 0 %}
   {%- set padding = padding | trim -%}
-  {%- if padding not in ["deep", "default"] -%}
+  {%- if padding not in ["deep", "default", "none"] -%}
     {%- set padding = "default" -%}
   {%- endif -%}
   {%- if padding == "default" -%}  
@@ -52,6 +56,14 @@
   {%- endif -%}
   {%- set cta_block = blocks | selectattr("type", "equalto", "cta-block") | first -%}
   {%- set logo_block = blocks | selectattr("type", "equalto", "logo-block") | first -%}
+  {%- set top_rule_variant = top_rule_variant | trim -%}
+  {%- if top_rule_variant not in ["default", "none"] -%}
+    {%- set top_rule_variant = "default" -%}
+  {%- endif -%}
+  {%- set mode = mode | trim -%}
+  {%- if mode not in ["default", "minimal"] -%}
+    {%- set mode = "default" -%}
+  {%- endif -%}
   {%- macro _title_block(title={}) -%}
     <h2 class="p-text--small-caps">
       {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
@@ -68,15 +80,27 @@
   {%- macro _description_block() -%}
     {% if has_description %}{{ description_content | safe }}{% endif %}
   {%- endmacro -%}
-  <section class="{{ padding_classes }}">
-    <hr class="p-rule is-fixed-width" />
-    <div class="grid-row--50-50">
-      <div class="grid-col">{{- _title_block(title) -}}</div>
-      <div class="grid-col">
-        {{- _description_block() -}}
-        {% if cta_block %}{{- basic_section_item(cta_block) -}}{% endif %}
+
+  {%- set rootElement = "div" if mode == "minimal" else "section" -%}
+
+  <{{ rootElement }}{%- if padding != 'none' %} class="{{ padding_classes }}"{% endif %}>    
+    {%- if mode == "default" -%}
+      {%- if top_rule_variant == "default" -%}
+        <hr class="p-rule is-fixed-width" />
+      {%- endif -%}
+      <div class="grid-row--50-50">
+        {%- if title and title.get('text') -%}
+          <div class="grid-col">{{- _title_block(title) -}}</div>
+        {%- endif -%}
+        {%- if has_description or cta_block -%}
+          <div class="grid-col">
+            {{- _description_block() -}}
+            {% if cta_block %}{{- basic_section_item(cta_block) -}}{% endif %}
+          </div>
+        {%- endif -%}
       </div>
-    </div>
+    {%- endif -%}
+
     {{- _logo_block(logo_block) -}}
-  </section>
+  </{{ rootElement }}>
 {%- endmacro -%}

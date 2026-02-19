@@ -1,0 +1,33 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_block %}
+
+{% block title %}Quote block / No signpost{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{- vf_quote_block(
+  contents={
+      "body": {
+        "size": "large",
+        "text": "This is a company where intelligence and learning are highly valued."
+      },
+      "citation": {
+        "name": "Alyson Richens",
+        "organisation": "Canonical",
+        "title": "Customer Success Manager"
+      },
+      "cta": {
+        "html": "<a href='#'>Explore careers &rsaquo;</a>"
+      },
+      "image": {
+        "html": "
+          <div class='p-image-container--cinematic is-cover'>
+            <img class='p-image-container__image' src='https://assets.ubuntu.com/v1/da3fbf74-summit2022_crowd.png' alt='Ubuntu Summit crowd'>
+          </div>
+        "
+      }
+  }
+) -}}
+
+{% endblock %}

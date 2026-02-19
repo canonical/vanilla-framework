@@ -155,6 +155,26 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
           Whether the list element should be full-width on tablet
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>padding</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'deep'</code>,<br>
+          <code>'shallow'</code>,<br>
+          <code>'default'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Padding variant for the section
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
