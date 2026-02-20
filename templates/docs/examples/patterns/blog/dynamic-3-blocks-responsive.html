@@ -12,18 +12,20 @@
 
 <script src="{{ versioned_static('build/js/modules/latest-news.js') }}"></script>
 <script>
-  canonicalLatestNews.fetchLatestNews({
-    // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
-    imageClasses: ["p-image-container__image"],
-    /*
-      Make sure your article limit and `template_config.layout` match.
-      Use "3-blocks" with `limit: "3"`.
-     */
-    limit: "3",
-    articlesContainerSelector: "#articles-3-blocks",
-    articleTemplateSelector: "#template",
-    excerptLength: 180,
-    gtmEventLabel: "Vanilla Blog pattern template example",
-  })
+    canonicalLatestNews.fetchLatestNews({
+        // Make sure you add `p-image-container__image` to ensure the article image receives the correct styling.
+        imageClasses: ["p-image-container__image"],
+        /*
+          Make sure your article limit and `template_config.layout` match.
+          Use "3-blocks" with `limit: "3"`.
+         */
+        limit: "3",
+        articlesContainerSelector: "#articles-3-blocks",
+        articleTemplateSelector: "#template",
+        excerptLength: 180,
+        gtmEventLabel: "Vanilla Blog pattern template example",
+        // Adjust per your needs.
+        hostname: "ubuntu.com",
+    })
 </script>
 {% endblock %}
