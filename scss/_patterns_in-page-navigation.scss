@@ -85,13 +85,46 @@
 
   // Sticky styles for large screens
   .p-in-page-navigation {
-    max-height: 100dvh;
+    max-height: 100vh;
     position: sticky;
     top: $spv--strip-shallow;
+    overflow-y: auto;
+    margin-bottom: $spv--strip-regular;
+
+    @media screen and (width < $threshold-4-8-col) {
+      overflow-y: unset;
+      margin-left: (-$spv--x-large);
+      margin-right: (-$spv--x-large);
+    }
+
+    @media screen and (width < $threshold-4-small-4-med-col) {
+      margin-left: (-$spv--large);
+      margin-right: (-$spv--large);
+    }
+  }
+
+  // We re-enable scrolling when the dropdown is expanded on small/medium screens
+  .p-in-page-navigation:has(.p-in-page-navigation__list[aria-expanded='true']) {
+    overflow-y: auto;
+  }
+
+  // Custom tooltip styles for scrollable navigation
+  // We dynamically calculate the position using JS
+  .p-in-page-navigation .p-tooltip--right {
+    position: relative;
+    
+    .p-tooltip__message {
+      // Use fixed positioning to escape overflow clipping
+      position: fixed;
+      z-index: 100;
+      // Position will be set via JS using CSS custom properties
+      left: var(--tooltip-left, auto);
+      top: var(--tooltip-top, auto);
+    }
   }
 
   // Sticky styles small/medium screens
-  @media screen and (max-width: ($threshold-4-8-col - 1px)) {
+  @media screen and (width < $threshold-4-8-col) {
     // We make the parent column (of any size) sticky on small/medium screens
     [class^='grid-col']:has(> .p-in-page-navigation) {
       position: sticky;
@@ -101,6 +134,10 @@
 
     [class^='grid-col']:has(> .p-in-page-navigation) > .p-in-page-navigation {
       position: static;
+    }
+
+    [class^='grid-col']:has(> .p-in-page-navigation:has(.p-in-page-navigation__list[aria-expanded='true'])) {
+      position: unset;
     }
 
     // Custom styles for the sticky horizontal layout
@@ -114,10 +151,6 @@
   .p-in-page-navigation__container > .p-in-page-navigation__list {
     @extend %vf-pseudo-border--left; // Left hand border
 
-    margin-bottom: $spv--strip-regular;
-    max-height: 100vh;
-    // Allow tooltips to overflow scrollable container
-    overflow: visible;
 
     // Left hand border
     &::before {
@@ -258,9 +291,7 @@
     }
 
     @media screen and (width < $threshold-4-small-4-med-col) {
-      .p-in-page-navigation__dropdown-toggle {
-        padding: $spv--large $spv--large;
-      }
+      padding: $spv--large $spv--large;
     }
   }
 
@@ -271,7 +302,7 @@
       background-color: $colors--theme--background-default;
       display: grid;
       grid-template-columns: 1fr auto;
-      margin: 0 (-$spv--x-large); // Break the background out the grid
+      // margin: 0;
       position: relative;
 
       // Full-width bottom border using viewport units
@@ -285,10 +316,6 @@
         transform: translateX(-50%);
         width: 100%;
       }
-    }
-
-    @media screen and (width < $threshold-4-small-4-med-col) {
-      margin: 0 (-$spv--large); // Break the background out the grid
     }
   }
 
@@ -309,10 +336,15 @@
 
   // Small/medium screens - expanded dropdown
   .p-in-page-navigation__container:has(.p-in-page-navigation__list[aria-expanded='true']) {
+    // margin-left: 0;
+    // margin-right: 0;
+
     // Reset link style to large screen styles
     .p-in-page-navigation__link {
       @extend %in-page-navigation__text;
       @extend %in-page-navigation__link--vertical;
+
+      max-width: unset;
 
       &.is-active,
       &[aria-current='true'] {
