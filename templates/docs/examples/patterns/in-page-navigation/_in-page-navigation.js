@@ -96,6 +96,7 @@ function initNavigationInteraction(navRoot) {
   if (toggle && navList) {
     toggle.addEventListener('click', function () {
       if (toggle.getAttribute('aria-expanded') === 'true') {
+        navRoot.classList.remove('is-expanded');
         toggle.setAttribute('aria-expanded', 'false');
         navList.setAttribute('aria-expanded', 'false');
         toggle.querySelector('.p-icon--chevron-down').classList.remove('u-hide');
@@ -103,6 +104,7 @@ function initNavigationInteraction(navRoot) {
         // Ensure active item is visible in horizontal layout
         scrollActiveNavItemIntoView();
       } else {
+        navRoot.classList.add('is-expanded');
         toggle.setAttribute('aria-expanded', 'true');
         navList.setAttribute('aria-expanded', 'true');
         toggle.querySelector('.p-icon--chevron-down').classList.add('u-hide');
@@ -406,7 +408,7 @@ function attachPositionTooltipListener(tooltipContainer) {
   const tooltipMessage = tooltipContainer.querySelector('.p-tooltip__message');
   if (!tooltipMessage) return;
 
-  // One hover update the tooltip postion property to be used in CSS
+  // One hover update the tooltip position property to be used in CSS
   tooltipContainer.addEventListener('mouseenter', function() {
     const rect = tooltipContainer.getBoundingClientRect();
     tooltipMessage.style.setProperty('--tooltip-left', `${rect.right + 8}px`);
