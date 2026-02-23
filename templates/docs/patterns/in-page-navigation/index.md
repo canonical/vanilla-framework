@@ -13,7 +13,7 @@ context:
 
 A component that generates a table of contents to be embedded within the page. It accepts a dictionary of heading names and IDs when in 'manual' mode but can also be used in 'full-page' mode to auto-generate them (this requires the associated JS).
 
-Clickling the links will take you to that heading in the page. The navigaton also highlights the current position you are in the page.
+Clicking the links will take you to that heading in the page. The navigation also highlights the current position you are in the page.
 
 The in-page navigation component is composed of the following elements:
 
@@ -28,17 +28,17 @@ The in-page navigation component is composed of the following elements:
 
 ## Manual
 
-The navigation is always expected to be used within the grid (whether in "manual" or "full-page" mode). It should have a grid column as a direct parent and preferably be in 2 columns on large screens, and 4 colums on medium and small screens.
+The navigation is always expected to be used within the grid (whether in "manual" or "full-page" mode). It should have a grid column as a direct parent and preferably be in 2 columns on large screens, and 4 columns on medium and small screens.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component-no-heading" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component" class="js-example" data-lang="jinja">
 View example of the in-page navigation component in 'full-page' mode
 </a></div>
 
-## In-page navigation / manual
+## Manual with optional heading
 
 There is an option to add a heading on top of the in-page navigation component, which can be helpful in cases where the in-page navigation targets a specific section, not the entire page.
 
-<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component" class="js-example" data-lang="jinja">
+<div class="embedded-example"><a href="/docs/examples/patterns/in-page-navigation/component-with-optional-heading" class="js-example" data-lang="jinja">
 View example of the in-page navigation component in 'full-page' mode
 </a></div>
 
@@ -102,7 +102,7 @@ below.
           <code>N/A</code>
         </td>
         <td>
-          The navigation represented as an object. The heirachy and order of the navigation should be reflected in the object to a maximum of 2 levels deep.
+          The navigation represented as an object. The hierarchy and order of the navigation should be reflected in the object to a maximum of 2 levels deep.
         </td>
       </tr>      
       <tr>
@@ -129,7 +129,7 @@ below.
           Yes (if passing `navigation_items`)
         </td>
         <td>
-          <code>string</code>
+          <code>String</code>
         </td>
         <td>
           <code>N/A</code>
@@ -146,7 +146,7 @@ below.
           No
         </td>
         <td>
-          <code>Srting</code>
+          <code>String</code>
         </td>
         <td>
           <code>"full-page"</code>
@@ -170,7 +170,7 @@ below.
           <code>"h2"</code>
         </td>
         <td>
-          The top level heading that is searched for when auto-generating the navigaton.
+          The top level heading that is searched for when auto-generating the navigation.
         </td>
       </tr>
       <tr>
@@ -187,7 +187,7 @@ below.
           <code>N/A</code>
         </td>
         <td>
-          The second level heading that is searched for when auto-generating the navigaton. Should follow `primary_heading` numerically for semantic correctness i.e. "h2" -> "h3".
+          The second level heading that is searched for when auto-generating the navigation. Should follow `primary_heading` numerically for semantic correctness i.e. "h2" -> "h3".
         </td>
       </tr>
       <tr>
