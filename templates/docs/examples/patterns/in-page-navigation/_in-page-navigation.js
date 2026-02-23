@@ -70,8 +70,8 @@ function buildInPageNavigation(navRoot) {
     } else if (selectors.secondarySelector && currentPrimaryItem) {
       // Append to sublist under current primary list
       if (!currentNestedList) {
-        const nestedLististClone = sublistTemplate.content.cloneNode(true);
-        currentNestedList = nestedLististClone.querySelector('ul');
+        const nestedListClone = sublistTemplate.content.cloneNode(true);
+        currentNestedList = nestedListClone.querySelector('ul');
         currentPrimaryItem.appendChild(currentNestedList);
       }
       if (currentNestedList) {
@@ -176,7 +176,7 @@ function initNavigationInteraction(navRoot) {
   // Initialize observer
   manageObserver();
 
-  // Update observer rootMargins on viewpoert resize
+  // Update observer rootMargins on viewport resize
   window.addEventListener('resize', debounce(manageObserver, 250));
 
   // Handle navigation link clicks
@@ -202,7 +202,7 @@ function initNavigationInteraction(navRoot) {
         history.pushState(null, null, targetId);
       }
       // We use a timeout to prevent the IntersectionObserver from immediately
-      // overiding the active state. As the IntersectionObserver points at the
+      // overriding the active state. As the IntersectionObserver points at the
       // center of the screen
       setTimeout(() => {
         navItemClicked = false;
@@ -210,12 +210,13 @@ function initNavigationInteraction(navRoot) {
     });
   });
 
-  // Show tooltip for truncated links
+  // Show tooltip for links that span more than 2
   navigationLinks.forEach(function (link) {
-    if (isLineClamped(link)) {
+    if (spansMoreThanTwoLines(link)) {
       const linkContainer = link.parentNode;
       const tooltip = linkContainer.querySelector('.p-tooltip__message');
       tooltip.classList.remove('u-hide');
+      attachPositionTooltipListener(linkContainer);
     }
   });
 }
@@ -344,12 +345,28 @@ function slugify(text) {
 }
 
 /**
- * Checks if the content of an element is line-clamped.
+ * Checks if the content of an element would span more than 2 lines if not truncated
+ * To do this we have to recreate the original height without clamping
+ * and then check the number of lines.
  * @param {HTMLElement} element
- * @returns {boolean} True if the content is line-clamped, else false.
+ * @returns {boolean} True if the content would be more than 2 lines, else false.
  */
-function isLineClamped(element) {
-  return element.scrollHeight > element.clientHeight;
+function spansMoreThanTwoLines(element) {
+  const originalDisplay = element.style.display;
+  const originalLineClamp = element.style.webkitLineClamp;
+
+  element.style.display = 'block';
+  element.style.webkitLineClamp = 'unset';
+  
+  const style = window.getComputedStyle(element);
+  const lineHeight = parseFloat(style.lineHeight);
+  const height = element.getBoundingClientRect().height;
+  
+  // Restore original styles
+  element.style.display = originalDisplay;
+  element.style.webkitLineClamp = originalLineClamp;
+
+  return height > lineHeight * 3;
 }
 
 /**
@@ -376,6 +393,25 @@ function scrollActiveNavItemIntoView(link) {
  */
 function getCurrentViewportWidth() {
   return Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+}
+
+/**
+ * Position tooltips in scrollable navigation using fixed positioning.
+ * This is is a workaround as the tooltips are contained in an overflow:auto container
+ * that allows the navigation to be scrollable. This means the tooltip would usually get clipped.
+ * So we manually position the tooltip with JS. If JS is disabled, so are tooltips.
+ * @param {HTMLElement} tooltipContainer - The .p-tooltip element
+ */
+function attachPositionTooltipListener(tooltipContainer) {
+  const tooltipMessage = tooltipContainer.querySelector('.p-tooltip__message');
+  if (!tooltipMessage) return;
+
+  // One hover update the tooltip postion property to be used in CSS
+  tooltipContainer.addEventListener('mouseenter', function() {
+    const rect = tooltipContainer.getBoundingClientRect();
+    tooltipMessage.style.setProperty('--tooltip-left', `${rect.right + 8}px`);
+    tooltipMessage.style.setProperty('--tooltip-top', `${rect.top + 24}px`);
+  });
 }
 
 /**
