@@ -7,7 +7,37 @@ function attachDropdownEvents(dropdown) {
     var targetElement = document.getElementById(e.target.value);
 
     if (targetElement) {
-      toggleElement(targetElement, dropdown.options);
+      // Check if target is another dropdown (cascading dropdowns)
+      if (targetElement.tagName === 'SELECT') {
+        // Find the container with all dropdowns
+        var container = dropdown.closest('.p-code-snippet__dropdowns');
+
+        // Hide all panels from all code snippet dropdowns in this group
+        var allChannelDropdowns = container.querySelectorAll('.p-code-snippet__dropdown');
+        allChannelDropdowns.forEach(function (channelDropdown) {
+          for (var i = 0; i < channelDropdown.options.length; i++) {
+            var panel = document.getElementById(channelDropdown.options[i].value);
+            if (panel && panel.tagName !== 'SELECT') {
+              panel.classList.add('u-hide');
+              panel.setAttribute('aria-hidden', true);
+            }
+          }
+        });
+
+        // Toggle between channel dropdowns
+        toggleElement(targetElement, dropdown.options);
+
+        // Show the panel for the newly visible dropdown's selected option
+        var panelId = targetElement.value;
+        var panelElement = document.getElementById(panelId);
+        if (panelElement && panelElement.tagName !== 'SELECT') {
+          panelElement.classList.remove('u-hide');
+          panelElement.setAttribute('aria-hidden', false);
+        }
+      } else {
+        // Target is a code panel
+        toggleElement(targetElement, dropdown.options);
+      }
     }
   });
 }
@@ -21,8 +51,10 @@ function attachDropdownEvents(dropdown) {
 function toggleElement(targetElement, options) {
   for (var i = 0; i < options.length; i++) {
     var element = document.getElementById(options[i].value);
-    element.classList.add('u-hide');
-    element.setAttribute('aria-hidden', true);
+    if (element) {
+      element.classList.add('u-hide');
+      element.setAttribute('aria-hidden', true);
+    }
   }
 
   targetElement.classList.remove('u-hide');
