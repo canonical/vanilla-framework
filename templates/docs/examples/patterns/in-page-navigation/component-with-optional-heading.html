@@ -1,0 +1,81 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_in-page-navigation.jinja" import vf_in_page_navigation %}
+
+{% block title %}In-page navigation / manual with optional heading{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+  {% set page_navigation_data = [
+    {
+      "id": "identifying-a-kernel",
+      "text": "Identifying a kernel"
+    },
+    {
+      "id": "kernel-security",
+      "text": "Kernel security",
+      "children": [
+        {
+          "id": "general-availability-ga-and-variant-ubuntu-kernels",
+          "text": "General Availability (GA) and variant Ubuntu kernels"
+        },
+        {
+          "id": "optimized-kernels",
+          "text": "Optimized kernels"
+        },
+      ]
+    },
+    {
+      "id": "variant-categories",
+      "text": "Variant categories"
+    },
+    {
+      "id": "current-variant-kernels",
+      "text": "Current variant kernels"
+    },
+    {
+      "id": "additional-kernel-variants",
+      "text": "Additional kernel variants",
+      "children": [
+        {
+          "id": "version-specific-kernels",
+          "text": "Version-specific kernels"
+        },
+        {
+          "id": "configuration-specific-kernels",
+          "text": "Configuration-specific kernels"
+        },
+        {
+          "id": "platform-specific-kernels",
+          "text": "Platform-specific kernels"
+        }
+      ]
+    }
+  ] %}
+
+  <div class="grid-row">
+    <div class="grid-col-6 grid-col-start-large-3">
+      <div class="p-section--hero">
+        <h1>A hero at the top</h1>
+      </div>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="grid-col-2 grid-col-medium-4 grid-col-small-4">
+      {{ vf_in_page_navigation(
+              title="Optional heading",
+              navigation_items=page_navigation_data,
+              scope="manual") }}
+    </div>
+    <div class="grid-col-4 grid-col-medium-4 grid-col-small-4">
+      <h2>The main content goes here</h2>
+    </div>
+    <div class="grid-col-2 grid-col-medium-4 grid-col-small-4">
+      <h3>Side-content goes here</h3>
+    </div>
+  </div>
+
+  <script>
+    {% include "docs/examples/patterns/in-page-navigation/_in-page-navigation.js" %}
+  </script>
+{% endblock %}

@@ -97,6 +97,18 @@
     }
   }
 
+  %vf-pseudo-border--left {
+    position: relative;
+
+    &::before {
+      @extend %vf-pseudo-border;
+      bottom: 0;
+      height: auto;
+      top: 0;
+      width: 1px;
+    }
+  }
+
   %hr {
     background: $colors--theme--border-default;
     border: 0;

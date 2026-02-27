@@ -1,0 +1,440 @@
+@import 'settings';
+
+/*
+  @classreference
+  in-page-navigation:
+    Root element:
+      .p-in-page-navigation:
+        in-page navigation in default variant.
+      "&.is-sticky":
+        Sticky version of in-page navigation.
+
+    Dropdown toggle:
+      .p-in-page-navigation__dropdown-toggle:
+        Button to toggle between horizontal and vertical dropdown navigation on small/medium screens.
+      .p-in-page-navigation__dropdown-toggle-icon:
+        Chevron icon inside the dropdown toggle button.
+
+    Items list heading:
+      .p-in-page-navigation__heading:
+        Heading for in-page navigation items group (text only).
+
+    Items list:
+      .p-in-page-navigation__list:
+        Group of in-page navigation items (usually a `<ul>` element).
+
+    Item element:
+      .p-in-page-navigation__item:
+        Single item in in-page navigation (usually a `<li>` element). May contain nested items lists.
+
+    Item link:
+      .p-in-page-navigation__link:
+        Single link in the in-page navigation.
+*/
+
+// Shared text styles mixin
+@mixin vf-in-page-navigation-text {
+  @include vf-in-page-navigation-spacing-left;
+
+  padding-bottom: $spv--x-small;
+  padding-right: 0;
+  padding-top: $spv--x-small;
+}
+
+// Shared link styles for large screens and expanded dropdown
+@mixin vf-in-page-navigation-link-vertical {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin vf-p-in-page-navigation {
+  // Use a consistent border width for left-highlight and list border
+  $in-page-navigation-border-width: 3px;
+
+  // Scroll margins for headings within the parent grid section
+  .grid-row:has(.p-in-page-navigation) {
+    /* stylelint-disable selector-max-type */
+    h2,
+    h3,
+    h4 {
+      /* stylelint-enable selector-max-type */
+      scroll-margin-top: 72px;
+
+      @media screen and (width >= $threshold-4-8-col) {
+        scroll-margin-top: 24px;
+      }
+
+      // When the page has a sticky main navigation, increase scroll margin
+      // to account for the fixed header height. This prevents headings from
+      // being hidden behind the navigation when scrolling to anchors.
+      @at-root body:has(.p-navigation.is-sticky) &,
+        body:has(.p-navigation--sliding.is-sticky) & {
+        scroll-margin-top: 120px;
+
+        @media screen and (width >= $threshold-4-8-col) {
+          scroll-margin-top: 80px;
+        }
+      }
+    }
+  }
+
+  // Sticky styles for large screens
+  .p-in-page-navigation {
+    margin-bottom: $spv--strip-regular;
+    max-height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: $spv--strip-shallow;
+  }
+
+  // We re-enable scrolling when the dropdown is expanded on small/medium screens
+  // `is-expanded` class is toggled via JS
+  .p-in-page-navigation.is-expanded {
+    overflow-y: auto;
+  }
+
+  // Custom tooltip styles for scrollable navigation
+  // We dynamically calculate the position using JS
+  .p-in-page-navigation .p-tooltip--right {
+    position: relative;
+
+    .p-tooltip__message {
+      // Position will be set via JS using CSS custom properties
+      left: var(--tooltip-left, auto);
+      // Use fixed positioning to escape overflow clipping
+      position: fixed;
+      top: var(--tooltip-top, auto);
+      z-index: 100;
+    }
+  }
+
+  // Left hand border
+  .p-in-page-navigation__container > .p-in-page-navigation__list {
+    @extend %vf-pseudo-border--left;
+
+    &::before {
+      background-color: $colors--theme--border-low-contrast;
+      width: $in-page-navigation-border-width;
+    }
+  }
+
+  .p-in-page-navigation__list {
+    @extend %vf-list;
+    color: $colors--theme--text-inactive;
+
+    &:last-of-type::after {
+      content: none;
+    }
+  }
+
+  .p-in-page-navigation__heading {
+    @extend %common-default-text-properties;
+    @extend %small-caps-text;
+
+    display: block;
+    font-size: map-get($base-font-sizes, base);
+    font-weight: $font-weight-bold;
+    margin: 0;
+    max-width: none;
+    padding: $spv--x-small 0 $spv--small;
+  }
+
+  .p-in-page-navigation__link {
+    @include vf-in-page-navigation-text;
+    @include vf-in-page-navigation-link-vertical;
+    @include vf-focus-themed;
+
+    color: $colors--theme--text-muted;
+
+    &:visited {
+      color: $colors--theme--text-muted;
+    }
+
+    &:hover {
+      color: $colors--theme--text-default;
+      text-decoration: none;
+    }
+
+    // vf-highlight-bar is rendered above focus outline
+    // so we need to hide it on focus
+    &:focus::before {
+      display: none;
+    }
+
+    // Display the highlight when focussing in modern browsers that support
+    // focus-visible.
+    &:focus:not(:focus-visible)::before {
+      display: block;
+    }
+
+    // Active state for current navigation item
+    &.is-active,
+    &[aria-current='true'] {
+      @extend %vf-pseudo-border--left;
+
+      color: $colors--theme--text-default;
+      cursor: default;
+
+      &::before {
+        background-color: $colors--theme--text-default;
+        width: $in-page-navigation-border-width;
+      }
+    }
+  }
+
+  // Dropdown toggle button
+  .p-in-page-navigation__dropdown-toggle {
+    background-color: $colors--theme--background-default;
+    border: 0;
+    display: none;
+    line-height: map-get($icon-sizes, default);
+    margin: 0;
+    padding: $spv--large $sph--x-large;
+
+    &:focus {
+      @include vf-focus;
+    }
+
+    &:hover {
+      background: $colors--theme--background-default;
+    }
+
+    .p-in-page-navigation__dropdown-toggle-icon {
+      height: map-get($icon-sizes, default);
+      width: map-get($icon-sizes, default);
+    }
+  }
+
+  .p-in-page-navigation__container {
+    position: relative;
+  }
+
+  // Nested 2nd level of navigation indentation
+  .p-in-page-navigation__item .p-in-page-navigation__list .p-in-page-navigation__link {
+    // @media screen and (width >= $threshold-4-8-col) {
+    @include vf-in-page-navigation-spacing-left($multiplier: 2);
+    // }
+  }
+
+  // Small/medium screens
+  @media screen and (width < $threshold-4-8-col) {
+    .p-in-page-navigation {
+      background-color: $colors--theme--background-default;
+      margin-bottom: $spv--strip-shallow;
+      margin-left: (-$spv--x-large);
+      margin-right: (-$spv--x-large);
+      overflow-y: unset;
+    }
+
+    // Sticky styles for parent column
+    // IMPORTANT: Pattern requires a grid-col as a parent
+    [class^='grid-col']:has(> .p-in-page-navigation) {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+
+      > .p-in-page-navigation {
+        position: static;
+      }
+    }
+
+    // Top level navigation list
+    .p-in-page-navigation__container > .p-in-page-navigation__list {
+      background-color: $colors--theme--background-default;
+      padding-left: $spv--large;
+
+      &::before {
+        left: $spv--large;
+      }
+
+      > .p-in-page-navigation__item {
+        scroll-margin-left: $spv--large;
+      }
+    }
+
+    // Hide heading unless dropdown is expanded
+    .p-in-page-navigation__heading {
+      display: none;
+    }
+
+    // Link styles for horizontal layout
+    .p-in-page-navigation__link {
+      display: inline-block;
+      line-height: $spv--x-large;
+      max-width: 33.33vw; // Limit link width to 1/3 viewport
+      overflow: hidden;
+      padding: $spv--medium $spv--large;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+
+      // Adjust active state pseudo-border for horizontal layout
+      &.is-active,
+      &[aria-current='true'] {
+        &::before {
+          height: 50%;
+          top: 25%;
+        }
+      }
+    }
+
+    // Nested link indentation when expanded
+    .p-in-page-navigation.is-expanded .p-in-page-navigation__item .p-in-page-navigation__list .p-in-page-navigation__link {
+      @include vf-in-page-navigation-spacing-left($multiplier: 2);
+    }
+
+    // Container styles for horizontal layout
+    .p-in-page-navigation__container {
+      align-items: center;
+      background-color: $colors--theme--background-default;
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      // Full-width bottom border
+      &::after {
+        background-color: $colors--theme--border-low-contrast;
+        bottom: 0;
+        content: '';
+        height: 1px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        width: 100%;
+      }
+    }
+
+    .p-in-page-navigation__dropdown-toggle {
+      display: block;
+      grid-column: 2;
+      justify-self: end;
+    }
+
+    // Collapsed dropdown styles
+    .p-in-page-navigation:not(.is-expanded) .p-in-page-navigation__container {
+      .p-in-page-navigation__list {
+        grid-column: 1;
+        margin-bottom: 0;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scrollbar-width: none; // Firefox
+        white-space: nowrap;
+
+        &::-webkit-scrollbar {
+          display: none; // Chrome/Safari/Opera
+        }
+
+        // Remove left side border
+        &::before {
+          content: none;
+        }
+
+        .p-in-page-navigation__item {
+          display: inline-block;
+        }
+      }
+
+      // Hide nested lists
+      .p-in-page-navigation__item .p-in-page-navigation__list {
+        display: none;
+      }
+    }
+
+    // Expanded dropdown styles
+    // Grid layout: [list content | toggle button]
+    //              Row 1: heading *  | toggle
+    //              Row 2: nav list   |
+    // * If present, otherwise nav list is in row 1
+    .p-in-page-navigation.is-expanded .p-in-page-navigation__container {
+      align-items: start;
+      background-color: $colors--theme--background-alt;
+      display: grid;
+      grid-template-columns: 1fr auto;
+
+      > .p-in-page-navigation__list {
+        background-color: $colors--theme--background-alt;
+        grid-column: 1 / 2;
+        grid-row: 2;
+        margin-bottom: $spv--large;
+      }
+
+      .p-in-page-navigation__item .p-in-page-navigation__list {
+        display: block;
+      }
+
+      .p-in-page-navigation__heading {
+        display: block;
+        grid-column: 1 / 2;
+        grid-row: 1;
+        padding: $spv--medium $spv--large;
+      }
+
+      // Override for when there is no heading
+      &:not(:has(> .p-in-page-navigation__heading)) > .p-in-page-navigation__list {
+        grid-row: 1;
+        margin-top: $spv--medium;
+      }
+
+      .p-in-page-navigation__dropdown-toggle {
+        background-color: $colors--theme--background-alt;
+        display: block;
+        grid-column: 2 / 3;
+        grid-row: 1;
+        justify-self: end;
+      }
+    }
+
+    .p-in-page-navigation.is-expanded .p-in-page-navigation__link {
+      @include vf-in-page-navigation-text;
+      @include vf-in-page-navigation-link-vertical;
+
+      max-width: unset;
+      padding-right: $spv--large;
+
+      &.is-active,
+      &[aria-current='true'] {
+        &::before {
+          height: auto;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  // Small screens only
+  @media screen and (width < $threshold-4-small-4-med-col) {
+    .p-in-page-navigation {
+      margin-left: (-$spv--large);
+      margin-right: (-$spv--large);
+    }
+
+    .p-in-page-navigation__link {
+      max-width: 50vw; // Limit link width to 1/2 viewport
+    }
+
+    .p-in-page-navigation__dropdown-toggle {
+      padding: $spv--large;
+    }
+  }
+}
+
+// Helper
+
+// elements in side nav should be aligned from left based on grid margin for given screen size
+// additional offset is added when icons are used or for nested navigation levels
+@mixin vf-in-page-navigation-spacing-left(
+  // property to adjust spacing, defaults to `padding-left`
+  $prop: padding-left,
+  // how many times grid margin width should be multiplied (for nested navigation levels)
+  $multiplier: 1
+) {
+  #{$prop}: $multiplier * map-get($grid-margin-widths, small);
+
+  @media screen and (width >= $threshold-4-small-4-med-col) {
+    #{$prop}: $multiplier * map-get($grid-margin-widths, default);
+  }
+}
