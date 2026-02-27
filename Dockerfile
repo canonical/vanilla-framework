@@ -14,7 +14,7 @@ ENV PATH="/venv/bin:${PATH}"
 RUN --mount=type=cache,target=/root/.cache/pip pip3 install --requirement /tmp/requirements.txt
 # Build stage: Install yarn dependencies
 # ===
-FROM node:22 AS yarn-dependencies
+FROM node:24 AS yarn-dependencies
 WORKDIR /srv
 ADD package.json package.json
 ADD yarn.lock yarn.lock
