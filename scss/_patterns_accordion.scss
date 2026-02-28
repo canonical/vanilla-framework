@@ -25,6 +25,8 @@
     font-size: inherit;
     justify-content: flex-start;
     margin-bottom: 0;
+    // padding-left creates consistent indentation for ALL lines of wrapped text
+    padding-left: $icon-size + $sph--large;
     padding-right: $sph--large;
     position: relative;
     text-align: left;
@@ -37,7 +39,9 @@
       @include vf-transition($property: transform, $duration: fast);
 
       content: '';
-      margin-right: $sph--large;
+      // position the chevron absolutely in the padding area so it doesn't push text inline
+      left: 0;
+      position: absolute;
     }
 
     // aria-selected controls the open and closed state for the accordion tab
