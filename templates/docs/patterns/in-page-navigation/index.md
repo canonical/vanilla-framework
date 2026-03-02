@@ -140,7 +140,8 @@ below.
       </tr>
       <tr>
         <td>
-          <code>scope</code>
+          One of:
+          <code>"full-page"</code>, <code>"manual"</code>
         </td>
         <td>
           No
@@ -164,13 +165,14 @@ below.
           No
         </td>
         <td>
-          <code>String</code>
+          One of:
+          <code>"h2"</code>, <code>"h3"</code>
         </td>
         <td>
           <code>"h2"</code>
         </td>
         <td>
-          The top level heading that is searched for when auto-generating the navigation.
+          The top level heading that is searched for when auto-generating the navigation. Limited to h2 & h3.
         </td>
       </tr>
       <tr>
@@ -181,7 +183,8 @@ below.
           No
         </td>
         <td>
-          <code>String</code>
+          One of:
+          <code>"h3"</code>, <code>"h4"</code>
         </td>
         <td>
           <code>N/A</code>
@@ -206,7 +209,8 @@ below.
         <td>
           Array of headings to exclude from the navigation, supports two formats:<br>
           <strong>CSS selector</strong> (e.g. "#some-id", ".some-class") - Matches based on css selectors<br>
-          <strong>Text match</strong> (e.g. "text:Newsletter") - Matches based on text content of headings. Must be prepended with `text:`.
+          <strong>Text match</strong> (e.g. "text:Newsletter") - Matches based on text content of headings. Must be prepended with `text:`.<br>
+          <strong>Example</strong>: `["#some-id", "text:Newsletter"]`
         </td>
       </tr>
     </tbody>
