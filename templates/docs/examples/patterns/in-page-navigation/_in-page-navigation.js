@@ -359,11 +359,11 @@ function spansMoreThanTwoLines(element) {
 
   element.style.display = 'block';
   element.style.webkitLineClamp = 'unset';
-  
+
   const style = window.getComputedStyle(element);
   const lineHeight = parseFloat(style.lineHeight);
   const height = element.getBoundingClientRect().height;
-  
+
   // Restore original styles
   element.style.display = originalDisplay;
   element.style.webkitLineClamp = originalLineClamp;
@@ -409,7 +409,7 @@ function attachPositionTooltipListener(tooltipContainer) {
   if (!tooltipMessage) return;
 
   // One hover update the tooltip position property to be used in CSS
-  tooltipContainer.addEventListener('mouseenter', function() {
+  tooltipContainer.addEventListener('mouseenter', function () {
     const rect = tooltipContainer.getBoundingClientRect();
     tooltipMessage.style.setProperty('--tooltip-left', `${rect.right + 8}px`);
     tooltipMessage.style.setProperty('--tooltip-top', `${rect.top + 24}px`);

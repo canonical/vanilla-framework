@@ -11,7 +11,7 @@ context:
 
 {{- documentation_notice("p-notification--information", "A note on usage", "This component can not be used as a standalone section. It must be used within the default grid, with a grid column variant (preferably `grid-col-2`) as its direct parent.") }}
 
-A component that generates a table of contents to be embedded within the page. It accepts a dictionary of heading names and IDs when in 'manual' mode but can also be used in 'full-page' mode to auto-generate them (*this requires the associated JS*).
+A component that generates a table of contents to be embedded within the page. It accepts a dictionary of heading names and IDs when in 'manual' mode but can also be used in 'full-page' mode to auto-generate them (_this requires the associated JS_).
 
 Clicking the links will take you to that heading in the page. The navigation also highlights the current position you are in the page.
 
