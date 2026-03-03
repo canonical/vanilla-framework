@@ -28,7 +28,7 @@ function buildInPageNavigation(navRoot) {
   }
 
   const selectors = generateSelectors(navRoot);
-  const headings = getHeadings(navRoot);
+  const headings = getHeadings(navRoot, selectors);
   if (!headings.length) {
     return;
   }
@@ -113,7 +113,8 @@ function initNavigationInteraction(navRoot) {
     });
   }
 
-  const headings = getHeadings(navRoot);
+  const selectors = generateSelectors(navRoot);
+  const headings = getHeadings(navRoot, selectors);
   const navigationLinks = getNavigationLinks(navRoot);
 
   /**
@@ -230,8 +231,7 @@ function initNavigationInteraction(navRoot) {
  * @param {HTMLElement} navRoot
  * @returns {NodeList} List of heading elements matching the defined selectors
  */
-function getHeadings(navRoot) {
-  const selectors = generateSelectors(navRoot);
+function getHeadings(navRoot, selectors) {
   const headings = Array.from(document.querySelectorAll(selectors.query));
   const excludes = getHeadingExcludes(navRoot, headings);
   return headings.filter((heading) => !excludes.includes(heading));

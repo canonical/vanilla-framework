@@ -24,36 +24,39 @@
     {%- set scope = "full-page" -%}
   {%- endif -%}
   {%- set excludes_queries = excludes | join(",") + ",.p-in-page-navigation__heading" -%}
-  
-  <div class="p-in-page-navigation"
-      data-in-page-navigation-scope="{{ scope }}"
-      {%- if primary_heading and primary_heading in valid_primary_headings -%}
-        data-in-page-navigation-primary="{{ primary_heading }}"
-        {%- if secondary_heading and secondary_heading in valid_secondary_headings -%}
-          data-in-page-navigation-secondary="{{ secondary_heading }}"
-        {%- endif -%}
-      {%- else -%}
-        data-in-page-navigation-primary="h2"
-      {% endif %}
-      data-in-page-navigation-excludes="{{ excludes_queries }}">
 
-    <nav class="p-in-page-navigation__container" aria-label="{% if title %}{{ title }}{% else %}In-page navigation{% endif %}">
+  <div class="p-in-page-navigation"
+       data-in-page-navigation-scope="{{ scope }}"
+       {%- if primary_heading and primary_heading in valid_primary_headings -%} data-in-page-navigation-primary="{{ primary_heading }}" {%- if secondary_heading and secondary_heading in valid_secondary_headings -%} data-in-page-navigation-secondary="{{ secondary_heading }}" {%- endif -%} {%- else -%} data-in-page-navigation-primary="h2" {% endif %}
+       data-in-page-navigation-excludes="{{ excludes_queries }}">
+
+    <nav class="p-in-page-navigation__container"
+         aria-label="{% if title %}{{ title }}{% else %}In-page navigation{% endif %}">
 
       {%- if title -%}
         <h3 class="p-in-page-navigation__heading">{{ title | safe }}</h3>
       {%- endif -%}
-      <ul class="p-in-page-navigation__list js-in-page-nav-list" id="{{ nav_id }}" aria-expanded="false">
+      <ul class="p-in-page-navigation__list js-in-page-nav-list"
+          id="{{ nav_id }}"
+          aria-expanded="false">
         {%- if scope != "full-page" -%}
           {%- for item in navigation_items -%}
-            <li class="p-in-page-navigation__item p-tooltip--right" aria-describedby="{{ item.id }}-tooltip">
-              <a class="p-in-page-navigation__link{% if loop.first %} is-active{% endif %}" href="#{{ item.id }}">{{ item.text }}</a>
-              <span class="p-tooltip__message u-hide" role="tooltip" id="{{ item.id }}-tooltip">{{ item.text }}</span>
+            <li class="p-in-page-navigation__item p-tooltip--right"
+                aria-describedby="{{ item.id }}-tooltip">
+              <a class="p-in-page-navigation__link{% if loop.first %} is-active{% endif %}"
+                 href="#{{ item.id }}">{{ item.text }}</a>
+              <span class="p-tooltip__message u-hide"
+                    role="tooltip"
+                    id="{{ item.id }}-tooltip">{{ item.text }}</span>
               {%- if item.children -%}
                 <ul class="p-in-page-navigation__list">
                   {%- for child in item.children -%}
-                    <li class="p-in-page-navigation__item p-tooltip--right" aria-describedby="{{ child.id }}-tooltip">
+                    <li class="p-in-page-navigation__item p-tooltip--right"
+                        aria-describedby="{{ child.id }}-tooltip">
                       <a class="p-in-page-navigation__link" href="#{{ child.id }}">{{ child.text }}</a>
-                      <span class="p-tooltip__message u-hide" role="tooltip" id="{{ child.id }}-tooltip">{{ child.text }}</span>
+                      <span class="p-tooltip__message u-hide"
+                            role="tooltip"
+                            id="{{ child.id }}-tooltip">{{ child.text }}</span>
                     </li>
                   {%- endfor -%}
                 </ul>
@@ -63,7 +66,9 @@
         {%- endif -%}
       </ul>
 
-      <button class="p-in-page-navigation__dropdown-toggle" aria-expanded="false" aria-controls="{{ nav_id}}">
+      <button class="p-in-page-navigation__dropdown-toggle"
+              aria-expanded="false"
+              aria-controls="{{ nav_id }}">
         <i class="p-icon--chevron-down p-in-page-navigation__dropdown-toggle-icon"></i>
         <i class="p-icon--chevron-up p-in-page-navigation__dropdown-toggle-icon u-hide"></i>
       </button>
@@ -71,10 +76,11 @@
     </nav>
   </div>
 
-  {# Templates for JS autogeneration (used when scope="full-page") #}
+  {# Templates for JS auto-generation (used when scope="full-page") #}
   {%- if scope == "full-page" -%}
     <template class="js-in-page-nav-template-item">
-      <li class="p-in-page-navigation__item p-tooltip--right" aria-describedby="#">
+      <li class="p-in-page-navigation__item p-tooltip--right"
+          aria-describedby="#">
         <a class="p-in-page-navigation__link" href="#"></a>
         <span class="p-tooltip__message u-hide" role="tooltip" id="#"></span>
       </li>
