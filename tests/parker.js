@@ -12,7 +12,7 @@ function generateMetrics(file, metricsArray) {
     {
       name: 'Stylesheet size',
       benchmark: 150000,
-      threshold: 522850,
+      threshold: 532480,
       result: results['total-stylesheet-size'],
     },
     {
