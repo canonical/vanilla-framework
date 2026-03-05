@@ -76,6 +76,94 @@ You can use <code>block</code> variant with <code>25-75</code> layout to create 
 View example of the 25-75 split cta section with cta block
 </a></div>
 
+## Blocks
+
+### Description
+
+Description blocks can be used to display elaborative text content.
+
+By default, the description contents are rendered within a `<p>` tag, but you can also use `type:"html"` to render raw HTML
+content.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/description-block" class="js-example" data-lang="jinja">
+View example of the CTA section with description block
+</a></div>
+
+```json
+{
+  "type": "description",
+  "item": {
+    "type": "text" | "html",
+    "content": "Your content here"
+  }
+}
+```
+
+- **`type`**: Either `"text"` (default) or `"html"`. Text content is wrapped in `<p>` tags, HTML content is rendered as-is.
+- **`content`**: The text or HTML content to display.
+
+### CTA
+
+The CTA block allows you to include call-to-action elements within the section.
+You may either use  `type:"html"` with `content:"<html-content></html-content>"` to render custom HTML or use  `type:"text"` which supports three types of CTA items:
+
+- **Primary**: 1 main call-to-action button
+- **Secondary**: Supporting action buttons
+- **Link**: Text link
+
+<div class="embedded-example"><a href="/docs/examples/patterns/cta-section/cta-block" class="js-example" data-lang="jinja">
+View example of the CTA section with CTA block
+</a></div>
+
+```json
+{
+  "type": "cta",
+  "item": {
+    "primary": {
+      "content_html": "Primary button text",
+      "attrs": {
+        "href": "link-url",
+        "class": "optional-css-class"
+      }
+    },
+    "secondaries": [
+      {
+        "content_html": "Secondary button text",
+        "attrs": {
+          "href": "link-url"
+        }
+      }
+    ],
+    "link": {
+      "content_html": "Link text",
+      "attrs": {
+        "href": "link-url"
+      }
+    }
+  }
+}
+
+or
+
+{
+  "type": "cta",
+  "item": {
+    "type": "html",
+    "content": "<a href='link-url'>The quick brown fox jumps over the lazy dog &rsaquo;</a>"
+
+  }
+}
+```
+
+- **`primary`**: Optional primary button configuration.
+- **`secondaries`**: Optional array of secondary button configurations.
+- **`link`**: Optional text link configuration.
+
+Each of the CTA configurations accepts the following properties:
+
+- **`content_html`**: The inner HTML of the CTA item.
+- **`attrs`**: Dictionary of button/link attributes. These are applied to the CTA element. If `href` is present, the CTA item will be an `<a>`, otherwise it will be a `<button>`. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
+
 ## Jinja Macro
 
 The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. The API for the macro is shown below.
@@ -166,11 +254,30 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
           Attributes to apply to the CTA section. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>blocks</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>Array</code>
+        </td>
+        <td>
+          <code>[]</code>
+        </td>
+        <td>
+          List of content blocks for the CTA section. See <a href="#blocks">Blocks</a> for available block types.
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
 
 ### Slots
+
+CTA section slots are now deprecated, and will be removed in the future version of Vanilla. Please visit [blocks](#blocks) for recommended implementation.
 
 <div style="overflow: auto;">
   <table>
@@ -183,9 +290,8 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
     </thead>
     <tbody>
       <tr>
-      <tr>
         <td>
-          <code>description</code>
+          <code>description {{ status("deprecated") }}</code>
         </td>
         <td>
           No
@@ -196,7 +302,7 @@ The `vf_cta_section` Jinja macro can be used to generate a CTA section pattern. 
       </tr>
       <tr>
         <td>
-          <code>cta</code>
+          <code>cta {{ status("deprecated") }}</code>
         </td>
         <td>
           Yes
