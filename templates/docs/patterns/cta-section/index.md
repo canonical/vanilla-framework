@@ -105,7 +105,7 @@ View example of the CTA section with description block
 ### CTA
 
 The CTA block allows you to include call-to-action elements within the section.
-You may either use  `type:"html"` with `content:"<html-content></html-content>"` to render custom HTML or use  `type:"text"` which supports three types of CTA items:
+You may either use `type:"html"` with `content:"<html-content></html-content>"` to render custom HTML or use `type:"text"` which supports three types of CTA items:
 
 - **Primary**: 1 main call-to-action button
 - **Secondary**: Supporting action buttons
@@ -122,7 +122,7 @@ View example of the CTA section with CTA block
     "primary": {
       "content_html": "Primary button text",
       "attrs": {
-        "href": "link-url",
+        "href": "#",
         "class": "optional-css-class"
       }
     },
@@ -130,14 +130,14 @@ View example of the CTA section with CTA block
       {
         "content_html": "Secondary button text",
         "attrs": {
-          "href": "link-url"
+          "href": "#"
         }
       }
     ],
     "link": {
       "content_html": "Link text",
       "attrs": {
-        "href": "link-url"
+        "href": "#"
       }
     }
   }

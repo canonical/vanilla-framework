@@ -160,7 +160,7 @@ View example of the Hero section with CTA block
     "primary": {
       "content_html": "Primary button text",
       "attrs": {
-        "href": "link-url",
+        "href": "#",
         "class": "optional-css-class"
       }
     },
@@ -168,14 +168,14 @@ View example of the Hero section with CTA block
       {
         "content_html": "Secondary button text",
         "attrs": {
-          "href": "link-url"
+          "href": "#"
         }
       }
     ],
     "link": {
       "content_html": "Link text",
       "attrs": {
-        "href": "link-url"
+        "href": "#"
       }
     }
   }
