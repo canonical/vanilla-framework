@@ -4,13 +4,19 @@
 {% block standalone_css %}patterns_all{% endblock %}
 {% set is_paper = true %}
 {% block content %}
-    {% call(slot) vf_cta_section(
-        title_text='The quick brown fox jumps over the lazy dog',
-        variant='default',
-        layout='25-75',
-        ) -%}
-        {%- if slot == 'cta' -%}
-            <a href="#">The quick brown fox jumps over the lazy dog &rsaquo;</a>
-        {%- endif -%}
-    {% endcall -%}
+  {% call(slot) vf_cta_section(
+    title_text='The quick brown fox jumps over the lazy dog',
+    variant='default',
+    layout='25-75',
+    blocks=[
+      {
+        "type": "cta",
+        "item": {
+          "type": "html",
+          "content": "<a href='link-url'>The quick brown fox jumps over the lazy dog &rsaquo;</a>"
+        }
+      }
+    ]
+  ) -%}
+  {% endcall -%}
 {% endblock %}

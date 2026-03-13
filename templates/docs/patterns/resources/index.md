@@ -198,7 +198,7 @@ It supports three types of CTA items:
     "primary": {
       "content_html": "Primary button text",
       "attrs": {
-        "href": "link-url",
+        "href": "#",
         "class": "optional-css-class"
       }
     },
@@ -206,14 +206,14 @@ It supports three types of CTA items:
       {
         "content_html": "Secondary button text",
         "attrs": {
-          "href": "link-url"
+          "href": "#"
         }
       }
     ],
     "link": {
       "content_html": "Link text",
       "attrs": {
-        "href": "link-url"
+        "href": "#"
       }
     }
   }

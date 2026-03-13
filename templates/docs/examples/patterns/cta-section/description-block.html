@@ -1,20 +1,30 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_cta-section.jinja" import vf_cta_section %}
-{% block title %}CTA section / Full width / Default{% endblock %}
+{% block title %}CTA section / Description block{% endblock %}
 {% block standalone_css %}patterns_all{% endblock %}
 {% set is_paper = true %}
 {% block content %}
   {% call(slot) vf_cta_section(
     title_text='The quick brown fox jumps over the lazy dog',
-    variant='default',
-    layout='100',
-    attrs={'id': 'full-width-default'},
+    variant='block',
+    layout='25-75',
     blocks=[
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "The quick brown fox jumps over the lazy dog."
+        }
+      },
       {
         "type": "cta",
         "item": {
-          "type": "html",
-          "content": "<a href='link-url'>The quick brown fox jumps over the lazy dog &rsaquo;</a>"
+          "primary": {
+            "content_html": "Action",
+            "attrs": {
+              "href": "#"
+            }
+          }
         }
       }
     ]

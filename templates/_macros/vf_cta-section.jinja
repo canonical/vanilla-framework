@@ -1,11 +1,15 @@
+{% from "_macros/shared/vf_cta-block.jinja" import vf_cta_block %}
+{% from "_macros/shared/vf_description-block.jinja" import vf_description_block %}
+
 # All Params
   # title_text: H2 title text
   # variant: variant for the cta section. Options are "default", "block". Default is "default".
   # layout: Layout type of cta section. Options are "100", "25-75".
+  # blocks: list of content blocks for the CTA section. Includes description and cta blocks.
 
 # All Slots
-  # description: Paragraph-style (one or more) content below the title. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
-  # cta: Call-to-action block with action links/buttons. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
+  # description (deprecated): Paragraph-style (one or more) content below the title. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
+  # cta (deprecated): Call-to-action block with action links/buttons. This slot is required for "cta-block-100" and "cta-block-25-75" layouts.
 
 # Variants:
   # default-100: Full-width CTA with title and link text
@@ -14,6 +18,7 @@
         # variant: default
         # layout: 100
         # attrs: A dictionary of attributes to apply to the section element
+        # blocks: cta-block is required
 
     # Slots:
         # cta: The cta link - required
@@ -23,6 +28,7 @@
         # title_text: H2 title text - optional
         # variant: default
         # layout: 25-75
+        # blocks: cta-block is required
 
       # Slots:
         # cta: The cta link - required
@@ -32,6 +38,7 @@
         # title_text: H2 title text - required
         # variant: block
         # layout: 100
+        # blocks: cta-block is required
 
     # Slots:
         # description: Paragraph-style (one or more) content below the title - Optional
@@ -42,31 +49,69 @@
         # title_text: H2 title text - required
         # variant: block
         # layout: 25-75
+        # blocks: cta-block is required
 
     # Slots:
         # description: Paragraph-style (one or more) content below the title - Optional
         # cta: Call-to-action block (required)
 
-{%- macro vf_cta_section(title_text, variant='default', layout='100', caller=None, attrs={}) -%}
+{%- macro vf_cta_section(title_text, variant='default', layout='100', caller=None, attrs={}, blocks=[]) -%}
+  
+  {%- set description_block = blocks | selectattr("type", "equalto", "description") | list | last | default(None) -%} 
+  {%- set cta_block = blocks | selectattr("type", "equalto", "cta") | list | last | default(None) -%}
+
   {% set description_content = caller('description') %}
-  {% set has_description = description_content|trim|length > 0 %}
+  {% set has_description = description_block or description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
-  {% set has_cta = cta_content|trim|length > 0 %}
+  {% set has_cta = cta_block or cta_content|trim|length > 0 %}
+
+  {%- if cta_block -%}
+    {%- set cta_block_item = cta_block.get("item", {}) -%}
+    {%- set cta_block_type = cta_block_item.get("type","") | trim -%}
+
+    {%- if  cta_block_type == "html" -%}
+        {%- set cta_content = cta_block_item.get("content","") | trim -%}
+    {%- endif -%}
+  {%- endif -%}
+  
+  {%- if description_block -%}
+    {%- set description_block_item = description_block.get("item", {}) -%}
+  {%- endif -%}    
+
   {#- User can pass layout as "X-Y" or "X/Y" -#}
   {% set layout = layout | trim | replace('/', '-') %}
+
   {% if layout not in ['100', '25-75'] %}
     {% set layout = "100" %}
   {% endif %}
+
   {% set variant = variant | trim %}
   {% if variant not in ['default', 'block'] %}
     {% set variant = "default" %}
   {% endif %}
+
   {%- macro _description_block() -%}
-    {% if has_description %}{{ description_content }}{% endif %}
-  {%- endmacro -%}
+    {%- if description_block -%}
+      {{ vf_description_block(type = description_block_item.get("type", ""), content = description_block_item.get("content","")) }}
+    {% elif has_description %}
+      {{ description_content }}
+    {% endif %}
+  {%- endmacro %}
+  
   {%- macro _cta_block() -%}
-    {% if has_cta -%}<div class="p-cta-block">{{ cta_content }}</div>{% endif %}
-  {%- endmacro -%}
+    {%- if cta_block -%}
+        {%- if  cta_block_type == "html" -%}
+          <div class="p-cta-block">{{- cta_content | safe -}}</div>
+        {%- else -%}
+          {{ vf_cta_block( primary=cta_block_item.get("primary", {}),
+                           secondaries=cta_block_item.get("secondaries", []),
+                           link=cta_block_item.get("link",{})) }}
+        {% endif %}
+    {% elif has_cta %}
+      <div class="p-cta-block">{{ cta_content }}</div>
+    {% endif %}
+  {%- endmacro %}
+
   {%- macro _cta_default_variant() -%}
     <h2>
       {%- if title_text -%}
@@ -76,11 +121,13 @@
       {{ cta_content }}
     </h2>
   {%- endmacro -%}
+
   {%- macro _cta_block_variant() -%}
     <h2>{{ title_text }}</h2>
     {{ _description_block() -}}
     {{ _cta_block() }}
   {%- endmacro -%}
+
   {%- macro _cta_variant() -%}
     {%- if variant == 'default' -%}
       {{ _cta_default_variant() }}
@@ -88,6 +135,7 @@
       {{ _cta_block_variant() }}
     {%- endif -%}
   {%- endmacro -%}
+  
   <hr class="p-rule is-fixed-width u-no-margin--bottom" />
   <section class="p-strip is-deep {{ attrs.get("class", "") -}}"
     {%- for attr, value in attrs.items() -%}
