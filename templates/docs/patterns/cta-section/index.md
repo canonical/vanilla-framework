@@ -149,7 +149,7 @@ or
   "type": "cta",
   "item": {
     "type": "html",
-    "content": "<a href='link-url'>The quick brown fox jumps over the lazy dog &rsaquo;</a>"
+    "content": "<a href='#'>The quick brown fox jumps over the lazy dog &rsaquo;</a>"
 
   }
 }
