@@ -85,6 +85,7 @@
   @include vf-chips-caution;
   @include vf-chips-negative;
   @include vf-chips-information;
+  @include vf-chips-branded;
 }
 
 @mixin vf-chip-interactive(
@@ -271,5 +272,59 @@
       $button-active-background-color: $colors--theme--background-information-active,
       $button-active-border-color: transparent
     );
+  }
+}
+
+@mixin vf-chips-branded {
+  .p-chip--branded {
+    @extend %vf-chip;
+    @extend %vf-button-dense-vertical-padding;
+
+    align-items: center;
+    background-color: $colors--dark-theme--background-alt;
+    gap: 4px;
+    height: 24px;
+    justify-content: center;
+    margin-bottom: $spv-nudge-compensation;
+    min-width: max-content;
+    padding: 2.5px 8px 2.5px 4px;
+
+    [class*='p-icon--'],
+    .p-chip__value {
+      color: $colors--dark-theme--text-default;
+    }
+
+    .p-chip__value {
+      font-weight: $font-weight-medium;
+    }
+
+    & > [class*='p-icon--'] {
+      margin: 0;
+    }
+
+    & > .p-icon--circle-of-friends {
+      @include vf-icon-circle-of-friends($colors--dark-theme--text-default);
+    }
+
+    &:has(> .p-icon--circle-of-friends:only-child) {
+      border-radius: 50%;
+      padding: 0;
+      width: 1.5rem;
+    }
+  }
+
+  .is-dark {
+    .p-chip--branded {
+      background-color: $colors--light-theme--background-alt;
+
+      [class*='p-icon--'],
+      .p-chip__value {
+        color: $colors--light-theme--text-default;
+      }
+
+      & > .p-icon--circle-of-friends {
+        @include vf-icon-circle-of-friends($colors--light-theme--text-default);
+      }
+    }
   }
 }

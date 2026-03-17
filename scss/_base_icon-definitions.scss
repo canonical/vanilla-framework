@@ -1636,3 +1636,16 @@
 @mixin vf-icon-storage-volume-themed {
   @include vf-themed-icon($light-value: vf-icon-storage-volume-url($colors--light-theme--icon), $dark-value: vf-icon-storage-volume-url($colors--dark-theme--icon));
 }
+
+// circle-of-friends
+@function vf-icon-circle-of-friends-url($color) {
+  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' fill='none' viewBox='0 0 15 15'%3E%3Cpath fill='#{vf-url-friendly-color($color)}'  d='M.31 6.56a1.92 1.92 0 1 1 3.799.572A1.92 1.92 0 0 1 .31 6.56M8.326 2.233a1.92 1.92 0 1 1 3.755.806 1.92 1.92 0 0 1-3.755-.806M6.54 11.785a4.68 4.68 0 0 1-3.19-2.431 2.76 2.76 0 0 1-1.64.201 6.25 6.25 0 0 0 4.498 3.77c.45.098.908.145 1.364.142a2.74 2.74 0 0 1-.562-1.606 5 5 0 0 1-.47-.076M7.894 11.394a1.92 1.92 0 0 1 3.754.804 1.92 1.92 0 1 1-3.754-.805M12.443 11.09a6.3 6.3 0 0 0 1.22-2.587 6.3 6.3 0 0 0-.905-4.781 2.77 2.77 0 0 1-1.08 1.264 4.7 4.7 0 0 1-.154 4.674c.45.371.77.87.919 1.43M2.06 4.092a2.74 2.74 0 0 1 1.603.41 4.68 4.68 0 0 1 3.77-2.015q.012-.218.057-.433c.088-.41.268-.795.525-1.124A6.31 6.31 0 0 0 2.06 4.092'/%3E%3C/svg%3E");
+}
+
+@mixin vf-icon-circle-of-friends($color: $colors--light-theme--icon) {
+  background-image: vf-icon-circle-of-friends-url($color);
+}
+
+@mixin vf-icon-circle-of-friends-themed {
+  @include vf-themed-icon($light-value: vf-icon-circle-of-friends-url($colors--light-theme--icon), $dark-value: vf-icon-circle-of-friends-url($colors--dark-theme--icon));
+}

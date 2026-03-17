@@ -26,6 +26,14 @@ Chips can include an <a href="/docs/patterns/icon">icon</a> to provide additiona
 View example of the with-icon chip pattern
 </a></div>
 
+## Branded chip {{ status("new") }}
+
+Use `p-chip--branded` for an Ubuntu Pro branded chip variant with a Circle of Friends icon.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/branded" class="js-example">
+View example of the branded chip variant
+</a></div>
+
 ## Chip with dismiss
 
 Chips have the option to be dismissed by including a button with a `p-chip__dismiss` class.
