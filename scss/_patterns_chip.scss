@@ -289,22 +289,15 @@
     min-width: max-content;
     padding: 2.5px 8px 2.5px 4px;
 
-    [class*='p-icon--'],
     .p-chip__value {
       color: $colors--dark-theme--text-default;
-    }
-
-    .p-chip__value {
       font-weight: $font-weight-medium;
-    }
-
-    & > [class*='p-icon--'] {
-      margin: 0;
     }
 
     & > .p-icon--circle-of-friends {
       @include vf-icon-circle-of-friends($colors--dark-theme--text-default);
-      background-size: map-get($icon-sizes, default);
+      background-size: contain;
+      margin: 0;
     }
 
     &:has(> .p-icon--circle-of-friends:only-child) {
@@ -318,14 +311,12 @@
     .p-chip--branded {
       background-color: $colors--light-theme--background-alt;
 
-      [class*='p-icon--'],
       .p-chip__value {
         color: $colors--light-theme--text-default;
       }
 
       & > .p-icon--circle-of-friends {
         @include vf-icon-circle-of-friends($colors--light-theme--text-default);
-        background-size: map-get($icon-sizes, default);
       }
     }
   }
