@@ -7,6 +7,6 @@
   overflowCount.addEventListener('click', function (event) {
     searchBox.dataset.overflowing = 'true';
     panel.setAttribute('aria-hidden', 'false');
-    container.setAttribute('aria-expanded', 'true');
+    container.setAttribute('data-expanded', 'true');
   });
 });
