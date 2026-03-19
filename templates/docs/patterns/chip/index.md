@@ -34,6 +34,16 @@ Use `p-chip--branded` for an Ubuntu Pro branded chip variant with a Circle of Fr
 View example of the branded chip variant
 </a></div>
 
+Branded chips use the inverse theme of their background to contrast them from surrounding content. By default, this works by inverting the theme applied to the document body.
+
+If a branded chip is inside of an element with a different theme than the document body, you should apply the theme class (`.is-dark`, `.is-light`, or `.is-paper`) of the chip's background to the chip element, so that the chip inverts the theme of its background, not the document body.
+
+For example, if you have a branded chip inside a dark-themed element on a light-themed page, add the `.is-dark` class to the `.p-chip--branded` to ensure that the chip uses the light theme.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/chip/branded-theme-override" class="js-example">
+View example of the branded chip pattern with a light theme override
+</a></div>
+
 ## Chip with dismiss
 
 Chips have the option to be dismissed by including a button with a `p-chip__dismiss` class.

@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Chip / Branded{% endblock %}
+
+{% block standalone_css %}patterns_chip{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ versioned_static('build/css/standalone/patterns_icons-additional.css') }}" />
+{% endblock %}
+
+{% block content %}
+<div class="p-strip is-dark">
+  <span class="p-chip--branded is-dark">
+    <i class="p-icon--circle-of-friends"></i>
+    <span class="p-chip__value">Available with Ubuntu Pro</span>
+  </span>
+
+  <span class="p-chip--branded is-dark">
+    <i class="p-icon--circle-of-friends"></i>
+    <span class="p-chip__value">Ubuntu Pro</span>
+  </span>
+
+  <span class="p-chip--branded is-dark" aria-label="Ubuntu Pro">
+    <i class="p-icon--circle-of-friends"></i>
+  </span>
+</div>
+{% endblock %}
