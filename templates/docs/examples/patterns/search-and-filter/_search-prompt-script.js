@@ -51,12 +51,12 @@ function createChip(value) {
     input.addEventListener('blur', function (event) {
       var targetPanel = searchAndFilterComponent.querySelector('.p-search-and-filter__panel');
       targetPanel.setAttribute('aria-hidden', 'true');
-      container.setAttribute('aria-expanded', 'false');
+      container.setAttribute('data-expanded', 'false');
     });
 
     input.addEventListener('focus', function (event) {
       var targetPanel = searchAndFilterComponent.querySelector('.p-search-and-filter__panel');
       targetPanel.setAttribute('aria-hidden', 'false');
-      container.setAttribute('aria-expanded', 'true');
+      container.setAttribute('data-expanded', 'true');
     });
   });
