@@ -38,7 +38,7 @@ When a click event is triggered on the selected-count element you need need to t
 
 - Switch `.p-search-and-filter__box` data-overflow attribute from false to true
 - Switch `.p-search-and-filter__panel` aria-hidden attribute from true to false
-- Switch `.p-search-and-filter__search-container` aria-expanded attribute from false to true
+- Switch `.p-search-and-filter__search-container` data-expanded attribute from false to true
 
 <div class="p-notification--information">
   <p class="p-notification__content">
