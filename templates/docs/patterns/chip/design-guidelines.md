@@ -154,16 +154,6 @@ call-to-action or a link to other pages.
 
 <div class="grid-row">
   <div class="grid-col-4">
-    <h4>Don't use chips for branding</h4>
-    <p>Chips should not display brand-specific content like "Ubuntu Pro". Use official branding materials instead.</p>
-  </div>
-  <div class="grid-col-4">
-    <img src="https://assets.ubuntu.com/v1/4b1f2a06-chip_branding.png" alt="Chips used for branding content" />
-  </div>
-</div>
-
-<div class="grid-row">
-  <div class="grid-col-4">
     <h4>Don't use long phrases</h4>
     <p>Chip values should be between 1-3 words, maximum of five. Longer values reduce readability and visual scannability.</p>
   </div>

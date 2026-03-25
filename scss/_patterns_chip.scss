@@ -85,6 +85,7 @@
   @include vf-chips-caution;
   @include vf-chips-negative;
   @include vf-chips-information;
+  @include vf-chips-branded;
 }
 
 @mixin vf-chip-interactive(
@@ -271,5 +272,56 @@
       $button-active-background-color: $colors--theme--background-information-active,
       $button-active-border-color: transparent
     );
+  }
+}
+
+@mixin vf-chips-branded {
+  .p-chip--branded {
+    @extend %vf-chip;
+    @extend %vf-button-dense-vertical-padding;
+
+    align-items: center;
+    background-color: $colors--theme--background-alt;
+    gap: $sph--x-small;
+    height: 1.5rem;
+    justify-content: center;
+    margin-bottom: $spv-nudge-compensation;
+    min-width: max-content;
+    padding-left: $sph--x-small;
+
+    @include vf-theme-dark; // Default to dark theme
+
+    // stylelint-disable selector-max-type -- Branded chip theming is based on theming of the document body.
+    // Apply light theme if the page or the chip component is dark
+    body.is-dark &,
+    &.is-dark {
+      @include vf-theme-light;
+    }
+
+    // Override to dark theme if the page or the chip component is light or paper
+    body.is-light &,
+    body.is-paper &,
+    &.is-light,
+    &.is-paper {
+      @include vf-theme-dark;
+    }
+    // stylelint-enable selector-max-type
+
+    .p-chip__value {
+      color: $colors--theme--text-default;
+      font-weight: $font-weight-medium;
+    }
+
+    & > .p-icon--circle-of-friends {
+      @include vf-icon-circle-of-friends-themed;
+      background-size: contain;
+      margin: 0;
+    }
+
+    &:has(> .p-icon--circle-of-friends:only-child) {
+      border-radius: 50%;
+      padding: 0;
+      width: 1.5rem;
+    }
   }
 }
