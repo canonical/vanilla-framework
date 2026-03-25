@@ -1,0 +1,18 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_card.jinja" import vf_card %}
+
+{% block title %}Content card / 2-column no image{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{{ vf_card(
+columns="2",
+heading="Canonical announces Charmed Feast: A production-grade feature store for your open source MLOps stack",
+footer={
+"resource_type": {
+"icon": "topic",
+"text": "Whitepapa :-)",
+},
+"content_type": "Developers and community"
+})}}
+{% endblock %}

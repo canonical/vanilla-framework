@@ -1,0 +1,92 @@
+# All Params
+# columns: Grid column span for the card. Options are 2, 4, 6. Default is 2.
+# heading: H4 title text. Truncated at 3 lines.
+# image: Dictionary containing 'url' and 'alt' for the 16:9 image.
+# author: Small text for the author.
+# date: Small text for the publication date.
+# description: Paragraph text that is hidden by default and revealed via interaction.
+# footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
+
+# Variants:
+# col-2: 2-column width card layout
+# Params:
+# columns: 2
+# heading: H4 title text - required
+# image: Dictionary with 'url' and 'alt' - optional
+# author: Small text - optional (HIDDEN if no image is provided)
+# date: Small text - optional (HIDDEN if no image is provided)
+# description: Hidden paragraph text - optional
+# footer: Dictionary for bottom rule and metadata - optional
+
+# col-4: 4-column width card layout (Horizontal)
+# Params:
+# columns: 4
+# heading: H4 title text - required
+# image: Dictionary with 'url' and 'alt' - optional
+# author: Small text - optional (HIDDEN if no image is provided)
+# date: Small text - optional (HIDDEN if no image is provided)
+# description: Hidden paragraph text - optional
+# footer: Dictionary for bottom rule and metadata - optional
+
+# col-6: 6-column width card layout (Horizontal)
+# Params:
+# columns: 6
+# heading: H4 title text - required
+# image: Dictionary with 'url' and 'alt' - optional
+# author: Small text - optional (HIDDEN if no image is provided)
+# date: Small text - optional (HIDDEN if no image is provided)
+# description: Hidden paragraph text - optional
+# footer: Dictionary for bottom rule and metadata - optional
+
+
+{%- macro vf_card(columns="2", heading=None, image=None, author_and_date=None, description=None, footer=None)
+-%}
+{%- if columns == "4" -%}
+{%- set layout = 'p-content-card--4-cols' -%}
+{%- elif columns == "6" -%}
+{%- set layout = 'p-content-card--6-cols' -%}
+{%- else -%}
+{%- set layout = 'p-content-card--2-cols' -%}
+{%- endif -%}
+
+{%- if image -%}
+{%- set img_class = 'p-content-card__image'%}
+{%- else -%}
+{%- set img_class = '' -%}
+{%- endif -%}
+
+<div class="p-content-card {{ layout }} {{ img_class }}" tabindex="0">
+    {%- if image -%}
+    <div class="p-content-card__image-wrapper {{ layout }}">
+        <img src="{{ image.url }}" alt="{{ image.alt }}" />
+    </div>
+    {%- endif -%}
+    <div>
+        <div class="p-content-card__body">
+            <h4 class="p-content-card__heading">
+                {{ heading }}
+            </h4>
+            {%- if author_and_date -%}
+            <div class="p-content-card__author-and-date u-sv-3">
+                <small>
+                    <a href="{{ author_and_date.link }}">{{ author_and_date.author }}</a> &nbsp;· 
+                    <span class="u-text--muted">{{ author_and_date.date }}</span> 
+                </small>
+            </div>
+        </div>
+        {%- endif -%}
+        <hr class="p-rule--muted">
+        {%- if footer -%}
+        <div class="p-content-card__footer-outer">
+            <div class="p-content-card__footer-inner">
+                <span class="u-has-icon">
+                    <i class="p-icon--{{ footer.resource_type.icon }}"></i>
+                    <small>{{ footer.resource_type.text }}</small>
+                </span>
+                <!-- <small class="p-chip--information is-readonly">{{ footer.content_type }}</small> -->
+            </div>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+{%- endmacro -%}

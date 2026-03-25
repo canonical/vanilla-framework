@@ -1,0 +1,92 @@
+@import 'settings';
+
+/*
+  @classreference
+  content-card:
+    Root element:
+      .p-content-card:
+        Base 2-column vertical card layout.
+      .p-content-card--horizontal:
+        Modifier for 4-column and 6-column horizontal layouts.
+*/
+
+@mixin vf-p-content-card {
+  .p-content-card {
+    align-items: flex-start;
+    border: 1px solid var(--color-border-low-contrast, rgba(0, 0, 0, 0.1));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: var(--spacing-vertical-large, 16px);
+    width: var(--size-width-grid-col-2, 284px);
+    overflow: hidden;
+
+    &.p-content-card--2-cols.p-content-card__image {
+      padding-top: 0;
+    }
+  }
+
+  .p-content-card__heading {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .p-content-card__body {
+    align-items: flex-start;
+    align-self: stretch;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 16px;
+  }
+
+  .p-content-card__footer-outer {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    padding: 0 16px var(--spacing-vertical-small, 8px) 16px;
+  }
+    
+  .p-content-card__footer-inner {
+    display: flex;
+    height: 28px;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .p-content-card .p-content-card--2-cols .p-content-card__image {
+    padding-top: 0
+  }
+
+  .p-content-card__image-wrapper {
+    display: flex;
+    width: 284px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &.p-content-card--2-cols {
+      padding-bottom: var(--spacing-vertical-large, 16px);
+    }
+  }
+
+  .p-content-card__footer-inner::-webkit-scrollbar {
+      display: none;
+  }
+
+  .p-content-card__footer-inner {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+
+  .p-content-card__author-and-date {
+    display: flex;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  .p-content-card__footer-inner .p-chip--information {
+      line-height: 1; 
+  }
+}
