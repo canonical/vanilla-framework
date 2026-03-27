@@ -5,7 +5,7 @@
   content-card:
     Root element:
       .p-content-card:
-        Base 2-column vertical card layout.
+        Base 2-column vertical card layout (Default mobile view for all cards).
       .p-content-card--horizontal:
         Modifier for 4-column and 6-column horizontal layouts.
 */
@@ -34,46 +34,48 @@
       height: 180px;
     }
 
-    &.p-content-card--2-cols.p-content-card__has-image {
+    &.p-content-card__has-image {
       padding-top: 0;
     }
 
-    &.p-content-card--4-cols,
-    &.p-content-card--6-cols {
-      padding: 16px 16px 0;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 16px;
-      align-self: stretch;
-    }
-
-    &.p-content-card--4-cols {
-      height: 187.25px;
-      width: var(--size-width-grid-col-4, 600px);
-      
-      &:not(.p-content-card__has-image) hr {
-        margin-left: -16px;
-        margin-right: -16px;
-        width: calc(100% + 32px);
+    @media screen and (min-width: 768px) {
+      &.p-content-card--4-cols {
+        padding: 16px 16px 0;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        height: 187.25px;
+        width: var(--size-width-grid-col-4, 600px);
+        
+        &:not(.p-content-card__has-image) hr {
+          margin-left: -16px;
+          margin-right: -16px;
+          width: calc(100% + 32px);
+        }
       }
     }
 
-    &.p-content-card--6-cols {
-      height: 191.75px;
-      width: var(--size-width-grid-col-6, 916px);
+    @media screen and (min-width: 1024px) {
+      &.p-content-card--6-cols {
+        padding: 16px 16px 0;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        height: 191.75px;
+        width: var(--size-width-grid-col-6, 916px);
+      }
     }
 
     &__main-link {
       text-decoration: none;
+      color: inherit;
       
       &:hover, 
       &:focus {
         text-decoration: none;
       }
-    }
-
-    &__main-link {
-      color: inherit;
 
       &::after {
         content: "";
@@ -101,8 +103,12 @@
       line-clamp: 3;
       overflow: hidden;
 
-      &.p-content-card--4-cols { margin-top: -0.45rem; }
-      &.p-content-card--6-cols { margin-top: -0.9rem; }
+      @media screen and (min-width: 768px) {
+        &.p-content-card--4-cols { margin-top: -0.45rem; }
+      }
+      @media screen and (min-width: 1024px) {
+        &.p-content-card--6-cols { margin-top: -0.9rem; }
+      }
     }
     
     &__content {
@@ -128,8 +134,15 @@
       align-self: stretch;
       flex-direction: column;
       overflow: hidden;
+      
+      padding: 0 16px; 
 
-      &.p-content-card--2-cols { padding: 0 16px; }
+      @media screen and (min-width: 768px) {
+        &.p-content-card--4-cols { padding: 0; }
+      }
+      @media screen and (min-width: 1024px) {
+        &.p-content-card--6-cols { padding: 0; }
+      }
     }
 
     &__footer-outer {
@@ -140,9 +153,15 @@
       overflow: hidden;
       position: relative; 
 
-      &.p-content-card--4-cols,
-      &.p-content-card--6-cols {
-        padding: 0 0 var(--spacing-vertical-small, 8px) 0; 
+      @media screen and (min-width: 768px) {
+        &.p-content-card--4-cols {
+          padding: 0 0 var(--spacing-vertical-small, 8px) 0; 
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        &.p-content-card--6-cols {
+          padding: 0 0 var(--spacing-vertical-small, 8px) 0; 
+        }
       }
     }
       
@@ -200,7 +219,9 @@
       aspect-ratio: 16/9;
       object-fit: cover;
 
-      &.p-content-card--4-cols { height: 155.25px; }
+      @media screen and (min-width: 768px) {
+        &.p-content-card--4-cols { height: 155.25px; }
+      }
     }
 
     &__image-wrapper {
@@ -211,10 +232,17 @@
       align-items: flex-start;
       gap: var(--spacing-vertical-image-container, 10px);
 
-      &.p-content-card--4-cols,
-      &.p-content-card--6-cols {
-        flex: 0 0 auto;
-        align-self: stretch;
+      @media screen and (min-width: 768px) {
+        &.p-content-card--4-cols {
+          flex: 0 0 auto;
+          align-self: stretch;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        &.p-content-card--6-cols {
+          flex: 0 0 auto;
+          align-self: stretch;
+        }
       }
     }
 
@@ -223,7 +251,9 @@
       align-items: flex-start;
       align-self: stretch;
 
-      &.p-content-card--6-cols { margin-top: -0.45rem; }
+      @media screen and (min-width: 1024px) {
+        &.p-content-card--6-cols { margin-top: -0.45rem; }
+      }
     }
   }
 }

@@ -4,8 +4,7 @@
   heading: H4 title text. Truncated at 3 lines. Required.
   link: Link to referenced item. Makes the entire card clickable. Required.
   image: Dictionary containing 'url' and 'alt' for the 16:9 image. Required for col-6.
-  author_and_date: Dictionary containing 'author' and 'date'. Hidden if no image is provided.
-  description: Paragraph text that is hidden by default and revealed via interaction.
+  author_and_date: Dictionary containing 'author', 'date', and 'link'. Hidden if no image is provided.
   footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
 
   Variants:
@@ -13,13 +12,13 @@
     Params: columns (2), heading (req), link (req), image (opt), author_and_date (opt, hidden if no image), footer (opt)
   
   col-4: 4-column width card layout (Horizontal)
-    Params: columns (4), heading (req), link (req), image (opt), description (opt), footer (opt)
+    Params: columns (4), heading (req), link (req), image (opt), footer (opt)
   
   col-6: 6-column width card layout (Horizontal)
     Params: columns (6), heading (req), link (req), image (req), author_and_date (opt), footer (opt)
 #}
 
-{%- macro vf_card(columns="2", link=None, heading=None, image=None, author_and_date=None, description=None, footer=None) -%}
+{%- macro vf_card(columns="2", link=None, heading=None, image=None, author_and_date=None, footer=None) -%}
 
 {%- set layout = 'p-content-card--' ~ columns ~ '-cols' -%}
 {%- set img_class = 'p-content-card__has-image' if image else '' -%}
