@@ -12,19 +12,19 @@ The **Card** pattern is a rich, highly structured card variant designed to displ
 
 The Card pattern is composed of the following elements:
 
-| Element | Description |
-| --- | --- |
-| Heading (**required**) | Main title text (h4). Truncated at 3 lines. |
-| Link (**required**) | Makes the entire card's surface area clickable. |
-| Image | 16:9 aspect ratio thumbnail. Required for 6-column layout. |
-| Author & Date | Displays author name and publication date. Author name supports a distinct, clickable nested link. Hidden if no image is provided. |
-| Footer | Contains metadata such as a resource type (with icon) and a content type chip. |
+| Element                | Description                                                                                                                        |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Heading (**required**) | Main title text (h4). Truncated at 3 lines.                                                                                        |
+| Link (**required**)    | Makes the entire card's surface area clickable.                                                                                    |
+| Image                  | 16:9 aspect ratio thumbnail. Required for 6-column layout.                                                                         |
+| Author & Date          | Displays author name and publication date. Author name supports a distinct, clickable nested link. Hidden if no image is provided. |
+| Footer                 | Contains metadata such as a resource type (with icon) and a content type chip.                                                     |
 
 ---
 
 ## 2-Column Card
 
-The 2-column layout is the default standard. It results in a vertical card with the image at the top and content stacked below. 
+The 2-column layout is the default standard. It results in a vertical card with the image at the top and content stacked below.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/content-card/2-column" class="js-example" data-lang="jinja">
 View example of the 2-column vertical card
