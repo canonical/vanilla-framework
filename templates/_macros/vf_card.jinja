@@ -6,25 +6,35 @@
   image: Dictionary containing 'url' and 'alt' for the 16:9 image. Required for col-6.
   author_and_date: Dictionary containing 'author', 'date', and 'link'. Hidden if no image is provided.
   footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
+  description: Optional text that slides up on hover, truncating at 4 lines.
 
   Variants:
   col-2: 2-column width card layout (Vertical)
-    Params: columns (2), heading (req), link (req), image (opt), author_and_date (opt, hidden if no image), footer (opt)
+    Params: columns (2), heading (req), link (req), image (opt), author_and_date (opt, hidden if no image), footer (opt), description (opt)
   
   col-4: 4-column width card layout (Horizontal)
-    Params: columns (4), heading (req), link (req), image (opt), footer (opt)
+    Params: columns (4), heading (req), link (req), image (opt), footer (opt), description (opt)
   
   col-6: 6-column width card layout (Horizontal)
-    Params: columns (6), heading (req), link (req), image (req), author_and_date (opt), footer (opt)
+    Params: columns (6), heading (req), link (req), image (req), author_and_date (opt), footer (opt), description (opt)
 #}
 
-{%- macro vf_card(columns="2", link=None, heading=None, image=None, author_and_date=None, footer=None) -%}
+{%- macro vf_card(columns="2", link=None, heading=None, image=None, author_and_date=None, footer=None, description=None) -%}
 
 {%- set layout = 'p-content-card--' ~ columns ~ '-cols' -%}
 {%- set img_class = 'p-content-card__has-image' if image else '' -%}
 {%- set has_desc = 'p-content-card__has-desc' if description else '' -%}
 
-<div class="p-content-card {{ layout }} {{ img_class }}" tabindex="0" aria-describedby="default-tooltip">
+<div class="p-content-card p-tooltip {{ layout }} {{ img_class }} {{ has_desc }}" aria-describedby="default-tooltip">
+
+    {%- if description -%}
+    <span class="p-tooltip__message" role="tooltip" id="tp-cntr">{ description }</span>
+    {%-endif -%}
+
+    {%- if link -%}
+        <a href="{{ link }}" target="_blank" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
+    {%- endif -%}
+
     {%- if image -%}
     <div class="p-content-card__image-wrapper {{ layout }}">
         <img class="p-content-card__image {{ layout }}" src="{{ image.url }}" alt="{{ image.alt }}" />
@@ -33,32 +43,40 @@
 
     <div class="p-content-card__content">
         <div class="p-content-card__body {{ layout }}">
-            <h4 class="p-content-card__heading {{ layout }}">
-                {%- if link -%}
-                    <a href="{{ link }}" target="_blank" class="p-content-card__main-link">{{ heading }}</a>
-                {%- else -%}
-                    {{ heading }}
-                {%- endif -%}
-            </h4>
             
-            {%- if image and author_and_date -%}
-            <div class="p-content-card__author-and-date u-sv-3 {{ layout }}">
-                <small>
-                    {%- if author_and_date.link -%}
-                        <a href="{{ author_and_date.link }}" class="p-content-card__author-link">{{ author_and_date.author }}</a>
+            <div class="p-content-card__primary-content">
+                <h4 class="p-content-card__heading {{ layout }}">
+                    {%- if link -%}
+                        <a href="{{ link }}" target="_blank" class="p-content-card__main-link">{{ heading }}</a>
                     {%- else -%}
-                        <span class="p-content-card__author-link">{{ author_and_date.author }}</span>
-                    {%- endif -%} &nbsp; &middot;
-                    <span class="u-text--muted">{{ author_and_date.date }}</span> 
-                </small>
+                        {{ heading }}
+                    {%- endif -%}
+                </h4>
+                
+                {%- if image and author_and_date -%}
+                <div class="p-content-card__author-and-date u-sv-3 {{ layout }}">
+                    <small>
+                        <span class="u-text--muted">{{ author_and_date.author }}</span>
+                            &middot;
+                        <span class="u-text--muted">{{ author_and_date.date }}</span> 
+                    </small>
+                </div>
+                {%- endif -%}
+            </div>
+
+            {%- if description -%}
+            <div class="p-content-card__hover-content">
+                <p class="p-content-card__description">{{ description }}</p>
             </div>
             {%- endif -%}
+
         </div>
+        
+        {%- if footer -%}
         <div>
-            {%- if footer -%}
             <hr class="p-rule--muted">
             <div class="p-content-card__footer-outer {{ layout }}">
-                <div class="p-content-card__footer-inner">
+                <div class="p-content-card__footer-inner" tabindex="-1">
                     {%- if footer.resource_type -%}
                         <span class="u-has-icon">
                             <i class="p-content-card__icon p-icon--{{ footer.resource_type.icon }}"></i>
@@ -71,8 +89,8 @@
                     {%- endif -%}
                 </div>
             </div>
-            {%- endif -%}
         </div>
+        {%- endif -%}
     </div>
 </div>
 {%- endmacro -%}
