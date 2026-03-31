@@ -24,7 +24,6 @@
       border-color: var(--color-border-high-contrast, #707070);
       text-decoration: none;
 
-      /* Slide animation: Use fixed px to ensure it completely clears the view */
       &.p-content-card__has-desc {
         .p-content-card__primary-content {
           opacity: 0;
@@ -84,7 +83,6 @@
       }
     }
 
-    /* New dedicated click target for the whole card */
     &__overlay-link {
       inset: 0;
       position: absolute;
@@ -95,12 +93,6 @@
       color: inherit !important;
       text-decoration: none !important;
       outline: none !important;
-
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
-      line-clamp: 3;
-      overflow: hidden;
 
       &:hover,
       &:focus,
@@ -134,6 +126,10 @@
       -webkit-line-clamp: 3;
       line-clamp: 3;
       overflow: hidden;
+
+      max-width: none; 
+      width: 100%;
+      text-wrap: wrap;
 
       @media screen and (min-width: 768px) {
         &.p-content-card--4-cols {
