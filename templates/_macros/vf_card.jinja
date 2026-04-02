@@ -25,11 +25,7 @@
 {%- set img_class = 'p-content-card__has-image' if image else '' -%}
 {%- set has_desc = 'p-content-card__has-desc' if description else '' -%}
 
-<div class="p-content-card p-tooltip {{ layout }} {{ img_class }} {{ has_desc }}" aria-describedby="default-tooltip">
-
-    {%- if description -%}
-    <span class="p-tooltip__message" role="tooltip" id="tp-cntr">{ description }</span>
-    {%-endif -%}
+<div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}" aria-describedby="default-tooltip">
 
     {%- if link -%}
         <a href="{{ link }}" target="_blank" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
