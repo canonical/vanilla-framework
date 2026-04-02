@@ -20,7 +20,8 @@
       outline-offset: 2px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       border-color: var(--color-border-high-contrast, #707070);
       text-decoration: none;
 
@@ -86,13 +87,19 @@
     &__overlay-link {
       inset: 0;
       position: absolute;
-      z-index: 1; /* Keep below author/footer elements (z-index: 2) so they remain clickable */
+      z-index: 1;
     }
 
     &__main-link {
       color: inherit !important;
       text-decoration: none !important;
       outline: none !important;
+
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
 
       &:hover,
       &:focus,
@@ -130,6 +137,9 @@
       max-width: none; 
       width: 100%;
       text-wrap: wrap;
+
+      line-height: 1.5;
+      max-height: 4.5em;
 
       @media screen and (min-width: 768px) {
         &.p-content-card--4-cols {
