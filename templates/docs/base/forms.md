@@ -24,7 +24,7 @@ Vanilla also styles HTML’s other single-line field types: `password`, `datetim
 
 ## Multi-line text field {{ status('updated') }}
 
-`<textarea>` is a multi-line text field. The textarea grows automatically in height as the user types. Horizontal resizing is disabled; the user can only resize the textarea vertically. The `rows` attribute sets the minimum height of the textarea.
+`<textarea>` is a multi-line text field. The textarea grows automatically in height as the user types. Horizontal resizing is disabled; the user can only resize the textarea vertically.
 
 <div class="embedded-example"><a href="/docs/examples/base/forms/textarea/" class="js-example">
 View example of a textarea
