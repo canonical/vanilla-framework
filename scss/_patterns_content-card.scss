@@ -45,18 +45,9 @@
       padding-top: 0;
     }
 
-    &.p-content-card--4-cols:not(.p-content-card__has-image) .p-content-card__heading {
-      padding-bottom: 0;
-    }
-
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
-      &.p-content-card--2-cols:not(.p-content-card__has-image) .p-content-card__heading {
-        padding-bottom: 0;
-      }
-    }
-
     @media screen and (min-width: 768px) {
-      &.p-content-card--4-cols {
+      &.p-content-card--4-cols,
+      &.p-content-card--6-cols {
         align-items: flex-start;
         align-self: stretch;
         flex-direction: row;
@@ -103,12 +94,7 @@
 
     @media screen and (min-width: 1024px) {
       &.p-content-card--6-cols {
-        align-items: flex-start;
-        align-self: stretch;
-        flex-direction: row;
-        gap: 16px;
         height: 191.75px;
-        padding: 16px 16px 0;
         width: var(--size-width-grid-col-6, 916px);
       }
     }
@@ -162,20 +148,18 @@
       -webkit-line-clamp: 3;
       line-clamp: 3;
       overflow: hidden;
-
       max-width: none; 
       width: 100%;
       text-wrap: wrap;
-
       line-height: 1.5;
       max-height: 4.5em;
 
       @media screen and (min-width: 768px) {
-        &.p-content-card--4-cols {
+        &.p-content-card--4-cols,
+        &.p-content-card--6-cols {
           margin-top: -0.45rem;
         }
       }
-      /* Restored visibility and matched the 4-col margin adjustment */
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         &.p-content-card--2-cols {
           margin-top: -0.45rem;
@@ -208,17 +192,13 @@
       padding: 0 16px;
 
       @media screen and (min-width: 768px) {
-        &.p-content-card--4-cols {
+        &.p-content-card--4-cols,
+        &.p-content-card--6-cols {
           padding: 0;
         }
       }
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         &.p-content-card--2-cols {
-          padding: 0;
-        }
-      }
-      @media screen and (min-width: 1024px) {
-        &.p-content-card--6-cols {
           padding: 0;
         }
       }
@@ -260,17 +240,13 @@
       position: relative;
 
       @media screen and (min-width: 768px) {
-        &.p-content-card--4-cols {
+        &.p-content-card--4-cols,
+        &.p-content-card--6-cols {
           padding: 0 0 var(--spacing-vertical-small, 8px) 0;
         }
       }
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         &.p-content-card--2-cols {
-          padding: 0 0 var(--spacing-vertical-small, 8px) 0;
-        }
-      }
-      @media screen and (min-width: 1024px) {
-        &.p-content-card--6-cols {
           padding: 0 0 var(--spacing-vertical-small, 8px) 0;
         }
       }
@@ -284,7 +260,6 @@
       mask-image: linear-gradient(to right, black 85%, transparent 100%);
       -ms-overflow-style: none;
       overflow-x: auto;
-      
       pointer-events: auto;
       position: relative;
       scrollbar-width: none;
@@ -329,13 +304,20 @@
       object-fit: cover;
 
       @media screen and (min-width: 768px) {
-        &.p-content-card--4-cols {
+        &.p-content-card--4-cols,
+        &.p-content-card--6-cols {
           height: 155.25px;
         }
       }
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         &.p-content-card--2-cols {
           height: 155.25px;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        &.p-content-card--6-cols {
+          height: 159.75px;
         }
       }
     }
@@ -349,19 +331,14 @@
       width: 284px;
 
       @media screen and (min-width: 768px) {
-        &.p-content-card--4-cols {
+        &.p-content-card--4-cols,
+        &.p-content-card--6-cols {
           align-self: stretch;
           flex: 0 0 auto;
         }
       }
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         &.p-content-card--2-cols {
-          align-self: stretch;
-          flex: 0 0 auto;
-        }
-      }
-      @media screen and (min-width: 1024px) {
-        &.p-content-card--6-cols {
           align-self: stretch;
           flex: 0 0 auto;
         }
@@ -374,13 +351,15 @@
       display: flex;
 
       @media screen and (min-width: 768px) and (max-width: 1023px) {
-        &.p-content-card--2-cols {
+        &.p-content-card--2-cols,
+        &.p-content-card--6-cols {
           display: none;
         }
       }
 
       @media screen and (min-width: 1024px) {
         &.p-content-card--6-cols {
+          display: flex; 
           margin-top: -0.45rem;
         }
       }
