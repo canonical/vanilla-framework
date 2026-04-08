@@ -8,25 +8,25 @@ context:
 
 {{- pattern_wip_notice() }}
 
-The **Card** pattern is a rich, highly structured card variant designed to display heavily contextual items like articles, webinars, announcements, or whitepapers. It supports custom column spans and fluidly adjusts its layout between vertical and horizontal orientations depending on the space available. 
+The **Card** pattern is a rich, highly structured card variant designed to display heavily contextual items like articles, webinars, announcements, or whitepapers. It supports custom column spans and fluidly adjusts its layout between vertical and horizontal orientations depending on the space available.
 
 Responsive by design, the larger horizontal variants are built to adapt to screen real estate: **6-column cards collapse down to 4 columns and eventually 2 columns** on smaller screens, while **4-column cards collapse down to 2 columns**.
 
 The Card pattern is composed of the following elements:
 
-| Element                | Description                                                                                                                                |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Heading (**required**) | Main title text (h4). Truncated at 3 lines.                                                                                                |
-| Link (**required**)    | Makes the entire card's surface area clickable.                                                                                            |
-| Image                  | 16:9 aspect ratio thumbnail. Required for 6-column layout.                                                                                 |
-| Author & Date          | Displays author name and/or publication date. Hidden if no image is provided.                                                              |
-| Footer                 | Contains metadata such as a resource type (with icon) and a content type chip.                                                             |
+| Element                | Description                                                                    |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| Heading (**required**) | Main title text (h4). Truncated at 3 lines.                                    |
+| Link (**required**)    | Makes the entire card's surface area clickable.                                |
+| Image                  | 16:9 aspect ratio thumbnail. Required for 6-column layout.                     |
+| Author & Date          | Displays author name and/or publication date. Hidden if no image is provided.  |
+| Footer                 | Contains metadata such as a resource type (with icon) and a content type chip. |
 
 ---
 
 ## 2-Column Card
 
-The 2-column layout is the default standard. It results in a vertical card with the image at the top and content stacked below. 
+The 2-column layout is the default standard. It results in a vertical card with the image at the top and content stacked below.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/content-card/2-column" class="js-example" data-lang="jinja">
 View example of the 2-column vertical card
@@ -42,7 +42,7 @@ View example of the 2-column vertical card without image
 
 ## 4-Column Card
 
-The 4-column layout results in a horizontal card with the image on the left and the content area filling the remaining space on the right. *Note: 4-column cards collapse down to 2-column vertical layouts on smaller screen dimensions.*
+The 4-column layout results in a horizontal card with the image on the left and the content area filling the remaining space on the right. _Note: 4-column cards collapse down to 2-column vertical layouts on smaller screen dimensions._
 
 <div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column" class="js-example" data-lang="jinja">
 View example of the 4-column horizontal card
@@ -50,7 +50,7 @@ View example of the 4-column horizontal card
 
 ### 4-Column Card Without Image
 
-Removing the image from the 4-column variant creates a clean, wide-format text block, perfect for lists of text-heavy resources. 
+Removing the image from the 4-column variant creates a clean, wide-format text block, perfect for lists of text-heavy resources.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column-no-image" class="js-example" data-lang="jinja">
 View example of the 4-column horizontal card without image
@@ -58,7 +58,7 @@ View example of the 4-column horizontal card without image
 
 ## 6-Column Card
 
-The 6-column layout is an expansive horizontal format suited for highly featured content. Because of its width, an image is strictly required for this variant to maintain visual structure. *Note: 6-column cards collapse down to 4-column, and eventually 2-column layouts based on screen dimensions.*
+The 6-column layout is an expansive horizontal format suited for highly featured content. Because of its width, an image is strictly required for this variant to maintain visual structure. _Note: 6-column cards collapse down to 4-column, and eventually 2-column layouts based on screen dimensions._
 
 <div class="embedded-example"><a href="/docs/examples/patterns/content-card/6-column" class="js-example" data-lang="jinja">
 View example of the 6-column horizontal card
@@ -146,6 +146,7 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
 To import the Card Jinja macro, copy the following import statement into your Jinja template.
 
 {% raw -%}
+
 ```jinja
 {% from "_macros/vf_card.jinja" import vf_card %}
 ```
