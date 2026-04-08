@@ -150,3 +150,5 @@ To import the Card Jinja macro, copy the following import statement into your Ji
 ```jinja
 {% from "_macros/vf_card.jinja" import vf_card %}
 ```
+
+{%- endraw -%}
