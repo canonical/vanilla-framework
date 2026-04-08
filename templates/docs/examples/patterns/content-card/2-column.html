@@ -1,0 +1,27 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_card.jinja" import vf_card %}
+
+{% block title %}Card / 2-column card{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {{ vf_card(
+    columns="2",
+    heading="Canonical announces Charmed Feast: A production-grade feature store for your open source MLOps stack",
+    link="https://www.ubuntu.com",
+    image={
+      "src": "https://assets.ubuntu.com/v1/010995f2-an_canonical_announces_ubuntu_pro_for_wsl_dark.png",
+      "alt": "Ubuntu Pro WSL Dark"
+    },
+    author="Canonical",
+    date="10 July 2025",
+    footer={
+      "resource_type": {
+        "icon": "topic",
+        "text": "Whitepaper"
+      },
+      "content_type": "Developers and community"
+    },
+    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  ) }}
+{% endblock %}

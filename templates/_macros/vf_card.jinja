@@ -1,0 +1,101 @@
+{#
+  All Params
+  columns: Grid column span for the card. Options are 2, 4, 6. Default is 2.
+  heading: H4 title text. Truncated at 3 lines. Required.
+  link: Link to referenced item. Makes the entire card clickable. Required.
+  image: Dictionary containing 'src' and 'alt' for the 16:9 image. Required for col-6.
+  author: Optional string for the author's name. Hidden if no image is provided.
+  date: Optional string for the publication date. Hidden if no image is provided.
+  footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
+  description: Optional text that slides up on hover, truncating at 4 lines.
+
+  Variants:
+  col-2: 2-column width card layout (Vertical)
+    Params: columns (2), heading (req), link (req), image (opt), author (opt, hidden if no image), date (opt, hidden if no image), footer (opt), description (opt)
+  
+  col-4: 4-column width card layout (Horizontal)
+    Params: columns (4), heading (req), link (req), image (opt), footer (opt), description (opt)
+  
+  col-6: 6-column width card layout (Horizontal)
+    Params: columns (6), heading (req), link (req), image (req), author (opt), date (opt), footer (opt), description (opt)
+#}
+
+{%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None) -%}
+
+{%- set layout = 'p-content-card--' ~ columns ~ '-cols' -%}
+{%- set img_class = 'has-image' if image else '' -%}
+{%- set has_desc = 'has-desc' if description else '' -%}
+
+<div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}">
+
+    {%- if link -%}
+        <a href="{{ link }}" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
+    {%- endif -%}
+
+    {%- if image -%}
+    <div class="p-content-card__image-wrapper">
+        <img class="p-content-card__image" src="{{ image.src }}" alt="{{ image.alt }}" />
+    </div>
+    {%- endif -%}
+
+    <div class="p-content-card__content">
+        <div class="p-content-card__body">
+            
+            <div class="p-content-card__primary-content">
+                <h4 class="p-content-card__heading">
+                    {%- if link -%}
+                        <a href="{{ link }}" class="p-content-card__main-link">{{ heading }}</a>
+                    {%- else -%}
+                        {{ heading }}
+                    {%- endif -%}
+                </h4>
+                
+                {%- if image and (author or date) -%}
+                <div class="p-content-card__author-and-date u-sv-3">
+                    <small>
+                        {%- if author -%}
+                            <span class="u-text--muted">{{ author }}</span>
+                        {%- endif -%}
+                        
+                        {%- if author and date -%}
+                            &middot;
+                        {%- endif -%}
+                        
+                        {%- if date -%}
+                            <span class="u-text--muted">{{ date }}</span> 
+                        {%- endif -%}
+                    </small>
+                </div>
+                {%- endif -%}
+            </div>
+
+            {%- if description -%}
+            <div class="p-content-card__hover-content">
+                <p class="p-content-card__description">{{ description }}</p>
+            </div>
+            {%- endif -%}
+
+        </div>
+        
+        {%- if footer -%}
+        <div>
+            <hr class="p-rule--muted">
+            <div class="p-content-card__footer-outer">
+                <div class="p-content-card__footer-inner" tabindex="-1">
+                    {%- if footer.resource_type -%}
+                        <span class="u-has-icon">
+                            <i class="p-content-card__icon p-icon--{{ footer.resource_type.icon }}"></i>
+                            <small class="p-content-card__small">{{ footer.resource_type.text }}</small>
+                        </span>
+                    {%- endif -%}
+
+                    {%- if footer.content_type %}
+                        <span class="p-chip--information is-readonly">{{ footer.content_type}}</span>
+                    {%- endif -%}
+                </div>
+            </div>
+        </div>
+        {%- endif -%}
+    </div>
+</div>
+{%- endmacro -%}
