@@ -3,23 +3,24 @@
   columns: Grid column span for the card. Options are 2, 4, 6. Default is 2.
   heading: H4 title text. Truncated at 3 lines. Required.
   link: Link to referenced item. Makes the entire card clickable. Required.
-  image: Dictionary containing 'url' and 'alt' for the 16:9 image. Required for col-6.
-  author_and_date: Dictionary containing 'author' and 'date'. Hidden if no image is provided.
+  image: Dictionary containing 'src' and 'alt' for the 16:9 image. Required for col-6.
+  author: Optional string for the author's name. Hidden if no image is provided.
+  date: Optional string for the publication date. Hidden if no image is provided.
   footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
   description: Optional text that slides up on hover, truncating at 4 lines.
 
   Variants:
   col-2: 2-column width card layout (Vertical)
-    Params: columns (2), heading (req), link (req), image (opt), author_and_date (opt, hidden if no image), footer (opt), description (opt)
+    Params: columns (2), heading (req), link (req), image (opt), author (opt, hidden if no image), date (opt, hidden if no image), footer (opt), description (opt)
   
   col-4: 4-column width card layout (Horizontal)
     Params: columns (4), heading (req), link (req), image (opt), footer (opt), description (opt)
   
   col-6: 6-column width card layout (Horizontal)
-    Params: columns (6), heading (req), link (req), image (req), author_and_date (opt), footer (opt), description (opt)
+    Params: columns (6), heading (req), link (req), image (req), author (opt), date (opt), footer (opt), description (opt)
 #}
 
-{%- macro vf_card(columns="2", link=None, heading=None, image=None, author_and_date=None, footer=None, description=None) -%}
+{%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None) -%}
 
 {%- set layout = 'p-content-card--' ~ columns ~ '-cols' -%}
 {%- set img_class = 'has-image' if image else '' -%}
@@ -33,7 +34,7 @@
 
     {%- if image -%}
     <div class="p-content-card__image-wrapper">
-        <img class="p-content-card__image" src="{{ image.url }}" alt="{{ image.alt }}" />
+        <img class="p-content-card__image" src="{{ image.src }}" alt="{{ image.alt }}" />
     </div>
     {%- endif -%}
 
@@ -49,12 +50,20 @@
                     {%- endif -%}
                 </h4>
                 
-                {%- if image and author_and_date -%}
+                {%- if image and (author or date) -%}
                 <div class="p-content-card__author-and-date u-sv-3">
                     <small>
-                        <span class="u-text--muted">{{ author_and_date.author }}</span>
+                        {%- if author -%}
+                            <span class="u-text--muted">{{ author }}</span>
+                        {%- endif -%}
+                        
+                        {%- if author and date -%}
                             &middot;
-                        <span class="u-text--muted">{{ author_and_date.date }}</span> 
+                        {%- endif -%}
+                        
+                        {%- if date -%}
+                            <span class="u-text--muted">{{ date }}</span> 
+                        {%- endif -%}
                     </small>
                 </div>
                 {%- endif -%}
