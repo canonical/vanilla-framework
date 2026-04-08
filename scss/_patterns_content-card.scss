@@ -5,15 +5,15 @@
       .p-content-card:
         Main element of the content card component.
       "&.p-content-card--2-cols":
-        Modifier for a 2-column width vertical layout.
+        Modifier for a 2-column width vertical layout. Applied ONLY to the parent .p-content-card.
       "&.p-content-card--4-cols":
-        Modifier for a 4-column width horizontal layout.
+        Modifier for a 4-column width horizontal layout. Applied ONLY to the parent .p-content-card.
       "&.p-content-card--6-cols":
-        Modifier for a 6-column width horizontal layout.
+        Modifier for a 6-column width horizontal layout. Applied ONLY to the parent .p-content-card.
       "&.p-content-card__has-image":
-        State class applied when the card includes an image.
+        State class applied to the parent when the card includes an image.
       "&.p-content-card__has-desc":
-        State class applied when the card includes a description that appears on hover.
+        State class applied to the parent when the card includes a description that appears on hover.
     Links:
       .p-content-card__overlay-link:
         Invisible absolute link spanning the entire card to make it clickable.
@@ -23,29 +23,27 @@
         Interactive link for the author name.
     Media:
       .p-content-card__image-wrapper:
-        Container for the card's image.
+        Container for the card's image. Styled contextually by parent modifiers.
       .p-content-card__image:
-        The image element, maintaining a 16/9 aspect ratio.
+        The image element, maintaining a 16/9 aspect ratio. Styled contextually by parent modifiers.
     Content:
       .p-content-card__content:
         Flex container wrapping the main body and footer of the card.
       .p-content-card__body:
-        Grid container holding both the primary and hover content areas.
+        Grid container holding both the primary and hover content areas. Styled contextually by parent modifiers.
       .p-content-card__primary-content:
         The default visible content area (heading, author, date).
       .p-content-card__hover-content:
         The content area that slides up on hover (description).
-      .p-content-card__heading-wrapper:
-        Wrapper around the heading.
       .p-content-card__heading:
-        The card's title element.
+        The card's title element. Styled contextually by parent modifiers.
       .p-content-card__description:
-        The text description that appears on hover.
+        The text description that appears on hover. Styled contextually by parent modifiers.
       .p-content-card__author-and-date:
-        Container for the author and publication date.
+        Container for the author and publication date. Styled contextually by parent modifiers.
     Footer:
       .p-content-card__footer-outer:
-        Outer container for the footer section.
+        Outer container for the footer section. Styled contextually by parent modifiers.
       .p-content-card__footer-inner:
         Horizontally scrollable inner container for footer metadata (chips, icons).
       .p-content-card__icon:
@@ -83,13 +81,13 @@
         width: var(--size-width-grid-col-4, 37.5rem); /* 600px */
       }
 
-      &.p-content-card--4-cols:not(.p-content-card__has-image),
-      &.p-content-card--6-cols:not(.p-content-card__has-image) {
+      &.p-content-card--4-cols:not(.has-image),
+      &.p-content-card--6-cols:not(.has-image) {
         height: 12rem; /* 192px - Fixed height */
       }
 
-      &.p-content-card--4-cols:not(.p-content-card__has-image) .p-rule--muted,
-      &.p-content-card--6-cols:not(.p-content-card__has-image) .p-rule--muted {
+      &.p-content-card--4-cols:not(.has-image) .p-rule--muted,
+      &.p-content-card--6-cols:not(.has-image) .p-rule--muted {
         margin-left: -$sp-medium;
         margin-right: -$sp-medium;
         width: calc(100% + $sp-large); /* 32px */
@@ -107,11 +105,11 @@
         width: var(--size-width-grid-col-4, 37.5rem); /* 600px */
       }
 
-      &.p-content-card--2-cols:not(.p-content-card__has-image) {
+      &.p-content-card--2-cols:not(.has-image) {
         height: 10rem; /* 160px - Fixed height */
       }
 
-      &.p-content-card--2-cols:not(.p-content-card__has-image) .p-rule--muted {
+      &.p-content-card--2-cols:not(.has-image) .p-rule--muted {
         margin-left: -$sp-medium;
         margin-right: -$sp-medium;
         width: calc(100% + $sp-large); /* 32px */
@@ -162,11 +160,6 @@
       }
     }
 
-    &__heading-wrapper {
-      height: 7.5rem; /* 120px */
-      overflow: hidden;
-    }
-
     &__heading {
       -webkit-box-orient: vertical;
       display: -webkit-box;
@@ -208,13 +201,13 @@
       padding: 0 $sp-medium; /* 16px */
 
       @media screen and (width >= $breakpoint-small) {
-        &.p-content-card--4-cols,
-        &.p-content-card--6-cols {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
           padding: 0;
         }
       }
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        &.p-content-card--2-cols {
+        .p-content-card--2-cols & {
           padding: 0;
         }
       }
@@ -265,13 +258,13 @@
       position: relative;
 
       @media screen and (width >= $breakpoint-small) {
-        &.p-content-card--4-cols,
-        &.p-content-card--6-cols {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
           padding: 0 0 var(--spacing-vertical-small, $sp-small) 0;
         }
       }
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        &.p-content-card--2-cols {
+        .p-content-card--2-cols & {
           padding: 0 0 var(--spacing-vertical-small, $sp-small) 0;
         }
       }
@@ -329,19 +322,19 @@
       object-fit: cover;
 
       @media screen and (width >= $breakpoint-small) {
-        &.p-content-card--4-cols,
-        &.p-content-card--6-cols {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
           height: 9.703125rem; /* 155.25px */
         }
       }
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        &.p-content-card--2-cols {
+        .p-content-card--2-cols & {
           height: 9.703125rem; /* 155.25px */
         }
       }
 
       @media screen and (width >= $breakpoint-large) {
-        &.p-content-card--6-cols {
+        .p-content-card--6-cols & {
           height: 9.984375rem; /* 159.75px */
         }
       }
@@ -356,14 +349,14 @@
       width: 17.75rem; /* 284px */
 
       @media screen and (width >= $breakpoint-small) {
-        &.p-content-card--4-cols,
-        &.p-content-card--6-cols {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
           align-self: stretch;
           flex: 0 0 auto;
         }
       }
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        &.p-content-card--2-cols {
+        .p-content-card--2-cols & {
           align-self: stretch;
           flex: 0 0 auto;
         }
@@ -380,25 +373,25 @@
       }
 
       @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        &.p-content-card--2-cols,
-        &.p-content-card--6-cols {
+        .p-content-card--2-cols &,
+        .p-content-card--6-cols & {
           display: none;
         }
       }
 
       @media screen and (width >= $breakpoint-large) {
-        &.p-content-card--6-cols {
+        .p-content-card--6-cols & {
           display: flex;
           margin-top: -0.45rem;
         }
       }
     }
 
-    &:not(.p-content-card__has-image) {
+    &:not(.has-image) {
       height: 12.25rem;
     }
 
-    &.p-content-card__has-image {
+    &.has-image {
       padding-top: 0;
 
       @media screen and (width >= $breakpoint-small) {
@@ -419,7 +412,7 @@
       border-color: var(--color-border-high-contrast, #707070);
       text-decoration: none;
 
-      &.p-content-card__has-desc {
+      &.has-desc {
         .p-content-card__primary-content {
           opacity: 0;
           transform: translateY(-150px);

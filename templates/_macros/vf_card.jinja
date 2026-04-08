@@ -4,7 +4,7 @@
   heading: H4 title text. Truncated at 3 lines. Required.
   link: Link to referenced item. Makes the entire card clickable. Required.
   image: Dictionary containing 'url' and 'alt' for the 16:9 image. Required for col-6.
-  author_and_date: Dictionary containing 'author', 'date', and 'link'. Hidden if no image is provided.
+  author_and_date: Dictionary containing 'author' and 'date'. Hidden if no image is provided.
   footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
   description: Optional text that slides up on hover, truncating at 4 lines.
 
@@ -22,35 +22,35 @@
 {%- macro vf_card(columns="2", link=None, heading=None, image=None, author_and_date=None, footer=None, description=None) -%}
 
 {%- set layout = 'p-content-card--' ~ columns ~ '-cols' -%}
-{%- set img_class = 'p-content-card__has-image' if image else '' -%}
-{%- set has_desc = 'p-content-card__has-desc' if description else '' -%}
+{%- set img_class = 'has-image' if image else '' -%}
+{%- set has_desc = 'has-desc' if description else '' -%}
 
-<div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}" aria-describedby="default-tooltip">
+<div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}">
 
     {%- if link -%}
-        <a href="{{ link }}" target="_blank" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
+        <a href="{{ link }}" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
     {%- endif -%}
 
     {%- if image -%}
-    <div class="p-content-card__image-wrapper {{ layout }}">
-        <img class="p-content-card__image {{ layout }}" src="{{ image.url }}" alt="{{ image.alt }}" />
+    <div class="p-content-card__image-wrapper">
+        <img class="p-content-card__image" src="{{ image.url }}" alt="{{ image.alt }}" />
     </div>
     {%- endif -%}
 
     <div class="p-content-card__content">
-        <div class="p-content-card__body {{ layout }}">
+        <div class="p-content-card__body">
             
             <div class="p-content-card__primary-content">
-                <h4 class="p-content-card__heading {{ layout }}">
+                <h4 class="p-content-card__heading">
                     {%- if link -%}
-                        <a href="{{ link }}" target="_blank" class="p-content-card__main-link">{{ heading }}</a>
+                        <a href="{{ link }}" class="p-content-card__main-link">{{ heading }}</a>
                     {%- else -%}
                         {{ heading }}
                     {%- endif -%}
                 </h4>
                 
                 {%- if image and author_and_date -%}
-                <div class="p-content-card__author-and-date u-sv-3 {{ layout }}">
+                <div class="p-content-card__author-and-date u-sv-3">
                     <small>
                         <span class="u-text--muted">{{ author_and_date.author }}</span>
                             &middot;
@@ -71,7 +71,7 @@
         {%- if footer -%}
         <div>
             <hr class="p-rule--muted">
-            <div class="p-content-card__footer-outer {{ layout }}">
+            <div class="p-content-card__footer-outer">
                 <div class="p-content-card__footer-inner" tabindex="-1">
                     {%- if footer.resource_type -%}
                         <span class="u-has-icon">
