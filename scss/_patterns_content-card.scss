@@ -55,22 +55,90 @@
 @import 'settings';
 
 @mixin vf-p-content-card {
+  
+  /* =========================================
+     GRID WRAPPER 
+     (Handles spanning and invisible bottom spacing)
+     ========================================= */
+  .p-content-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    padding-bottom: var(--spacing-vertical-large, 2rem); 
+    width: 100%;
+
+    /* 2-Column Spanning */
+    &--2 {
+      grid-column: 1 / -1; /* Mobile */
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        grid-column: span 2; /* Medium */
+      }
+      @media screen and (width >= $breakpoint-large) {
+        grid-column: span 2; /* Desktop */
+      }
+    }
+
+    /* 4-Column Spanning */
+    &--4 {
+      grid-column: 1 / -1;
+      @media screen and (width >= $breakpoint-large) {
+        grid-column: span 4;
+      }
+    }
+
+    /* 6-Column Spanning */
+    &--6 {
+      grid-column: 1 / -1;
+      @media screen and (width >= $breakpoint-large) {
+        grid-column: span 6;
+      }
+    }
+  }
+
+  /* =========================================
+     CARD COMPONENT
+     ========================================= */
   .p-content-card {
     align-items: flex-start;
     border: 1px solid var(--color-border-low-contrast, rgba(0, 0, 0, 0.1));
     display: flex;
+    flex: 1; 
     flex-direction: column;
-    height: 23.75rem;
+    height: 100%; 
     justify-content: space-between;
-    margin-bottom: $sp-large;
     max-width: 100%;
     overflow: hidden;
     padding-top: var(--spacing-vertical-large, $sp-medium);
     position: relative;
     text-decoration: none !important;
     transition: all 0.4s ease-in-out;
-    width: var(--size-width-grid-col-2, 17.75rem); /* 284px */
+    width: 100%; 
 
+    min-height: 23.75rem;
+
+    &:not(.has-image) {
+      min-height: 12rem; 
+    }
+
+    /* 🔥 NEW: Shrink-to-fit for cards without footers on mobile 🔥 */
+    @media screen and (width < $breakpoint-small) {
+      &:not(:has(.p-content-card__footer-outer)) {
+        height: auto;
+        min-height: 0;
+        padding-bottom: var(--spacing-vertical-large, $sp-medium); /* Keeps spacing balanced */
+      }
+    }
+
+    /* 2-Column Modifier Internal Resets */
+    &.p-content-card--2-cols {
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        .p-content-card__author-and-date {
+          display: none !important;
+        }
+      }
+    }
+
+    /* 4 and 6 Column Horizontal Cards (Medium/Large Screens) */
     @media screen and (width >= $breakpoint-small) {
       &.p-content-card--4-cols,
       &.p-content-card--6-cols {
@@ -78,15 +146,19 @@
         align-self: stretch;
         flex-direction: row;
         gap: $sp-medium;
-        height: 11.703125rem;
+        
+        flex: 0 0 auto; 
+        height: 11.703125rem; 
+        min-height: 11.703125rem; 
+        
         max-width: 100%;
         padding: $sp-medium $sp-medium 0;
-        width: var(--size-width-grid-col-4, 37.5rem);
       }
 
       &.p-content-card--4-cols:not(.has-image),
       &.p-content-card--6-cols:not(.has-image) {
         height: 12rem;
+        min-height: 12rem;
       }
 
       &.p-content-card--4-cols:not(.has-image) .p-rule--muted,
@@ -101,8 +173,8 @@
     @media screen and (width >= $breakpoint-large) {
       &.p-content-card--6-cols {
         height: 11.984375rem;
+        min-height: 11.984375rem; 
         max-width: 100%;
-        width: var(--size-width-grid-col-6, 57.25rem); /* 916px */
       }
     }
 
@@ -121,6 +193,11 @@
       outline: none !important;
       overflow: hidden;
       text-decoration: none !important;
+
+      .p-content-card--6-cols & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+      }
 
       &:hover,
       &:focus,
@@ -157,6 +234,12 @@
       text-wrap: wrap;
       width: 100%;
 
+      .p-content-card--6-cols & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        max-height: 3em;
+      }
+
       @media screen and (width >= $breakpoint-large) {
         .p-content-card--6-cols & {
           margin-top: -0.45rem !important;
@@ -181,7 +264,7 @@
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
       overflow: hidden;
-      padding: 0 $sp-medium; /* 16px */
+      padding: 0 $sp-medium;
 
       @media screen and (width >= $breakpoint-small) {
         .p-content-card--4-cols &,
@@ -219,6 +302,11 @@
       margin: 0;
       overflow: hidden;
 
+      .p-content-card--6-cols & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+      }
+
       @media screen and (width >= $breakpoint-large) {
         .p-content-card--6-cols & {
           margin-top: -0.45rem !important;
@@ -246,8 +334,8 @@
     &__footer-inner {
       align-items: center;
       display: flex;
-      gap: $sp-small; /* 8px */
-      height: 1.75rem; /* 28px */
+      gap: $sp-small; 
+      height: 1.75rem; 
       mask-image: linear-gradient(to right, black 85%, transparent 100%);
       -ms-overflow-style: none;
       overflow-x: auto;
@@ -267,14 +355,14 @@
       }
 
       .p-chip--information {
-        margin: 0 1.5625rem 0 0; /* 25px -> 1.5625rem */
+        margin: 0 1.5625rem 0 0; 
         vertical-align: baseline;
       }
 
       .u-has-icon {
         align-items: center;
         display: flex;
-        gap: $sp-x-small; /* 4px */
+        gap: $sp-x-small; 
 
         .p-content-card__icon[class*='p-icon--'],
         .p-content-card__small {
@@ -291,20 +379,20 @@
       aspect-ratio: 16/9;
       display: block;
       flex-shrink: 0;
-      height: auto; /* Replaces fixed rem heights */
+      height: auto; 
       object-fit: cover;
       width: 100%;
 
       @media screen and (width >= $breakpoint-small) {
         .p-content-card--4-cols &,
         .p-content-card--6-cols & {
-          height: 9.703125rem; /* 155.25px */
+          height: 9.703125rem; 
         }
       }
 
       @media screen and (width >= $breakpoint-large) {
         .p-content-card--6-cols & {
-          height: 9.984375rem; /* 159.75px */
+          height: 9.984375rem; 
         }
       }
     }
@@ -313,16 +401,18 @@
       align-items: flex-start;
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-vertical-image-container, 0.625rem); /* 10px -> 0.625rem */
-      max-width: 100%; /* Prevents image wrapper from breaking out of collapsing card */
+      gap: var(--spacing-vertical-image-container, 0.625rem); 
+      max-width: 100%; 
       padding-bottom: var(--spacing-vertical-large, $sp-medium);
-      width: 17.75rem; /* 284px */
+      
+      width: 100%; 
 
       @media screen and (width >= $breakpoint-small) {
         .p-content-card--4-cols &,
         .p-content-card--6-cols & {
           align-self: stretch;
           flex: 0 0 auto;
+          width: 17.75rem; 
         }
       }
     }
@@ -331,6 +421,7 @@
       align-items: flex-start;
       align-self: stretch;
       display: flex;
+      padding-bottom: 0.5rem; 
 
       > :first-child {
         margin-bottom: 0 !important;
@@ -345,7 +436,6 @@
       @media screen and (width >= $breakpoint-large) {
         .p-content-card--6-cols & {
           display: flex;
-          margin-top: -0.45rem;
         }
       }
     }
@@ -360,7 +450,7 @@
       @media screen and (width >= $breakpoint-small) {
         &.p-content-card--4-cols,
         &.p-content-card--6-cols {
-          padding-top: $sp-medium; /* 16px */
+          padding-top: $sp-medium;
         }
       }
     }

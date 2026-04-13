@@ -22,23 +22,25 @@
 
 {%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None) -%}
 
-{%- set layout = 'p-content-card--' ~ columns ~ '-cols' -%}
+{%- set col_str = columns | string -%}
+{%- set layout = 'p-content-card--' ~ col_str ~ '-cols' -%}
 {%- set img_class = 'has-image' if image else '' -%}
 {%- set has_desc = 'has-desc' if description else '' -%}
 
-<div class="grid-col-{{ columns }}">
-    <div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}">
+<div class="p-content-card-wrapper p-content-card-wrapper--{{ col_str }}">
     
+    <div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}">
+        
         {%- if link -%}
             <a href="{{ link }}" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
         {%- endif -%}
-    
+
         {%- if image -%}
         <div class="p-content-card__image-wrapper">
             <img class="p-content-card__image" src="{{ image.src }}" alt="{{ image.alt }}" />
         </div>
         {%- endif -%}
-    
+
         <div class="p-content-card__content">
             <div class="p-content-card__body">
                 
@@ -69,13 +71,13 @@
                     </div>
                     {%- endif -%}
                 </div>
-    
+
                 {%- if description -%}
                 <div class="p-content-card__hover-content">
                     <p class="p-content-card__description">{{ description }}</p>
                 </div>
                 {%- endif -%}
-    
+
             </div>
             
             {%- if footer -%}
@@ -89,7 +91,7 @@
                                 <small class="p-content-card__small">{{ footer.resource_type.text }}</small>
                             </span>
                         {%- endif -%}
-    
+
                         {%- if footer.content_type %}
                             <span class="p-chip--information is-readonly">{{ footer.content_type}}</span>
                         {%- endif -%}
@@ -99,6 +101,5 @@
             {%- endif -%}
         </div>
     </div>
-
 </div>
 {%- endmacro -%}
