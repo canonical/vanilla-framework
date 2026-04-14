@@ -55,7 +55,6 @@
 @import 'settings';
 
 @mixin vf-p-content-card {
-  
   /* =========================================
      GRID WRAPPER 
      (Handles spanning and invisible bottom spacing)
@@ -63,8 +62,8 @@
   .p-content-card-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%; 
-    padding-bottom: var(--spacing-vertical-large, 2rem); 
+    height: 100%;
+    padding-bottom: var(--spacing-vertical-large, 2rem);
     width: 100%;
 
     /* 2-Column Spanning */
@@ -102,25 +101,26 @@
     align-items: flex-start;
     border: 1px solid var(--color-border-low-contrast, rgba(0, 0, 0, 0.1));
     display: flex;
-    flex: 1; 
+    flex: 1;
     flex-direction: column;
-    height: 100%; 
+    height: 100%;
     justify-content: space-between;
     max-width: 100%;
+
+    min-height: 23.75rem;
     overflow: hidden;
     padding-top: var(--spacing-vertical-large, $sp-medium);
     position: relative;
     text-decoration: none !important;
     transition: all 0.4s ease-in-out;
-    width: 100%; 
-
-    min-height: 23.75rem;
+    width: 100%;
 
     &:not(.has-image) {
-      min-height: 12rem; 
+      height: 12rem;
+      min-height: 12rem;
     }
 
-    /* 🔥 NEW: Shrink-to-fit for cards without footers on mobile 🔥 */
+    /* Shrink-to-fit for cards without footers on mobile */
     @media screen and (width < $breakpoint-small) {
       &:not(:has(.p-content-card__footer-outer)) {
         height: auto;
@@ -144,14 +144,14 @@
       &.p-content-card--6-cols {
         align-items: flex-start;
         align-self: stretch;
+
+        flex: 0 0 auto;
         flex-direction: row;
         gap: $sp-medium;
-        
-        flex: 0 0 auto; 
-        height: 11.703125rem; 
-        min-height: 11.703125rem; 
-        
+        height: 11.703125rem;
+
         max-width: 100%;
+        min-height: 11.703125rem;
         padding: $sp-medium $sp-medium 0;
       }
 
@@ -173,8 +173,8 @@
     @media screen and (width >= $breakpoint-large) {
       &.p-content-card--6-cols {
         height: 11.984375rem;
-        min-height: 11.984375rem; 
         max-width: 100%;
+        min-height: 11.984375rem;
       }
     }
 
@@ -334,8 +334,8 @@
     &__footer-inner {
       align-items: center;
       display: flex;
-      gap: $sp-small; 
-      height: 1.75rem; 
+      gap: $sp-small;
+      height: 1.75rem;
       mask-image: linear-gradient(to right, black 85%, transparent 100%);
       -ms-overflow-style: none;
       overflow-x: auto;
@@ -355,14 +355,14 @@
       }
 
       .p-chip--information {
-        margin: 0 1.5625rem 0 0; 
+        margin: 0 1.5625rem 0 0;
         vertical-align: baseline;
       }
 
       .u-has-icon {
         align-items: center;
         display: flex;
-        gap: $sp-x-small; 
+        gap: $sp-x-small;
 
         .p-content-card__icon[class*='p-icon--'],
         .p-content-card__small {
@@ -379,20 +379,20 @@
       aspect-ratio: 16/9;
       display: block;
       flex-shrink: 0;
-      height: auto; 
+      height: auto;
       object-fit: cover;
       width: 100%;
 
       @media screen and (width >= $breakpoint-small) {
         .p-content-card--4-cols &,
         .p-content-card--6-cols & {
-          height: 9.703125rem; 
+          height: 9.703125rem;
         }
       }
 
       @media screen and (width >= $breakpoint-large) {
         .p-content-card--6-cols & {
-          height: 9.984375rem; 
+          height: 9.984375rem;
         }
       }
     }
@@ -401,18 +401,18 @@
       align-items: flex-start;
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-vertical-image-container, 0.625rem); 
-      max-width: 100%; 
+      gap: var(--spacing-vertical-image-container, 0.625rem);
+      max-width: 100%;
       padding-bottom: var(--spacing-vertical-large, $sp-medium);
-      
-      width: 100%; 
+
+      width: 100%;
 
       @media screen and (width >= $breakpoint-small) {
         .p-content-card--4-cols &,
         .p-content-card--6-cols & {
           align-self: stretch;
           flex: 0 0 auto;
-          width: 17.75rem; 
+          width: 17.75rem;
         }
       }
     }
@@ -421,7 +421,7 @@
       align-items: flex-start;
       align-self: stretch;
       display: flex;
-      padding-bottom: 0.5rem; 
+      padding-bottom: 0.5rem;
 
       > :first-child {
         margin-bottom: 0 !important;
@@ -440,10 +440,6 @@
       }
     }
 
-    &:not(.has-image) {
-      height: 12rem;
-    }
-
     &.has-image {
       padding-top: 0;
 
@@ -455,26 +451,29 @@
       }
     }
 
-    &:has(.p-content-card__main-link:focus-visible) {
-      outline: 3px solid var(--color-focus, #0066cc);
-      outline-offset: 2px;
-    }
-
     &:hover,
     &:focus-within {
       border-color: var(--color-border-high-contrast, #707070);
       text-decoration: none;
+    }
 
-      &.has-desc {
-        .p-content-card__primary-content {
-          opacity: 0;
-          transform: translateY(-150px);
-        }
-        .p-content-card__hover-content {
-          opacity: 1;
-          transform: translateY(0);
-        }
+    @media screen and (width >= $breakpoint-large) {
+      &.has-desc:hover .p-content-card__primary-content,
+      &.has-desc:focus-within .p-content-card__primary-content {
+        opacity: 0;
+        transform: translateY(-150px);
       }
+
+      &.has-desc:hover .p-content-card__hover-content,
+      &.has-desc:focus-within .p-content-card__hover-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &:has(.p-content-card__main-link:focus-visible) {
+      outline: 3px solid var(--color-focus, #0066cc);
+      outline-offset: 2px;
     }
   }
 }
