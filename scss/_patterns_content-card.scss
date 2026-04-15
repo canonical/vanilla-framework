@@ -4,11 +4,11 @@
     Content card:
       .p-content-card:
         Main element of the content card component.
-      "&.p-content-card--2-cols":
+      "&.p-content-card--cols-2":
         Modifier for a 2-column width vertical layout. Applied ONLY to the parent .p-content-card.
-      "&.p-content-card--4-cols":
+      "&.p-content-card--cols-4":
         Modifier for a 4-column width horizontal layout. Applied ONLY to the parent .p-content-card.
-      "&.p-content-card--6-cols":
+      "&.p-content-card--cols-6":
         Modifier for a 6-column width horizontal layout. Applied ONLY to the parent .p-content-card.
       "&.p-content-card__has-image":
         State class applied to the parent when the card includes an image.
@@ -54,6 +54,24 @@
 
 @import 'settings';
 
+@mixin mq-min($breakpoint) {
+  @media screen and (width >= $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mq-max($breakpoint) {
+  @media screen and (width < $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mq-between($min, $max) {
+  @media screen and ($min <= width < $max) {
+    @content;
+  }
+}
+
 @mixin vf-p-content-card {
   /* =========================================
      GRID WRAPPER 
@@ -69,10 +87,10 @@
     /* 2-Column Spanning */
     &--2 {
       grid-column: 1 / -1; /* Mobile */
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+      @include mq-between($breakpoint-small, $breakpoint-large) {
         grid-column: span 2; /* Medium */
       }
-      @media screen and (width >= $breakpoint-large) {
+      @include mq-min($breakpoint-large) {
         grid-column: span 2; /* Desktop */
       }
     }
@@ -80,7 +98,7 @@
     /* 4-Column Spanning */
     &--4 {
       grid-column: 1 / -1;
-      @media screen and (width >= $breakpoint-large) {
+      @include mq-min($breakpoint-large) {
         grid-column: span 4;
       }
     }
@@ -88,7 +106,7 @@
     /* 6-Column Spanning */
     &--6 {
       grid-column: 1 / -1;
-      @media screen and (width >= $breakpoint-large) {
+      @include mq-min($breakpoint-large) {
         grid-column: span 6;
       }
     }
@@ -121,7 +139,7 @@
     }
 
     /* Shrink-to-fit for cards without footers on mobile */
-    @media screen and (width < $breakpoint-small) {
+    @include mq-max($breakpoint-small) {
       &:not(:has(.p-content-card__footer-outer)) {
         height: auto;
         min-height: 0;
@@ -130,8 +148,8 @@
     }
 
     /* 2-Column Modifier Internal Resets */
-    &.p-content-card--2-cols {
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+    &.p-content-card--cols-2 {
+      @include mq-between($breakpoint-small, $breakpoint-large) {
         .p-content-card__author-and-date {
           display: none !important;
         }
@@ -139,9 +157,9 @@
     }
 
     /* 4 and 6 Column Horizontal Cards (Medium/Large Screens) */
-    @media screen and (width >= $breakpoint-small) {
-      &.p-content-card--4-cols,
-      &.p-content-card--6-cols {
+    @include mq-min($breakpoint-small) {
+      &.p-content-card--cols-4,
+      &.p-content-card--cols-6 {
         align-items: flex-start;
         align-self: stretch;
 
@@ -155,14 +173,14 @@
         padding: $sp-medium $sp-medium 0;
       }
 
-      &.p-content-card--4-cols:not(.has-image),
-      &.p-content-card--6-cols:not(.has-image) {
+      &.p-content-card--cols-4:not(.has-image),
+      &.p-content-card--cols-6:not(.has-image) {
         height: 12rem;
         min-height: 12rem;
       }
 
-      &.p-content-card--4-cols:not(.has-image) .p-rule--muted,
-      &.p-content-card--6-cols:not(.has-image) .p-rule--muted {
+      &.p-content-card--cols-4:not(.has-image) .p-rule--muted,
+      &.p-content-card--cols-6:not(.has-image) .p-rule--muted {
         margin-left: -$sp-medium;
         margin-right: -$sp-medium;
         max-width: none;
@@ -170,8 +188,8 @@
       }
     }
 
-    @media screen and (width >= $breakpoint-large) {
-      &.p-content-card--6-cols {
+    @include mq-min($breakpoint-large) {
+      &.p-content-card--cols-6 {
         height: 11.984375rem;
         max-width: 100%;
         min-height: 11.984375rem;
@@ -194,7 +212,7 @@
       overflow: hidden;
       text-decoration: none !important;
 
-      .p-content-card--6-cols & {
+      .p-content-card--cols-6 & {
         -webkit-line-clamp: 2;
         line-clamp: 2;
       }
@@ -234,14 +252,14 @@
       text-wrap: wrap;
       width: 100%;
 
-      .p-content-card--6-cols & {
+      .p-content-card--cols-6 & {
         -webkit-line-clamp: 2;
         line-clamp: 2;
         max-height: 3em;
       }
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
           margin-top: -0.45rem !important;
         }
       }
@@ -266,9 +284,9 @@
       overflow: hidden;
       padding: 0 $sp-medium;
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
           padding: 0;
         }
       }
@@ -302,13 +320,13 @@
       margin: 0;
       overflow: hidden;
 
-      .p-content-card--6-cols & {
+      .p-content-card--cols-6 & {
         -webkit-line-clamp: 2;
         line-clamp: 2;
       }
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
           margin-top: -0.45rem !important;
         }
       }
@@ -323,9 +341,9 @@
       padding: 0 $sp-medium var(--spacing-vertical-small, $sp-small) $sp-medium;
       position: relative;
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
           padding: 0 0 var(--spacing-vertical-small, $sp-small) 0;
         }
       }
@@ -383,15 +401,15 @@
       object-fit: cover;
       width: 100%;
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
           height: 9.703125rem;
         }
       }
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
           height: 9.984375rem;
         }
       }
@@ -407,9 +425,9 @@
 
       width: 100%;
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
           align-self: stretch;
           flex: 0 0 auto;
           width: 17.75rem;
@@ -427,14 +445,14 @@
         margin-bottom: 0 !important;
       }
 
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        .p-content-card--6-cols & {
+      @include mq-between($breakpoint-small, $breakpoint-large) {
+        .p-content-card--cols-6 & {
           display: none;
         }
       }
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
           display: flex;
         }
       }
@@ -443,9 +461,9 @@
     &.has-image {
       padding-top: 0;
 
-      @media screen and (width >= $breakpoint-small) {
-        &.p-content-card--4-cols,
-        &.p-content-card--6-cols {
+      @include mq-min($breakpoint-small) {
+        &.p-content-card--cols-4,
+        &.p-content-card--cols-6 {
           padding-top: $sp-medium;
         }
       }
@@ -457,7 +475,7 @@
       text-decoration: none;
     }
 
-    @media screen and (width >= $breakpoint-large) {
+    @include mq-min($breakpoint-large) {
       &.has-desc:hover .p-content-card__primary-content,
       &.has-desc:focus-within .p-content-card__primary-content {
         opacity: 0;

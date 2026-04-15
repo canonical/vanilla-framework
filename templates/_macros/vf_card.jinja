@@ -23,7 +23,7 @@
 {%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None) -%}
 
 {%- set col_str = columns | string -%}
-{%- set layout = 'p-content-card--' ~ col_str ~ '-cols' -%}
+{%- set layout = 'p-content-card--cols-' ~ col_str -%}
 {%- set img_class = 'has-image' if image else '' -%}
 {%- set has_desc = 'has-desc' if description else '' -%}
 
@@ -93,7 +93,7 @@
                         {%- endif -%}
 
                         {%- if footer.content_type %}
-                            <span class="p-chip--information is-readonly">{{ footer.content_type}}</span>
+                            <span class="p-chip--information is-readonly">{{ footer.content_type }}</span>
                         {%- endif -%}
                     </div>
                 </div>
