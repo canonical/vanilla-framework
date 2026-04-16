@@ -1,0 +1,427 @@
+/*
+  @classreference
+  content-card:
+    Content card:
+      .p-content-card:
+        Main element of the content card component.
+      "&.p-content-card--2-cols":
+        Modifier for a 2-column width vertical layout. Applied ONLY to the parent .p-content-card.
+      "&.p-content-card--4-cols":
+        Modifier for a 4-column width horizontal layout. Applied ONLY to the parent .p-content-card.
+      "&.p-content-card--6-cols":
+        Modifier for a 6-column width horizontal layout. Applied ONLY to the parent .p-content-card.
+      "&.p-content-card__has-image":
+        State class applied to the parent when the card includes an image.
+      "&.p-content-card__has-desc":
+        State class applied to the parent when the card includes a description that appears on hover.
+    Links:
+      .p-content-card__overlay-link:
+        Invisible absolute link spanning the entire card to make it clickable.
+      .p-content-card__main-link:
+        The primary text link, typically wrapping the heading.
+      .p-content-card__author-link:
+        Interactive link for the author name.
+    Media:
+      .p-content-card__image-wrapper:
+        Container for the card's image. Styled contextually by parent modifiers.
+      .p-content-card__image:
+        The image element, maintaining a 16/9 aspect ratio. Styled contextually by parent modifiers.
+    Content:
+      .p-content-card__content:
+        Flex container wrapping the main body and footer of the card.
+      .p-content-card__body:
+        Grid container holding both the primary and hover content areas. Styled contextually by parent modifiers.
+      .p-content-card__primary-content:
+        The default visible content area (heading, author, date).
+      .p-content-card__hover-content:
+        The content area that slides up on hover (description).
+      .p-content-card__heading:
+        The card's title element. Styled contextually by parent modifiers.
+      .p-content-card__description:
+        The text description that appears on hover. Styled contextually by parent modifiers.
+      .p-content-card__author-and-date:
+        Container for the author and publication date. Styled contextually by parent modifiers.
+    Footer:
+      .p-content-card__footer-outer:
+        Outer container for the footer section. Styled contextually by parent modifiers.
+      .p-content-card__footer-inner:
+        Horizontally scrollable inner container for footer metadata (chips, icons).
+      .p-content-card__icon:
+        Icon element utilized within the footer.
+      .p-content-card__small:
+        Small text element utilized within the footer.
+*/
+
+@import 'settings';
+
+@mixin vf-p-content-card {
+  .p-content-card {
+    align-items: flex-start;
+    border: 1px solid var(--color-border-low-contrast, rgba(0, 0, 0, 0.1));
+    display: flex;
+    flex-direction: column;
+    height: 23.75rem; /* 380px */
+    justify-content: space-between;
+    overflow: hidden;
+    padding-top: var(--spacing-vertical-large, $sp-medium);
+    position: relative;
+    text-decoration: none !important;
+    transition: all 0.4s ease-in-out;
+    width: var(--size-width-grid-col-2, 17.75rem); /* 284px */
+
+    @media screen and (width >= $breakpoint-small) {
+      &.p-content-card--4-cols,
+      &.p-content-card--6-cols {
+        align-items: flex-start;
+        align-self: stretch;
+        flex-direction: row;
+        gap: $sp-medium; /* 16px */
+        height: 11.703125rem; /* 187.25px */
+        padding: $sp-medium $sp-medium 0;
+        width: var(--size-width-grid-col-4, 37.5rem); /* 600px */
+      }
+
+      &.p-content-card--4-cols:not(.has-image),
+      &.p-content-card--6-cols:not(.has-image) {
+        height: 12rem; /* 192px - Fixed height */
+      }
+
+      &.p-content-card--4-cols:not(.has-image) .p-rule--muted,
+      &.p-content-card--6-cols:not(.has-image) .p-rule--muted {
+        margin-left: -$sp-medium;
+        margin-right: -$sp-medium;
+        width: calc(100% + $sp-large); /* 32px */
+      }
+    }
+
+    @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+      &.p-content-card--2-cols {
+        align-items: flex-start;
+        align-self: stretch;
+        flex-direction: row;
+        gap: $sp-medium; /* 16px */
+        height: 11.703125rem; /* 187.25px */
+        padding: $sp-medium $sp-medium 0;
+        width: var(--size-width-grid-col-4, 37.5rem); /* 600px */
+      }
+
+      &.p-content-card--2-cols:not(.has-image) {
+        height: 10rem; /* 160px - Fixed height */
+      }
+
+      &.p-content-card--2-cols:not(.has-image) .p-rule--muted {
+        margin-left: -$sp-medium;
+        margin-right: -$sp-medium;
+        width: calc(100% + $sp-large); /* 32px */
+      }
+    }
+
+    @media screen and (width >= $breakpoint-large) {
+      &.p-content-card--6-cols {
+        height: 11.984375rem; /* 191.75px */
+        width: var(--size-width-grid-col-6, 57.25rem); /* 916px */
+      }
+    }
+
+    &__overlay-link {
+      inset: 0;
+      position: absolute;
+      z-index: 1;
+    }
+
+    &__main-link {
+      -webkit-box-orient: vertical;
+      color: inherit !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      outline: none !important;
+      overflow: hidden;
+      text-decoration: none !important;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:visited {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+    }
+
+    &__author-link {
+      pointer-events: auto;
+      position: relative;
+      z-index: 2;
+
+      &:focus-visible {
+        border-radius: 2px;
+        outline: 2px solid var(--color-focus, #0066cc);
+        outline-offset: 2px;
+      }
+    }
+
+    &__heading {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      line-height: 1.5;
+      margin-top: 0 !important;
+      max-height: 4.5em;
+      max-width: none;
+      overflow: hidden;
+      padding-top: 0 !important;
+      text-wrap: wrap;
+      width: 100%;
+
+      @media screen and (width >= $breakpoint-large) {
+        .p-content-card--6-cols & {
+          margin-top: -0.45rem !important;
+        }
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      min-width: 0;
+      width: 100%;
+    }
+
+    &__body {
+      align-items: flex-start;
+      align-self: stretch;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      overflow: hidden;
+      padding: 0 $sp-medium; /* 16px */
+
+      @media screen and (width >= $breakpoint-small) {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
+          padding: 0;
+        }
+      }
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        .p-content-card--2-cols & {
+          padding: 0;
+        }
+      }
+    }
+
+    &__primary-content,
+    &__hover-content {
+      display: flex;
+      flex-direction: column;
+      grid-area: 1 / 1 / 2 / 2;
+      transition:
+        transform 0.4s ease-in-out,
+        opacity 0.4s ease-in-out;
+    }
+
+    &__primary-content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &__hover-content {
+      opacity: 0;
+      transform: translateY(150px);
+    }
+
+    &__description {
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      margin: 0;
+      overflow: hidden;
+
+      @media screen and (width >= $breakpoint-large) {
+        .p-content-card--6-cols & {
+          margin-top: -0.45rem !important;
+        }
+      }
+    }
+
+    &__footer-outer {
+      align-items: center;
+      align-self: stretch;
+      display: flex;
+      height: 2.25rem; /* Fixed height: 36px */
+      overflow: hidden;
+      padding: 0 $sp-medium var(--spacing-vertical-small, $sp-small) $sp-medium;
+      position: relative;
+
+      @media screen and (width >= $breakpoint-small) {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
+          padding: 0 0 var(--spacing-vertical-small, $sp-small) 0;
+        }
+      }
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        .p-content-card--2-cols & {
+          padding: 0 0 var(--spacing-vertical-small, $sp-small) 0;
+        }
+      }
+    }
+
+    &__footer-inner {
+      align-items: center;
+      display: flex;
+      gap: $sp-small; /* 8px */
+      height: 1.75rem; /* 28px */
+      mask-image: linear-gradient(to right, black 85%, transparent 100%);
+      -ms-overflow-style: none;
+      overflow-x: auto;
+      pointer-events: auto;
+      position: relative;
+      scrollbar-width: none;
+      width: 100%;
+      z-index: 2;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      > * {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      .p-chip--information {
+        margin: 0 1.5625rem 0 0; /* 25px -> 1.5625rem */
+        vertical-align: baseline;
+      }
+
+      .u-has-icon {
+        align-items: center;
+        display: flex;
+        gap: $sp-x-small; /* 4px */
+
+        .p-content-card__icon[class*='p-icon--'],
+        .p-content-card__small {
+          margin: 0;
+        }
+
+        .p-content-card__small {
+          line-height: normal !important;
+        }
+      }
+    }
+
+    &__image {
+      aspect-ratio: 16/9;
+      display: block;
+      flex-shrink: 0;
+      height: 9.984375rem; /* 159.75px */
+      object-fit: cover;
+
+      @media screen and (width >= $breakpoint-small) {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
+          height: 9.703125rem; /* 155.25px */
+        }
+      }
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        .p-content-card--2-cols & {
+          height: 9.703125rem; /* 155.25px */
+        }
+      }
+
+      @media screen and (width >= $breakpoint-large) {
+        .p-content-card--6-cols & {
+          height: 9.984375rem; /* 159.75px */
+        }
+      }
+    }
+
+    &__image-wrapper {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-vertical-image-container, 0.625rem); /* 10px -> 0.625rem */
+      padding-bottom: var(--spacing-vertical-large, $sp-medium);
+      width: 17.75rem; /* 284px */
+
+      @media screen and (width >= $breakpoint-small) {
+        .p-content-card--4-cols &,
+        .p-content-card--6-cols & {
+          align-self: stretch;
+          flex: 0 0 auto;
+        }
+      }
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        .p-content-card--2-cols & {
+          align-self: stretch;
+          flex: 0 0 auto;
+        }
+      }
+    }
+
+    &__author-and-date {
+      align-items: flex-start;
+      align-self: stretch;
+      display: flex;
+
+      > :first-child {
+        margin-bottom: 0 !important;
+      }
+
+      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
+        .p-content-card--2-cols &,
+        .p-content-card--6-cols & {
+          display: none;
+        }
+      }
+
+      @media screen and (width >= $breakpoint-large) {
+        .p-content-card--6-cols & {
+          display: flex;
+          margin-top: -0.45rem;
+        }
+      }
+    }
+
+    &:not(.has-image) {
+      height: 12.25rem;
+    }
+
+    &.has-image {
+      padding-top: 0;
+
+      @media screen and (width >= $breakpoint-small) {
+        &.p-content-card--4-cols,
+        &.p-content-card--6-cols {
+          padding-top: $sp-medium; /* 16px */
+        }
+      }
+    }
+
+    &:has(.p-content-card__main-link:focus-visible) {
+      outline: 3px solid var(--color-focus, #0066cc);
+      outline-offset: 2px;
+    }
+
+    &:hover,
+    &:focus-within {
+      border-color: var(--color-border-high-contrast, #707070);
+      text-decoration: none;
+
+      &.has-desc {
+        .p-content-card__primary-content {
+          opacity: 0;
+          transform: translateY(-150px);
+        }
+        .p-content-card__hover-content {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
