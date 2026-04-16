@@ -54,6 +54,28 @@
 
 @import 'settings';
 
+// =========================================
+// CONTENT CARD VARIABLES
+// =========================================
+$card-height-vertical: 23.75rem;
+$card-height-default: 12rem;
+$card-height-horizontal: 11.703125rem;
+$card-height-horizontal-large: 11.984375rem;
+
+$card-image-width: 17.75rem;
+$card-image-height-horizontal: 9.703125rem;
+$card-image-height-horizontal-large: 9.984375rem;
+
+$card-footer-outer-height: 2.25rem;
+$card-footer-inner-height: 1.75rem;
+
+$card-nudge-negative: -0.45rem;
+$card-chip-margin-right: 1.5625rem;
+$card-author-padding-bottom: 0.5rem;
+
+$card-fallback-spacing-large: 2rem;
+$card-fallback-image-gap: 0.625rem;
+
 @mixin mq-min($breakpoint) {
   @media screen and (width >= $breakpoint) {
     @content;
@@ -81,7 +103,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-bottom: var(--spacing-vertical-large, 2rem);
+    padding-bottom: var(--spacing-vertical-large, $card-fallback-spacing-large);
     width: 100%;
 
     /* 2-Column Spanning */
@@ -125,7 +147,7 @@
     justify-content: space-between;
     max-width: 100%;
 
-    min-height: 23.75rem;
+    min-height: $card-height-vertical;
     overflow: hidden;
     padding-top: var(--spacing-vertical-large, $sp-medium);
     position: relative;
@@ -134,8 +156,8 @@
     width: 100%;
 
     &:not(.has-image) {
-      height: 12rem;
-      min-height: 12rem;
+      height: $card-height-default;
+      min-height: $card-height-default;
     }
 
     /* Shrink-to-fit for cards without footers on mobile */
@@ -166,17 +188,17 @@
         flex: 0 0 auto;
         flex-direction: row;
         gap: $sp-medium;
-        height: 11.703125rem;
+        height: $card-height-horizontal;
 
         max-width: 100%;
-        min-height: 11.703125rem;
+        min-height: $card-height-horizontal;
         padding: $sp-medium $sp-medium 0;
       }
 
       &.p-content-card--cols-4:not(.has-image),
       &.p-content-card--cols-6:not(.has-image) {
-        height: 12rem;
-        min-height: 12rem;
+        height: $card-height-default;
+        min-height: $card-height-default;
       }
 
       &.p-content-card--cols-4:not(.has-image) .p-rule--muted,
@@ -190,9 +212,9 @@
 
     @include mq-min($breakpoint-large) {
       &.p-content-card--cols-6 {
-        height: 11.984375rem;
+        height: $card-height-horizontal-large;
         max-width: 100%;
-        min-height: 11.984375rem;
+        min-height: $card-height-horizontal-large;
       }
     }
 
@@ -260,7 +282,7 @@
 
       @include mq-min($breakpoint-large) {
         .p-content-card--cols-6 & {
-          margin-top: -0.45rem !important;
+          margin-top: $card-nudge-negative !important;
         }
       }
     }
@@ -327,7 +349,7 @@
 
       @include mq-min($breakpoint-large) {
         .p-content-card--cols-6 & {
-          margin-top: -0.45rem !important;
+          margin-top: $card-nudge-negative !important;
         }
       }
     }
@@ -336,7 +358,7 @@
       align-items: center;
       align-self: stretch;
       display: flex;
-      height: 2.25rem;
+      height: $card-footer-outer-height;
       overflow: hidden;
       padding: 0 $sp-medium var(--spacing-vertical-small, $sp-small) $sp-medium;
       position: relative;
@@ -353,7 +375,7 @@
       align-items: center;
       display: flex;
       gap: $sp-small;
-      height: 1.75rem;
+      height: $card-footer-inner-height;
       mask-image: linear-gradient(to right, black 85%, transparent 100%);
       -ms-overflow-style: none;
       overflow-x: auto;
@@ -373,7 +395,7 @@
       }
 
       .p-chip--information {
-        margin: 0 1.5625rem 0 0;
+        margin: 0 $card-chip-margin-right 0 0;
         vertical-align: baseline;
       }
 
@@ -404,13 +426,13 @@
       @include mq-min($breakpoint-small) {
         .p-content-card--cols-4 &,
         .p-content-card--cols-6 & {
-          height: 9.703125rem;
+          height: $card-image-height-horizontal;
         }
       }
 
       @include mq-min($breakpoint-large) {
         .p-content-card--cols-6 & {
-          height: 9.984375rem;
+          height: $card-image-height-horizontal-large;
         }
       }
     }
@@ -419,7 +441,7 @@
       align-items: flex-start;
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-vertical-image-container, 0.625rem);
+      gap: var(--spacing-vertical-image-container, $card-fallback-image-gap);
       max-width: 100%;
       padding-bottom: var(--spacing-vertical-large, $sp-medium);
 
@@ -430,7 +452,7 @@
         .p-content-card--cols-6 & {
           align-self: stretch;
           flex: 0 0 auto;
-          width: 17.75rem;
+          width: $card-image-width;
         }
       }
     }
@@ -439,7 +461,7 @@
       align-items: flex-start;
       align-self: stretch;
       display: flex;
-      padding-bottom: 0.5rem;
+      padding-bottom: $card-author-padding-bottom;
 
       > :first-child {
         margin-bottom: 0 !important;
