@@ -56,17 +56,10 @@
                     {%- if image and (author or date) -%}
                     <div class="p-content-card__author-and-date u-sv-3">
                         <small>
-                            {%- if author -%}
-                                <span class="u-text--muted">{{ author }}</span>
-                            {%- endif -%}
-                            
-                            {%- if author and date -%}
-                                &nbsp;&middot;&nbsp;
-                            {%- endif -%}
-                            
-                            {%- if date -%}
-                                <span class="u-text--muted">{{ date }}</span> 
-                            {%- endif -%}
+                            {%- set items = [] -%}
+                            {%- if author -%}{%- set _ = items.append('<span class="u-text--muted">' ~ author ~ '</span>') -%}{%- endif -%}
+                            {%- if date -%}{%- set _ = items.append('<span class="u-text--muted">' ~ date ~ '</span>') -%}{%- endif -%}
+                            {{ items | join('&nbsp;&middot;&nbsp;') | safe }}
                         </small>
                     </div>
                     {%- endif -%}
@@ -81,7 +74,7 @@
             </div>
             
             {%- if footer -%}
-            <div>
+            <div class="p-content-card__footer-container">
                 <hr class="p-rule--muted">
                 <div class="p-content-card__footer-outer">
                     <div class="p-content-card__footer-inner" tabindex="-1">
