@@ -4,15 +4,15 @@
     Content card:
       .p-content-card:
         Main element of the content card component.
-      "&.p-content-card--2-cols":
+      "&.p-content-card--cols-2":
         Modifier for a 2-column width vertical layout. Applied ONLY to the parent .p-content-card.
-      "&.p-content-card--4-cols":
+      "&.p-content-card--cols-4":
         Modifier for a 4-column width horizontal layout. Applied ONLY to the parent .p-content-card.
-      "&.p-content-card--6-cols":
+      "&.p-content-card--cols-6":
         Modifier for a 6-column width horizontal layout. Applied ONLY to the parent .p-content-card.
-      "&.p-content-card__has-image":
+      "&.has-image":
         State class applied to the parent when the card includes an image.
-      "&.p-content-card__has-desc":
+      "&.has-desc":
         State class applied to the parent when the card includes a description that appears on hover.
     Links:
       .p-content-card__overlay-link:
@@ -54,72 +54,170 @@
 
 @import 'settings';
 
+// =========================================
+// CONTENT CARD VARIABLES
+// =========================================
+$card-height-vertical: 23.75rem; // 380px
+$card-height-default: 12rem; // 192px
+
+$card-image-width: 17.75rem; // 284px
+// Horizontal image heights are explicit to preserve the tuned text/image balance at each breakpoint
+$card-image-height-horizontal: 9.703125rem; // 155.25px
+$card-image-height-horizontal-large: 9.984375rem; // 159.75px
+
+// Horizontal card heights are image height plus vertical spacing budget.
+$card-height-horizontal: $card-image-height-horizontal + $sp-x-large;
+$card-height-horizontal-large: $card-image-height-horizontal-large + $sp-x-large;
+
+$card-footer-outer-height: $sp-x-large + ($sp-small * 0.5);
+$card-footer-inner-height: $sp-x-large - ($sp-small * 0.5);
+
+$card-nudge-negative: map-get($settings-text-h4, nudge);
+$card-chip-margin-right: 1.5625rem; // 25px
+$card-author-padding-bottom: $sp-small;
+
+$card-fallback-spacing-large: $sp-x-large;
+$card-fallback-image-gap: $sp-small + $sp-xx-small;
+
+@mixin mq-min($breakpoint) {
+  @media screen and (width >= $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mq-max($breakpoint) {
+  @media screen and (width < $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mq-between($min, $max) {
+  @media screen and ($min <= width < $max) {
+    @content;
+  }
+}
+
 @mixin vf-p-content-card {
+  /* =========================================
+     GRID WRAPPER 
+     (Handles spanning and invisible bottom spacing)
+     ========================================= */
+  .p-content-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: var(--spacing-vertical-large, $card-fallback-spacing-large);
+    width: 100%;
+
+    /* 2-Column Spanning */
+    &--2 {
+      grid-column: 1 / -1; /* Mobile */
+      @include mq-between($breakpoint-small, $breakpoint-large) {
+        grid-column: span 2; /* Medium */
+      }
+      @include mq-min($breakpoint-large) {
+        grid-column: span 2; /* Desktop */
+      }
+    }
+
+    /* 4-Column Spanning */
+    &--4 {
+      grid-column: 1 / -1;
+      @include mq-min($breakpoint-large) {
+        grid-column: span 4;
+      }
+    }
+
+    /* 6-Column Spanning */
+    &--6 {
+      grid-column: 1 / -1;
+      @include mq-min($breakpoint-large) {
+        grid-column: span 6;
+      }
+    }
+  }
+
+  /* =========================================
+     CARD COMPONENT
+     ========================================= */
   .p-content-card {
     align-items: flex-start;
     border: 1px solid var(--color-border-low-contrast, rgba(0, 0, 0, 0.1));
     display: flex;
+    flex: 1;
     flex-direction: column;
-    height: 23.75rem; /* 380px */
+    height: 100%;
     justify-content: space-between;
+    max-width: 100%;
+
+    min-height: $card-height-vertical;
     overflow: hidden;
     padding-top: var(--spacing-vertical-large, $sp-medium);
     position: relative;
     text-decoration: none !important;
     transition: all 0.4s ease-in-out;
-    width: var(--size-width-grid-col-2, 17.75rem); /* 284px */
+    width: 100%;
 
-    @media screen and (width >= $breakpoint-small) {
-      &.p-content-card--4-cols,
-      &.p-content-card--6-cols {
-        align-items: flex-start;
-        align-self: stretch;
-        flex-direction: row;
-        gap: $sp-medium; /* 16px */
-        height: 11.703125rem; /* 187.25px */
-        padding: $sp-medium $sp-medium 0;
-        width: var(--size-width-grid-col-4, 37.5rem); /* 600px */
-      }
+    &:not(.has-image) {
+      height: $card-height-default;
+      min-height: $card-height-default;
+    }
 
-      &.p-content-card--4-cols:not(.has-image),
-      &.p-content-card--6-cols:not(.has-image) {
-        height: 12rem; /* 192px - Fixed height */
-      }
-
-      &.p-content-card--4-cols:not(.has-image) .p-rule--muted,
-      &.p-content-card--6-cols:not(.has-image) .p-rule--muted {
-        margin-left: -$sp-medium;
-        margin-right: -$sp-medium;
-        width: calc(100% + $sp-large); /* 32px */
+    /* Shrink-to-fit for cards without footers on mobile */
+    @include mq-max($breakpoint-small) {
+      &:not(:has(.p-content-card__footer-outer)) {
+        height: auto;
+        min-height: 0;
+        padding-bottom: var(--spacing-vertical-large, $sp-medium); /* Keeps spacing balanced */
       }
     }
 
-    @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-      &.p-content-card--2-cols {
-        align-items: flex-start;
-        align-self: stretch;
-        flex-direction: row;
-        gap: $sp-medium; /* 16px */
-        height: 11.703125rem; /* 187.25px */
-        padding: $sp-medium $sp-medium 0;
-        width: var(--size-width-grid-col-4, 37.5rem); /* 600px */
-      }
-
-      &.p-content-card--2-cols:not(.has-image) {
-        height: 10rem; /* 160px - Fixed height */
-      }
-
-      &.p-content-card--2-cols:not(.has-image) .p-rule--muted {
-        margin-left: -$sp-medium;
-        margin-right: -$sp-medium;
-        width: calc(100% + $sp-large); /* 32px */
+    /* 2-Column Modifier Internal Resets */
+    &.p-content-card--cols-2 {
+      @include mq-between($breakpoint-small, $breakpoint-large) {
+        .p-content-card__author-and-date {
+          display: none !important;
+        }
       }
     }
 
-    @media screen and (width >= $breakpoint-large) {
-      &.p-content-card--6-cols {
-        height: 11.984375rem; /* 191.75px */
-        width: var(--size-width-grid-col-6, 57.25rem); /* 916px */
+    /* 4 and 6 Column Horizontal Cards (Medium/Large Screens) */
+    @include mq-min($breakpoint-small) {
+      &.p-content-card--cols-4,
+      &.p-content-card--cols-6 {
+        align-items: flex-start;
+        align-self: stretch;
+
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: $sp-medium;
+        height: $card-height-horizontal;
+
+        max-width: 100%;
+        min-height: $card-height-horizontal;
+        padding: $sp-medium $sp-medium 0;
+      }
+
+      &.p-content-card--cols-4:not(.has-image),
+      &.p-content-card--cols-6:not(.has-image) {
+        height: $card-height-default;
+        min-height: $card-height-default;
+      }
+
+      &.p-content-card--cols-4:not(.has-image) .p-rule--muted,
+      &.p-content-card--cols-6:not(.has-image) .p-rule--muted {
+        margin-left: -$sp-medium;
+        margin-right: -$sp-medium;
+        max-width: none;
+        width: calc(100% + (#{$sp-medium} * 2));
+      }
+    }
+
+    @include mq-min($breakpoint-large) {
+      &.p-content-card--cols-6 {
+        height: $card-height-horizontal-large;
+        max-width: 100%;
+        min-height: $card-height-horizontal-large;
       }
     }
 
@@ -138,6 +236,11 @@
       outline: none !important;
       overflow: hidden;
       text-decoration: none !important;
+
+      .p-content-card--cols-6 & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+      }
 
       &:hover,
       &:focus,
@@ -174,9 +277,15 @@
       text-wrap: wrap;
       width: 100%;
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
-          margin-top: -0.45rem !important;
+      .p-content-card--cols-6 & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        max-height: 3em;
+      }
+
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
+          margin-top: $card-nudge-negative !important;
         }
       }
     }
@@ -198,16 +307,11 @@
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
       overflow: hidden;
-      padding: 0 $sp-medium; /* 16px */
+      padding: 0 $sp-medium;
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
-          padding: 0;
-        }
-      }
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        .p-content-card--2-cols & {
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
           padding: 0;
         }
       }
@@ -241,30 +345,37 @@
       margin: 0;
       overflow: hidden;
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
-          margin-top: -0.45rem !important;
+      .p-content-card--cols-6 & {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+      }
+
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
+          margin-top: $card-nudge-negative !important;
         }
       }
+    }
+
+    &__footer-container {
+      /* Structural grouping element.
+        Because the parent (.p-content-card__content) uses flexbox space-between, 
+        this wrapper prevents the <hr> from floating awkwardly in the middle of the card.
+      */
     }
 
     &__footer-outer {
       align-items: center;
       align-self: stretch;
       display: flex;
-      height: 2.25rem; /* Fixed height: 36px */
+      height: $card-footer-outer-height;
       overflow: hidden;
       padding: 0 $sp-medium var(--spacing-vertical-small, $sp-small) $sp-medium;
       position: relative;
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
-          padding: 0 0 var(--spacing-vertical-small, $sp-small) 0;
-        }
-      }
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        .p-content-card--2-cols & {
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
           padding: 0 0 var(--spacing-vertical-small, $sp-small) 0;
         }
       }
@@ -273,8 +384,8 @@
     &__footer-inner {
       align-items: center;
       display: flex;
-      gap: $sp-small; /* 8px */
-      height: 1.75rem; /* 28px */
+      gap: $sp-small;
+      height: $card-footer-inner-height;
       mask-image: linear-gradient(to right, black 85%, transparent 100%);
       -ms-overflow-style: none;
       overflow-x: auto;
@@ -294,14 +405,14 @@
       }
 
       .p-chip--information {
-        margin: 0 1.5625rem 0 0; /* 25px -> 1.5625rem */
+        margin: 0 $card-chip-margin-right 0 0;
         vertical-align: baseline;
       }
 
       .u-has-icon {
         align-items: center;
         display: flex;
-        gap: $sp-x-small; /* 4px */
+        gap: $sp-x-small;
 
         .p-content-card__icon[class*='p-icon--'],
         .p-content-card__small {
@@ -318,24 +429,20 @@
       aspect-ratio: 16/9;
       display: block;
       flex-shrink: 0;
-      height: 9.984375rem; /* 159.75px */
+      height: auto;
       object-fit: cover;
+      width: 100%;
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
-          height: 9.703125rem; /* 155.25px */
-        }
-      }
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        .p-content-card--2-cols & {
-          height: 9.703125rem; /* 155.25px */
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
+          height: $card-image-height-horizontal;
         }
       }
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
-          height: 9.984375rem; /* 159.75px */
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
+          height: $card-image-height-horizontal-large;
         }
       }
     }
@@ -344,21 +451,18 @@
       align-items: flex-start;
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-vertical-image-container, 0.625rem); /* 10px -> 0.625rem */
+      gap: var(--spacing-vertical-image-container, $card-fallback-image-gap);
+      max-width: 100%;
       padding-bottom: var(--spacing-vertical-large, $sp-medium);
-      width: 17.75rem; /* 284px */
 
-      @media screen and (width >= $breakpoint-small) {
-        .p-content-card--4-cols &,
-        .p-content-card--6-cols & {
+      width: 100%;
+
+      @include mq-min($breakpoint-small) {
+        .p-content-card--cols-4 &,
+        .p-content-card--cols-6 & {
           align-self: stretch;
           flex: 0 0 auto;
-        }
-      }
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        .p-content-card--2-cols & {
-          align-self: stretch;
-          flex: 0 0 auto;
+          width: $card-image-width;
         }
       }
     }
@@ -367,61 +471,59 @@
       align-items: flex-start;
       align-self: stretch;
       display: flex;
+      padding-bottom: $card-author-padding-bottom;
 
       > :first-child {
         margin-bottom: 0 !important;
       }
 
-      @media screen and ($breakpoint-small <= width < $breakpoint-large) {
-        .p-content-card--2-cols &,
-        .p-content-card--6-cols & {
+      @include mq-between($breakpoint-small, $breakpoint-large) {
+        .p-content-card--cols-6 & {
           display: none;
         }
       }
 
-      @media screen and (width >= $breakpoint-large) {
-        .p-content-card--6-cols & {
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-6 & {
           display: flex;
-          margin-top: -0.45rem;
         }
       }
-    }
-
-    &:not(.has-image) {
-      height: 12.25rem;
     }
 
     &.has-image {
       padding-top: 0;
 
-      @media screen and (width >= $breakpoint-small) {
-        &.p-content-card--4-cols,
-        &.p-content-card--6-cols {
-          padding-top: $sp-medium; /* 16px */
+      @include mq-min($breakpoint-small) {
+        &.p-content-card--cols-4,
+        &.p-content-card--cols-6 {
+          padding-top: $sp-medium;
         }
       }
-    }
-
-    &:has(.p-content-card__main-link:focus-visible) {
-      outline: 3px solid var(--color-focus, #0066cc);
-      outline-offset: 2px;
     }
 
     &:hover,
     &:focus-within {
       border-color: var(--color-border-high-contrast, #707070);
       text-decoration: none;
+    }
 
-      &.has-desc {
-        .p-content-card__primary-content {
-          opacity: 0;
-          transform: translateY(-150px);
-        }
-        .p-content-card__hover-content {
-          opacity: 1;
-          transform: translateY(0);
-        }
+    @include mq-min($breakpoint-large) {
+      &.has-desc:hover .p-content-card__primary-content,
+      &.has-desc:focus-within .p-content-card__primary-content {
+        opacity: 0;
+        transform: translateY(-150px);
       }
+
+      &.has-desc:hover .p-content-card__hover-content,
+      &.has-desc:focus-within .p-content-card__hover-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    &:has(.p-content-card__main-link:focus-visible) {
+      outline: 3px solid var(--color-focus, #0066cc);
+      outline-offset: 2px;
     }
   }
 }

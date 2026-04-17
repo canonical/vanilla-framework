@@ -8,7 +8,7 @@ context:
 
 {{- pattern_wip_notice() }}
 
-The **Card** pattern is a rich, highly structured card variant designed to display heavily contextual items like articles, webinars, announcements, or whitepapers. It supports custom column spans and fluidly adjusts its layout between vertical and horizontal orientations depending on the space available.
+The **Card** pattern is a rich, responsive, highly structured card variant designed to display heavily contextual items like articles, webinars, announcements, or whitepapers. It supports custom column spans and fluidly adjusts its layout between vertical and horizontal orientations depending on the space available.
 
 Responsive by design, the larger horizontal variants are built to adapt to screen real estate: **6-column cards collapse down to 4 columns and eventually 2 columns** on smaller screens, while **4-column cards collapse down to 2 columns**.
 
@@ -72,7 +72,7 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
 
 ### Parameters
 
-> **Important Note:** When defining the `footer.resource_type.icon`, the string must be a valid Vanilla Framework icon name. The macro automatically prepends the prefix, rendering your string as **`p-icon--{name}`**.
+> **Important Note:** The cards must be enclosed within a container that has the 'grid-row' class. Additionally, when defining the `footer.resource_type.icon`, the string must be a valid Vanilla Framework icon name. The macro automatically prepends the prefix, rendering your string as **`p-icon--{name}`**.
 
 <div style="overflow: auto;">
   <table>
