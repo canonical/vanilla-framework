@@ -57,24 +57,27 @@
 // =========================================
 // CONTENT CARD VARIABLES
 // =========================================
-$card-height-vertical: 23.75rem;
-$card-height-default: 12rem;
-$card-height-horizontal: 11.703125rem;
-$card-height-horizontal-large: 11.984375rem;
+$card-height-vertical: 23.75rem; // 380px
+$card-height-default: 12rem; // 192px
 
-$card-image-width: 17.75rem;
-$card-image-height-horizontal: 9.703125rem;
-$card-image-height-horizontal-large: 9.984375rem;
+$card-image-width: 17.75rem; // 284px
+// Horizontal image heights are explicit to preserve the tuned text/image balance at each breakpoint
+$card-image-height-horizontal: 9.703125rem; // 155.25px
+$card-image-height-horizontal-large: 9.984375rem; // 159.75px
 
-$card-footer-outer-height: 2.25rem;
-$card-footer-inner-height: 1.75rem;
+// Horizontal card heights are image height plus vertical spacing budget.
+$card-height-horizontal: $card-image-height-horizontal + $sp-x-large;
+$card-height-horizontal-large: $card-image-height-horizontal-large + $sp-x-large;
 
-$card-nudge-negative: -0.45rem;
-$card-chip-margin-right: 1.5625rem;
-$card-author-padding-bottom: 0.5rem;
+$card-footer-outer-height: $sp-x-large + ($sp-small * 0.5);
+$card-footer-inner-height: $sp-x-large - ($sp-small * 0.5);
 
-$card-fallback-spacing-large: 2rem;
-$card-fallback-image-gap: 0.625rem;
+$card-nudge-negative: map-get($settings-text-h4, nudge);
+$card-chip-margin-right: 1.5625rem; // 25px
+$card-author-padding-bottom: $sp-small;
+
+$card-fallback-spacing-large: $sp-x-large;
+$card-fallback-image-gap: $sp-small + $sp-xx-small;
 
 @mixin mq-min($breakpoint) {
   @media screen and (width >= $breakpoint) {
