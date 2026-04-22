@@ -435,6 +435,16 @@
 
     if (html || css || js) {
       const container = document.createElement('div');
+      container.classList.add('p-code-snippet__header');
+
+      // Inline styling to handle the layout:
+      // flex-start pushes them both to the left side, gap gives them space.
+      container.style.display = 'flex';
+      container.style.justifyContent = 'flex-start';
+      container.style.alignItems = 'center';
+      container.style.gap = '1.5rem';
+
+      // --- 1. Setup CodePen Form (Left side) ---
       const form = document.createElement('form');
       const input = document.createElement('input');
       const link = document.createElement('a');
@@ -450,8 +460,6 @@
       // Replace double quotes to avoid errors on CodePen
       const JSONstring = JSON.stringify(data).replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 
-      container.classList.add('p-code-snippet__header');
-
       form.setAttribute('action', 'https://codepen.io/pen/define');
       form.setAttribute('method', 'POST');
       form.setAttribute('target', '_blank');
@@ -461,12 +469,45 @@
       input.setAttribute('value', JSONstring);
 
       link.innerHTML = 'Edit on CodePen';
-      link.style.cssText = 'display: block; padding: 0.5rem 0;';
+      link.style.cssText = 'display: block; padding: 0.5rem 0; cursor: pointer; margin: 0;';
 
       form.appendChild(input);
       form.appendChild(link);
       container.appendChild(form);
       handleCodePenClick(link, form);
+
+      // --- 2. Setup Copy Link (Right next to CodePen) ---
+      const copyLink = document.createElement('a');
+      copyLink.innerHTML = 'Copy code';
+
+      // Inline styling to match the CodePen link exactly
+      copyLink.style.cssText = 'display: block; padding: 0.5rem 0; cursor: pointer; margin: 0;';
+      copyLink.setAttribute('aria-label', 'Copy code to clipboard');
+      copyLink.setAttribute('title', 'Copy code');
+
+      // Handle the click event to copy the currently visible code
+      copyLink.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent page jumping if href is empty
+        const visibleCode = snippet.querySelector('pre:not(.u-hide) code');
+        if (visibleCode) {
+          navigator.clipboard
+            .writeText(visibleCode.innerText)
+            .then(function () {
+              // Temporarily change text to give user feedback
+              copyLink.innerHTML = 'Copied!';
+              setTimeout(function () {
+                copyLink.innerHTML = 'Copy code';
+              }, 2000);
+            })
+            .catch(function (err) {
+              console.error('Failed to copy text: ', err);
+            });
+        }
+      });
+
+      container.appendChild(copyLink);
+
+      // Append the whole container to the snippet
       snippet.appendChild(container);
     }
   }
@@ -529,8 +570,8 @@
   }
 
   /**
-    Attaches change event listener to a given select.
-    @param {HTMLElement} dropdown Select element belonging to a code snippet.
+   Attaches change event listener to a given select.
+   @param {HTMLElement} dropdown Select element belonging to a code snippet.
   */
   function attachDropdownEvents(dropdown) {
     dropdown.addEventListener('change', function (e) {
