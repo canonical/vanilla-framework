@@ -1,0 +1,22 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
+
+{% block title %}Rich list / Fixture / Auto height{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {{ vf_rich_vertical_list(
+    title={ 'text': 'Auto height fixture' },
+    items=[
+      { 'type': 'description', 'item': { 'content': '<p>Longer description so the content column has meaningful height to drive the image.</p>', 'type': 'html' } }
+    ],
+    media={
+      'type': 'image',
+      'ratio': { 'large': 'auto-height', 'medium_small': '3-2' },
+      'fit': 'cover',
+      'attrs': {
+        'src': 'https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg',
+        'alt': 'Factory floor'
+      }
+    }
+  ) }}
+{% endblock %}
