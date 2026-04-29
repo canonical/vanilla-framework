@@ -1,0 +1,37 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
+
+{% block title %}Rich list / Vertical / With auto-height media{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {{ vf_rich_vertical_list(
+    title={ 'text': 'H2 - this can take up to two lines, but best to stick to one line.' },
+    items=[
+      { 'type': 'description', 'item': {
+          'content': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
+          'type': 'html'
+      } },
+      { 'type': 'list', 'item': {
+          'list_items': [
+            { 'list_item_type': 'tick', 'content': 'No mandatory subscriptions for Ubuntu' },
+            { 'list_item_type': 'tick', 'content': 'Public cloud, data centre, edge cluster and appliances' },
+            { 'list_item_type': 'tick', 'content': 'Long term maintenance commitment' },
+            { 'list_item_type': 'tick', 'content': 'Transparent pricing for enterprise and ISV' }
+          ]
+      } },
+      { 'type': 'cta-block', 'item': {
+          'secondaries': [{ 'content_html': 'Learn more', 'attrs': { 'href': '#' } }],
+          'link': { 'content_html': 'Contact us &rsaquo;', 'attrs': { 'href': '#' } }
+      } }
+    ],
+    media={
+      'type': 'image',
+      'ratio': { 'large': 'auto-height', 'medium_small': '3-2' },
+      'fit': 'cover',
+      'attrs': {
+        'src': 'https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg',
+        'alt': 'Factory floor'
+      }
+    }
+  ) }}
+{% endblock %}
