@@ -61,9 +61,12 @@
 
   {%- macro _rich_list_image(ratio_large, ratio_medium_small, fit, attrs) %}
     {%- set is_cover = (fit == 'cover') -%}
-    {%- set classes = 'p-image-container--' ~ ratio_large ~ '-on-large' -%}
-    {%- set classes = classes ~ ' p-image-container--' ~ ratio_medium_small ~ '-on-medium' -%}
-    {%- set classes = classes ~ ' p-image-container--' ~ ratio_medium_small ~ '-on-small' -%}
+    {#- The image-container CSS uses 'square' for the 1:1 ratio class, not '1-1'. -#}
+    {%- set ratio_large_class = 'square' if ratio_large == '1-1' else ratio_large -%}
+    {%- set ratio_medium_small_class = 'square' if ratio_medium_small == '1-1' else ratio_medium_small -%}
+    {%- set classes = 'p-image-container--' ~ ratio_large_class ~ '-on-large' -%}
+    {%- set classes = classes ~ ' p-image-container--' ~ ratio_medium_small_class ~ '-on-medium' -%}
+    {%- set classes = classes ~ ' p-image-container--' ~ ratio_medium_small_class ~ '-on-small' -%}
     {%- if is_cover -%}{%- set classes = classes ~ ' is-cover' -%}{%- endif -%}
     <div class="{{ classes }}">
       <img class="p-image-container__image{%- if 'class' in attrs %} {{ attrs['class'] }}{%- endif %}"
