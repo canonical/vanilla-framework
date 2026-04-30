@@ -10,14 +10,14 @@ context:
 
 The rich vertical list is a two-column pattern that pairs structured content (title, descriptions, lists, logos, CTAs) with a single media element (image or video) on the opposite column. By default, content is on the left and media is on the right; this can be swapped with `is_flipped`.
 
-Internally, the content column uses [content blocks](/docs/patterns/basic-section#content-blocks) from the [Basic section pattern](/docs/patterns/basic-section), so the configuration for `items` is identical to basic section's. The distinguishing feature is the dedicated media column with per-breakpoint aspect-ratio configuration and an optional auto-height mode.
+Internally, the content column uses [content blocks](/docs/patterns/basic-section#content-blocks) from the [Basic section pattern](/docs/patterns/basic-section), with the per-type configuration for supported `items` following the basic section format. The distinguishing feature is the dedicated media column with per-breakpoint aspect-ratio configuration and an optional auto-height mode.
 
 The rich vertical list pattern is composed of the following elements:
 
 | Element              | Description                                                                          |
 | -------------------- | ------------------------------------------------------------------------------------ |
 | Title (**required**) | `<h2>` heading, optionally wrapped in a link                                         |
-| Items                | Array of [basic section content blocks](/docs/patterns/basic-section#content-blocks) |
+| Items                | Array of supported content blocks: text (description), list, code block, logo block, CTA block |
 | Media (**required**) | A single image or video, configured via the `media` parameter                        |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list-vertical/ticked" class="js-example" data-lang="jinja">
@@ -103,7 +103,15 @@ Supported variants:
 
 ## Items
 
-The `items` array follows the [basic section content blocks](/docs/patterns/basic-section#content-blocks) model. See the basic section docs for the full list of supported types (`description`, `image`, `video`, `list`, `code-block`, `logo-block`, `linked-logo-block`, `cta-block`, `notification`) and their per-type configurations.
+The `items` array reuses the [basic section content blocks](/docs/patterns/basic-section#content-blocks) model, but the rich vertical list pattern only supports a curated subset of types. Entries with any other type are silently dropped.
+
+Supported types and their per-type configurations:
+
+- **Text** — `type: 'description'`. See [Description block](/docs/patterns/basic-section#description).
+- **List** — `type: 'list'`. See [List block](/docs/patterns/basic-section#list).
+- **Code block** — `type: 'code-block'`. See [Code block](/docs/patterns/basic-section#code).
+- **Logo block** — `type: 'logo-block'`. See [Logo block](/docs/patterns/basic-section#logo-block).
+- **CTA block** — `type: 'cta-block'`. See [CTA block](/docs/patterns/basic-section#cta).
 
 ## Jinja Macro
 
@@ -188,7 +196,7 @@ The `vf_rich_vertical_list` Jinja macro can be used to generate a rich vertical 
           <code>[]</code>
         </td>
         <td>
-          Array of <a href="/docs/patterns/basic-section#content-blocks">basic section content blocks</a> rendered in order in the content column.
+          Array of content blocks rendered in order in the content column. Supported types: <code>description</code>, <code>list</code>, <code>code-block</code>, <code>logo-block</code>, <code>cta-block</code>. See <a href="#items">Items</a> for per-type configurations. Entries with any other type are silently dropped.
         </td>
       </tr>
       <tr>

@@ -4,8 +4,8 @@
 # Params
 # title (dict) (required): {text, link_attrs?} — rendered via basic_section_title (always renders <h2>).
 # items (array) (optional): Array of {type, item} dicts rendered via vf_basic_section_blocks.
-#   Supports all basic_section_item types: description, image, video, list, code-block,
-#   logo-block, linked-logo-block, cta-block, notification.
+#   Supported types: description, list, code-block, logo-block, cta-block.
+#   Entries with any other type are silently dropped.
 # media (dict) (required): Media column config. Keys:
 #   - type (string): "image" | "video". Defaults to "image".
 #   - ratio.large (string): "16-9" | "3-2" | "1-1" | "2-3" | "auto-height". Defaults to "3-2".
@@ -54,6 +54,10 @@
 
   {%- set media_attrs = media.get('attrs', {}) -%}
   {%- set is_auto_height = (media_ratio_large == 'auto-height') -%}
+
+  {#- Constrain items to the curated allow-list. Disallowed types are silently dropped. -#}
+  {%- set allowed_item_types = ['description', 'list', 'code-block', 'logo-block', 'cta-block'] -%}
+  {%- set filtered_items = items | selectattr('type', 'in', allowed_item_types) | list -%}
 
   {%- macro _rich_list_image(ratio_large, ratio_medium_small, fit, attrs) %}
     {%- set is_cover = (fit == 'cover') -%}
@@ -109,11 +113,11 @@
   <div class="grid-row--50-50-on-large">
     {{ vf_section_top_rule(top_rule_variant) }}
     {%- if not is_flipped -%}
-      <div class="grid-col">{{ _content_column_contents(title, items) }}</div>
+      <div class="grid-col">{{ _content_column_contents(title, filtered_items) }}</div>
       <div class="grid-col">{{ _media_column_contents(media_type, media_ratio_large, media_ratio_medium_small, media_fit, media_attrs, is_auto_height) }}</div>
     {%- else -%}
       <div class="grid-col">{{ _media_column_contents(media_type, media_ratio_large, media_ratio_medium_small, media_fit, media_attrs, is_auto_height) }}</div>
-      <div class="grid-col">{{ _content_column_contents(title, items) }}</div>
+      <div class="grid-col">{{ _content_column_contents(title, filtered_items) }}</div>
     {%- endif -%}
   </div>
 </section>
