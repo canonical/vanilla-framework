@@ -14,11 +14,11 @@ Internally, the content column uses [content blocks](/docs/patterns/basic-sectio
 
 The rich vertical list pattern is composed of the following elements:
 
-| Element              | Description                                                                          |
-| -------------------- | ------------------------------------------------------------------------------------ |
-| Title (**required**) | `<h2>` heading, optionally wrapped in a link                                         |
+| Element              | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| Title (**required**) | `<h2>` heading, optionally wrapped in a link                                                   |
 | Items                | Array of supported content blocks: text (description), list, code block, logo block, CTA block |
-| Media (**required**) | A single image or video, configured via the `media` parameter                        |
+| Media (**required**) | A single image or video, configured via the `media` parameter                                  |
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list-vertical/ticked" class="js-example" data-lang="jinja">
 View example of the rich vertical list pattern
@@ -62,9 +62,14 @@ View example of the rich vertical list pattern with different aspect ratios
 
 ### Auto-height
 
-Setting `media.ratio.large` to `"auto-height"` makes the media column stretch to match the content column's rendered height on large screens, clamped between a 16:9 minimum and a 2.2:3 maximum of the column's width. Useful when the content varies in length and a fixed aspect ratio leaves awkward whitespace.
+Setting `media.ratio.large` to `"auto-height"` makes the media column stretch to match the content column's rendered height on large screens, clamped between a 16:9 minimum and a 2:3 maximum of the column's width. Useful when the content varies in length and a fixed aspect ratio leaves awkward whitespace.
 
 `auto-height` is only valid at the large breakpoint. On medium and small screens the columns stack, so `media.ratio.medium_small` falls back to a fixed ratio.
+
+Auto-height should be used sparingly to maintain visual consistency across the page:
+
+- Avoid using auto-height in consecutive sections.
+- Use for standalone sections or extended visual content, such as infographics.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/rich-list-vertical/with-auto-height" class="js-example" data-lang="jinja">
 View example of the rich vertical list pattern with auto-height media
