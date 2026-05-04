@@ -41,6 +41,11 @@ $aspect-ratios: (
   'square': 1,
 );
 
+// Auto-height clamp bounds, expressed as a percentage of the container's width.
+// Upper bound matches the 2:3 (portrait) ratio; lower bound matches 16:9.
+$image-container-auto-height-max: math.div(1, map-get($aspect-ratios, '2-3')) * 100cqw;
+$image-container-auto-height-min: math.div(1, map-get($aspect-ratios, '16-9')) * 100cqw;
+
 @mixin apply-aspect-ratio-styles($padding-value) {
   &::before {
     content: '';
@@ -64,8 +69,8 @@ $aspect-ratios: (
 @mixin apply-auto-height-styles {
   container-type: inline-size;
   height: 100%;
-  max-height: 150cqw; // 3/2 × column width — never taller than 2:3
-  min-height: 56.25cqw; // 9/16 × column width — never shorter than 16:9
+  max-height: $image-container-auto-height-max;
+  min-height: $image-container-auto-height-min;
 
   .p-image-container__image {
     height: 100%;
