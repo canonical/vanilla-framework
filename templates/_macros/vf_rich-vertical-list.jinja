@@ -1,127 +1,127 @@
+{% from "_macros/vf_basic-section.jinja" import basic_section_title, vf_basic_section_blocks %}
+{% from "_macros/shared/vf_section_top_rule.jinja" import vf_section_top_rule %}
+
 # Params
-# title_text (string) (required): Title of the rich vertical list
-# list_item_tick_style (string) (optional): Type of list item tick styling. Options are "bullet", "tick", "number".
-# is_flipped (boolean) (optional): Whether the list items are flipped so image is on the left and the text is on the right. Defaults to false.
-# Slots
-# description: Paragraph-style description content
-# logo_section Logo section block
-# list_item_[1-7]: List item content, assumed to be li.p-list__item
-# image (required)
+# title (dict) (required): {text, link_attrs?} — rendered via basic_section_title (always renders <h2>).
+# items (array) (optional): Array of {type, item} dicts rendered via vf_basic_section_blocks.
+#   Supported types: description, list, code-block, logo-block, cta-block.
+#   Entries with any other type are silently dropped.
+# media (dict) (required): Media column config. Keys:
+#   - type (string): "image" | "video". Defaults to "image".
+#   - ratio.large (string): "16-9" | "3-2" | "1-1" | "2-3" | "auto-height". Defaults to "3-2".
+#   - ratio.medium_small (string): "16-9" | "3-2" | "1-1". Defaults to "3-2".
+#   - fit (string): "cover" | "contain". Defaults to "cover".
+#   - attrs (dict): Passthrough HTML attributes for the <img> or <iframe>.
+# is_flipped (bool) (optional): Swap content and media columns. Defaults to false.
+# padding (string) (optional): "deep" | "shallow" | "default". Defaults to "default".
+# top_rule_variant (string) (optional): "default" | "muted". Defaults to "default".
+# attrs (dict) (optional): HTML attrs for the <section>.
 {% macro vf_rich_vertical_list(
-  title_text,
-  list_item_tick_style="",
-  is_flipped=false
+  title={},
+  items=[],
+  media={},
+  is_flipped=false,
+  padding="default",
+  top_rule_variant="default",
+  attrs={}
 ) -%}
-  {% set description_content = caller('description') %}
-  {% set has_description = description_content|trim|length > 0 %}
-  {% set logo_section_content = caller('logo_section') %}
-  {% set has_logo_section = logo_section_content|trim|length > 0 %}
-  {% set cta_content = caller('cta') %}
-  {% set has_cta = cta_content|trim|length > 0 %}
-  {% set has_list = caller('list_item_1')|trim|length > 0 %}
-  {% set image_content = caller('image') %}
-  {% set max_list_items = 7 %}
+  {#- Normalise & validate padding -#}
+  {%- set padding = padding | string | trim | lower -%}
+  {%- if padding not in ['deep', 'shallow', 'default'] -%}{%- set padding = 'default' -%}{%- endif -%}
+  {%- set padding_classes = 'p-section--' ~ padding -%}
+  {%- if padding == 'default' -%}{%- set padding_classes = 'p-section' -%}{%- endif -%}
 
-  {% set list_item_tick_style=list_item_tick_style|trim|lower %}
-  {% if list_item_tick_style|length > 0 and list_item_tick_style not in ['bullet', 'tick', 'number'] %}
-    {% set list_item_tick_style = '' %}
-  {% endif %}
+  {#- Normalise & validate top_rule_variant -#}
+  {%- set top_rule_variant = top_rule_variant | string | trim | lower -%}
+  {%- if top_rule_variant not in ['default', 'muted'] -%}{%- set top_rule_variant = 'default' -%}{%- endif -%}
 
-  {% if list_item_tick_style == "bullet" %}
-    {% set list_item_tick_class = "has-bullet" %}
-  {% elif list_item_tick_style == "tick" %}
-    {% set list_item_tick_class = "is-ticked" %}
-  {% endif %}
+  {#- Normalise & validate media config -#}
+  {%- set media_type = (media.get('type', 'image') | string | trim | lower) -%}
+  {%- if media_type not in ['image', 'video'] -%}{%- set media_type = 'image' -%}{%- endif -%}
 
-  {% set list_element_type = "ul" %}
-  {% if list_item_tick_style == "number" %}
-    {% set list_element_type = "ol" %}
-  {% endif %}
+  {%- set media_ratio = media.get('ratio', {}) -%}
+  {%- set media_ratio_large = (media_ratio.get('large', '3-2') | string | trim | lower) -%}
+  {%- set valid_large_ratios = ['16-9', '3-2', '1-1', '2-3', 'auto-height'] -%}
+  {%- if media_ratio_large not in valid_large_ratios -%}{%- set media_ratio_large = '3-2' -%}{%- endif -%}
 
-  {#-
-    Construct list of list items using caller in the top-level macro
-    The _text_column_contents macro will not have access to the caller block, so we need to extract the list items here.
-  -#}
-  {% set list_items = [] %}
-  {% if has_list %}
-    {% for list_item_index in range(1, max_list_items + 1) %}
-      {% set list_item_content = caller('list_item_' + list_item_index|string) %}
-      {% set has_list_item_content = list_item_content|trim|length > 0 %}
-      {% if has_list_item_content %}
-        {{ list_items.append(list_item_content) or ""}}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
+  {%- set media_ratio_medium_small = (media_ratio.get('medium_small', '3-2') | string | trim | lower) -%}
+  {#- 'auto-height' is intentionally excluded — it requires side-by-side columns, but medium/small layouts stack -#}
+  {%- set valid_medium_small_ratios = ['16-9', '3-2', '1-1'] -%}
+  {%- if media_ratio_medium_small not in valid_medium_small_ratios -%}{%- set media_ratio_medium_small = '3-2' -%}{%- endif -%}
 
-  {%- macro _text_column_contents(list_items) %}
-    {#- Mandatory title -#}
-    <div class="p-section--shallow">
-      <h2>{{ title_text }}</h2>
-    </div>
+  {%- set media_fit = (media.get('fit', 'cover') | string | trim | lower) -%}
+  {%- if media_fit not in ['cover', 'contain'] -%}{%- set media_fit = 'cover' -%}{%- endif -%}
 
-    {%- if has_logo_section %}
-      {#- Optional logo section -#}
-      <div class="p-section--shallow">
-        <div class="u-fixed-width">
-        {{- logo_section_content -}}
-        </div>
-      </div>
-    {%- endif -%}
+  {%- set media_attrs = media.get('attrs', {}) -%}
+  {%- set is_auto_height = (media_ratio_large == 'auto-height') -%}
 
-    {%- if has_description %}
-      {#- Optional description -#}
-      <div class="p-section--shallow">
-        {{- description_content -}}
-      </div>
-    {%- endif -%}
+  {#- Constrain items to the curated allow-list. Disallowed types are silently dropped. -#}
+  {%- set allowed_item_types = ['description', 'list', 'code-block', 'logo-block', 'cta-block'] -%}
+  {%- set filtered_items = items | selectattr('type', 'in', allowed_item_types) | list -%}
 
-    {%- if list_items|length > 0 %}
-      {#- Optional list -#}
-      <{{ list_element_type }} class="p-list--divided">
-       {% for list_item in list_items %}
-         <li class="p-list__item {{ list_item_tick_class }}">
-           {{- list_item -}}
-         </li>
-        {% endfor %}
-      </{{ list_element_type }}>
-    {%- endif -%}
-
-    {%- if has_cta %}
-      {#- Optional CTA block -#}
-      <div class="p-cta-block">
-        {{- cta_content -}}
-      </div>
-    {%- endif -%}
-
-  {%- endmacro -%}
-
-  {%- macro _image_column_contents() %}
-    {#- Mandatory image -#}
-    <div class="p-section--shallow">
-      {{- image_content -}}
+  {%- macro _rich_list_image(ratio_large, ratio_medium_small, fit, attrs) %}
+    {%- set is_cover = (fit == 'cover') -%}
+    {#- The image-container CSS uses 'square' for the 1:1 ratio class, not '1-1'. -#}
+    {%- set ratio_large_class = 'square' if ratio_large == '1-1' else ratio_large -%}
+    {%- set ratio_medium_small_class = 'square' if ratio_medium_small == '1-1' else ratio_medium_small -%}
+    {%- set classes = 'p-image-container--' ~ ratio_large_class ~ '-on-large' -%}
+    {%- set classes = classes ~ ' p-image-container--' ~ ratio_medium_small_class ~ '-on-medium' -%}
+    {%- set classes = classes ~ ' p-image-container--' ~ ratio_medium_small_class ~ '-on-small' -%}
+    {%- if is_cover -%}{%- set classes = classes ~ ' is-cover' -%}{%- endif -%}
+    <div class="{{ classes }}">
+      <img class="p-image-container__image{%- if 'class' in attrs %} {{ attrs['class'] }}{%- endif %}"
+        {%- for attr, value in attrs.items() -%}
+          {%- if attr != 'class' %} {{ attr }}="{{ value }}"{%- endif -%}
+        {%- endfor -%}
+      />
     </div>
   {%- endmacro -%}
 
-  <div class="p-section">
-    <div class="grid-row--50-50-on-large">
-      <hr>
-      {% if not is_flipped -%}
-        <div class="grid-col">
-          {{- _text_column_contents(list_items) -}}
-        </div>
-        <div class="grid-col">
-          {{- _image_column_contents() -}}
-        </div>
+  {%- macro _rich_list_video(attrs) %}
+    <div class="u-embedded-media">
+      <iframe class="u-embedded-media__element{%- if 'class' in attrs %} {{ attrs['class'] }}{%- endif %}"
+        {%- for attr, value in attrs.items() -%}
+          {%- if attr != 'class' %} {{ attr }}="{{ value }}"{%- endif -%}
+        {%- endfor -%}
+      ></iframe>
+    </div>
+  {%- endmacro -%}
+
+  {%- macro _media_column_contents(
+    media_type, media_ratio_large, media_ratio_medium_small, media_fit, media_attrs, is_auto_height
+  ) -%}
+    {%- if is_auto_height -%}
+      <div>
+    {%- else -%}
+      <div class="p-section--shallow">
+    {%- endif -%}
+      {%- if media_type == 'video' -%}
+        {{ _rich_list_video(media_attrs) }}
       {%- else -%}
-        {#- For flipped layout, place the image contents in the first column and the text in the second column -#}
-        <div class="grid-col">
-          {{- _image_column_contents() -}}
-        </div>
-        <div class="grid-col">
-          {{- _text_column_contents(list_items) -}}
-        </div>
+        {{ _rich_list_image(media_ratio_large, media_ratio_medium_small, media_fit, media_attrs) }}
       {%- endif -%}
     </div>
-  </div>
+  {%- endmacro -%}
 
+  {%- macro _content_column_contents(title, items) -%}
+    {{ basic_section_title(title) }}
+    {{ vf_basic_section_blocks(items=items) }}
+  {%- endmacro -%}
+
+<section class="{{ padding_classes }}{%- if 'class' in attrs %} {{ attrs['class'] }}{%- endif -%}"
+  {%- for attr, value in attrs.items() -%}
+    {%- if attr != 'class' %} {{ attr }}="{{ value }}"{%- endif -%}
+  {%- endfor -%}
+>
+  <div class="grid-row--50-50-on-large">
+    {{ vf_section_top_rule(top_rule_variant) }}
+    {%- if not is_flipped -%}
+      <div class="grid-col">{{ _content_column_contents(title, filtered_items) }}</div>
+      <div class="grid-col">{{ _media_column_contents(media_type, media_ratio_large, media_ratio_medium_small, media_fit, media_attrs, is_auto_height) }}</div>
+    {%- else -%}
+      <div class="grid-col">{{ _media_column_contents(media_type, media_ratio_large, media_ratio_medium_small, media_fit, media_attrs, is_auto_height) }}</div>
+      <div class="grid-col">{{ _content_column_contents(title, filtered_items) }}</div>
+    {%- endif -%}
+  </div>
+</section>
 {%- endmacro %}
