@@ -18,6 +18,10 @@
         Wraps contents in a container with an aspect ratio of 2.4:1.
       .p-image-container--square:
         Wraps contents in a container with an aspect ratio of 1:1.
+      .p-image-container--auto-height:
+        Stretches the container to the height of an adjacent grid column, clamped between a 16:9 minimum and a 2:3 maximum of the column width using CSS container queries.
+      .p-image-container--auto-height-on-(small|medium|large):
+        Auto-height variant applied only at the specified breakpoint.
       .p-image-container--(16-9|3-2|2-3|cinematic|square)-on-(small|medium|large):
         Wraps contents in a container with the specified aspect ratio on the specified breakpoint.
     Image:
@@ -36,6 +40,11 @@ $aspect-ratios: (
   'cinematic': 2.4,
   'square': 1,
 );
+
+// Auto-height clamp bounds, expressed as a percentage of the container's width.
+// Upper bound matches the 2:3 (portrait) ratio; lower bound matches 16:9.
+$image-container-auto-height-max: math.div(1, map-get($aspect-ratios, '2-3')) * 100cqw;
+$image-container-auto-height-min: math.div(1, map-get($aspect-ratios, '16-9')) * 100cqw;
 
 @mixin apply-aspect-ratio-styles($padding-value) {
   &::before {
@@ -57,12 +66,29 @@ $aspect-ratios: (
   }
 }
 
+@mixin apply-auto-height-styles {
+  container-type: inline-size;
+  height: 100%;
+  max-height: $image-container-auto-height-max;
+  min-height: $image-container-auto-height-min;
+
+  .p-image-container__image {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
 @mixin aspect-ratio-classes {
   @each $aspect-ratio, $aspect-ratio-value in $aspect-ratios {
     $padding-percentage: math.div(1, $aspect-ratio-value) * 100%;
     .p-image-container--#{$aspect-ratio} {
       @include apply-aspect-ratio-styles($padding-percentage);
     }
+  }
+
+  .p-image-container--auto-height {
+    @include apply-auto-height-styles;
   }
 
   // Responsive aspect ratios
@@ -78,6 +104,9 @@ $aspect-ratios: (
             @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
+        .p-image-container--auto-height-on-#{$breakpoint-name} {
+          @include apply-auto-height-styles;
+        }
       }
     } @else if $min-width {
       @media (width >= $min-width) {
@@ -87,6 +116,9 @@ $aspect-ratios: (
             @include apply-aspect-ratio-styles($padding-percentage);
           }
         }
+        .p-image-container--auto-height-on-#{$breakpoint-name} {
+          @include apply-auto-height-styles;
+        }
       }
     } @else if $max-width {
       @media (width < $max-width) {
@@ -95,6 +127,9 @@ $aspect-ratios: (
           .p-image-container--#{$aspect-ratio}-on-#{$breakpoint-name} {
             @include apply-aspect-ratio-styles($padding-percentage);
           }
+        }
+        .p-image-container--auto-height-on-#{$breakpoint-name} {
+          @include apply-auto-height-styles;
         }
       }
     }

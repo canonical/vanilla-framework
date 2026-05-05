@@ -1,0 +1,35 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
+
+{% block title %}Rich list / Vertical / With video{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  {{ vf_rich_vertical_list(
+    title={ 'text': 'H2 - this can take up to two lines, but best to stick to one line.' },
+    items=[
+      { 'type': 'description', 'item': {
+          'content': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
+          'type': 'html'
+      } },
+      { 'type': 'list', 'item': {
+          'list_items': [
+            { 'list_item_type': 'tick', 'content': 'Watch the latest demo' },
+            { 'list_item_type': 'tick', 'content': 'See it in action' },
+            { 'list_item_type': 'tick', 'content': 'Try it yourself' }
+          ]
+      } },
+      { 'type': 'cta-block', 'item': {
+          'secondaries': [{ 'content_html': 'Learn more', 'attrs': { 'href': '#' } }],
+          'link': { 'content_html': 'Contact us &rsaquo;', 'attrs': { 'href': '#' } }
+      } }
+    ],
+    media={
+      'type': 'video',
+      'attrs': {
+        'src': 'https://www.youtube.com/embed/lPaUMpAampI',
+        'title': 'YouTube video player',
+        'allowfullscreen': ''
+      }
+    }
+  ) }}
+{% endblock %}

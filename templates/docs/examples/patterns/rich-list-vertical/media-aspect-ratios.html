@@ -1,0 +1,86 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_rich-vertical-list.jinja" import vf_rich_vertical_list %}
+
+{% block title %}Rich list / Vertical / Media aspect ratios{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+  <h3 class="p-muted-heading">16:9</h3>
+  {{ vf_rich_vertical_list(
+    title={ 'text': '16:9 — wide landscape ratio' },
+    items=[
+      { 'type': 'description', 'item': {
+          'content': '<p>Useful for cinematic or video-style imagery. Pairs well with shorter content columns.</p>',
+          'type': 'html'
+      } }
+    ],
+    media={
+      'type': 'image',
+      'ratio': { 'large': '16-9', 'medium_small': '16-9' },
+      'fit': 'cover',
+      'attrs': {
+        'src': 'https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg',
+        'alt': 'Factory floor'
+      }
+    }
+  ) }}
+
+  <h3 class="p-muted-heading">3:2</h3>
+  {{ vf_rich_vertical_list(
+    title={ 'text': '3:2 — classic landscape ratio' },
+    items=[
+      { 'type': 'description', 'item': {
+          'content': '<p>A versatile landscape ratio. This is the default for the pattern at all breakpoints.</p>',
+          'type': 'html'
+      } }
+    ],
+    media={
+      'type': 'image',
+      'ratio': { 'large': '3-2', 'medium_small': '3-2' },
+      'fit': 'cover',
+      'attrs': {
+        'src': 'https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg',
+        'alt': 'Factory floor'
+      }
+    }
+  ) }}
+
+  <h3 class="p-muted-heading">1:1</h3>
+  {{ vf_rich_vertical_list(
+    title={ 'text': '1:1 — square ratio' },
+    items=[
+      { 'type': 'description', 'item': {
+          'content': '<p>Balanced and neutral. Useful for product shots or decorative visuals.</p>',
+          'type': 'html'
+      } }
+    ],
+    media={
+      'type': 'image',
+      'ratio': { 'large': '1-1', 'medium_small': '1-1' },
+      'fit': 'cover',
+      'attrs': {
+        'src': 'https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg',
+        'alt': 'Factory floor'
+      }
+    }
+  ) }}
+
+  <h3 class="p-muted-heading">2:3</h3>
+  {{ vf_rich_vertical_list(
+    title={ 'text': '2:3 — portrait ratio' },
+    items=[
+      { 'type': 'description', 'item': {
+          'content': '<p>Tall and narrow. Pairs well with longer content columns and is the recommended default for hero-style sections.</p>',
+          'type': 'html'
+      } }
+    ],
+    media={
+      'type': 'image',
+      'ratio': { 'large': '2-3', 'medium_small': '3-2' },
+      'fit': 'cover',
+      'attrs': {
+        'src': 'https://assets.ubuntu.com/v1/e0ddbf8d-factory_floor_tall.jpeg',
+        'alt': 'Factory floor'
+      }
+    }
+  ) }}
+{% endblock %}
