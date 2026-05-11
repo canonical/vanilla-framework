@@ -125,6 +125,10 @@ Each article can specify its own cover image. If no image is provided, a [fallba
 View example of the blog pattern with custom image
 </a></div>
 
+## Article Block
+
+Each blog unit (cover image, title, description, and citation metadata) is built using the <a href="https://github.com/canonical/vanilla-framework/blob/main/templates/_macros/shared/vf_article_block.jinja">article block</a>. This allows it to be easily looped over and reused in different contexts.
+
 ## Jinja Macro
 
 The `vf_blog` Jinja macro can be used to generate a blog pattern. The API for the macro is shown below.
@@ -430,7 +434,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>citation</code>
+          <code>metadata</code>
         </td>
         <td>
           No
@@ -439,12 +443,12 @@ Each article in the `articles` array accepts the following configuration:
           <code>object</code>
         </td>
         <td>
-          Citation configuration for the article
+          Citation metadata configuration for the article
         </td>
       </tr>
       <tr>
         <td>
-          <code>citation.authors</code>
+          <code>metadata.authors</code>
         </td>
         <td>
           No
@@ -458,7 +462,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>citation.authors[].text</code>
+          <code>metadata.authors[].text</code>
         </td>
         <td>
           Yes
@@ -472,7 +476,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>citation.authors[].link_attrs</code>
+          <code>metadata.authors[].link_attrs</code>
         </td>
         <td>
           No
@@ -486,7 +490,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>citation.date</code>
+          <code>metadata.date</code>
         </td>
         <td>
           No
@@ -500,7 +504,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>citation.date.text</code>
+          <code>metadata.date.text</code>
         </td>
         <td>
           Yes
@@ -514,7 +518,7 @@ Each article in the `articles` array accepts the following configuration:
       </tr>
       <tr>
         <td>
-          <code>citation.date.attrs</code>
+          <code>metadata.date.attrs</code>
         </td>
         <td>
           No
