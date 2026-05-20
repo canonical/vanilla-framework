@@ -97,6 +97,10 @@ You can pass also multiple, comma separated authors
 View example of the resources pattern with multiple authors
 </a></div>
 
+## Article Block
+
+Each resource unit (cover image/logo, title, description, and citation metadata) is built using the <a href="https://github.com/canonical/vanilla-framework/blob/main/templates/_macros/shared/vf_article_block.jinja">article block</a>. This allows it to be easily looped over and reused in different contexts.
+
 ## Jinja Macro
 
 The `vf_resources` Jinja macro can be used to generate a resources pattern. The API for the macro is shown below.
@@ -470,7 +474,7 @@ The Resources block allows you to specify categories and resource items to appea
       </tr>
       <tr>
         <td>
-          <code>categories[].items[].citation</code>
+          <code>categories[].items[].metadata</code>
         </td>
         <td>
           No
@@ -479,12 +483,12 @@ The Resources block allows you to specify categories and resource items to appea
           <code>object</code>
         </td>
         <td>
-          Citation configuration for the article
+          Citation metadata configuration for the article
         </td>
       </tr>
       <tr>
         <td>
-          <code>categories[].items[].citation.authors</code>
+          <code>categories[].items[].metadata.authors</code>
         </td>
         <td>
           No
@@ -498,7 +502,7 @@ The Resources block allows you to specify categories and resource items to appea
       </tr>
       <tr>
         <td>
-          <code>categories[].items[].citation.authors[].text</code>
+          <code>categories[].items[].metadata.authors[].text</code>
         </td>
         <td>
           Yes
@@ -512,7 +516,7 @@ The Resources block allows you to specify categories and resource items to appea
       </tr>
       <tr>
         <td>
-          <code>categories[].items[].citation.authors[].link</code>
+          <code>categories[].items[].metadata.authors[].link</code>
         </td>
         <td>
           No
@@ -526,7 +530,7 @@ The Resources block allows you to specify categories and resource items to appea
       </tr>
       <tr>
         <td>
-          <code>categories[].items[].citation.date</code>
+          <code>categories[].items[].metadata.date</code>
         </td>
         <td>
           No
@@ -540,7 +544,7 @@ The Resources block allows you to specify categories and resource items to appea
       </tr>
       <tr>
         <td>
-          <code>categories[].items[].citation.date.text</code>
+          <code>categories[].items[].metadata.date.text</code>
         </td>
         <td>
           Yes
@@ -554,7 +558,7 @@ The Resources block allows you to specify categories and resource items to appea
       </tr>
       <tr>
         <td>
-          <code>categories[].items[].citation.date.attrs</code>
+          <code>categories[].items[].metadata.date.attrs</code>
         </td>
         <td>
           No
