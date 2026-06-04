@@ -1,0 +1,29 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_card.jinja" import vf_card %}
+
+{% block title %}Card / 8-column{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+<div class="grid-row">
+  {{ vf_card(
+    columns="8",
+    link="https://www.ubuntu.com",
+    heading="From Jammy to Resolute: how Ubuntu's toolchains have evolved",
+    image={
+      "src": "https://assets.ubuntu.com/v1/010995f2-an_canonical_announces_ubuntu_pro_for_wsl_dark.png",
+      "alt": "Ubuntu Pro WSL Dark"
+    },
+    author="Canonical",
+    date="10 July 2025",
+    description="Ahead of the Ubuntu 26.04 LTS release, we explore the role of integrated toolchains across the most recent releases and what that means for developers building on Ubuntu.",
+    footer={
+      "resource_type": {
+        "icon": "topic",
+        "text": "Blog"
+      },
+      "content_type": "Developers and community"
+    }
+  ) }}
+</div>
+{% endblock %}
