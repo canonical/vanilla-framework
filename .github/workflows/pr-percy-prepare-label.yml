@@ -13,7 +13,14 @@ on:
 jobs:
   copy_artifact:
     name: Copy changed files to GHA artifact
-    if: "(github.event.action == 'synchronize' && contains(toJson(github.event.pull_request.labels.*.name), 'Review: Percy needed')) || (github.event.action == 'labeled' && github.event.label.name == 'Review: Percy needed')"
+    # Never run on PRs marked "Blocked ⛔" (matched as a substring), even if the Percy label is present.
+    # This stops abandoned/blocked PRs (e.g. a stale renovate PR that keeps rebasing) from burning full Percy builds.
+    if: >-
+      !contains(toJson(github.event.pull_request.labels.*.name), 'Blocked')
+      && (
+        (github.event.action == 'synchronize' && contains(toJson(github.event.pull_request.labels.*.name), 'Review: Percy needed'))
+        || (github.event.action == 'labeled' && github.event.label.name == 'Review: Percy needed')
+      )
     uses: ./.github/workflows/percy-prepare.yml
     with:
       pr_number: ${{ github.event.number }}
