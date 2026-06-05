@@ -15,7 +15,7 @@
       "&.has-image":
         State class applied to the parent when the card includes an image.
       "&.has-desc":
-        State class applied to the parent when the card includes a description that appears on hover.
+        State class applied to the parent when the card includes a description. For col-2/4/6 the description slides up on hover; for col-8 it is always visible below the heading.
     Links:
       .p-content-card__overlay-link:
         Invisible absolute link spanning the entire card to make it clickable.
@@ -363,6 +363,10 @@ $card-height-8col: 22rem;
 
       @include mq-min($breakpoint-large) {
         .p-content-card--cols-8 & {
+          align-self: stretch;
+          display: flex;
+          flex-direction: column;
+          min-height: 0;
           padding: $sp-medium $sp-medium 0 $sp-medium;
         }
       }
@@ -386,6 +390,15 @@ $card-height-8col: 22rem;
     &__hover-content {
       opacity: 0;
       transform: translateY(150px);
+
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-8 & {
+          flex: 1;
+          min-height: 0;
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     }
 
     &__description {
@@ -603,14 +616,14 @@ $card-height-8col: 22rem;
     }
 
     @include mq-min($breakpoint-large) {
-      &.has-desc:hover .p-content-card__primary-content,
-      &.has-desc:focus-within .p-content-card__primary-content {
+      &.has-desc:not(.p-content-card--cols-8):hover .p-content-card__primary-content,
+      &.has-desc:not(.p-content-card--cols-8):focus-within .p-content-card__primary-content {
         opacity: 0;
         transform: translateY(-150px);
       }
 
-      &.has-desc:hover .p-content-card__hover-content,
-      &.has-desc:focus-within .p-content-card__hover-content {
+      &.has-desc:not(.p-content-card--cols-8):hover .p-content-card__hover-content,
+      &.has-desc:not(.p-content-card--cols-8):focus-within .p-content-card__hover-content {
         opacity: 1;
         transform: translateY(0);
       }

@@ -7,7 +7,7 @@
   author: Optional string for the author's name. Hidden if no image is provided. Hidden below breakpoint-large for col-8.
   date: Optional string for the publication date. Hidden if no image is provided. Hidden below breakpoint-large for col-8.
   footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
-  description: Optional text that slides up on hover, truncating at 4 lines (3 lines for col-8).
+  description: Optional text. For col-2/4/6 slides up on hover (4 lines; 2 for col-6). For col-8 always visible below the heading (3 lines).
 
   Variants:
   col-2: 2-column width card layout (Vertical)
@@ -49,7 +49,7 @@
         <div class="p-content-card__body">
 
             <div class="p-content-card__primary-content">
-                <h4 class="p-heading--2 p-content-card__heading">
+                <h4 class="p-heading--1 p-content-card__heading">
                     {%- if link -%}
                         <a href="{{ link }}" class="p-content-card__main-link">{{ heading }}</a>
                     {%- else -%}
