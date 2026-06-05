@@ -103,6 +103,16 @@ View example of the tiered list pattern
 View example of the tiered list pattern
 </a></div>
 
+## Top rule variant
+
+By default the pattern renders a standard horizontal rule at its top. Use the
+`top_rule_variant` parameter to render a `muted` or `highlighted` rule, or
+`none` to remove it.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/muted-top-rule/" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
 ## Jinja Macro
 
 The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. The API for the macro is shown below.
@@ -173,6 +183,27 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
         </td>
         <td>
           Padding variant for the section
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>top_rule_variant</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of:<br>
+          <code>'default'</code>,<br>
+          <code>'muted'</code>,<br>
+          <code>'highlighted'</code>,<br>
+          <code>'none'</code>
+        </td>
+        <td>
+          <code>'default'</code>
+        </td>
+        <td>
+          Variant of the horizontal rule rendered at the top of the pattern
         </td>
       </tr>
     </tbody>
