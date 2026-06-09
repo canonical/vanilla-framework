@@ -242,16 +242,8 @@ $card-height-8col: 22rem;
       &.p-content-card--cols-8.has-image {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr auto;
         min-height: $card-height-8col;
         padding: 0;
-      }
-    }
-
-    /* 8-Column: Restore top padding on mobile even when has-image */
-    @include mq-max($breakpoint-large) {
-      &.p-content-card--cols-8.has-image {
-        padding-top: var(--spacing-vertical-large, $sp-medium);
       }
     }
 
@@ -281,6 +273,13 @@ $card-height-8col: 22rem;
         line-clamp: 3;
       }
 
+      @include mq-between($breakpoint-small, $breakpoint-large) {
+        .p-content-card--cols-8 & {
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+        }
+      }
+
       &:hover,
       &:focus,
       &:active,
@@ -307,7 +306,6 @@ $card-height-8col: 22rem;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       line-clamp: 3;
-      line-height: 1.5;
       margin-top: 0 !important;
       max-height: 4.5em;
       max-width: none;
@@ -333,6 +331,14 @@ $card-height-8col: 22rem;
           margin-top: $card-nudge-negative !important;
         }
       }
+
+      @include mq-between($breakpoint-small, $breakpoint-large) {
+        .p-content-card--cols-8 & {
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          max-height: 3em;
+        }
+      }
     }
 
     &__content {
@@ -343,6 +349,12 @@ $card-height-8col: 22rem;
       justify-content: space-between;
       min-width: 0;
       width: 100%;
+
+      @include mq-min($breakpoint-large) {
+        .p-content-card--cols-8 & {
+          grid-column: 1;
+        }
+      }
     }
 
     &__body {
@@ -361,12 +373,16 @@ $card-height-8col: 22rem;
         }
       }
 
+      .p-content-card--cols-8 & {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        padding: 0 $sp-medium;
+      }
+
       @include mq-min($breakpoint-large) {
         .p-content-card--cols-8 & {
           align-self: stretch;
-          display: flex;
-          flex-direction: column;
-          min-height: 0;
           padding: $sp-medium $sp-medium 0 $sp-medium;
         }
       }
@@ -391,13 +407,11 @@ $card-height-8col: 22rem;
       opacity: 0;
       transform: translateY(150px);
 
-      @include mq-min($breakpoint-large) {
-        .p-content-card--cols-8 & {
-          flex: 1;
-          min-height: 0;
-          opacity: 1;
-          transform: translateY(0);
-        }
+      .p-content-card--cols-8 & {
+        flex: 1;
+        min-height: 0;
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -419,6 +433,14 @@ $card-height-8col: 22rem;
         line-clamp: 3;
       }
 
+      @include mq-max($breakpoint-large) {
+        .p-content-card--cols-8 & {
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          margin-bottom: 1rem;
+        }
+      }
+
       @include mq-min($breakpoint-large) {
         .p-content-card--cols-6 & {
           margin-top: $card-nudge-negative !important;
@@ -434,13 +456,6 @@ $card-height-8col: 22rem;
 
       .p-content-card--cols-8 & {
         width: 100%;
-      }
-
-      @include mq-min($breakpoint-large) {
-        .p-content-card--cols-8 & {
-          grid-column: 1;
-          grid-row: 2;
-        }
       }
     }
 
@@ -588,12 +603,6 @@ $card-height-8col: 22rem;
       @include mq-min($breakpoint-large) {
         .p-content-card--cols-6 & {
           display: flex;
-        }
-      }
-
-      @include mq-max($breakpoint-large) {
-        .p-content-card--cols-8 & {
-          display: none;
         }
       }
     }

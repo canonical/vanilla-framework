@@ -4,10 +4,10 @@
   heading: H4 title text. Truncated at 3 lines. Required.
   link: Link to referenced item. Makes the entire card clickable. Required.
   image: Dictionary containing 'src' and 'alt' for the 16:9 image. Required for col-6 and col-8.
-  author: Optional string for the author's name. Hidden if no image is provided. Hidden below breakpoint-large for col-8.
-  date: Optional string for the publication date. Hidden if no image is provided. Hidden below breakpoint-large for col-8.
+  author: Optional string for the author's name. Hidden if no image is provided.
+  date: Optional string for the publication date. Hidden if no image is provided.
   footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
-  description: Optional text. For col-2/4/6 slides up on hover (4 lines; 2 for col-6). For col-8 always visible below the heading (3 lines).
+  description: Optional text. For col-2/4/6 slides up on hover (4 lines; 2 for col-6). For col-8 always visible below the heading (3 lines desktop/tablet, 2 lines mobile).
 
   Variants:
   col-2: 2-column width card layout (Vertical)
@@ -19,8 +19,8 @@
   col-6: 6-column width card layout (Horizontal)
     Params: columns (6), heading (req), link (req), image (req), author (opt), date (opt), footer (opt), description (opt)
 
-  col-8: 8-column (full-width) card layout (50/50 horizontal on desktop, vertical stack on mobile)
-    Heading uses h4 with p-heading--2 styling. Image appears on the right on desktop, between heading and footer on mobile.
+  col-8: 8-column (full-width) card layout (50/50 horizontal on desktop, vertical stack on mobile/tablet)
+    Heading uses h4 with p-heading--1 styling. Image appears on the right on desktop, above heading on mobile/tablet.
     Params: columns (8), heading (req), link (req), image (req), author (opt), date (opt), footer (opt), description (opt)
 #}
 
@@ -30,83 +30,6 @@
 {%- set layout = 'p-content-card--cols-' ~ col_str -%}
 {%- set img_class = 'has-image' if image else '' -%}
 {%- set has_desc = 'has-desc' if description else '' -%}
-
-{%- if col_str == "8" -%}
-
-{#
-  8-column: body → image → footer are siblings (not wrapped in __content).
-  This DOM order gives the correct vertical stack on mobile (heading first,
-  image second, footer third) while CSS grid positions them 50/50 on desktop.
-#}
-<div class="p-content-card-wrapper p-content-card-wrapper--{{ col_str }}">
-
-    <div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}">
-
-        {%- if link -%}
-            <a href="{{ link }}" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
-        {%- endif -%}
-
-        <div class="p-content-card__body">
-
-            <div class="p-content-card__primary-content">
-                <h4 class="p-heading--1 p-content-card__heading">
-                    {%- if link -%}
-                        <a href="{{ link }}" class="p-content-card__main-link">{{ heading }}</a>
-                    {%- else -%}
-                        {{ heading }}
-                    {%- endif -%}
-                </h4>
-
-                {%- if image and (author or date) -%}
-                <div class="p-content-card__author-and-date u-sv-3">
-                    <small>
-                        {%- set items = [] -%}
-                        {%- if author -%}{%- set _ = items.append('<span class="u-text--muted">' ~ author ~ '</span>') -%}{%- endif -%}
-                        {%- if date -%}{%- set _ = items.append('<span class="u-text--muted">' ~ date ~ '</span>') -%}{%- endif -%}
-                        {{ items | join('&nbsp;&middot;&nbsp;') | safe }}
-                    </small>
-                </div>
-                {%- endif -%}
-            </div>
-
-            {%- if description -%}
-            <div class="p-content-card__hover-content">
-                <p class="p-content-card__description">{{ description }}</p>
-            </div>
-            {%- endif -%}
-
-        </div>
-
-        {%- if image -%}
-        <div class="p-content-card__image-wrapper">
-            <img class="p-content-card__image" src="{{ image.src }}" alt="{{ image.alt }}" />
-        </div>
-        {%- endif -%}
-
-        {%- if footer -%}
-        <div class="p-content-card__footer-container">
-            <hr class="p-rule--muted">
-            <div class="p-content-card__footer-outer">
-                <div class="p-content-card__footer-inner" tabindex="-1">
-                    {%- if footer.resource_type -%}
-                        <span class="u-has-icon">
-                            <i class="p-content-card__icon p-icon--{{ footer.resource_type.icon }}"></i>
-                            <small class="p-content-card__small">{{ footer.resource_type.text }}</small>
-                        </span>
-                    {%- endif -%}
-
-                    {%- if footer.content_type %}
-                        <span class="p-chip--information is-readonly">{{ footer.content_type }}</span>
-                    {%- endif -%}
-                </div>
-            </div>
-        </div>
-        {%- endif -%}
-
-    </div>
-</div>
-
-{%- else -%}
 
 <div class="p-content-card-wrapper p-content-card-wrapper--{{ col_str }}">
 
@@ -126,7 +49,7 @@
             <div class="p-content-card__body">
 
                 <div class="p-content-card__primary-content">
-                    <h4 class="p-content-card__heading">
+                    <h4 class="{{ 'p-heading--1 ' if col_str == '8' else '' }}p-content-card__heading">
                         {%- if link -%}
                             <a href="{{ link }}" class="p-content-card__main-link">{{ heading }}</a>
                         {%- else -%}
@@ -177,5 +100,4 @@
     </div>
 </div>
 
-{%- endif -%}
 {%- endmacro -%}
