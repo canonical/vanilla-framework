@@ -203,7 +203,7 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
           <code>'default'</code>
         </td>
         <td>
-          Variant of the horizontal rule rendered at the top of the pattern
+          Variant of the <a href="/docs/patterns/rule">horizontal rule</a> rendered at the top of the pattern
         </td>
       </tr>
     </tbody>
