@@ -30,6 +30,7 @@
 {%- set layout = 'p-content-card--cols-' ~ col_str -%}
 {%- set img_class = 'has-image' if image else '' -%}
 {%- set has_desc = 'has-desc' if description else '' -%}
+{%- set heading_extra_class = 'p-heading--1 ' if col_str == '8' else '' -%}
 
 <div class="p-content-card-wrapper p-content-card-wrapper--{{ col_str }}">
 
@@ -49,7 +50,7 @@
             <div class="p-content-card__body">
 
                 <div class="p-content-card__primary-content">
-                    <h4 class="{{ 'p-heading--1 ' if col_str == '8' else '' }}p-content-card__heading">
+                    <h4 class="{{ heading_extra_class }}p-content-card__heading">
                         {%- if link -%}
                             <a href="{{ link }}" class="p-content-card__main-link">{{ heading }}</a>
                         {%- else -%}

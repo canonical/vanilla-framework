@@ -10,7 +10,7 @@ context:
 
 The **Card** pattern is a rich, responsive, highly structured card variant designed to display heavily contextual items like articles, webinars, announcements, or whitepapers. It supports custom column spans and fluidly adjusts its layout between vertical and horizontal orientations depending on the space available.
 
-Responsive by design, the larger horizontal variants are built to adapt to screen real estate: **6-column cards collapse down to 4 columns and eventually 2 columns** on smaller screens, while **4-column cards collapse down to 2 columns**.
+Responsive by design, the larger horizontal variants are built to adapt to screen real estate: **6-column cards collapse down to 4 columns and eventually 2 columns** on smaller screens, while **4-column cards collapse down to 2 columns**. The **8-column card** spans the full grid width with a 50/50 desktop split and collapses to a vertical stack on smaller screens.
 
 The Card pattern is composed of the following elements:
 
