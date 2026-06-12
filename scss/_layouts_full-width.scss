@@ -19,16 +19,15 @@
     }
 
     .l-full-width__sidebar {
-      background: $colors--theme--background-alt;
+      // height of top navigation, as padding applied to .p-navigation__link + line-heigh of the anchor text inside
+      $navigation-top-height: $spv--large * 2 + map-get($settings-text-default, line-height);
 
+      background: $colors--theme--background-alt;
       height: calc(100% - $navigation-top-height); // height of document reduced by height of top nav
       min-height: calc(100dvh - $navigation-top-height);
       position: absolute;
       width: $l-full-screen-aside-width;
       z-index: 1;
-
-      // height of top navigation, as padding applied to .p-navigation__link + line-heigh of the anchor text inside
-      $navigation-top-height: $spv--large * 2 + map-get($settings-text-default, line-height);
 
       &::after {
         background: linear-gradient(90deg, transparent, rgba($color-x-dark, 0.05));
