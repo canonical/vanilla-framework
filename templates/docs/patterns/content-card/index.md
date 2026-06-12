@@ -10,7 +10,7 @@ context:
 
 The **Card** pattern is a rich, responsive, highly structured card variant designed to display heavily contextual items like articles, webinars, announcements, or whitepapers. It supports custom column spans and fluidly adjusts its layout between vertical and horizontal orientations depending on the space available.
 
-Responsive by design, the larger horizontal variants are built to adapt to screen real estate: **6-column cards collapse down to 4 columns and eventually 2 columns** on smaller screens, while **4-column cards collapse down to 2 columns**.
+Responsive by design, the larger horizontal variants are built to adapt to screen real estate: **6-column cards collapse down to 4 columns and eventually 2 columns** on smaller screens, while **4-column cards collapse down to 2 columns**. The **8-column card** spans the full grid width with a 50/50 desktop split and collapses to a vertical stack on smaller screens.
 
 The Card pattern is composed of the following elements:
 
@@ -64,6 +64,14 @@ The 6-column layout is an expansive horizontal format suited for highly featured
 View example of the 6-column horizontal card
 </a></div>
 
+## 8-Column Card
+
+The 8-column layout spans the full grid width and uses a 50/50 split on desktop: the heading, author, and footer occupy the left half while the image fills the right half. On smaller screens the layout collapses to a vertical stack with the heading at the top, the image in the middle, and the footer at the bottom. An image is required for this variant. The heading is rendered as `h4` with `p-heading--2` styling for increased visual prominence. _Note: author and date are hidden below the large breakpoint (1036px)._
+
+<div class="embedded-example"><a href="/docs/examples/patterns/content-card/8-column" class="js-example" data-lang="jinja">
+View example of the 8-column full-width card
+</a></div>
+
 ---
 
 ## Jinja Macro
@@ -91,7 +99,7 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
         <td>No</td>
         <td><code>string</code></td>
         <td><code>"2"</code></td>
-        <td>Grid column span for the card. Options are <code>2</code>, <code>4</code>, or <code>6</code>.</td>
+        <td>Grid column span for the card. Options are <code>2</code>, <code>4</code>, <code>6</code>, or <code>8</code>.</td>
       </tr>
       <tr>
         <td><code>link</code></td>
@@ -112,7 +120,7 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
         <td>No*</td>
         <td><code>Object</code></td>
         <td><code>None</code></td>
-        <td>Dictionary containing <code>src</code> and <code>alt</code> for the 16:9 image. <em>*Required for the 6-column variant.</em></td>
+        <td>Dictionary containing <code>src</code> and <code>alt</code> for the 16:9 image. <em>*Required for the 6-column and 8-column variants.</em></td>
       </tr>
       <tr>
         <td><code>author</code></td>

@@ -262,6 +262,9 @@ $list-step-bullet-margin: $sph--x-large;
 
       display: grid;
 
+      // --columns is set in the container queries above
+      grid-template-columns: repeat(var(--columns), 1fr);
+
       @container (width >= #{$horizontal-list-section-medium-content-width}) {
         grid-gap: 0 map-get($grid-gutter-widths, default);
       }
@@ -281,9 +284,6 @@ $list-step-bullet-margin: $sph--x-large;
           @include list-horizontal-section-row-width($columns: 4);
         }
       }
-
-      // --columns is set in the container queries above
-      grid-template-columns: repeat(var(--columns), 1fr);
 
       .p-list__item {
         @extend %vf-list-item;
