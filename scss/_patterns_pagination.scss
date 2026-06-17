@@ -29,15 +29,16 @@
   .p-pagination__item {
     width: auto;
 
-    & + & {
-      &:not(:nth-child(2)):not(:nth-last-child(1)) {
-        margin-left: $sph--small;
-      }
+    &:first-child {
+      margin-right: $sph--small;
+    }
 
-      &:nth-child(2),
-      &:nth-last-child(1) {
-        margin-left: $sph--large;
-      }
+    &:not(:first-child):not(:last-child) {
+      margin-left: $sph--small;
+    }
+
+    &:last-child {
+      margin-left: $sph--large;
     }
 
     &--truncation {
