@@ -66,6 +66,15 @@
     {%- if has_two_top_cols -%}
       </div>
     {%- endif -%}
+    {%- if has_cta -%}
+      <div class="grid-row">
+        <div class="grid-col-4 grid-col-medium-2 grid-col-start-large-5">
+          <p>
+            {{- cta_content -}}
+          </p>
+        </div>
+      </div>
+    {%- endif -%}
     </div>
 
     <div class="grid-row">
@@ -80,15 +89,5 @@
         ) }}
       </div>
     </div>
-    {%- if has_cta -%}
-      <div class="grid-row">
-        <hr class="p-rule--muted">
-        <div class="grid-col-4 grid-col-medium-2 grid-col-start-large-5 grid-col-start-medium-3">
-          <p>
-            {{- cta_content -}}
-          </p>
-        </div>
-      </div>
-    {%- endif -%}
   </div>
 {%- endmacro -%}
