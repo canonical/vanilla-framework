@@ -1,12 +1,16 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
 
-{% block title %}Tiered list / 50/50 on desktop with media in list items{% endblock %}
+{% block title %}Tiered list / 50/50 on desktop with media hidden on small and medium breakpoints{% endblock %}
 
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
-{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=false) -%}
+{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true, media_placement="before_description", img_attrs={
+  "width": "2384",
+  "height": "1257",
+  "src": "https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg"
+}, is_media_full_width=true, hide_small=true, hide_medium=true) -%}
   {%- if slot == 'title' -%}
     <h2>H2 - up to two lines; ideally one.</h2>
   {%- endif -%}
@@ -26,9 +30,6 @@
     <p>Resell the full range of Canonical’s portfolio of private and public
     cloud products: OpenStack, Kubernetes, IoT, support, security and
     compliance for Ubuntu.</p>
-    <div class="p-image-container p-section--shallow">
-      <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="Data centre" width="2384" height="1257">
-    </div>
   {%- endif -%}
 
   {%- if slot == 'list_item_title_2' -%}
@@ -39,9 +40,6 @@
     <p>Canonical can help train your field sales and presales teams and
     provide you with sales collateral and permission to use the Canonical
     and Ubuntu trademarks in your own materials.</p>
-    <div class="u-embedded-media"> 
-      <iframe title="Title of the media object" class="u-embedded-media__element" src="https://www.youtube.com/embed/TShKZLeZzWE" allowfullscreen></iframe>
-    </div>
   {%- endif -%}
 
   {%- if slot == 'list_item_title_3' -%}
@@ -51,12 +49,40 @@
   {%- if slot == 'list_item_description_3' -%}
     <p>We host a partner portal with product and solutions collaterals, agreed
     pricing, incentives and a deal registration system.</p>
-    <div class="p-cta-block">
-      <a href="#" class="p-cta-block__link">Learn more about the partner portal&nbsp;&rsaquo;</a>
-    </div>
-    <div class="p-image-container p-section--shallow">
-      <img class="p-image-container__image" src="https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg" alt="Data centre" width="2384" height="1257">
-    </div>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_4' -%}
+    <h3 class="p-heading--5">Training and certification</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_4' -%}
+    <p>Gain access to technology that is the foundation for digital
+    transformation and expand your business through marketing support and
+    alignment with a trusted brand</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_5' -%}
+    <h3 class="p-heading--5">Technical enablement</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_5' -%}
+    <p>We provide in-depth technical training for your customer engineering
+    teams with access to technical resources for your labs and customer
+    engagements.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_6' -%}
+    <h3 class="p-heading--5">Go to market with Canonical</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_6' -%}
+    <p>Working with our dedicated partner team, get new joint marketing
+    opportunities and lead generation.</p>
+  {%- endif -%}
+
+  {%- if slot == 'cta' -%}
+    <a href="#" class="p-button">Learn more</a>
+    <a href="#">Contact us &rsaquo;</a>
   {%- endif -%}
 {%- endcall -%}
 {% endblock %}
