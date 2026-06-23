@@ -48,7 +48,17 @@ The 4-column layout results in a horizontal card with the image on the left and 
 View example of the 4-column horizontal card
 </a></div>
 
+### 4-Column Card with Multiple Chips
+
+The `content_type` footer field accepts either a single string or a list of strings. When a list is provided, each item is rendered as a separate read-only chip in the footer.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column-multiple-chips" class="js-example" data-lang="jinja">
+View example of the 4-column card with multiple chips
+</a></div>
+
 ### 4-Column Card with Image Top
+
+The `stacked_image` modifier forces the image above the content on all breakpoints, overriding the default horizontal layout where the image sits to the left of the content.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column-image-top" class="js-example" data-lang="jinja">
 View example of the 4-column card with image top
@@ -147,7 +157,7 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
         <td>No</td>
         <td><code>Object</code></td>
         <td><code>None</code></td>
-        <td>Dictionary containing <code>resource_type</code> (with <code>icon</code> and <code>text</code>) and <code>content_type</code> (read-only chip).</td>
+        <td>Dictionary containing <code>resource_type</code> (with <code>icon</code> and <code>text</code>) and <code>content_type</code> (read-only chip, or list of chips).</td>
       </tr>
       <tr>
         <td><code>stacked_image</code></td>
