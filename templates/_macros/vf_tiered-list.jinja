@@ -63,10 +63,11 @@
   {% endif %}
 
   {% macro _wrapped_media() %}
+    {%- set section_classes = ("p-section--shallow" if (media_placement == "before_description") or (media_placement == "after_description" and not is_media_full_width)) -%}
     {%- set hide_classes = (" u-hide--medium" if hide_medium else "") + (" u-hide--small" if hide_small else "") -%}
     {%- if has_media -%}
       {%- if has_video -%}
-        <div class="p-section--shallow{{ hide_classes }}">
+        <div class="{{ section_classes }}{{ hide_classes }}">
           {#- u-embedded-media applies 16:9 aspect ratio via padding. -#}
           <div class="u-embedded-media u-no-margin--bottom"> 
             <iframe class="u-embedded-media__element {{ video_attrs['class'] }}"
@@ -79,7 +80,7 @@
           </div>
         </div>
       {%- elif has_image -%}
-        <div class="p-section--shallow{{ hide_classes }}">
+        <div class="{{ section_classes }}{{ hide_classes }}">
           <div class="p-image-container--{{ media_aspect_ratio }} is-cover">
             <img
               {#- Forward classes from the img_attrs. This is optional, on a per-pattern basis. #}
