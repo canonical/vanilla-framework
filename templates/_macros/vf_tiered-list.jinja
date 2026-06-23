@@ -11,6 +11,8 @@
 # img_attrs: attributes for the image element, e.g. src, alt, class
 # video_attrs: attributes for the video element, e.g. src, class
 # media_aspect_ratio: aspect ratio of the media. Options are "3-2" or "16-9". Default is "3-2". If is_media_full_width is true, this will be set to "cinematic". Only applies to images, not videos. Videos always have a 16:9 aspect ratio.
+# hide_medium: whether to hide media on medium screens. Default is false.
+# hide_small: whether to hide media on small screens. Default is false.
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -27,7 +29,9 @@
   media_placement="after_description",
   img_attrs={},
   video_attrs={},
-  media_aspect_ratio="3-2"
+  media_aspect_ratio="3-2",
+  hide_medium=false,
+  hide_small=false
   ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
@@ -59,9 +63,10 @@
   {% endif %}
 
   {% macro _wrapped_media() %}
+    {%- set hide_classes = (" u-hide--medium" if hide_medium else "") + (" u-hide--small" if hide_small else "") -%}
     {%- if has_media -%}
       {%- if has_video -%}
-        <div class="p-section--shallow">
+        <div class="p-section--shallow{{ hide_classes }}">
           {#- u-embedded-media applies 16:9 aspect ratio via padding. -#}
           <div class="u-embedded-media u-no-margin--bottom"> 
             <iframe class="u-embedded-media__element {{ video_attrs['class'] }}"
@@ -74,7 +79,7 @@
           </div>
         </div>
       {%- elif has_image -%}
-        <div class="p-section--shallow">
+        <div class="p-section--shallow{{ hide_classes }}">
           <div class="p-image-container--{{ media_aspect_ratio }} is-cover">
             <img
               {#- Forward classes from the img_attrs. This is optional, on a per-pattern basis. #}

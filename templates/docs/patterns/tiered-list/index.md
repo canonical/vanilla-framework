@@ -381,6 +381,40 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
           Aspect ratio to apply to media. Only applies to images, and is set to `cinematic` when `is_media_full_width` is true. Videos have `16-9` ratio always.
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>hide_medium</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>'false'</code>
+        </td>
+        <td>
+          Whether to hide media on medium screens
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>hide_small</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>'false'</code>
+        </td>
+        <td>
+          Whether to hide media on small screens
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
