@@ -24,17 +24,18 @@
     Params: columns (8), heading (req), link (req), image (req), author (opt), date (opt), footer (opt), description (opt)
 #}
 
-{%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None) -%}
+{%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None, stacked_image=False) -%}
 
 {%- set col_str = columns | string -%}
 {%- set layout = 'p-content-card--cols-' ~ col_str -%}
 {%- set img_class = 'has-image' if image else '' -%}
 {%- set has_desc = 'has-desc' if description else '' -%}
 {%- set heading_extra_class = 'p-heading--1 ' if col_str == '8' else '' -%}
+{%- set stacked_image_class = 'p-content-card--image-top' if stacked_image else '' -%}
 
 <div class="p-content-card-wrapper p-content-card-wrapper--{{ col_str }}">
 
-    <div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }}">
+    <div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }} {{ stacked_image_class }}">
 
         {%- if link -%}
             <a href="{{ link }}" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>

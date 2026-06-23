@@ -48,6 +48,12 @@ The 4-column layout results in a horizontal card with the image on the left and 
 View example of the 4-column horizontal card
 </a></div>
 
+### 4-Column Card with Image Top
+
+<div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column-image-top" class="js-example" data-lang="jinja">
+View example of the 4-column card with image top
+</a></div>
+
 ### 4-Column Card Without Image
 
 Removing the image from the 4-column variant creates a clean, wide-format text block, perfect for lists of text-heavy resources.
@@ -142,6 +148,13 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
         <td><code>Object</code></td>
         <td><code>None</code></td>
         <td>Dictionary containing <code>resource_type</code> (with <code>icon</code> and <code>text</code>) and <code>content_type</code> (read-only chip).</td>
+      </tr>
+      <tr>
+        <td><code>stacked_image</code></td>
+        <td>No</td>
+        <td><code>boolean</code></td>
+        <td><code>False</code></td>
+        <td>When <code>True</code>, forces the image to appear above the content on all breakpoints, overriding the default horizontal and grid layouts for 4-column, 6-column, and 8-column variants.</td>
       </tr>
     </tbody>
   </table>
