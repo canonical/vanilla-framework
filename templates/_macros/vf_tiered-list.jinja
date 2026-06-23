@@ -10,6 +10,7 @@
 # media_placement: where the image is placed relative to the description. Options are "after_description" or "before_description".
 # img_attrs: attributes for the image element, e.g. src, alt, class
 # video_attrs: attributes for the video element, e.g. src, class
+# media_aspect_ratio: aspect ratio of the media. Options are "3-2" or "16-9". Default is "3-2". If is_media_full_width is true, this will be set to "cinematic". Only applies to images, not videos. Videos always have a 16:9 aspect ratio.
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -25,7 +26,9 @@
   is_media_full_width=false,
   media_placement="after_description",
   img_attrs={},
-  video_attrs={}) -%}
+  video_attrs={},
+  media_aspect_ratio="3-2"
+  ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
@@ -48,9 +51,11 @@
     {% set media_placement = "after_description" %}
   {% endif %}
 
-  {% set image_aspect_ratio = "16-9" %}
+  {% if media_aspect_ratio not in ["3-2", "16-9"] %}
+    {% set media_aspect_ratio = "3-2" %}
+  {% endif %}
   {% if is_media_full_width %}
-    {% set image_aspect_ratio = "cinematic" %}
+    {% set media_aspect_ratio = "cinematic" %}
   {% endif %}
 
   {% macro _wrapped_media() %}
@@ -70,7 +75,7 @@
         </div>
       {%- elif has_image -%}
         <div class="p-section--shallow">
-          <div class="p-image-container--{{ image_aspect_ratio }} is-cover">
+          <div class="p-image-container--{{ media_aspect_ratio }} is-cover">
             <img
               {#- Forward classes from the img_attrs. This is optional, on a per-pattern basis. #}
               class="p-image-container__image {{ img_attrs['class'] }}"
@@ -151,9 +156,7 @@
         {% if has_cta == true -%}
           <div class="grid-row">
             <div class="grid-col-4 grid-col-start-large-5">
-              <p>
-                {{ cta_content }}
-              </p>
+              {{ cta_content }}
             </div>
           </div>
         {%- endif %}

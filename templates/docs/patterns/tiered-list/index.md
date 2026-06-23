@@ -144,11 +144,7 @@ When using the default width image, the image will use half of the page width on
 We recommend following these guidelines when using the default width image:
 
 - Use an image with a width sufficient to fill the page width on all screens.
-- Use an image with an aspect ratio of approximately 16:9 to avoid using too much vertical space.
-  - The Jinja macro will wrap your image in
-    a [16:9 image container](/docs/patterns/images#image-container-with-aspect-ratio) and make your
-    image [fill its contents](/docs/patterns/images#cover-image). Use an image with approximately a 16:9 aspect ratio,
-    otherwise some of your image contents may be cropped at some screen sizes.
+- By default, the images have `3-2` aspect ratio. You can also set it to `16-9` by using `media_aspect_ratio` attribute.
 
 The following example demonstrates a good usage of the default width image variant:
 
@@ -164,11 +160,7 @@ When using the full width image, the image will use the full width of the page o
 We recommend following these guidelines when using the full width image:
 
 - Use an image with a width sufficient to fill the page width on all screens.
-- Use an image with an aspect ratio of approximately 2.4:1 to avoid using too much vertical space.
-  - The Jinja macro will wrap your image in
-    a [2.4:1 ("cinematic") image container](/docs/patterns/images#image-container-with-aspect-ratio) and make your
-    image [fill its contents](/docs/patterns/images#cover-image). Use an image with approximately a 2.4:1 aspect
-    ratio, otherwise some of your image contents may be cropped at some screen sizes.
+- `cinematic` aspect ratio will be automatically applied.
 
 The following example demonstrates a good usage of the full width image variant:
 
@@ -369,6 +361,23 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
           If the media is a full-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">cinematic (2.4:1 aspect ratio) image container</a> will wrap your image.<br/>
           If the media is a default-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">16:9 image container</a> will wrap your image.<br/>
           If you use the <code>video</code> slot, this parameter will affect the positioning of the video, but will not change its aspect ratio. Videos are always 16:9.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>media_aspect_ratio</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of <code>'3-2'</code> or <code>'16-9'</code>
+        </td>
+        <td>
+          <code>'3-2'</code>
+        </td>
+        <td>
+          Aspect ratio to apply to media. Only applies to images, and is set to `cinematic` when `is_media_full_width` is true. Videos have `16-9` ratio always.
         </td>
       </tr>
     </tbody>
