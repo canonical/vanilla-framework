@@ -49,7 +49,7 @@
   {% endif %}
 
   {% set image_aspect_ratio = "16-9" %}
-  {% if is_media_full_width and not is_video %}
+  {% if is_media_full_width %}
     {% set image_aspect_ratio = "cinematic" %}
   {% endif %}
 
@@ -96,6 +96,18 @@
     {%- endif -%}
   {% endmacro %}
 
+  {% macro _description_with_media() %}
+    {#- Non-full-width media before description -#}
+    {%- if has_media and media_placement == "before_description" and not is_media_full_width -%}
+      {{- _wrapped_media() -}}
+    {%- endif -%}
+    {{ description_content }}
+    {#- Non-full-width media after description -#}
+    {%- if has_media and media_placement == "after_description" and not is_media_full_width -%}
+      {{- _wrapped_media() -}}
+    {%- endif -%}
+  {% endmacro %}
+
   {%- if title_content|trim|length == 0 -%}
     {%- set title_content = "<h2>Tiered List</h2>" -%}
   {%- endif -%}
@@ -122,15 +134,7 @@
 
           <div class="grid-row">
             <div class="grid-col-4 grid-col-start-large-5">
-            {#- Non-full-width media before description -#}
-            {% if has_media and media_placement == "before_description" and not is_media_full_width %}
-              {{- _wrapped_media() -}}
-            {% endif %}
-              {{ description_content }}
-            {#- Non-full-width media after description -#}
-            {% if has_media and media_placement == "after_description" and not is_media_full_width %}
-              {{- _wrapped_media() -}}
-            {% endif %}
+              {{- _description_with_media() -}}
             </div>
           </div>
         {%- else -%} {#- (50/50 desktop layout) -#}
@@ -140,15 +144,7 @@
             </div>
 
             <div class="grid-col">
-            {#- Non-full-width media before description -#}
-            {%- if has_media and media_placement == "before_description" and not is_media_full_width -%}
-              {{- _wrapped_media() -}}
-            {%- endif -%}
-              {{ description_content }}
-            {#- Non-full-width media after description -#}
-            {%- if has_media and media_placement == "after_description" and not is_media_full_width -%}
-              {{- _wrapped_media() -}}
-            {%- endif -%}
+              {{- _description_with_media() -}}
             </div>
           </div>
         {%- endif -%}
@@ -197,41 +193,21 @@
         {#- Check to see if title/description content exist, since we're
             iterating through 25 potential list items -#}
         {%- if has_title_content and has_description_content -%}
-          {%- if is_list_full_width_on_tablet == true %}
-            {#- Skip the first HR -#}
-            {%- if number != 1 %}
-              <div class="grid-row">
-                <div class="grid-col-6 grid-col-start-large-3">
-                  <hr class="is-muted">
-                </div>
-              </div>
-            {%- endif -%}
-
+          {#- Skip the first HR -#}
+          {%- if number != 1 %}
             <div class="grid-row">
-              <div class="grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
-
-              <div class="grid-col-4">{{ list_item_description_content }}</div>
-            </div>
-          {%- else %}
-            {#- Skip the first HR -#}
-            {%- if number != 1 %}
-              <div class="grid-row">
-                <div class="grid-col-6 grid-col-start-large-3">
-                  <hr class="is-muted">
-                </div>
-              </div>
-            {%- endif -%}
-
-            <div class="grid-row">
-              <div class="grid-col-medium-2 grid-col-2 grid-col-start-large-3">
-                {{ list_item_title_content }}
-              </div>
-
-              <div class="grid-col-medium-2 grid-col-4">
-                {{ list_item_description_content }}
+              <div class="grid-col-6 grid-col-start-large-3">
+                <hr class="is-muted">
               </div>
             </div>
           {%- endif -%}
+
+          {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2 " -%}
+          <div class="grid-row">
+            <div class="{{ medium_class }}grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
+
+            <div class="{{ medium_class }}grid-col-4">{{ list_item_description_content }}</div>
+          </div>
         {%- endif -%}
       {% endfor %}
   </div>
