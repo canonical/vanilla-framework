@@ -170,8 +170,8 @@ View example of the tiered list pattern
 
 ### Variable media placement
 
-By default, the media is displayed after the description, but you can choose whether it should be displayed before or after the description.
-To do this, set the `media_placement` parameter in the Jinja macro to either `before_description` or `after_description`.
+By default, the media is displayed after the CTA, but you can choose where it should be displayed relative to the description and CTA.
+To do this, set the `media_placement` parameter in the Jinja macro to `before_description`, `after_description`, or `after_cta`.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-image-after-description" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
@@ -351,16 +351,17 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
           No
         </td>
         <td>
-          One of <code>'before_description'</code> or <code>'after_description'</code>
+          One of <code>'before_description'</code>, <code>'after_description'</code>, or <code>'after_cta'</code>
         </td>
         <td>
-          <code>'after_description'</code>
+          <code>'after_cta'</code>
         </td>
         <td>
           Whether the media should be full-width and displayed in its own row.<br/>
           If the media is a full-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">cinematic (2.4:1 aspect ratio) image container</a> will wrap your image.<br/>
           If the media is a default-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">16:9 image container</a> will wrap your image.<br/>
           If you use the <code>video</code> slot, this parameter will affect the positioning of the video, but will not change its aspect ratio. Videos are always 16:9.
+          `after_description` and `after_cta` will have same effect for full-width media, i.e., media row will be rendered after description + cta combined.
         </td>
       </tr>
       <tr>

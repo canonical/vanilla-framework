@@ -7,7 +7,7 @@
 # top_rule_variant: Variant of the horizontal rule rendered at the top of the pattern.
 #   Options are "default", "muted", "highlighted", "none". Default is "default".
 # is_media_full_width: whether the media is full width
-# media_placement: where the image is placed relative to the description. Options are "after_description" or "before_description".
+# media_placement: where the media is placed. Options are "before_description", "after_description", or "after_cta". Default is "after_cta".
 # img_attrs: attributes for the image element, e.g. src, alt, class
 # video_attrs: attributes for the video element, e.g. src, class
 # media_aspect_ratio: aspect ratio of the media. Options are "3-2" or "16-9". Default is "3-2". If is_media_full_width is true, this will be set to "cinematic". Only applies to images, not videos. Videos always have a 16:9 aspect ratio.
@@ -47,8 +47,8 @@
   {%- set has_video = video_attrs['src']|trim|length > 0 -%}
   {%- set has_media = has_image or has_video -%}
 
-  {% if media_placement not in ["before_description", "after_description"] %}
-    {% set media_placement = "after_description" %}
+  {% if media_placement not in ["before_description", "after_description", "after_cta"] %}
+    {% set media_placement = "after_cta" %}
   {% endif %}
 
   {% if media_aspect_ratio not in ["3-2", "16-9"] %}
@@ -107,9 +107,20 @@
       {{- _wrapped_media() -}}
     {%- endif -%}
     {{ description_content }}
-    {#- Non-full-width media after description -#}
+    {#- Non-full-width media after description (before CTA) -#}
     {%- if has_media and media_placement == "after_description" and not is_media_full_width -%}
       {{- _wrapped_media() -}}
+    {%- endif -%}
+  {% endmacro %}
+
+  {#- Non-full-width "after_cta" media renders in its own row after the CTA. -#}
+  {% macro _after_cta_media_row() %}
+    {%- if has_media and media_placement == "after_cta" and not is_media_full_width -%}
+      <div class="grid-row">
+        <div class="grid-col-4 grid-col-start-large-5">
+          {{- _wrapped_media() -}}
+        </div>
+      </div>
     {%- endif -%}
   {% endmacro %}
 
@@ -160,6 +171,7 @@
             </div>
           </div>
         {%- endif %}
+        {{- _after_cta_media_row() -}}
       {%- else -%} {#- No description (has_description is false) -#}
         <div class="grid-row">
           {#- No description; the non-full-width media goes directly adjacent to the title -#}
@@ -177,7 +189,7 @@
       {%- endif %}
 
     {#- Always render full-width media in its own row, after the main title/description/no-description blocks -#}
-    {% if has_media and is_media_full_width and media_placement == "after_description" %}
+    {% if has_media and is_media_full_width and media_placement != "before_description" %}
       {{- _full_width_media_row() -}}
     {% endif %}
 
