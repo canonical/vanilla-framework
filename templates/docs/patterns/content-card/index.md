@@ -48,6 +48,22 @@ The 4-column layout results in a horizontal card with the image on the left and 
 View example of the 4-column horizontal card
 </a></div>
 
+### 4-Column Card with Multiple Chips
+
+The `content_type` footer field accepts either a single string or a list of strings. When a list is provided, each item is rendered as a separate read-only chip in the footer.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column-multiple-chips" class="js-example" data-lang="jinja">
+View example of the 4-column card with multiple chips
+</a></div>
+
+### 4-Column Card with Image Top
+
+The `stacked_image` modifier forces the image above the content on all breakpoints, overriding the default horizontal layout where the image sits to the left of the content.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column-image-top" class="js-example" data-lang="jinja">
+View example of the 4-column card with image top
+</a></div>
+
 ### 4-Column Card Without Image
 
 Removing the image from the 4-column variant creates a clean, wide-format text block, perfect for lists of text-heavy resources.
@@ -80,7 +96,7 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
 
 ### Parameters
 
-> **Important Note:** The cards must be enclosed within a container that has the 'grid-row' class. Additionally, when defining the `footer.resource_type.icon`, the string must be a valid Vanilla Framework icon name. The macro automatically prepends the prefix, rendering your string as **`p-icon--{name}`**.
+> **Important Note:** The cards must be enclosed within a container that has the `grid-row` class.
 
 <div style="overflow: auto;">
   <table>
@@ -141,11 +157,45 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
         <td>No</td>
         <td><code>Object</code></td>
         <td><code>None</code></td>
-        <td>Dictionary containing <code>resource_type</code> (with <code>icon</code> and <code>text</code>) and <code>content_type</code> (read-only chip).</td>
+        <td>Dictionary containing <code>resource_type</code> (with <code>icon</code> and <code>text</code>) and <code>content_type</code> (read-only chip, or list of chips).</td>
+      </tr>
+      <tr>
+        <td><code>stacked_image</code></td>
+        <td>No</td>
+        <td><code>boolean</code></td>
+        <td><code>False</code></td>
+        <td>When <code>True</code>, forces the image to appear above the content on all breakpoints, overriding the default horizontal and grid layouts for 4-column, 6-column, and 8-column variants.</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+#### `image`
+
+```
+{
+  "src": "image-url",
+  "alt": "alt-text"
+}
+```
+
+- `src`: URL of the 16:9 image.
+- `alt`: Alt text for the image.
+
+#### `footer`
+
+```
+{
+  "resource_type": {
+    "icon": "icon-name",
+    "text": "Resource label"
+  },
+  "content_type": "Single chip" | ["Chip one", "Chip two"]
+}
+```
+
+- `resource_type`: Optional. Displays an icon and label in the footer. `icon` must be a valid Vanilla Framework icon name — the macro prepends `p-icon--` automatically.
+- `content_type`: Optional. Accepts a string for a single chip, or a list of strings for multiple chips.
 
 ## Import
 
