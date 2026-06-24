@@ -648,72 +648,72 @@ $card-height-8col: 22rem;
     /* Forces image above content on all breakpoints,
        overriding horizontal and grid layouts.*/
     @include mq-min($breakpoint-small) {
-      &.p-content-card--image-top {
-        &.p-content-card--cols-4,
-        &.p-content-card--cols-6 {
-          flex-direction: column;
-          height: auto;
-          min-height: $card-height-vertical;
-          padding: 0;
-          padding-top: var(--spacing-vertical-large, $sp-medium);
+      &.p-content-card--image-top.p-content-card--cols-4,
+      &.p-content-card--image-top.p-content-card--cols-6 {
+        flex-direction: column;
+        height: auto;
+        min-height: $card-height-vertical;
+        padding: 0;
+        padding-top: var(--spacing-vertical-large, $sp-medium);
+      }
 
-          .p-content-card__image-wrapper {
-            flex: unset;
-            width: 100%;
-          }
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__image-wrapper,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__image-wrapper {
+        flex: unset;
+        width: 100%;
+      }
 
-          .p-content-card__image {
-            height: auto;
-          }
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__image,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__image {
+        height: auto;
+      }
 
-          .p-content-card__body {
-            padding: 0 $sp-medium;
-          }
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__body,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__body {
+        padding: 0 $sp-medium;
+      }
 
-          .p-content-card__footer-outer {
-            padding: 0 $sp-medium var(--spacing-vertical-small, $sp-small) $sp-medium;
-          }
-        }
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__footer-outer,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__footer-outer {
+        padding: 0 $sp-medium var(--spacing-vertical-small, $sp-small) $sp-medium;
+      }
 
-        &.p-content-card--cols-4:not(.has-image),
-        &.p-content-card--cols-6:not(.has-image) {
-          height: $card-height-default;
-          min-height: $card-height-default;
-        }
+      &.p-content-card--image-top.p-content-card--cols-4:not(.has-image),
+      &.p-content-card--image-top.p-content-card--cols-6:not(.has-image) {
+        height: $card-height-default;
+        min-height: $card-height-default;
       }
     }
 
     @include mq-min($breakpoint-large) {
-      &.p-content-card--image-top {
-        &.p-content-card--cols-6 {
-          height: auto;
-          min-height: $card-height-vertical;
-        }
+      &.p-content-card--image-top.p-content-card--cols-6 {
+        height: auto;
+        min-height: $card-height-vertical;
+      }
 
-        &.p-content-card--cols-8.has-image {
-          display: flex;
-          flex-direction: column;
-          min-height: $card-height-8col;
-          padding-top: 0;
+      &.p-content-card--image-top.p-content-card--cols-8.has-image {
+        display: flex;
+        flex-direction: column;
+        min-height: $card-height-8col;
+        padding-top: 0;
+      }
 
-          .p-content-card__image-wrapper {
-            grid-column: unset;
-            grid-row: unset;
-            height: auto;
-            padding: 0;
-            padding-bottom: var(--spacing-vertical-large, $sp-medium);
-            width: 100%;
-          }
+      &.p-content-card--image-top.p-content-card--cols-8.has-image .p-content-card__image-wrapper {
+        grid-column: unset;
+        grid-row: unset;
+        height: auto;
+        padding: 0;
+        padding-bottom: var(--spacing-vertical-large, $sp-medium);
+        width: 100%;
+      }
 
-          .p-content-card__image {
-            aspect-ratio: 16/9;
-            height: auto;
-          }
+      &.p-content-card--image-top.p-content-card--cols-8.has-image .p-content-card__image {
+        aspect-ratio: 16/9;
+        height: auto;
+      }
 
-          .p-content-card__content {
-            grid-column: unset;
-          }
-        }
+      &.p-content-card--image-top.p-content-card--cols-8.has-image .p-content-card__content {
+        grid-column: unset;
       }
     }
   }
