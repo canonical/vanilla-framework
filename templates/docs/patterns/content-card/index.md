@@ -72,14 +72,6 @@ Removing the image from the 4-column variant creates a clean, wide-format text b
 View example of the 4-column horizontal card without image
 </a></div>
 
-### 4-Column Card Combined
-
-This example combines the `stacked_image` modifier with multiple `content_type` chips, author, date, and a description to show a fully-featured 4-column card.
-
-<div class="embedded-example"><a href="/docs/examples/patterns/content-card/4-column-combined" class="js-example" data-lang="jinja">
-View example of the 4-column combined card
-</a></div>
-
 ## 6-Column Card
 
 The 6-column layout is an expansive horizontal format suited for highly featured content. Because of its width, an image is strictly required for this variant to maintain visual structure. _Note: 6-column cards collapse down to 4-column, and eventually 2-column layouts based on screen dimensions._
