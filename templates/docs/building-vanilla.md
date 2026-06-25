@@ -498,3 +498,41 @@ Example HTML:
 ```html
 <script type="module" src="/static/js/modules/vanilla-framework/js/tabs.js"></script>
 ```
+
+## Component Class Mixing
+
+When using Vanilla, **component class names should not be mixed on the same element**. Each element should only have classes from one component, along with any applicable `is-<theme>` modifiers.
+
+### Recommended usage
+
+Wrap components in their own container elements:
+
+```html
+<!-- ✓ Recommended: Each component in its own container -->
+<div class="row--50-50">
+  <div class="col">
+    <div class="p-section">
+      <p>Content here</p>
+    </div>
+  </div>
+</div>
+```
+
+### Avoid
+
+Do not combine classes from different components on the same element:
+
+```html
+<!-- ✗ Avoid: Mixing col and p-section on the same element -->
+<div class="row--50-50">
+  <div class="col p-section">
+    <p>Content here</p>
+  </div>
+</div>
+```
+
+### Why this matters
+
+- **Predictable styling**: Each component's styles are designed to work independently. Mixing classes can lead to unexpected interactions.
+- **Maintainability**: When components are properly separated, updating or debugging styles becomes easier.
+- **Consistency**: Following this convention ensures your project looks and behaves consistently with other projects using Vanilla.
