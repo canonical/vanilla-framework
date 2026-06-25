@@ -233,5 +233,15 @@
       content: '* ';
     }
   }
+
+  // Calendar and clock icons in date/time inputs
+  [type='date']::-webkit-calendar-picker-indicator,
+  [type='time']::-webkit-calendar-picker-indicator {
+    filter: none;
+
+    .is-dark & {
+      filter: invert(1);
+    }
+  }
   // stylelint-enable selector-max-type
 }
