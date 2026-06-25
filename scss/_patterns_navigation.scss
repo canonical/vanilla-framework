@@ -683,13 +683,16 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
     background-color: $colors--theme--background-default;
     display: none;
     margin: 0;
-    min-width: 100%;
     padding: 0;
     z-index: 5;
 
     @media (min-width: $breakpoint-navigation-threshold) {
+      // min-width matches the parent nav item width so the dropdown is never narrower than its trigger
+      min-width: 100%;
+      // max-width prevents dropdowns from becoming excessively wide on large screens
+      max-width: $text-max-width;
       position: absolute;
-      // padding applied to .p-navigation__link + line-heigh of the anchor text inside
+      // padding applied to .p-navigation__link + line-height of the anchor text inside
       top: $spv--large * 2 + map-get($settings-text-default, line-height);
     }
 
@@ -700,6 +703,15 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
 
   .p-navigation__dropdown--right {
     right: 0;
+  }
+
+  // Boundary checking: when JS detects a dropdown would overflow the right edge of the viewport,
+  // it adds this class to flip the dropdown so it aligns to the right of its trigger instead
+  .p-navigation__dropdown.is-right-overflow {
+    @media (min-width: $breakpoint-navigation-threshold) {
+      left: auto;
+      right: 0;
+    }
   }
 
   .p-navigation__item--dropdown-toggle {
