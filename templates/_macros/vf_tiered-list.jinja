@@ -6,6 +6,13 @@
 # padding: Type of padding to apply. Options are "deep", "shallow", "default". Default is "default".
 # top_rule_variant: Variant of the horizontal rule rendered at the top of the pattern.
 #   Options are "default", "muted", "highlighted", "none". Default is "default".
+# is_media_full_width: whether the media is full width
+# media_placement: where the media is placed. Options are "before_description", "after_description", or "after_cta". Default is "after_cta".
+# img_attrs: attributes for the image element, e.g. src, alt, class
+# video_attrs: attributes for the video element, e.g. src, class
+# media_aspect_ratio: aspect ratio of the media. Options are "3-2" or "16-9". Default is "3-2". If is_media_full_width is true, this will be set to "cinematic". Only applies to images, not videos. Videos always have a 16:9 aspect ratio.
+# hide_medium: whether to hide media on medium screens. Default is false.
+# hide_small: whether to hide media on small screens. Default is false.
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -17,7 +24,15 @@
   padding="default",
   is_description_full_width_on_desktop=true,
   is_list_full_width_on_tablet=true,
-  top_rule_variant="default") -%}
+  top_rule_variant="default",
+  is_media_full_width=false,
+  media_placement="after_description",
+  img_attrs={},
+  video_attrs={},
+  media_aspect_ratio="3-2",
+  hide_medium=false,
+  hide_small=false
+  ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
@@ -32,9 +47,106 @@
   {%- else -%}  
     {%- set padding_classes = "p-section--" + padding -%}  
   {%- endif -%}
+  {%- set has_image = img_attrs['src']|trim|length > 0 -%}
+  {%- set has_video = video_attrs['src']|trim|length > 0 -%}
+  {%- set has_media = has_image or has_video -%}
+
+  {% if media_placement not in ["before_description", "after_description", "after_cta"] %}
+    {% set media_placement = "after_cta" %}
+  {% endif %}
+
+  {% if media_aspect_ratio not in ["3-2", "16-9"] %}
+    {% set media_aspect_ratio = "3-2" %}
+  {% endif %}
+  {% if is_media_full_width %}
+    {% set media_aspect_ratio = "cinematic" %}
+  {% endif %}
+
+  {% macro _wrapped_media() %}
+    {%- set section_classes = ("p-section--shallow" if (media_placement == "before_description") or (media_placement == "after_description" and not is_media_full_width)) -%}
+    {%- set hide_classes = (" u-hide--medium" if hide_medium else "") + (" u-hide--small" if hide_small else "") -%}
+    {%- if has_media -%}
+      {%- if has_video -%}
+        <div class="{{ section_classes }}{{ hide_classes }}">
+          {#- u-embedded-media applies 16:9 aspect ratio via padding. -#}
+          <div class="u-embedded-media u-no-margin--bottom"> 
+            <iframe class="u-embedded-media__element {{ video_attrs['class'] }}"
+            {% for attr, value in video_attrs.items() %}
+              {% if attr != "class" %}
+                {{- attr }}="{{ value }}"
+              {% endif %}
+            {% endfor %}
+            ></iframe>
+          </div>
+        </div>
+      {%- elif has_image -%}
+        <div class="{{ section_classes }}{{ hide_classes }}">
+          <div class="p-image-container--{{ media_aspect_ratio }} is-cover">
+            <img
+              {#- Forward classes from the img_attrs. This is optional, on a per-pattern basis. #}
+              class="p-image-container__image {{ img_attrs['class'] }}"
+            {% for attr, value in img_attrs.items() %}
+              {% if attr != "class" %}
+                {{- attr }}="{{ value }}"
+              {% endif %}
+            {% endfor %}
+            >
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  {% endmacro %}
+
+  {% macro _full_width_media_row() %}
+    {%- if has_media and is_media_full_width -%}
+      <div class="grid-row">
+        <div class="grid-col">
+          {{- _wrapped_media() -}}
+        </div>
+      </div>
+    {%- endif -%}
+  {% endmacro %}
+
+  {% macro _description_with_media() %}
+    {#- Non-full-width media before description -#}
+    {%- if has_media and media_placement == "before_description" and not is_media_full_width -%}
+      {{- _wrapped_media() -}}
+    {%- endif -%}
+    {{ description_content }}
+    {#- Non-full-width media after description (before CTA) -#}
+    {%- if has_media and media_placement == "after_description" and not is_media_full_width -%}
+      {{- _wrapped_media() -}}
+    {%- endif -%}
+  {% endmacro %}
+
+  {#- Non-full-width "after_cta" media renders in its own row after the CTA. -#}
+  {% macro _after_cta_media_row() %}
+    {%- if has_media and media_placement == "after_cta" and not is_media_full_width -%}
+      <div class="grid-row">
+        <div class="grid-col-4 grid-col-start-large-5">
+          {{- _wrapped_media() -}}
+        </div>
+      </div>
+    {%- endif -%}
+  {% endmacro %}
+
+  {%- if title_content|trim|length == 0 -%}
+    {%- set title_content = "<h2>Tiered List</h2>" -%}
+  {%- endif -%}
+
+  {%- if description_content|trim|length == 0 -%}
+    {%- set description_content = "<p>This is a tiered list.</p>" -%}
+  {%- endif -%}
+
+  {%- if cta_content|trim|length == 0 -%}
+    {%- set cta_content = "<p>No CTA provided.</p>" -%}
+  {%- endif -%}
 
   <div class="{{ padding_classes }} u-fixed-width">
     {{ vf_section_top_rule(top_rule_variant) }}
+    {% if has_media and is_media_full_width and media_placement == "before_description" %}
+      {{- _full_width_media_row() -}}
+    {% endif %}
     <div class="p-section--shallow">
       {% if has_description == true -%}
         {%- if is_description_full_width_on_desktop == true -%}
@@ -44,34 +156,49 @@
 
           <div class="grid-row">
             <div class="grid-col-4 grid-col-start-large-5">
-              {{ description_content }}
+              {{- _description_with_media() -}}
             </div>
           </div>
-        {%- else -%}
+        {%- else -%} {#- (50/50 desktop layout) -#}
           <div class="grid-row--50-50-on-large">
             <div class="grid-col">
               {{ title_content }}
             </div>
 
             <div class="grid-col">
-              {{ description_content }}
+              {{- _description_with_media() -}}
             </div>
           </div>
         {%- endif -%}
         {% if has_cta == true -%}
           <div class="grid-row">
             <div class="grid-col-4 grid-col-start-large-5">
-              <p>
-                {{ cta_content }}
-              </p>
+              {{ cta_content }}
             </div>
           </div>
         {%- endif %}
-      {%- else -%}
-        <div class="u-fixed-width">
-          {{ title_content }}
+        {{- _after_cta_media_row() -}}
+      {%- else -%} {#- No description (has_description is false) -#}
+        <div class="grid-row">
+          {#- No description; the non-full-width media goes directly adjacent to the title -#}
+          <div class="{% if not has_media or is_media_full_width %}grid-col{% else %}grid-col-4{% endif %}">
+            <div class="p-section--shallow">
+              {{ title_content }}
+            </div>
+          </div>
+          {% if has_media and not is_media_full_width %}
+            <div class="grid-col-4 grid-col-start-large-5">
+              {{- _wrapped_media() -}}
+            </div>
+          {% endif %}
         </div>
       {%- endif %}
+
+    {#- Always render full-width media in its own row, after the main title/description/no-description blocks -#}
+    {% if has_media and is_media_full_width and media_placement != "before_description" %}
+      {{- _full_width_media_row() -}}
+    {% endif %}
+
     </div>
 
     {#-
@@ -87,41 +214,21 @@
         {#- Check to see if title/description content exist, since we're
             iterating through 25 potential list items -#}
         {%- if has_title_content and has_description_content -%}
-          {%- if is_list_full_width_on_tablet == true %}
-            {#- Skip the first HR -#}
-            {%- if number != 1 %}
-              <div class="grid-row">
-                <div class="grid-col-6 grid-col-start-large-3">
-                  <hr class="is-muted">
-                </div>
-              </div>
-            {%- endif -%}
-
+          {#- Skip the first HR -#}
+          {%- if number != 1 %}
             <div class="grid-row">
-              <div class="grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
-
-              <div class="grid-col-4">{{ list_item_description_content }}</div>
-            </div>
-          {%- else %}
-            {#- Skip the first HR -#}
-            {%- if number != 1 %}
-              <div class="grid-row">
-                <div class="grid-col-6 grid-col-start-large-3">
-                  <hr class="is-muted">
-                </div>
-              </div>
-            {%- endif -%}
-
-            <div class="grid-row">
-              <div class="grid-col-medium-2 grid-col-2 grid-col-start-large-3">
-                {{ list_item_title_content }}
-              </div>
-
-              <div class="grid-col-medium-2 grid-col-4">
-                {{ list_item_description_content }}
+              <div class="grid-col-6 grid-col-start-large-3">
+                <hr class="is-muted">
               </div>
             </div>
           {%- endif -%}
+
+          {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2 " -%}
+          <div class="grid-row">
+            <div class="{{ medium_class }}grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
+
+            <div class="{{ medium_class }}grid-col-4">{{ list_item_description_content }}</div>
+          </div>
         {%- endif -%}
       {% endfor %}
   </div>
