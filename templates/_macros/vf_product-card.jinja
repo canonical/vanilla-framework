@@ -1,0 +1,7 @@
+{%- macro vf_product_card(url, heading, content, class_name="") -%}
+    <a class="{{ ('p-card--product ' ~ class_name)|trim }}" href="{{ url }}">
+        <p class="p-heading--5">{{ heading }}</p>
+        <p>{{ content|safe }}</p>
+        <i class="product-card__arrow" aria-hidden="true"></i>
+    </a>
+{%- endmacro -%}

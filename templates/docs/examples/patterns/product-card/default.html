@@ -1,0 +1,14 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_product-card.jinja" import vf_product_card %}
+{% block title %}Product card / Default{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% block content %}
+    <div class="grid-row--50-50">
+        <div class="grid-col">
+            {{ vf_product_card('https://ubuntu.com/kernel/real-time/contact-us', 'Talk to us about real-time Ubuntu', 'Interested in running real-time Ubuntu in production? Tell us more about your needs', class_name="js-product-card") }}
+        </div>
+        <div class="grid-col">
+            {{ vf_product_card('https://ubuntu.com/kernel/real-time/contact-us', 'Talk to us about real-time Ubuntu', 'Interested in running real-time Ubuntu in production? Tell us more about your needs', class_name="js-product-card") }}
+        </div>
+    </div>
+{% endblock %}
