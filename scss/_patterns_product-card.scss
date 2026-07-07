@@ -1,0 +1,46 @@
+@import 'settings';
+
+@mixin vf-p-product-card {
+  // Product card(s) in the blog article sidebar, above the newsletter card.
+  // The whole card is an anchor (no CTA link), so render it as a block and
+  // match the newsletter card's border hover transition.
+  .p-card--product {
+    @extend %vf-card;
+    @extend %vf-is-bordered;
+
+    border-color: $colors--theme--border-low-contrast;
+    display: block;
+
+    @include vf-transition(border-color, brisk);
+
+    &:hover {
+      border-color: $colors--theme--border-high-contrast;
+      // Don't underline the whole card; the border highlight is the affordance.
+      text-decoration: none;
+    }
+
+    // The whole card is a link; don't apply the visited colour to its text.
+    &:visited {
+      color: $colors--theme--text-default;
+    }
+
+    // Arrow icon at the end of each card, in place of the removed CTA link.
+    // A recolourable mask, so the colour lives here rather than in inline SVG
+    // markup repeated in the template.
+    .product-card__arrow {
+      background-color: $color-brand;
+      display: inline-block;
+      height: $default-icon-size;
+      mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14" fill="none"><path d="M0 6.92383H16M10 13.4238L16 6.92383L10 0.423828" stroke="%23fff" stroke-width="1.25"/></svg>')
+        no-repeat center / contain;
+      width: $default-icon-size;
+
+      @include vf-transition(transform, snap);
+    }
+
+    // Nudge the arrow to the right on hover.
+    &:hover .product-card__arrow {
+      transform: translateX($sp-small);
+    }
+  }
+}
