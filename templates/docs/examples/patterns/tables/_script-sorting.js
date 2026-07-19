@@ -45,18 +45,17 @@ function sortTable(header, table) {
       return a.getAttribute('data-index') - b.getAttribute('data-index');
     });
   } else {
-    // Sort based on a cell contents
+    // Enables natural alphanumeric sorting (e.g., "2 GiB" comes before "3 GiB") 
+    var collator = new Intl.Collator(undefined, ({numeric: true, sensitivity: "base"}))
+
     newRows.sort(function (rowA, rowB) {
       // Trim the cell contents.
       var contentA = rowA.cells[col].textContent.trim();
       var contentB = rowB.cells[col].textContent.trim();
 
+      // Compares the strings naturally and applies the sorting direction (ascending/descending)
       // Based on the direction, do the sort.
-      //
-      // This example only sorts based on alphabetical order, to sort based on
-      // number value a more specific implementation would be needed, to provide
-      // number parsing and comparison function between text strings and numbers.
-      return contentA < contentB ? direction : -direction;
+      return collator.compare(contentA, contentB) * direction;
     });
   }
   // Append each row into the table, replacing the current elements.
