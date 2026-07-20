@@ -1,0 +1,38 @@
+{#- 
+Helper macro to render a chip block.
+    Params
+        - content: The inner HTML for the chip button.
+        - chip_type: "branded" | "default" (default is "branded")
+        - attrs: A dictionary of attributes to apply to the button or link.
+ #}
+
+ {% macro vf_chip_block(content="", chip_type="branded", attrs={}) %}
+    {%- set chip_element_tag = "span" -%}
+
+    {%- if chip_type == "default" %}
+        {%- set chip_element_tag = "button" -%}
+    {%- endif -%}
+
+    {%- set chip_class = "" -%}
+    {%- if chip_type == "branded" -%}
+        {%- set chip_class = "p-chip--branded" -%}
+    {%- elif chip_type == "default" -%}
+        {%- set chip_class = "p-chip" -%}
+    {%- endif -%}
+
+    
+    <{{ chip_element_tag }} class="{{ chip_class }} {{ attrs.get('class', '') }}"
+    {%- for attr, value in attrs.items() -%}
+        {% if attr != "class" %}
+            {{ attr }}="{{ value }}"
+        {%- endif -%}
+    {%- endfor -%}
+    >
+        {%- if chip_type == "branded" -%}
+            <i class="p-icon--circle-of-friends"></i>
+            <span class="p-chip__value">{{- content | safe -}}</span>
+        {%- elif chip_type == "default" -%}
+            <span class="p-chip__value">{{- content | safe -}}</span>
+        {%- endif -%}
+    </{{ chip_element_tag }}>
+{% endmacro %}

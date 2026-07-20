@@ -1,0 +1,69 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+{% block title %}Hero / With Ordinary Chip{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% set is_paper = true %}
+{% block content %}
+
+{% call(slot) vf_hero(
+  title_text='H1 - ideally one line, up to two',
+  subtitle_text='H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph',
+  layout='50/50',
+  blocks=[
+    {
+      "type": "description",
+      "padding": "shallow",
+      "item": {
+        "type": "text",
+        "content": "Generally, the height of the right hand side of a 50/50 split should contain more content than the left
+        hand side."
+      }
+    },
+    {
+        "type":"chip-block",
+        "padding":"shallow",
+        "item":{
+            "chip_type":"default",
+            "content":"Click below to learn more",
+            "attrs":{
+                "class":"p-chip--positive"
+            }
+        }
+    },
+    {
+      "type": "cta-block",
+      "padding": "shallow",
+      "item": {
+        "primary": {
+          "content_html": "Learn more",
+          "attrs": {
+            "href": "#"
+          }
+        },
+        "link": {
+          "content_html": "Contact us ›",
+          "attrs": {
+            "href": "#"
+          }
+        }
+      }
+    },
+    {
+      "type": "image",
+      "item": {
+        "aspect_ratio": "3-2",
+        "is_highlighted": false,
+        "is_cover": true,
+        "attrs": {
+          "src": "https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg",
+          "alt": "alt-text"
+        }
+      }
+    },
+  ]
+) -%}
+{% endcall -%}
+
+{% endblock %}

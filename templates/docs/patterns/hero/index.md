@@ -16,6 +16,7 @@ Depending on the size and composition of your content, you can choose from a var
 - [50/50 with no image](#5050-with-no-image)
 - [25/75 Signpost](#2575-signpost)
 - [75/25](#7525)
+- [With Chip](#with-chip)
 - [Fallback](#fallback)
 
 The hero pattern is composed of the following elements:
@@ -100,8 +101,26 @@ If you find that the image is too tall on small screens, you can use <code>.u-hi
 small screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-75-25" class="js-example" data-lang="jinja">
-View example of the hero pattern in 50/50 split
+
 </a></div>
+
+## With Chip
+
+You can also add a chip with any layout. The default variant for the chip is branded.
+
+
+### With Chip Branded 
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-with-chip" class="js-example" data-lang="jinja">
+View example of the hero pattern with chip
+</a></div>
+
+### With Ordinary Chip
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-with-chip-default" class="js-example" data-lang="jinja">
+View example of the hero pattern with default chip variant
+</a></div>
+
 
 ## Fallback
 
