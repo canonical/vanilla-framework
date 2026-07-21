@@ -4,6 +4,8 @@
 # Params
 # title_text: Hero title text (required)
 # subtitle_text: Hero subtitle text
+# chip_text: text for a branded "Ubuntu Pro" chip shown below the subtitle. Renders `.p-chip--branded` with the circle-of-friends icon.
+# chip_aria_label: when chip_text is empty, renders an icon-only branded chip using this as the aria-label.
 # layout: layout of hero section. Options are '50/50', '50/50-full-width-image', '75/25', '25/75', 'fallback'
 # is_split_on_medium: whether the layout is split on tablet in 50/50, 25/75, and 75/25 layouts.
 #   If false, the layout is stacked on tablet.
@@ -18,6 +20,8 @@
 {% macro vf_hero(
   title_text,
   subtitle_text='',
+  chip_text='',
+  chip_aria_label='',
   layout="fallback",
   is_split_on_medium=false,
   display_blank_signpost_image_space=false,
@@ -29,6 +33,7 @@
   {%- set signpost_image_block = blocks | selectattr("type", "equalto", "signpost_image") | list | first | default(None) -%}
 
   {% set has_subtitle = subtitle_text|trim|length > 0 %}
+  {% set has_chip = chip_text|trim|length > 0 or chip_aria_label|trim|length > 0 %}
   {% set description_content = caller('description') %}
   {% set has_description = description_blocks | length > 0 or description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
@@ -107,6 +112,19 @@
     {% endif %}
   {%- endmacro %}
 
+  {%- macro _hero_chip_block() -%}
+    {%- if chip_text|trim|length > 0 -%}
+      <span class="p-chip--branded">
+        <i class="p-icon--circle-of-friends"></i>
+        <span class="p-chip__value">{{ chip_text }}</span>
+      </span>
+    {%- elif chip_aria_label|trim|length > 0 -%}
+      <span class="p-chip--branded" aria-label="{{ chip_aria_label }}">
+        <i class="p-icon--circle-of-friends"></i>
+      </span>
+    {%- endif -%}
+  {%- endmacro %}
+
   {%- macro _hero_cta_block() -%}
     {%- if cta_block -%}
       {{- vf_basic_section_blocks(items=[cta_block], override_last_item_padding=true) -}}
@@ -156,6 +174,7 @@
           <div class="p-section--shallow">
             {{ _hero_title_block() -}}
             {{ _hero_subtitle_block() -}}
+            {{ _hero_chip_block() -}}
           </div>
         </div>
       </div>
@@ -176,9 +195,10 @@
           {{ _hero_title_block() }}
         </div>
         <div class="{{ col_classes[1] }}">
-          {% if has_subtitle %}
+          {% if has_subtitle or has_chip %}
             <div class="p-section--shallow">
               {{- _hero_subtitle_block() -}}
+              {{- _hero_chip_block() -}}
             </div>
           {% endif %}
           {{- _hero_description_block() -}}
@@ -194,6 +214,7 @@
           <div class="p-section--shallow">
             {{ _hero_title_block() -}}
             {{ _hero_subtitle_block() -}}
+            {{ _hero_chip_block() -}}
           </div>
           {{- _hero_description_block() -}}
           {{- _hero_cta_block() -}}
@@ -207,6 +228,7 @@
           <div class="p-section--shallow">
             {{ _hero_title_block() -}}
             {{ _hero_subtitle_block() -}}
+            {{ _hero_chip_block() -}}
           </div>
           {{- _hero_description_block() -}}
           {{- _hero_cta_block() -}}
