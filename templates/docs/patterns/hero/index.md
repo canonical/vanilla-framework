@@ -20,13 +20,22 @@ Depending on the size and composition of your content, you can choose from a var
 
 The hero pattern is composed of the following elements:
 
-| Element              | Description                                                   |
-| -------------------- | ------------------------------------------------------------- |
-| Title (**required**) | Title text (to be placed in `h1` heading)                     |
-| Subtitle             | Subtitle text (using `h2` style)                              |
-| Description          | Description text (one or more paragraphs)                     |
-| Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description |
-| Image                | Main hero visual                                              |
+| Element              | Description                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Title (**required**) | Title text (to be placed in `h1` heading)                                                                                           |
+| Subtitle             | Subtitle text (using `h2` style)                                                                                                    |
+| Chip                 | Optional branded [chip](/docs/patterns/chip) (e.g. "Available with Ubuntu Pro") shown below the subtitle, via the `chip_text` param |
+| Description          | Description text (one or more paragraphs)                                                                                           |
+| Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description                                                                       |
+| Image                | Main hero visual                                                                                                                    |
+
+## With Ubuntu Pro chip
+
+Pass the <code>chip_text</code> param to show a branded chip below the subtitle. It renders in the same position across all hero layouts. To show an icon-only chip, leave <code>chip_text</code> empty and set <code>chip_aria_label</code> instead.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-with-chip" class="js-example" data-lang="jinja">
+View example of the hero pattern with an Ubuntu Pro chip
+</a></div>
 
 ## 50/50
 
