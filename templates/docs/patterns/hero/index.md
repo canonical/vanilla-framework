@@ -30,7 +30,7 @@ The hero pattern is composed of the following elements:
 | Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description                                                                       |
 | Image                | Main hero visual                                                                                                                    |
 
-## With Ubuntu Pro chip
+## With Ubuntu Pro chip {{ status('new') }}
 
 Pass the <code>chip_text</code> param to show a branded chip below the subtitle. It renders in the same position across all hero layouts. To show an icon-only chip, leave <code>chip_text</code> empty and set <code>chip_aria_label</code> instead.
 
