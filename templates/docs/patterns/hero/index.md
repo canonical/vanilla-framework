@@ -11,6 +11,7 @@ context:
 A hero is a prominent banner section typically used to quickly capture the user's attention after they land on the page.
 Depending on the size and composition of your content, you can choose from a variety of hero layouts:
 
+- [With Ubuntu Pro chip](#with-ubuntu-pro-chip)
 - [50/50](#5050)
 - [50/50 with full-width image](#5050-with-full-width-image)
 - [50/50 with no image](#5050-with-no-image)
