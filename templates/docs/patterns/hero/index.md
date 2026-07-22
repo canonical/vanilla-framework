@@ -38,6 +38,12 @@ Pass the <code>chip_text</code> param to show a branded chip below the subtitle.
 View example of the hero pattern with an Ubuntu Pro chip
 </a></div>
 
+To see the chip in every hero layout side by side:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-with-chip-variants" class="js-example" data-lang="jinja">
+View the Ubuntu Pro chip across all hero layouts
+</a></div>
+
 ## 50/50
 
 ### 50/50 on large
