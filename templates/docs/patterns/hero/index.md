@@ -341,6 +341,40 @@ The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for th
       </tr>
       <tr>
         <td>
+          <code>chip_text</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Text for a branded Ubuntu Pro <a href="/docs/patterns/chip">chip</a> shown below the subtitle
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>chip_aria_label</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          When <code>chip_text</code> is empty, renders an icon-only branded chip using this as the <code>aria-label</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <code>is_split_on_medium</code>
         </td>
         <td>
