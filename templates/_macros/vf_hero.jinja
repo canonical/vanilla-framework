@@ -92,8 +92,8 @@
 
   {%- macro _hero_title_block() -%}
     {%- if has_full_width_image or is_50_50_no_image -%}
-      {%- if has_subtitle -%}
-      {#- On full-width-image and 50/50 with no image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  -#}
+      {%- if has_subtitle or has_chip -%}
+      {#- On full-width-image and 50/50 with no image, the h1 sits in its own column above the chip (and the h2 in the other column), so remove its margin-bottom to keep the chip close to the h1 -#}
         {% set title_class = "u-no-margin--bottom" %}
       {%- endif -%}
     {%- endif -%}
@@ -191,14 +191,15 @@
           </div>
         {% endif -%}
       {% elif (has_full_width_image and not has_signpost_image) or is_50_50_no_image %}
+        {#- H1 and H2 are in separate columns here, so the chip goes under the H1 (left column) — reliable even when there is no subtitle -#}
         <div class="{{ col_classes[0] }}">
-          {{ _hero_title_block() }}
+          {{ _hero_title_block() -}}
+          {{ _hero_chip_block() -}}
         </div>
         <div class="{{ col_classes[1] }}">
-          {% if has_subtitle or has_chip %}
+          {% if has_subtitle %}
             <div class="p-section--shallow">
               {{- _hero_subtitle_block() -}}
-              {{- _hero_chip_block() -}}
             </div>
           {% endif %}
           {{- _hero_description_block() -}}
