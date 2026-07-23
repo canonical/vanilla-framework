@@ -92,8 +92,8 @@
 
   {%- macro _hero_title_block() -%}
     {%- if has_full_width_image or is_50_50_no_image -%}
-      {%- if has_subtitle or has_chip -%}
-      {#- On full-width-image and 50/50 with no image, the h1 sits in its own column above the chip (and the h2 in the other column), so remove its margin-bottom to keep the chip close to the h1 -#}
+      {%- if has_subtitle and not has_chip -%}
+      {#- On full-width-image and 50/50 with no image, the h1 and h2 are in separate columns, so remove the h1 margin-bottom to keep it close to the h2 on smaller screens. When a chip is present it sits under the h1, so keep the h1's natural margin to leave a gap above the chip. -#}
         {% set title_class = "u-no-margin--bottom" %}
       {%- endif -%}
     {%- endif -%}
