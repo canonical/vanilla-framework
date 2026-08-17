@@ -6,7 +6,11 @@
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
-{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
+{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true, media_placement="before_description", img_attrs={
+  "width": "2384",
+  "height": "1257",
+  "src": "https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg"
+}) -%}
   {%- if slot == 'title' -%}
     <h2>H2 - up to two lines; ideally one.</h2>
   {%- endif -%}

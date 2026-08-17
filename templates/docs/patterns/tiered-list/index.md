@@ -25,7 +25,7 @@ The tiered list pattern is composed of the following elements:
 
 | Element               | Description                                                                         |
 | --------------------- | ----------------------------------------------------------------------------------- |
-| Title (**required**)  | <code>h2</code> title text                                                          |
+| Title                 | <code>h2</code> title text                                                          |
 | Description           | <code>p</code> description text with optional [CTA block](/docs/patterns/cta-block) |
 | Media (optional)      | Image or video to show near description                                             |
 | List item title       | Title text/content                                                                  |
@@ -124,8 +124,6 @@ You can embed a [default width](#default-width-image) or [full width](#full-widt
 The image may be positioned before or after the description, depending on the variant you choose.
 The aspect ratio of the image depends on the variant you choose, and it will be wrapped in an [image container](/docs/patterns/images#image-container-with-aspect-ratio) to ensure it maintains the correct aspect ratio.
 
-**Always apply the `p-image-container__image` class to your image** to ensure the image is styled correctly.
-
 ```json
 "img_attrs": {
   "src": "image-url",
@@ -135,6 +133,8 @@ The aspect ratio of the image depends on the variant you choose, and it will be 
   "class": "additional image classes"
 }
 ```
+
+**`img_attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
 #### Default width image
 
@@ -383,7 +383,7 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
       </tr>
       <tr>
         <td>
-          <code>hide_medium</code>
+          <code>hide_media_on_small_medium_breakpoints</code>
         </td>
         <td>
           No
@@ -395,12 +395,12 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
           <code>'false'</code>
         </td>
         <td>
-          Whether to hide media on medium screens
+          Whether to hide media on medium and small screens
         </td>
       </tr>
       <tr>
         <td>
-          <code>hide_small</code>
+          <code>is_media_highlighted</code>
         </td>
         <td>
           No
@@ -412,7 +412,7 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
           <code>'false'</code>
         </td>
         <td>
-          Whether to hide media on small screens
+          Whether to apply the "is-highlighted" class to the media container. Only applies to images
         </td>
       </tr>
     </tbody>

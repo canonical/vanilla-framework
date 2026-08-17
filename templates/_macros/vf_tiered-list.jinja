@@ -11,8 +11,8 @@
 # img_attrs: attributes for the image element, e.g. src, alt, class
 # video_attrs: attributes for the video element, e.g. src, class
 # media_aspect_ratio: aspect ratio of the media. Options are "3-2" or "16-9". Default is "3-2". If is_media_full_width is true, this will be set to "cinematic". Only applies to images, not videos. Videos always have a 16:9 aspect ratio.
-# hide_medium: whether to hide media on medium screens. Default is false.
-# hide_small: whether to hide media on small screens. Default is false.
+# hide_media_on_small_medium_breakpoints: whether to hide media on medium and small screens. Default is false.
+# is_media_highlighted: Whether to apply the "is-highlighted" class to the media container (default is false) (only applies to image media type).
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -30,8 +30,8 @@
   img_attrs={},
   video_attrs={},
   media_aspect_ratio="3-2",
-  hide_medium=false,
-  hide_small=false
+  hide_media_on_small_medium_breakpoints=false,
+  is_media_highlighted=false
   ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
@@ -64,10 +64,10 @@
 
   {% macro _wrapped_media() %}
     {%- set section_classes = ("p-section--shallow" if (media_placement == "before_description") or (media_placement == "after_description" and not is_media_full_width)) -%}
-    {%- set hide_classes = (" u-hide--medium" if hide_medium else "") + (" u-hide--small" if hide_small else "") -%}
+    {%- set hide_classes = ("u-hide--medium u-hide--small" if hide_media_on_small_medium_breakpoints else "") -%}
     {%- if has_media -%}
       {%- if has_video -%}
-        <div class="{{ section_classes }}{{ hide_classes }}">
+        <div class="{{ section_classes }} {{ hide_classes }}">
           {#- u-embedded-media applies 16:9 aspect ratio via padding. -#}
           <div class="u-embedded-media u-no-margin--bottom"> 
             <iframe class="u-embedded-media__element {{ video_attrs['class'] }}"
@@ -80,8 +80,8 @@
           </div>
         </div>
       {%- elif has_image -%}
-        <div class="{{ section_classes }}{{ hide_classes }}">
-          <div class="p-image-container--{{ media_aspect_ratio }} is-cover">
+        <div class="{{ section_classes }} {{ hide_classes }}">
+          <div class="p-image-container--{{ media_aspect_ratio }} is-cover{%- if is_media_highlighted %} is-highlighted{% endif -%}">
             <img
               {#- Forward classes from the img_attrs. This is optional, on a per-pattern basis. #}
               class="p-image-container__image {{ img_attrs['class'] }}"
@@ -218,16 +218,16 @@
           {%- if number != 1 %}
             <div class="grid-row">
               <div class="grid-col-6 grid-col-start-large-3">
-                <hr class="is-muted">
+                <hr class="p-rule--muted">
               </div>
             </div>
           {%- endif -%}
 
-          {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2 " -%}
+          {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2" -%}
           <div class="grid-row">
-            <div class="{{ medium_class }}grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
+            <div class="{{ medium_class }} grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
 
-            <div class="{{ medium_class }}grid-col-4">{{ list_item_description_content }}</div>
+            <div class="{{ medium_class }} grid-col-4">{{ list_item_description_content }}</div>
           </div>
         {%- endif -%}
       {% endfor %}
