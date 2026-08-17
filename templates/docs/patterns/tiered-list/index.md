@@ -200,6 +200,31 @@ When embedding a video with the Jinja macro, follow the following guidelines:
 View example of the tiered list pattern
 </a></div>
 
+#### Lite YouTube video
+
+To embed a YouTube video with the [lite-youtube](https://github.com/justinribeiro/lite-youtube) custom element instead of a standard iframe,
+pass `video_id` (and ideally `video_title`) in `video_attrs` instead of `src`:
+
+```json
+"video_attrs": {
+  "video_id": "id of the YouTube video",
+  "video_title": "title of the video, used for accessibility",
+  "class": "additional classes"
+}
+```
+
+Any other keys are forwarded as attributes onto the `lite-youtube` element. `posterquality` defaults to `maxresdefault`.
+
+The `lite-youtube` script is not bundled with Vanilla, so it must be loaded on the page for the video to be playable:
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.9.0/lite-youtube.min.js"></script>
+```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-full-width-lite-youtube-video" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
 ## Jinja Macro
 
 The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. The API for the macro is shown below.
@@ -319,8 +344,8 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
         <td><code>{}</code></td>
         <td>
           Video to display near the description.<br/>
-          Must have the class <code><a href="/docs/utilities/embedded-media">u-embedded-media__element</a></code>.<br/>
-          Takes precedence over the <code>image</code> slot, so if both are used, the <code>video</code> will be displayed instead of the <code>image</code>.
+          Pass <code>src</code> to render an iframe embed.<br/>
+          Pass <code>video_id</code> (and ideally <code>video_title</code>) instead to render a <code>lite-youtube</code> embed.<br/>
         </td>
       </tr>
       <tr>

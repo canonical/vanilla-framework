@@ -9,7 +9,12 @@
 # is_media_full_width: whether the media is full width
 # media_placement: where the media is placed. Options are "before_description", "after_description", or "after_cta". Default is "after_cta".
 # img_attrs: attributes for the image element, e.g. src, alt, class
-# video_attrs: attributes for the video element, e.g. src, class
+# video_attrs: attributes for the video element.
+#   Pass "src" (e.g. a YouTube embed URL) to render a standard iframe embed, e.g. {"src": "...", "title": "...", "class": "..."}.
+#   Pass "video_id" (and ideally "video_title") to render a lite-youtube embed instead,
+#   e.g. {"video_id": "rPJEZ_tr_1w", "video_title": "Scaling Android development with Anbox Cloud"}.
+#   Any other keys are forwarded as attributes onto the rendered element.
+#   Consumers using lite-youtube must load the lite-youtube script themselves.
 # media_aspect_ratio: aspect ratio of the media. Options are "3-2" or "16-9". Default is "3-2". If is_media_full_width is true, this will be set to "cinematic". Only applies to images, not videos. Videos always have a 16:9 aspect ratio.
 # hide_media_on_small_medium_breakpoints: whether to hide media on medium and small screens. Default is false.
 # is_media_highlighted: Whether to apply the "is-highlighted" class to the media container (default is false) (only applies to image media type).
@@ -48,7 +53,9 @@
     {%- set padding_classes = "p-section--" + padding -%}  
   {%- endif -%}
   {%- set has_image = img_attrs['src']|trim|length > 0 -%}
-  {%- set has_video = video_attrs['src']|trim|length > 0 -%}
+  {%- set lite_youtube_video_id = video_attrs['video_id']|trim -%}
+  {%- set has_lite_youtube = lite_youtube_video_id|length > 0 -%}
+  {%- set has_video = has_lite_youtube or video_attrs['src']|trim|length > 0 -%}
   {%- set has_media = has_image or has_video -%}
 
   {% if media_placement not in ["before_description", "after_description", "after_cta"] %}
@@ -70,6 +77,23 @@
         <div class="{{ section_classes }} {{ hide_classes }}">
           {#- u-embedded-media applies 16:9 aspect ratio via padding. -#}
           <div class="u-embedded-media u-no-margin--bottom"> 
+            {%- if has_lite_youtube -%}
+              {%- set lite_youtube_video_title = video_attrs['video_title']|trim -%}
+              <lite-youtube class="u-embedded-media__element {{ video_attrs['class'] }}"
+              videoid="{{ lite_youtube_video_id }}"
+              videotitle="{{ lite_youtube_video_title }}"
+              {% if 'posterquality' not in video_attrs %}posterquality="maxresdefault"{% endif %}
+            {% for attr, value in video_attrs.items() %}
+              {% if attr not in ["class", "video_id", "video_title"] %}
+                {{- attr }}="{{ value }}"
+              {% endif %}
+            {% endfor %}
+              >
+                <a href="https://www.youtube.com/watch?v={{ lite_youtube_video_id }}" title="Play Video">
+                  <span class="lyt-visually-hidden">{{ lite_youtube_video_title }}</span>
+                </a>
+              </lite-youtube>
+            {%- else -%}
             <iframe class="u-embedded-media__element {{ video_attrs['class'] }}"
             {% for attr, value in video_attrs.items() %}
               {% if attr != "class" %}
@@ -77,6 +101,7 @@
               {% endif %}
             {% endfor %}
             ></iframe>
+            {%- endif -%}
           </div>
         </div>
       {%- elif has_image -%}

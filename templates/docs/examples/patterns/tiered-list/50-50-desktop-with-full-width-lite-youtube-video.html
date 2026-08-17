@@ -1,0 +1,64 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+
+{% block title %}Tiered list / 50/50 on desktop with full width lite-youtube video{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true, media_placement="before_description", video_attrs={
+  "video_id": "rPJEZ_tr_1w",
+  "video_title": "Scaling Android development with Anbox Cloud"
+}, is_media_full_width=true) -%}
+  {%- if slot == 'title' -%}
+    <h2>H2 - up to two lines; ideally one.</h2>
+  {%- endif -%}
+
+  {%- if slot == 'description' -%}
+    <p>A <a href="#">private cloud</a> provides organisations with on-demand
+    compute, storage and other resources that can be accessed over the network
+    and that are reserved exclusively for them - either in their own data centre
+    or via a 3rd party.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_1' -%}
+    <h3 class="p-heading--5">Rich portfolio of products</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_1' -%}
+    <p>Resell the full range of Canonical’s portfolio of private and public
+    cloud products: OpenStack, Kubernetes, IoT, support, security and
+    compliance for Ubuntu.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_2' -%}
+    <h3 class="p-heading--5">Sales enablement</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_2' -%}
+    <p>Canonical can help train your field sales and presales teams and
+    provide you with sales collateral and permission to use the Canonical
+    and Ubuntu trademarks in your own materials.</p>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_title_3' -%}
+    <h3 class="p-heading--5">Access to Canonical partner portal</h3>
+  {%- endif -%}
+
+  {%- if slot == 'list_item_description_3' -%}
+    <p>We host a partner portal with product and solutions collaterals, agreed
+    pricing, incentives and a deal registration system.</p>
+  {%- endif -%}
+
+  {%- if slot == 'cta' -%}
+    <a href="#" class="p-button">Learn more</a>
+    <a href="#">Contact us &rsaquo;</a>
+  {%- endif -%}
+{%- endcall -%}
+{% endblock %}
+
+{% block script %}
+<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.9.0/lite-youtube.min.js"
+        integrity="sha384-krUlgvxdz2iSLnbpvxj8zLWWUCa3QxzwLbW3EXmbzXCoAQ+ANH1cWJYRMc/TErh+"
+        crossorigin="anonymous"></script>
+{% endblock %}
