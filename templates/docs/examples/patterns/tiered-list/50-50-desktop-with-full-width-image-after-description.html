@@ -1,16 +1,16 @@
 {% extends "_layouts/examples.html" %}
 {% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
 
-{% block title %}Tiered list / 50/50 on desktop with description{% endblock %}
+{% block title %}Tiered list / 50/50 on desktop with full width image after description{% endblock %}
 
 {% block standalone_css %}patterns_all{% endblock %}
 
 {% block content %}
-{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true, media_placement="before_description", img_attrs={
+{%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true, media_placement="after_description", img_attrs={
   "width": "2384",
   "height": "1257",
   "src": "https://assets.ubuntu.com/v1/a299c914-GettyImages-DataCenter.jpeg"
-}) -%}
+}, is_media_full_width=true) -%}
   {%- if slot == 'title' -%}
     <h2>H2 - up to two lines; ideally one.</h2>
   {%- endif -%}

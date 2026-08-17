@@ -25,8 +25,9 @@ The tiered list pattern is composed of the following elements:
 
 | Element               | Description                                                                         |
 | --------------------- | ----------------------------------------------------------------------------------- |
-| Title (**required**)  | <code>h2</code> title text                                                          |
+| Title                 | <code>h2</code> title text                                                          |
 | Description           | <code>p</code> description text with optional [CTA block](/docs/patterns/cta-block) |
+| Media (optional)      | Image or video to show near description                                             |
 | List item title       | Title text/content                                                                  |
 | List item description | Description text/content with optional [CTA block](/docs/patterns/cta-block)        |
 | Call to action block  | [CTA block](/docs/patterns/cta-block) beneath the list                              |
@@ -110,6 +111,117 @@ By default the pattern renders a standard horizontal rule at its top. Use the
 `none` to remove it.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/muted-top-rule/" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+## With media {{ status('new') }}
+
+You can embed an [image](#image) or a [video](#video) near the description.
+
+### Image
+
+You can embed a [default width](#default-width-image) or [full width](#full-width-image) image near the description.
+The image may be positioned before or after the description, depending on the variant you choose.
+The aspect ratio of the image depends on the variant you choose, and it will be wrapped in an [image container](/docs/patterns/images#image-container-with-aspect-ratio) to ensure it maintains the correct aspect ratio.
+
+```json
+"img_attrs": {
+  "src": "image-url",
+  "alt": "alt-text",
+  "width": "image width",
+  "height": "image height",
+  "class": "additional image classes"
+}
+```
+
+**`img_attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
+
+#### Default width image
+
+This variant features a default width image positioned before description.
+
+When using the default width image, the image will use half of the page width on large screens.
+We recommend following these guidelines when using the default width image:
+
+- Use an image with a width sufficient to fill the page width on all screens.
+- By default, the images have `3-2` aspect ratio. You can also set it to `16-9` by using `media_aspect_ratio` attribute.
+
+The following example demonstrates a good usage of the default width image variant:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-image-before-description" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+#### Full width image
+
+This variant features a full width image positioned before the title and description.
+
+When using the full width image, the image will use the full width of the page on all screens.
+We recommend following these guidelines when using the full width image:
+
+- Use an image with a width sufficient to fill the page width on all screens.
+- `cinematic` aspect ratio will be automatically applied.
+
+The following example demonstrates a good usage of the full width image variant:
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-full-width-image-before-description" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+### Variable media placement
+
+By default, the media is displayed after the CTA, but you can choose where it should be displayed relative to the description and CTA.
+To do this, set the `media_placement` parameter in the Jinja macro to `before_description`, `after_description`, or `after_cta`.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-image-after-description" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+### Video
+
+You may also use this variant to embed a video. Videos are positioned exactly the same as images, but they always have a
+16:9 aspect ratio.
+
+When embedding a video with the Jinja macro, follow the following guidelines:
+
+- Use the `video_attrs` param instead of the `img_attrs` param.
+- Apply the `u-embedded-media__element` class, which is provided by the [embedded media utility](/docs/utilities/embedded-media).
+
+```json
+"video_attrs": {
+  "src": "video url",
+  "title": "title of the video iframe",
+  "allowfullscreen": "boolean - whether to allow full screen",
+  "class": "additional classes"
+}
+```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-full-width-video-before-description" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+#### Lite YouTube video
+
+To embed a YouTube video with the [lite-youtube](https://github.com/justinribeiro/lite-youtube) custom element instead of a standard iframe,
+pass `video_id` (and ideally `video_title`) in `video_attrs` instead of `src`:
+
+```json
+"video_attrs": {
+  "video_id": "id of the YouTube video",
+  "video_title": "title of the video, used for accessibility",
+  "class": "additional classes"
+}
+```
+
+Any other keys are forwarded as attributes onto the `lite-youtube` element. `posterquality` defaults to `maxresdefault`.
+
+The `lite-youtube` script is not bundled with Vanilla, so it must be loaded on the page for the video to be playable:
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.9.0/lite-youtube.min.js"></script>
+```
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-desktop-with-full-width-lite-youtube-video" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -204,6 +316,128 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
         </td>
         <td>
           Variant of the <a href="/docs/patterns/rule">horizontal rule</a> rendered at the top of the pattern
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>img_attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td><code>object</code></td>
+        <td><code>{}</code></td>
+        <td>
+          Attributes of the image to display near the description.<br/>
+          Must have the class <code><a href="/docs/patterns/images">p-image-container__image</a></code>.<br/>
+          If the <code>video</code> slot is used, this slot will be ignored.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>video_attrs</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td><code>object</code></td>
+        <td><code>{}</code></td>
+        <td>
+          Video to display near the description.<br/>
+          Pass <code>src</code> to render an iframe embed.<br/>
+          Pass <code>video_id</code> (and ideally <code>video_title</code>) instead to render a <code>lite-youtube</code> embed.<br/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>is_media_full_width</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>false</code>
+        </td>
+        <td>
+          Whether the media should be full-width and displayed in its own row.<br/>
+          If the media is a full-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">cinematic (2.4:1 aspect ratio) image container</a> will wrap your image.<br/>
+          If the media is a default-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">16:9 image container</a> will wrap your image.<br/>
+          If you use the <code>video</code> slot, this parameter will affect the positioning of the video, but will not change its aspect ratio. Videos are always 16:9.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>media_placement</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of <code>'before_description'</code>, <code>'after_description'</code>, or <code>'after_cta'</code>
+        </td>
+        <td>
+          <code>'after_cta'</code>
+        </td>
+        <td>
+          Whether the media should be full-width and displayed in its own row.<br/>
+          If the media is a full-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">cinematic (2.4:1 aspect ratio) image container</a> will wrap your image.<br/>
+          If the media is a default-width image, a <a href="/docs/patterns/images#image-container-with-aspect-ratio">16:9 image container</a> will wrap your image.<br/>
+          If you use the <code>video</code> slot, this parameter will affect the positioning of the video, but will not change its aspect ratio. Videos are always 16:9.
+          `after_description` and `after_cta` will have same effect for full-width media, i.e., media row will be rendered after description + cta combined.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>media_aspect_ratio</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          One of <code>'3-2'</code> or <code>'16-9'</code>
+        </td>
+        <td>
+          <code>'3-2'</code>
+        </td>
+        <td>
+          Aspect ratio to apply to media. Only applies to images, and is set to `cinematic` when `is_media_full_width` is true. Videos have `16-9` ratio always.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>hide_media_on_small_medium_breakpoints</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>'false'</code>
+        </td>
+        <td>
+          Whether to hide media on medium and small screens
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>is_media_highlighted</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>boolean</code>
+        </td>
+        <td>
+          <code>'false'</code>
+        </td>
+        <td>
+          Whether to apply the "is-highlighted" class to the media container. Only applies to images
         </td>
       </tr>
     </tbody>
