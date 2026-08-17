@@ -11,6 +11,7 @@ context:
 A hero is a prominent banner section typically used to quickly capture the user's attention after they land on the page.
 Depending on the size and composition of your content, you can choose from a variety of hero layouts:
 
+- [With Ubuntu Pro chip](#with-ubuntu-pro-chip)
 - [50/50](#5050)
 - [50/50 with full-width image](#5050-with-full-width-image)
 - [50/50 with no image](#5050-with-no-image)
@@ -20,13 +21,24 @@ Depending on the size and composition of your content, you can choose from a var
 
 The hero pattern is composed of the following elements:
 
-| Element              | Description                                                   |
-| -------------------- | ------------------------------------------------------------- |
-| Title (**required**) | Title text (to be placed in `h1` heading)                     |
-| Subtitle             | Subtitle text (using `h2` style)                              |
-| Description          | Description text (one or more paragraphs)                     |
-| Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description |
-| Image                | Main hero visual                                              |
+| Element              | Description                                                                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Title (**required**) | Title text (to be placed in `h1` heading)                                                                                           |
+| Subtitle             | Subtitle text (using `h2` style)                                                                                                    |
+| Chip                 | Optional branded [chip](/docs/patterns/chip) (e.g. "Available with Ubuntu Pro") shown below the subtitle, via the `chip_text` param |
+| Description          | Description text (one or more paragraphs)                                                                                           |
+| Call to action block | [CTA block](/docs/patterns/cta-block) beneath the description                                                                       |
+| Image                | Main hero visual                                                                                                                    |
+
+## With Ubuntu Pro chip {{ status('new') }}
+
+Pass the <code>chip_text</code> param to show a branded chip below the subtitle. It renders in the same position across all hero layouts. To show an icon-only chip, leave <code>chip_text</code> empty and set <code>chip_aria_label</code> instead.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/hero/hero-with-chip" class="js-example" data-lang="jinja">
+View example of the hero pattern with an Ubuntu Pro chip
+</a></div>
+
+You can also [view the chip across all hero layouts](/docs/examples/patterns/hero/hero-with-chip-variants).
 
 ## 50/50
 
@@ -327,6 +339,40 @@ The `vf_hero` Jinja macro can be used to generate a hero pattern. The API for th
         </td>
         <td>
           <code>h2</code> subtitle text
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>chip_text</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          Text for a branded Ubuntu Pro <a href="/docs/patterns/chip">chip</a> shown below the subtitle
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>chip_aria_label</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>N/A</code>
+        </td>
+        <td>
+          When <code>chip_text</code> is empty, renders an icon-only branded chip using this as the <code>aria-label</code>
         </td>
       </tr>
       <tr>

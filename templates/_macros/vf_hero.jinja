@@ -4,6 +4,8 @@
 # Params
 # title_text: Hero title text (required)
 # subtitle_text: Hero subtitle text
+# chip_text: text for a branded "Ubuntu Pro" chip shown below the subtitle. Renders `.p-chip--branded` with the circle-of-friends icon.
+# chip_aria_label: when chip_text is empty, renders an icon-only branded chip using this as the aria-label.
 # layout: layout of hero section. Options are '50/50', '50/50-full-width-image', '75/25', '25/75', 'fallback'
 # is_split_on_medium: whether the layout is split on tablet in 50/50, 25/75, and 75/25 layouts.
 #   If false, the layout is stacked on tablet.
@@ -18,6 +20,8 @@
 {% macro vf_hero(
   title_text,
   subtitle_text='',
+  chip_text='',
+  chip_aria_label='',
   layout="fallback",
   is_split_on_medium=false,
   display_blank_signpost_image_space=false,
@@ -29,6 +33,7 @@
   {%- set signpost_image_block = blocks | selectattr("type", "equalto", "signpost_image") | list | first | default(None) -%}
 
   {% set has_subtitle = subtitle_text|trim|length > 0 %}
+  {% set has_chip = chip_text|trim|length > 0 or chip_aria_label|trim|length > 0 %}
   {% set description_content = caller('description') %}
   {% set has_description = description_blocks | length > 0 or description_content|trim|length > 0 %}
   {% set cta_content = caller('cta') %}
@@ -87,8 +92,8 @@
 
   {%- macro _hero_title_block() -%}
     {%- if has_full_width_image or is_50_50_no_image -%}
-      {%- if has_subtitle -%}
-      {#- On full-width-image and 50/50 with no image, the h1 and h2 are in separate columns, so there must be no margin-bottom to keep h1 close to h2 on smaller screens  -#}
+      {%- if has_subtitle and not has_chip -%}
+      {#- On full-width-image and 50/50 with no image, the h1 and h2 are in separate columns, so remove the h1 margin-bottom to keep it close to the h2 on smaller screens. When a chip is present it sits under the h1, so keep the h1's natural margin to leave a gap above the chip. -#}
         {% set title_class = "u-no-margin--bottom" %}
       {%- endif -%}
     {%- endif -%}
@@ -105,6 +110,19 @@
         {{ subtitle_text }}
       </p>
     {% endif %}
+  {%- endmacro %}
+
+  {%- macro _hero_chip_block() -%}
+    {%- if chip_text|trim|length > 0 -%}
+      <span class="p-chip--branded">
+        <i class="p-icon--circle-of-friends"></i>
+        <span class="p-chip__value">{{ chip_text }}</span>
+      </span>
+    {%- elif chip_aria_label|trim|length > 0 -%}
+      <span class="p-chip--branded" aria-label="{{ chip_aria_label }}">
+        <i class="p-icon--circle-of-friends"></i>
+      </span>
+    {%- endif -%}
   {%- endmacro %}
 
   {%- macro _hero_cta_block() -%}
@@ -156,6 +174,7 @@
           <div class="p-section--shallow">
             {{ _hero_title_block() -}}
             {{ _hero_subtitle_block() -}}
+            {{ _hero_chip_block() -}}
           </div>
         </div>
       </div>
@@ -172,8 +191,10 @@
           </div>
         {% endif -%}
       {% elif (has_full_width_image and not has_signpost_image) or is_50_50_no_image %}
+        {#- H1 and H2 are in separate columns here, so the chip goes under the H1 (left column) — reliable even when there is no subtitle -#}
         <div class="{{ col_classes[0] }}">
-          {{ _hero_title_block() }}
+          {{ _hero_title_block() -}}
+          {{ _hero_chip_block() -}}
         </div>
         <div class="{{ col_classes[1] }}">
           {% if has_subtitle %}
@@ -194,6 +215,7 @@
           <div class="p-section--shallow">
             {{ _hero_title_block() -}}
             {{ _hero_subtitle_block() -}}
+            {{ _hero_chip_block() -}}
           </div>
           {{- _hero_description_block() -}}
           {{- _hero_cta_block() -}}
@@ -207,6 +229,7 @@
           <div class="p-section--shallow">
             {{ _hero_title_block() -}}
             {{ _hero_subtitle_block() -}}
+            {{ _hero_chip_block() -}}
           </div>
           {{- _hero_description_block() -}}
           {{- _hero_cta_block() -}}

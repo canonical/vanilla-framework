@@ -1,0 +1,65 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+{% block title %}Hero / Chip on all variants{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ versioned_static('build/css/standalone/patterns_icons-additional.css') }}" />
+{% endblock %}
+
+{% set is_paper = true %}
+{% block content %}
+
+{#- The Ubuntu Pro chip rendered in every hero layout, for design review.
+    Reusable blocks so each variant is identical except for layout. -#}
+{% set desc_block = {
+  "type": "description",
+  "padding": "shallow",
+  "item": {"type": "text", "content": "Generally, the height of the right hand side of a 50/50 split should contain more content than the left hand side."}
+} %}
+{% set cta_block = {
+  "type": "cta-block",
+  "padding": "shallow",
+  "item": {
+    "primary": {"content_html": "Learn more", "attrs": {"href": "#"}},
+    "link": {"content_html": "Contact us ›", "attrs": {"href": "#"}}
+  }
+} %}
+{% set image_block = {
+  "type": "image",
+  "item": {"aspect_ratio": "3-2", "is_cover": true, "attrs": {"src": "https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg", "alt": "alt-text"}}
+} %}
+{% set signpost_block = {
+  "type": "signpost_image",
+  "item": {"attrs": {"src": "https://assets.ubuntu.com/v1/cf1e2ddb-datacenter-wide-crop.jpeg", "alt": "logo"}}
+} %}
+
+<h2 class="p-muted-heading">50/50</h2>
+{% call(slot) vf_hero(title_text='50/50 with chip', subtitle_text='H2 subtitle placeholder', chip_text='Available with Ubuntu Pro', layout='50/50', blocks=[desc_block, cta_block, image_block]) -%}{% endcall -%}
+
+<hr class="p-rule" />
+<h2 class="p-muted-heading">50/50 full-width image</h2>
+{% call(slot) vf_hero(title_text='50/50 full-width with chip', subtitle_text='H2 subtitle placeholder', chip_text='Available with Ubuntu Pro', layout='50/50-full-width-image', blocks=[desc_block, cta_block, image_block]) -%}{% endcall -%}
+
+<hr class="p-rule" />
+<h2 class="p-muted-heading">50/50 no image</h2>
+{% call(slot) vf_hero(title_text='50/50 no image with chip', subtitle_text='H2 subtitle placeholder', chip_text='Available with Ubuntu Pro', layout='50/50', blocks=[desc_block, cta_block]) -%}{% endcall -%}
+
+<hr class="p-rule" />
+<h2 class="p-muted-heading">75/25</h2>
+{% call(slot) vf_hero(title_text='75/25 with chip', subtitle_text='H2 subtitle placeholder', chip_text='Available with Ubuntu Pro', layout='75/25', blocks=[desc_block, cta_block, image_block]) -%}{% endcall -%}
+
+<hr class="p-rule" />
+<h2 class="p-muted-heading">25/75 signpost</h2>
+{% call(slot) vf_hero(title_text='25/75 signpost with chip', subtitle_text='H2 subtitle placeholder', chip_text='Available with Ubuntu Pro', layout='25/75', blocks=[signpost_block, desc_block, cta_block, image_block]) -%}{% endcall -%}
+
+<hr class="p-rule" />
+<h2 class="p-muted-heading">Fallback</h2>
+{% call(slot) vf_hero(title_text='Fallback with chip', subtitle_text='H2 subtitle placeholder', chip_text='Available with Ubuntu Pro', layout='fallback', blocks=[desc_block, cta_block, image_block]) -%}{% endcall -%}
+
+<hr class="p-rule" />
+<h2 class="p-muted-heading">Icon-only chip (no subtitle)</h2>
+{% call(slot) vf_hero(title_text='Icon-only chip, no subtitle', chip_aria_label='Ubuntu Pro', layout='50/50', blocks=[desc_block, cta_block, image_block]) -%}{% endcall -%}
+
+{% endblock %}
