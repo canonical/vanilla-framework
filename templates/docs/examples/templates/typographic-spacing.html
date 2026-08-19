@@ -10,10 +10,64 @@
   .row {
     max-width: 100vw;
   }
+
+  .baseline-audit {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .baseline-audit > * {
+    flex: 0 0 auto;
+  }
+
+  /* Breaks come only from <br>, so every column is exactly 4/4/8 lines at any width. */
+  .baseline-audit :is(h1, h3, p) {
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  /* Vanilla's hr is 1px + 7px margin-bottom, so it occupies exactly one baseline unit. */
+  .baseline-audit__rule {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: auto;
+  }
 </style>
 {% endblock %}
 
 {% block content %}
+<!--
+  Multi-line rhythm audit. Columns are, left to right: p only; h1 then p; h3 then p;
+  h1 then h3 then p. Line counts are forced with <br> so every column is exactly 4/4/8
+  lines regardless of viewport, making any drift between columns attributable to the
+  heading spacing model rather than to wrapping. The rule occupies one baseline unit and
+  gives a hard edge to measure the space above each heading against.
+  Turn on "Toggle baseline grid" to read it against the 0.5rem grid.
+-->
+<hr class="baseline-audit__rule" />
+<div class="baseline-audit">
+  <div>
+    <p>Canonical builds Ubuntu, the platform<br>behind public clouds, private data<br>centres, developer desktops, robots<br>and the wider internet of things<br>estate. The same open source stack<br>runs from the smallest device up<br>to the largest fleet, with one<br>operational model throughout.</p>
+  </div>
+  <div>
+    <h1>Automated<br>operations<br>at any scale<br>on Ubuntu.</h1>
+    <p>Canonical builds Ubuntu, the platform<br>behind public clouds, private data<br>centres, developer desktops, robots<br>and the wider internet of things<br>estate. The same open source stack<br>runs from the smallest device up<br>to the largest fleet, with one<br>operational model throughout.</p>
+  </div>
+  <div>
+    <h3>Architectural freedom<br>and fully automated<br>operations across<br>every environment.</h3>
+    <p>Canonical builds Ubuntu, the platform<br>behind public clouds, private data<br>centres, developer desktops, robots<br>and the wider internet of things<br>estate. The same open source stack<br>runs from the smallest device up<br>to the largest fleet, with one<br>operational model throughout.</p>
+  </div>
+  <div>
+    <h1>Automated<br>operations<br>at any scale<br>on Ubuntu.</h1>
+    <h3>Architectural freedom<br>and fully automated<br>operations across<br>every environment.</h3>
+    <p>Canonical builds Ubuntu, the platform<br>behind public clouds, private data<br>centres, developer desktops, robots<br>and the wider internet of things<br>estate. The same open source stack<br>runs from the smallest device up<br>to the largest fleet, with one<br>operational model throughout.</p>
+  </div>
+</div>
+
 <!-- h1+others -->
 <div class="flex-container">
   <div class="flex-col">
