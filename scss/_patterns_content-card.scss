@@ -650,6 +650,7 @@ $card-height-8col: 22rem;
     @include mq-min($breakpoint-small) {
       &.p-content-card--image-top.p-content-card--cols-4,
       &.p-content-card--image-top.p-content-card--cols-6 {
+        flex: 1;
         flex-direction: column;
         height: auto;
         min-height: $card-height-vertical;
@@ -670,7 +671,16 @@ $card-height-8col: 22rem;
 
       &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__body,
       &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__body {
+        flex: 1;
         padding: 0 $sp-medium;
+      }
+
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__primary-content,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__primary-content,
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__hover-content,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__hover-content {
+        /* Size both layers from the tallest content and stretch them to match. */
+        align-self: stretch;
       }
 
       &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__footer-outer,
@@ -687,8 +697,9 @@ $card-height-8col: 22rem;
 
     @include mq-min($breakpoint-large) {
       &.p-content-card--image-top.p-content-card--cols-6 {
+        /* Preserve content-driven row height at the large breakpoint. */
         height: auto;
-        min-height: $card-height-vertical;
+        min-height: 0;
       }
 
       &.p-content-card--image-top.p-content-card--cols-8.has-image {
