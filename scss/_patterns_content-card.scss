@@ -650,7 +650,9 @@ $card-height-8col: 22rem;
     @include mq-min($breakpoint-small) {
       &.p-content-card--image-top.p-content-card--cols-4,
       &.p-content-card--image-top.p-content-card--cols-6 {
+        flex: 1;
         flex-direction: column;
+        gap: 0;
         height: auto;
         min-height: $card-height-vertical;
         padding: 0;
@@ -670,7 +672,16 @@ $card-height-8col: 22rem;
 
       &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__body,
       &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__body {
-        padding: 0 $sp-medium;
+        flex: 1;
+        padding: 0 $sp-medium var(--spacing-vertical-small, $sp-small);
+      }
+
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__primary-content,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__primary-content,
+      &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__hover-content,
+      &.p-content-card--image-top.p-content-card--cols-6 .p-content-card__hover-content {
+        /* Size both layers from the tallest content and stretch them to match. */
+        align-self: stretch;
       }
 
       &.p-content-card--image-top.p-content-card--cols-4 .p-content-card__footer-outer,
@@ -714,6 +725,10 @@ $card-height-8col: 22rem;
 
       &.p-content-card--image-top.p-content-card--cols-8.has-image .p-content-card__content {
         grid-column: unset;
+      }
+
+      &.p-content-card--image-top.p-content-card--cols-8.has-image .p-content-card__body {
+        padding: 0 $sp-medium;
       }
     }
   }
