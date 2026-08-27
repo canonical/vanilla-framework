@@ -4,6 +4,14 @@ context:
   title: Typography | Base elements
 ---
 
+{% from "docs/macros/notice.jinja" import documentation_notice %}
+
+{{ documentation_notice(
+    icon_class="p-notification--information",
+    title_text="Font size updated",
+    message_text="We have now updated the heading font sizes. Please test before updating to the latest release to see how this effects your pages."
+) }}
+
 ## The Ubuntu typeface
 
 We use the [Ubuntu typeface](https://design.ubuntu.com/font/) exclusively. It was recently upgraded to a variable font, which features a weight and a width axis. It now also includes true small caps. Number figures to accompany the small caps are currently being finalised and will be available soon.
@@ -76,7 +84,7 @@ We use a carefully selected set of weights in our heading hierarchy. As a genera
 
 ## Our type scale
 
-Our type scale consists of 8 font sizes, expressed as rems (root em units). For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
+Our type scale consists of 8 font sizes, expressed as rems (root em units). The sizes are steps on a modular scale, `f(i) = 1rem * pow(2, i / 5)`, so that display headings sit exactly one octave above `h1`. For simplicity, going forward we will refer to sizes in pixels, with the assumption that the base rem unit, which is set by browsers, is at its default of 16 pixels. The following table lists the type sizes and what they are used for:
 
 <table>
 <thead>
@@ -123,11 +131,11 @@ Our type scale consists of 8 font sizes, expressed as rems (root em units). For 
     </td>
   </tr>
   <tr>
-    <td>40px</td>
+    <td>42px</td>
     <td><code>h1</code> and <code>h2</code> level headings on large screens.</td>
     <td>
-      <p class="p-heading--2 u-no-padding--top" style="font-size: 2.5rem; line-height: 3rem">H2 heading</p>
-      <p class="p-heading--1" style="font-size: 2.5rem; line-height: 3rem">H1 heading</p>
+      <p class="p-heading--2 u-no-padding--top" style="font-size: 2.625rem; line-height: 3rem">H2 heading</p>
+      <p class="p-heading--1" style="font-size: 2.625rem; line-height: 3rem">H1 heading</p>
     </td>
   </tr>
   <tr>
@@ -136,9 +144,9 @@ Our type scale consists of 8 font sizes, expressed as rems (root em units). For 
     <td><h1 class="p-heading--display" style="font-size: 4rem; line-height: 4.5rem">Ubuntu Pro</h1></td>
   </tr>
   <tr>
-    <td>80px</td>
+    <td>84px</td>
     <td>Ad hoc display headings for important bespoke pages on large screens.</td>
-    <td><h1 class="p-heading--display" style="font-size: 5rem; line-height: 5.5rem">Ubuntu Pro</h1></td>
+    <td><h1 class="p-heading--display" style="font-size: 5.25rem; line-height: 6rem">Ubuntu Pro</h1></td>
   </tr>
 </tbody>
 </table>
