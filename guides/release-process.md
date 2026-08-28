@@ -49,6 +49,7 @@ In case that fails, here are manual steps to release to assets server:
 
 - `dotrun build`
 - `upload-assets --url-path vanilla-framework-version-X.X.X.min.css build/css/build.css`
+- `upload-assets --url-path vanilla-framework-version-X.X.X.min.mjs build/js/vanilla.bundle.mjs`
 
 ## Deploying vanillaframework.io
 
