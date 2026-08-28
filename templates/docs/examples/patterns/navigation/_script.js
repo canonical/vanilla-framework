@@ -1,3 +1,16 @@
+function applyBoundaryChecking(dropdown) {
+  // Reset any previous boundary adjustment before measuring
+  dropdown.classList.remove('is-right-overflow');
+
+  var dropdownRect = dropdown.getBoundingClientRect();
+  var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+  // If the dropdown's right edge exceeds the viewport, flip it to align to the right
+  if (dropdownRect.right > viewportWidth) {
+    dropdown.classList.add('is-right-overflow');
+  }
+}
+
 function toggleDropdown(toggle, open) {
   var parentElement = toggle.parentNode;
   var dropdown = document.getElementById(toggle.getAttribute('aria-controls'));
@@ -5,8 +18,11 @@ function toggleDropdown(toggle, open) {
 
   if (open) {
     parentElement.classList.add('is-active');
+    // Run boundary check after the dropdown becomes visible so we can measure it
+    applyBoundaryChecking(dropdown);
   } else {
     parentElement.classList.remove('is-active');
+    dropdown.classList.remove('is-right-overflow');
   }
 }
 
