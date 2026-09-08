@@ -74,6 +74,20 @@
       line-height: map-get($settings-text-p, line-height);
       // cancel out the row-gap cancellation if the item has contents.
       margin-bottom: 0;
+    }
+
+    /**
+      Article block images are an exception to the above - they get small bottom margin, not paragraph styling.
+     */
+    &:has(.p-article-block__image) {
+      display: grid;
+      // we want $spv--small below the images - but we are also using `row-gap`. We can create this effective spacing by subtracting the desired bottom margin from the row gap.
+      margin-bottom: -#{$article-block-row-gap - $spv--small};
+    }
+
+    // The nudge is only needed once, to align the top of the block (title) to the baseline grid.
+    // Applying it to every contentful item as well as the title would double up with the row-gap between them.
+    &:has(.p-article-block__title:not(:empty)) {
       padding-top: map-get($settings-text-p, nudge);
     }
 
@@ -89,15 +103,6 @@
   .p-article-block__title {
     font-size: #{map-get($settings-text-p, font-size)}rem;
     line-height: map-get($settings-text-p, line-height);
-  }
-
-  /**
-    Article block images are an exception to the above - they get small bottom margin, not paragraph styling.
-   */
-  .p-article-block__item:has(.p-article-block__image) {
-    display: grid;
-    // we want $spv--small below the images - but we are also using `row-gap`. We can create this effective spacing by subtracting the desired bottom margin from the row gap.
-    margin-bottom: -#{$article-block-row-gap - $spv--small};
   }
 
   /*
