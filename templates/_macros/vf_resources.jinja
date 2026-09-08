@@ -172,7 +172,7 @@
   {%- set item_title = item.get("title", {}) -%}
   {%- set item_description = item.get("description", {}) -%}
   {%- set item_metadata = item.get("metadata", {}) -%}
-  <div class="{% if not (is_last_category and is_last_item) and item_description %}p-section--shallow{% endif %}">
+  <div>
     {{- vf_article_block({"title": item_title, "description": item_description, "metadata": item_metadata}) -}}
   </div>
 {% endmacro %}
@@ -192,7 +192,8 @@
   {%- set item_description = item.get("description", {}) -%}
   {%- set item_metadata = item.get("metadata", {}) -%}
   {%- set image_config = item.get("image", {}) -%}
-  <div class="grid-row--25-75-on-large{% if not is_last_item %} p-section--shallow{% endif %}">
+  {%- set has_image = render_images and image_config -%}
+  <div class="grid-row--25-75-on-large{% if not is_last_item and has_image %} p-section--shallow{% endif %}">
     {%- if render_categories and render_images -%}
       {% if not is_first_category and is_first_item %}<hr class="p-rule--muted" />{% endif %}
       {{- _render_category_title(category, is_first_category, is_first_item) -}}
@@ -268,6 +269,7 @@
         "type": "resources",
         "render_images": true|false,
         "render_categories": true|false,
+        "layout": "full-width|50-50", // Only applies when both render_images and render_categories are false (text-only variant). Defaults to "full-width" (stacks at tablet width, splits only at desktop). "50-50" also splits into a title/list column pair at tablet width.
         "categories": [
           {
             "title": {
@@ -327,17 +329,25 @@
   {%- set render_images = resources.get("render_images", true) -%}
   {%- set render_categories = resources.get("render_categories", true) -%}
   {%- set is_text_only = not (render_images or render_categories) -%}
+  {%- set text_only_layout = resources.get("layout", "full-width") -%}
+  {%- if text_only_layout not in ["full-width", "50-50"] -%}
+    {%- set text_only_layout = "full-width" -%}
+  {%- endif -%}
   {%- set padding = padding | trim -%}
   {%- if padding not in ["deep", "shallow", "default"] -%}
     {%- set padding = "default" -%}
   {%- endif -%}
-  {%- if padding == "default" -%}  
-    {%- set padding_classes = "p-section" -%}  
-  {%- else -%}  
-    {%- set padding_classes = "p-section--" + padding -%}  
+  {%- if padding == "default" -%}
+    {%- set padding_classes = "p-section" -%}
+  {%- else -%}
+    {%- set padding_classes = "p-section--" + padding -%}
+  {%- endif -%}
+  {%- set title_row_class = "grid-row--50-50" -%}
+  {%- if is_text_only and text_only_layout == "full-width" -%}
+    {%- set title_row_class = title_row_class + "-on-large" -%}
   {%- endif -%}
   <section class="{{ padding_classes }}">
-    <div class="grid-row--50-50{% if is_text_only %}-on-large{% endif %}{% if not is_text_only %} p-section--shallow{% endif %}">
+    <div class="{{ title_row_class }}{% if not is_text_only %} p-section--shallow{% endif %}">
       {{- vf_section_top_rule("default") -}}
       <div class="grid-col">{{- _title_block(title) -}}</div>
       <div class="grid-col">
