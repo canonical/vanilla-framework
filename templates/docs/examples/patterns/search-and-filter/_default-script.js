@@ -9,10 +9,10 @@ function togglePanel(container, panel, collapse) {
   if (panel && container) {
     if (collapse) {
       panel.setAttribute('aria-hidden', 'true');
-      container.setAttribute('aria-expanded', 'false');
+      container.setAttribute('data-expanded', 'false');
     } else {
       panel.setAttribute('aria-hidden', 'false');
-      container.setAttribute('aria-expanded', 'true');
+      container.setAttribute('data-expanded', 'true');
     }
   }
 }
