@@ -76,6 +76,15 @@
       margin-bottom: 0;
     }
 
+    // Per design review, the title and the metadata line each need the nudge on top of the row-gap
+    // (title to align the top of the block to the baseline grid; metadata to give it a full paragraph-sized
+    // gap above it). The description doesn't - title-to-description stays a single row-gap.
+    &:has(.p-article-block__title:not(:empty)),
+    &:has(.article-author:not(:empty)),
+    &:has(.article-time:not(:empty)) {
+      padding-top: map-get($settings-text-p, nudge);
+    }
+
     /**
       Article block images are an exception to the above - they get small bottom margin, not paragraph styling.
      */
@@ -83,12 +92,6 @@
       display: grid;
       // we want $spv--small below the images - but we are also using `row-gap`. We can create this effective spacing by subtracting the desired bottom margin from the row gap.
       margin-bottom: -#{$article-block-row-gap - $spv--small};
-    }
-
-    // The nudge is only needed once, to align the top of the block (title) to the baseline grid.
-    // Applying it to every contentful item as well as the title would double up with the row-gap between them.
-    &:has(.p-article-block__title:not(:empty)) {
-      padding-top: map-get($settings-text-p, nudge);
     }
 
     // Apply all spacing at the item level.
