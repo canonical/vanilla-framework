@@ -1,0 +1,52 @@
+{% extends "_layouts/examples.html" %}
+{% block title %}Test: Article block & Resources pattern (padding/layout ticket){% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+{% set is_paper = true %}
+
+{% block content %}
+{% with is_combined = true %}
+
+<div class="u-fixed-width">
+  <hr class="p-rule" />
+  <h1>1. Article block (standalone)</h1>
+  <p>Title&rarr;description&rarr;metadata gaps should be a single row-gap, not row-gap + nudge.</p>
+</div>
+<section>{% include 'docs/examples/patterns/article-block/default.html' %}</section>
+
+<div class="u-fixed-width">
+  <hr class="p-rule" />
+  <h1>2. Resources pattern &mdash; with images</h1>
+  <p>Spacing between resource blocks when images are present should be unchanged (24px).</p>
+</div>
+<section>{% include 'docs/examples/patterns/resources/default.html' %}</section>
+
+<div class="u-fixed-width">
+  <hr class="p-rule" />
+  <h1>3. Resources pattern &mdash; text-only items (categorized, no images)</h1>
+  <p>Spacing between these resource blocks should be 0px.</p>
+</div>
+<section>{% include 'docs/examples/patterns/resources/no-images.html' %}</section>
+
+<div class="u-fixed-width">
+  <hr class="p-rule" />
+  <h1>3b. Resources pattern &mdash; mixed images (per-item spacing)</h1>
+  <p>Category 1 &amp; 3 items have images (24px spacing); Category 2 items have no image (0px spacing) &mdash; spacing is decided per item, not per block.</p>
+</div>
+<section>{% include 'docs/examples/patterns/resources/mixed-images.html' %}</section>
+
+<div class="u-fixed-width">
+  <hr class="p-rule" />
+  <h1>4. Resources pattern &mdash; text-only variant, default layout (full-width)</h1>
+  <p>Default behaviour is unchanged: full-width at tablet size, splits into columns only at desktop width.</p>
+</div>
+<section>{% include 'docs/examples/patterns/resources/no-categories-and-images.html' %}</section>
+
+<div class="u-fixed-width">
+  <hr class="p-rule" />
+  <h1>4b. Resources pattern &mdash; text-only variant, "50-50" layout</h1>
+  <p>New opt-in layout: resize the viewport to tablet width (~768&ndash;1030px) &mdash; the title/description column and the item list column should split 50:50 at tablet width too, not just at desktop.</p>
+</div>
+<section>{% include 'docs/examples/patterns/resources/no-categories-and-images-50-50.html' %}</section>
+
+{% endwith %}
+{% endblock %}

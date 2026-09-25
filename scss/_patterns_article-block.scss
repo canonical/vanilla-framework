@@ -74,7 +74,24 @@
       line-height: map-get($settings-text-p, line-height);
       // cancel out the row-gap cancellation if the item has contents.
       margin-bottom: 0;
+    }
+
+    // Per design review, the title and the metadata line each need the nudge on top of the row-gap
+    // (title to align the top of the block to the baseline grid; metadata to give it a full paragraph-sized
+    // gap above it). The description doesn't - title-to-description stays a single row-gap.
+    &:has(.p-article-block__title:not(:empty)),
+    &:has(.article-author:not(:empty)),
+    &:has(.article-time:not(:empty)) {
       padding-top: map-get($settings-text-p, nudge);
+    }
+
+    /**
+      Article block images are an exception to the above - they get small bottom margin, not paragraph styling.
+     */
+    &:has(.p-article-block__image) {
+      display: grid;
+      // we want $spv--small below the images - but we are also using `row-gap`. We can create this effective spacing by subtracting the desired bottom margin from the row gap.
+      margin-bottom: -#{$article-block-row-gap - $spv--small};
     }
 
     // Apply all spacing at the item level.
@@ -89,15 +106,6 @@
   .p-article-block__title {
     font-size: #{map-get($settings-text-p, font-size)}rem;
     line-height: map-get($settings-text-p, line-height);
-  }
-
-  /**
-    Article block images are an exception to the above - they get small bottom margin, not paragraph styling.
-   */
-  .p-article-block__item:has(.p-article-block__image) {
-    display: grid;
-    // we want $spv--small below the images - but we are also using `row-gap`. We can create this effective spacing by subtracting the desired bottom margin from the row gap.
-    margin-bottom: -#{$article-block-row-gap - $spv--small};
   }
 
   /*
