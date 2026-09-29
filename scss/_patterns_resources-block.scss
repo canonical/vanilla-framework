@@ -4,6 +4,11 @@ $col-25: calc($grid-8-columns / 4);
 $col-50: calc($grid-8-columns / 2);
 
 @mixin vf-p-resources-block {
+  // Text-only resource items are stacked with the article block row-gap; the next title's nudge completes the paragraph gap.
+  .p-resources-block__item:not(:last-child) {
+    padding-bottom: map-get($settings-text-p, sp-after) - map-get($settings-text-p, nudge);
+  }
+
   .p-resources-block {
     > .p-resources-block__col {
       @media (min-width: $threshold-4-8-col) {

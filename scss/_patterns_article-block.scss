@@ -76,13 +76,16 @@
       margin-bottom: 0;
     }
 
-    // Per design review, the title and the metadata line each need the nudge on top of the row-gap
-    // (title to align the top of the block to the baseline grid; metadata to give it a full paragraph-sized
-    // gap above it). The description doesn't - title-to-description stays a single row-gap.
+    // The title aligns the top of the block to the baseline grid; the metadata line gets a full paragraph gap (row-gap + nudge) above it.
     &:has(.p-article-block__title:not(:empty)),
     &:has(.article-author:not(:empty)),
     &:has(.article-time:not(:empty)) {
       padding-top: map-get($settings-text-p, nudge);
+    }
+
+    // The description sits directly under the title, so cancel the row-gap between them.
+    &:has(.p-article-block__title:not(:empty)):has(+ .p-article-block__item .p-article-block__description:not(:empty)) {
+      margin-bottom: -#{$article-block-row-gap};
     }
 
     /**
