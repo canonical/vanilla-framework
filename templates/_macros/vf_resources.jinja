@@ -192,8 +192,8 @@
   {%- set item_description = item.get("description", {}) -%}
   {%- set item_metadata = item.get("metadata", {}) -%}
   {%- set image_config = item.get("image", {}) -%}
-  {%- set has_image = render_images and image_config -%}
-  <div class="grid-row--25-75-on-large {% if has_image %}{% if not is_last_item %}p-section--shallow{% endif %}{% else %}p-resources-block__item{% endif %}">
+  {%- set has_image = render_images and image_config | length > 0 -%}
+  <div class="grid-row--25-75-on-large{% if has_image %}{% if not is_last_item %} p-section--shallow{% endif %}{% else %} p-resources-block__item{% endif %}">
     {%- if render_categories and render_images -%}
       {% if not is_first_category and is_first_item %}<hr class="p-rule--muted" />{% endif %}
       {{- _render_category_title(category, is_first_category, is_first_item) -}}
