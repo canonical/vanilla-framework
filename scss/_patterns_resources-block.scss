@@ -9,6 +9,16 @@ $col-50: calc($grid-8-columns / 2);
     padding-bottom: map-get($settings-text-p, sp-after) - map-get($settings-text-p, nudge);
   }
 
+  // Unlike the blog, resources don't share subgrid rows across blocks, so drop empty article block items
+  // instead of letting them render zero-height rows that each still add a row-gap.
+  .p-resources-block__item,
+  .p-resources-block {
+    .p-article-block__description:empty,
+    .p-article-block__metadata:not(:has(.article-author:not(:empty), .article-time:not(:empty))) {
+      display: none;
+    }
+  }
+
   .p-resources-block {
     > .p-resources-block__col {
       @media (min-width: $threshold-4-8-col) {
