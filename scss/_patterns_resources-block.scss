@@ -5,13 +5,13 @@ $col-50: calc($grid-8-columns / 2);
 
 @mixin vf-p-resources-block {
   // Text-only resource items are stacked with the article block row-gap; the next title's nudge completes the paragraph gap.
-  .p-resources-block__item:not(:last-child) {
+  .p-resources-item:not(:last-child) {
     padding-bottom: map-get($settings-text-p, sp-after) - map-get($settings-text-p, nudge);
   }
 
   // Unlike the blog, resources don't share subgrid rows across blocks, so drop empty article block items
   // instead of letting them render zero-height rows that each still add a row-gap.
-  .p-resources-block__item,
+  .p-resources-item,
   .p-resources-block {
     .p-article-block__description:empty,
     .p-article-block__metadata:not(:has(.article-author:not(:empty), .article-time:not(:empty))) {

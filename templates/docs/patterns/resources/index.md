@@ -75,7 +75,7 @@ View example of the resources pattern without categories and images
 
 ### Text only, 50/50 on medium screens
 
-Set `layout: "50-50"` on the text only variant to also split the title and resource list 50/50 on medium screens.
+Set `layout: "50-50"` on the text only variant to also split the title and resource list 50/50 on medium screens. `layout` only applies to the text only variant, and is ignored when images or categories are rendered.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/no-categories-and-images-50-50" class="js-example" data-lang="jinja">
 View example of the text only resources pattern with a 50/50 layout on medium screens
@@ -295,7 +295,7 @@ The Resources block allows you to specify categories and resource items to appea
           <code>string</code>
         </td>
         <td>
-          Layout of the text only variant (when both <code>render_images</code> and <code>render_categories</code> are <code>false</code>). <code>full-width</code> stacks the title and resources on medium screens and splits them 50/50 on large screens. <code>50-50</code> splits them 50/50 on both medium and large screens. Default is <code>full-width</code>
+          Layout of the text only variant (when both <code>render_images</code> and <code>render_categories</code> are <code>false</code>). <code>full-width</code> stacks the title and resources on medium screens and splits them 50/50 on large screens. <code>50-50</code> splits them 50/50 on both medium and large screens. Ignored when images or categories are rendered. Default is <code>full-width</code>
         </td>
       </tr>
       <tr>
