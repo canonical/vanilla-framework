@@ -4,6 +4,34 @@ $col-25: calc($grid-8-columns / 4);
 $col-50: calc($grid-8-columns / 2);
 
 @mixin vf-p-resources-block {
+  // same as the article block row-gap
+  $article-block-row-gap: map-get($settings-text-p, sp-after) - map-get($settings-text-p, nudge);
+
+  // Text-only resource items are stacked with the article block row-gap; the next title's nudge completes the paragraph gap.
+  .p-resources-item:not(:last-child) {
+    padding-bottom: $article-block-row-gap;
+  }
+
+  // Article block spacing overrides for resources only; the blog keeps the default article block spacing.
+  .p-resources-item,
+  .p-resources-block {
+    // Unlike the blog, resources don't share subgrid rows across blocks, so drop empty article block items
+    // instead of letting them render zero-height rows that each still add a row-gap.
+    .p-article-block__description:empty,
+    .p-article-block__metadata:not(:has(.article-author:not(:empty), .article-time:not(:empty))) {
+      display: none;
+    }
+
+    // The description sits directly under the title: no nudge above it, and no row-gap between them.
+    .p-article-block__item:has(.p-article-block__description:not(:empty)) {
+      padding-top: 0;
+    }
+
+    .p-article-block__item:has(.p-article-block__title:not(:empty)):has(+ .p-article-block__item .p-article-block__description:not(:empty)) {
+      margin-bottom: -#{$article-block-row-gap};
+    }
+  }
+
   .p-resources-block {
     > .p-resources-block__col {
       @media (min-width: $threshold-4-8-col) {

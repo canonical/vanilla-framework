@@ -51,7 +51,7 @@ View example of the resources pattern with description and CTA
 
 ### Without images
 
-By providing `has_images: false` to the pattern, you can stop images from rendering
+By providing `render_images: false` to the pattern, you can stop images from rendering
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/no-images" class="js-example" data-lang="jinja">
 View example of the resources pattern without images
@@ -59,7 +59,7 @@ View example of the resources pattern without images
 
 ### Without categories
 
-By providing `has_categories: false` to the pattern, you can stop categories from rendering
+By providing `render_categories: false` to the pattern, you can stop categories from rendering
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/no-categories" class="js-example" data-lang="jinja">
 View example of the resources pattern without categories
@@ -67,10 +67,18 @@ View example of the resources pattern without categories
 
 ### Text only
 
-By providing both `has_categories: false` and `has_images: false`, the pattern renders only textual content in a 50/50 layout
+By providing both `render_categories: false` and `render_images: false`, the pattern renders only textual content. By default, the title and resource list are stacked full width on medium screens and split 50/50 on large screens.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/resources/no-categories-and-images" class="js-example" data-lang="jinja">
 View example of the resources pattern without categories and images
+</a></div>
+
+### Text only, 50/50 on medium screens
+
+Set `layout: "50-50"` on the text only variant to also split the title and resource list 50/50 on medium screens. `layout` only applies to the text only variant, and is ignored when images or categories are rendered.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/resources/no-categories-and-images-50-50" class="js-example" data-lang="jinja">
+View example of the text only resources pattern with a 50/50 layout on medium screens
 </a></div>
 
 ### Without resource description
@@ -274,6 +282,20 @@ The Resources block allows you to specify categories and resource items to appea
         </td>
         <td>
           Whether to render category names. Default is <code>true</code>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>layout</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          Layout of the text only variant (when both <code>render_images</code> and <code>render_categories</code> are <code>false</code>). <code>full-width</code> stacks the title and resources on medium screens and splits them 50/50 on large screens. <code>50-50</code> splits them 50/50 on both medium and large screens. Ignored when images or categories are rendered. Default is <code>full-width</code>
         </td>
       </tr>
       <tr>
