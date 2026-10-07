@@ -39,7 +39,7 @@ View example of the logo block inside a six column parent container
   </div>
 </div>
 
-If you need to show more smaller logos you can use dense version of logo block with `p-logo-section--dense`.
+Use `.p-logo-section` to display logos in a compact layout.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/logo-block/logo-block-dense/" class="js-example">
 View example of the dense logo block
