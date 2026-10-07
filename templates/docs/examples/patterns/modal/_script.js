@@ -28,7 +28,10 @@
   function attemptFocus(child) {
     if (child.focus) {
       ignoreFocusChanges = true;
-      child.focus();
+      // Focusing without scrolling: when the example is embedded in the
+      // documentation page, Firefox would otherwise scroll that page down
+      // to the focused element.
+      child.focus({preventScroll: true});
       ignoreFocusChanges = false;
       return document.activeElement === child;
     }
