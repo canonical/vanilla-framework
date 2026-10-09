@@ -18,6 +18,8 @@
         State class applied to the parent when the card includes an image.
       "&.has-desc":
         State class applied to the parent when the card includes a description. For col-2/4/6 the description slides up on hover; for col-8 it is always visible below the heading.
+      "&.is-dark":
+        Dark theme for cards on a dark background, theming the card border and footer rule. Applied ONLY to the parent .p-content-card.
     Links:
       .p-content-card__overlay-link:
         Invisible absolute link spanning the entire card to make it clickable.
@@ -631,6 +633,13 @@ $card-height-8col: 22rem;
     &:focus-within {
       border-color: var(--color-border-high-contrast, #707070);
       text-decoration: none;
+    }
+
+    /* Dark theme, for cards on a dark background. .is-dark already themes
+       the footer rule; the card border needs the dark border colours too. */
+    &.is-dark {
+      --color-border-high-contrast: #{$colors--dark-theme--border-high-contrast};
+      --color-border-low-contrast: #{$colors--dark-theme--border-low-contrast};
     }
 
     @include mq-min($breakpoint-large) {
