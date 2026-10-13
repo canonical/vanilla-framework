@@ -13,7 +13,7 @@ Vanilla Framework is an extensible CSS framework, built using [Sass](http://sass
 
 - [Using Vanilla](#using-vanilla)
   - [Hotlinking](#hotlinking)
-  - [Including Vanilla in your project via NPM](#including-vanilla-in-your-project-via-npm)
+  - [Including Vanilla in your project via NPM or yarn](#including-vanilla-in-your-project-via-npm-or-yarn)
 - [Developing Vanilla](#developing-vanilla)
 - [Community](#community)
 

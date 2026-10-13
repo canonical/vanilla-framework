@@ -38,8 +38,8 @@ Please provide as much information possible detailing what you're currently expe
 
 - [Pre release tasks](/guides/release-process.md#pre-release-tasks)
 - [Releasing](/guides/release-process.md#releasing)
-- [Deploying vanillaframework.io](/guides/release-process.md#deploy-vanillaframeworkio)
-- [Releasing React Components](/guides/release-process.md#react-components)
+- [Deploying vanillaframework.io](/guides/release-process.md#deploying-vanillaframeworkio)
+- [Releasing React Components](/guides/release-process.md#releasing-react-components)
 - [Promotion](/guides/release-process.md#promotion)
 
 ## Licenses
