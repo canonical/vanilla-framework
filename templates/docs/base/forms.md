@@ -22,9 +22,9 @@ View example of a single-line text field
 
 Vanilla also styles HTML’s other single-line field types: `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `number`, `email`, `url`, `search` and `tel`. For the `search` type, see <a href="../patterns/search-box">Search box</a>.
 
-## Multi-line text field
+## Multi-line text field {{ status('updated') }}
 
-`<textarea>` is a multi-line text field.
+`<textarea>` is a multi-line text field. The textarea grows automatically in height as the user types. Horizontal resizing is disabled; the user can only resize the textarea vertically.
 
 <div class="embedded-example"><a href="/docs/examples/base/forms/textarea/" class="js-example">
 View example of a textarea
