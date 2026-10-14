@@ -37,6 +37,9 @@ jobs:
   deploy:
     needs: setup
     name: Deploy
+    permissions:
+      contents: read
+      packages: write
     # https://github.com/canonical/webteam-devops
     uses: canonical/webteam-devops/.github/workflows/deploy.yaml@main
     with:
