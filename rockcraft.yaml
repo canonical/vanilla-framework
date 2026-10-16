@@ -9,7 +9,7 @@ platforms:
   amd64:
 
 extensions:
-  # https://documentation.ubuntu.com/rockcraft/en/latest/reference/extensions/flask-framework
+  # https://ubuntu.com/containers/rockcraft/docs/latest/reference/extensions/flask-framework
   - flask-framework
 
 parts:
@@ -26,7 +26,7 @@ parts:
       # install dependencies
       npm install -g yarn
       yarn install
-      # https://documentation.ubuntu.com/rockcraft/en/latest/common/craft-parts/how-to/override_build/
+      # https://ubuntu.com/containers/rockcraft/docs/latest/common/craft-parts/how-to/override_build/
       # Vanilla's `build` dir is pointed to by `templates/static/build` symlink - it must be present at runtime
       yarn run build
       mkdir -p "$CRAFT_PART_INSTALL/flask/app"
