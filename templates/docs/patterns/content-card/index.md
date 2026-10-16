@@ -86,6 +86,12 @@ The 8-column layout spans the full grid width and uses a 50/50 split on desktop:
 View example of the 8-column full-width card
 </a></div>
 
+## Dark theme
+
+Use the `dark` theme for cards on a dark background, such as a page or section with the `is-dark` class. It applies the dark theme colours to the card's border and to the rule above its footer.
+
+[View example of the 2-column card with dark theme](/docs/examples/patterns/content-card/2-column-dark?theme=dark)
+
 ---
 
 ## Jinja Macro
@@ -163,6 +169,13 @@ The `vf_card` Jinja macro can be used to generate a card pattern. The entire car
         <td><code>boolean</code></td>
         <td><code>False</code></td>
         <td>When <code>True</code>, forces the image to appear above the content on all breakpoints, overriding the default horizontal and grid layouts for 4-column, 6-column, and 8-column variants.</td>
+      </tr>
+      <tr>
+        <td><code>theme</code></td>
+        <td>No</td>
+        <td><code>string</code></td>
+        <td><code>"default"</code></td>
+        <td>Colour theme of the card's border and footer rule. Options are <code>default</code> and <code>dark</code>, for cards on a dark background. Any other value falls back to <code>default</code>.</td>
       </tr>
     </tbody>
   </table>

@@ -8,6 +8,7 @@
   date: Optional string for the publication date. Hidden if no image is provided.
   footer: Dictionary containing 'resource_type' (icon and text) and 'content_type' (read-only chip).
   description: Optional text. For col-2/4/6 slides up on hover (4 lines; 2 for col-6). For col-8 always visible below the heading (3 lines desktop/tablet, 2 lines mobile).
+  theme: Optional colour theme of the card's border and footer rule. Options are 'default' and 'dark' (for cards on a dark background). Default is 'default'.
 
   Variants:
   col-2: 2-column width card layout (Vertical)
@@ -24,8 +25,10 @@
     Params: columns (8), heading (req), link (req), image (req), author (opt), date (opt), footer (opt), description (opt)
 #}
 
-{%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None, stacked_image=False) -%}
+{%- macro vf_card(columns="2", link=None, heading=None, image=None, author=None, date=None, footer=None, description=None, stacked_image=False, theme="default") -%}
 
+{#- Anything other than "dark" falls back to the default theme -#}
+{%- set theme_class = 'is-dark' if (theme | string | trim) == 'dark' else '' -%}
 {%- set col_str = columns | string -%}
 {%- set layout = 'p-content-card--cols-' ~ col_str -%}
 {%- set img_class = 'has-image' if image else '' -%}
@@ -36,7 +39,7 @@
 
 <div class="p-content-card-wrapper p-content-card-wrapper--{{ col_str }}">
 
-    <div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }} {{ stacked_image_class }}">
+    <div class="p-content-card {{ layout }} {{ img_class }} {{ has_desc }} {{ stacked_image_class }} {{ theme_class }}">
 
         {%- if link -%}
             <a href="{{ link }}" class="p-content-card__overlay-link" tabindex="-1" aria-hidden="true"></a>
