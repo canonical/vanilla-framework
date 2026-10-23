@@ -4,7 +4,9 @@
 
 // Typographic element styles
 @mixin vf-b-typography {
-  @include vf-b-typography-fontfaces;
+  @if $font-include-font-faces {
+    @include vf-b-typography-fontfaces;
+  }
 
   // stylelint-disable selector-max-type -- base styles can use type selectors
   html {
