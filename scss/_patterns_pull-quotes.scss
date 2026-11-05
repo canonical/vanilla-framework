@@ -58,9 +58,17 @@
     &:last-of-type::after {
       @include vf-quote-mark;
 
-      bottom: 0.55em;
+      // Kept in the inline flow so the mark always follows the last
+      // character: positioned absolutely, it takes the static position of
+      // the next line when the paragraph ends with a line break and lands
+      // over the text. The zero line height and the negative margin keep it
+      // out of line box sizing and wrapping.
+      bottom: 0.35em;
       content: '\201E';
+      line-height: 0;
       margin-left: 0.25em;
+      margin-right: -0.75em;
+      position: relative;
     }
   }
 
@@ -86,6 +94,10 @@
       &::before,
       &::after {
         font-size: 1.5em;
+      }
+
+      &::after {
+        bottom: 0.475em;
       }
     }
   }
