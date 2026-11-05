@@ -19,7 +19,9 @@ $knob-size: $sp-unit * 2;
     }
 
     &:disabled + .p-switch__slider {
-      @extend %vf-disabled-element;
+      // Optional: the placeholder only exists when base form styles are
+      // compiled alongside, which standalone contexts don't do.
+      @extend %vf-disabled-element !optional;
     }
 
     &:checked + .p-switch__slider {
