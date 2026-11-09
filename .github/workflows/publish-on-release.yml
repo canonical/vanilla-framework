@@ -9,7 +9,7 @@ jobs:
     name: Build Vanilla
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: 20
@@ -37,7 +37,7 @@ jobs:
       id-token: write # to enable use of OIDC for npm provenance
       contents: read # to enable reading the contents of the release for publishing
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -53,7 +53,7 @@ jobs:
     needs: [build, publish-npm]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v6
         with:
           name: css
