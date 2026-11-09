@@ -128,7 +128,11 @@ function initNavigationInteraction(navRoot) {
     const parentList = targetLink ? targetLink.closest('.p-in-page-navigation__list') : null;
 
     if (!targetLink || !parentList || window.getComputedStyle(parentList, null).display === 'none') {
-      return;
+      return false;
+    }
+
+    if (targetLink.classList.contains('is-active')) {
+      return true;
     }
 
     navigationLinks.forEach((link) => {
@@ -139,6 +143,21 @@ function initNavigationInteraction(navRoot) {
         link.classList.remove('is-active');
       }
     });
+    return true;
+  }
+
+  function updateActiveLinkAtPageEnd() {
+    if (navItemClicked || window.scrollY === 0 || window.scrollY + window.innerHeight < document.documentElement.scrollHeight - 1) {
+      return false;
+    }
+
+    // The final heading may never reach the observer's activation area.
+    for (let index = headings.length - 1; index >= 0; index--) {
+      if (updateActiveLink(headings[index].id)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   const BREAKPOINTLARGE = 1036;
@@ -159,6 +178,9 @@ function initNavigationInteraction(navRoot) {
     observer = new IntersectionObserver(
       function (entries) {
         if (typeof navItemClicked !== 'undefined' && navItemClicked) {
+          return;
+        }
+        if (updateActiveLinkAtPageEnd()) {
           return;
         }
         entries.forEach((entry) => {
@@ -184,6 +206,8 @@ function initNavigationInteraction(navRoot) {
 
   // Handle navigation link clicks
   let navItemClicked = false;
+  window.addEventListener('scroll', updateActiveLinkAtPageEnd, {passive: true});
+  window.addEventListener('resize', debounce(updateActiveLinkAtPageEnd, 250));
   navigationLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
       e.preventDefault();
