@@ -17,6 +17,7 @@
     {%- set variant = "4-blocks" -%}
   {%- endif -%}
   {%- macro _title(title={}) -%}
+    {%- if title.get('text', '') | trim | length > 0 -%}
     <h2 class="p-muted-heading">
       {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
         <a {% for attr, value in title.get("link_attrs", {}).items() -%} {{ attr }}="{{ value }}" {%- endfor -%}>{{- title.get('text', '') -}}</a>
@@ -24,6 +25,7 @@
         {{- title.get('text', '') -}}
       {%- endif -%}
     </h2>
+    {%- endif -%}
   {%- endmacro -%}
   <section class="p-section p-data-spotlight--{{ variant }}">
     {%- if variant == '4-blocks' -%}
