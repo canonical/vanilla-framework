@@ -58,7 +58,7 @@
             <div {%- if item_classes | length > 0 %} class="{{ item_classes }}"{%- endif -%}>{{- basic_section_item(content) -}}</div>
           {%- endfor -%}
         </div>
-        {%- if not loop.last %}<hr class="p-rule--muted" />{% endif %}
+        {%- if not loop.last %}<hr class="p-rule--muted" aria-hidden="true" />{% endif %}
       </li>
     {%- endfor -%}
     </{{ ns.list_element }}>

@@ -48,12 +48,10 @@ function buildInPageNavigation(navRoot) {
     const itemClone = itemTemplate.content.cloneNode(true);
     const li = itemClone.querySelector('li');
     const link = itemClone.querySelector('a');
-    const tooltipWrapper = itemClone.querySelector('.p-tooltip--right');
     const tooltipMessage = itemClone.querySelector('.p-tooltip__message');
 
     link.href = `#${id}`;
     link.textContent = text;
-    tooltipWrapper.setAttribute('aria-describedby', tooltipId);
     tooltipMessage.id = tooltipId;
     tooltipMessage.textContent = text;
 
@@ -98,7 +96,6 @@ function initNavigationInteraction(navRoot) {
       if (toggle.getAttribute('aria-expanded') === 'true') {
         navRoot.classList.remove('is-expanded');
         toggle.setAttribute('aria-expanded', 'false');
-        navList.setAttribute('aria-expanded', 'false');
         toggle.querySelector('.p-icon--chevron-down').classList.remove('u-hide');
         toggle.querySelector('.p-icon--chevron-up').classList.add('u-hide');
         // Ensure active item is visible in horizontal layout
@@ -106,7 +103,6 @@ function initNavigationInteraction(navRoot) {
       } else {
         navRoot.classList.add('is-expanded');
         toggle.setAttribute('aria-expanded', 'true');
-        navList.setAttribute('aria-expanded', 'true');
         toggle.querySelector('.p-icon--chevron-down').classList.add('u-hide');
         toggle.querySelector('.p-icon--chevron-up').classList.remove('u-hide');
       }

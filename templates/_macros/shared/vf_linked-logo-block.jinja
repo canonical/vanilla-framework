@@ -9,7 +9,7 @@
     <div class="grid-row">
       {%- for link in links -%}
         <div class="grid-col-{{ cols_per_item }} grid-col-medium-{{ cols_per_item }}">
-          <a href="{{ link.href }}" aria-label="{{ link.label }}">
+          <a href="{{ link.href }}"{% if link.label | trim %} aria-label="{{ link.label }}"{% endif %}>
             <div class="p-image-container--16-9 is-highlighted">
               {#- If image_attrs is present, use it to generate the image HTML -#}
               {%- if "image_attrs" in link -%}
@@ -24,7 +24,7 @@
                 {{ link.image_html | safe }}
               {% endif %}
             </div>
-            <hr class="p-rule--muted">
+            <hr class="p-rule--muted" aria-hidden="true">
             <p>{{ link.text }}</p>
           </a>
         </div>
