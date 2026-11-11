@@ -86,6 +86,10 @@ $card-fallback-spacing-large: $sp-x-large;
 $card-fallback-image-gap: $sp-small + $sp-xx-small;
 $card-height-8col: 22rem;
 
+$card-footer-fade-width: 15%;
+// Scroll distance over which each footer edge fade appears or disappears
+$card-footer-fade-scroll-range: $sp-x-large;
+
 @mixin mq-min($breakpoint) {
   @media screen and (width >=$breakpoint) {
     @content;
@@ -105,6 +109,39 @@ $card-height-8col: 22rem;
 }
 
 @mixin vf-p-content-card {
+  /* Footer fade widths, driven by the footer's horizontal scroll position */
+  @property --vf-content-card-fade-start {
+    inherits: false;
+    initial-value: 0%;
+    syntax: '<percentage>';
+  }
+
+  @property --vf-content-card-fade-end {
+    inherits: false;
+    initial-value: 0%;
+    syntax: '<percentage>';
+  }
+
+  @keyframes vf-p-content-card-fade-start {
+    from {
+      --vf-content-card-fade-start: 0%;
+    }
+
+    to {
+      --vf-content-card-fade-start: #{$card-footer-fade-width};
+    }
+  }
+
+  @keyframes vf-p-content-card-fade-end {
+    from {
+      --vf-content-card-fade-end: #{$card-footer-fade-width};
+    }
+
+    to {
+      --vf-content-card-fade-end: 0%;
+    }
+  }
+
   /* =========================================
      GRID WRAPPER 
      (Handles spanning and invisible bottom spacing)
@@ -493,7 +530,8 @@ $card-height-8col: 22rem;
       display: flex;
       gap: $sp-small;
       height: $card-footer-inner-height;
-      mask-image: linear-gradient(to right, black 85%, transparent 100%);
+      // Fallback: only the end edge fades
+      mask-image: linear-gradient(to right, black (100% - $card-footer-fade-width), transparent 100%);
       -ms-overflow-style: none;
       overflow-x: auto;
       pointer-events: auto;
@@ -501,6 +539,18 @@ $card-height-8col: 22rem;
       scrollbar-width: none;
       width: 100%;
       z-index: 2;
+
+      // Fade each edge only while there is hidden content on that side
+      @supports (animation-timeline: scroll()) {
+        animation:
+          vf-p-content-card-fade-start linear both,
+          vf-p-content-card-fade-end linear both;
+        animation-range:
+          0 $card-footer-fade-scroll-range,
+          calc(100% - #{$card-footer-fade-scroll-range}) 100%;
+        animation-timeline: scroll(self inline);
+        mask-image: linear-gradient(to right, transparent 0%, black var(--vf-content-card-fade-start), black calc(100% - var(--vf-content-card-fade-end)), transparent 100%);
+      }
 
       &::-webkit-scrollbar {
         display: none;
