@@ -69,6 +69,8 @@
     {% set media_aspect_ratio = "cinematic" %}
   {% endif %}
 
+  {%- set has_full_width_image_below_title = has_image and is_media_full_width and media_placement != "before_description" -%}
+
   {% macro _wrapped_media() %}
     {%- set section_classes = ("p-section--shallow" if (media_placement == "before_description") or (media_placement == "after_description" and not is_media_full_width)) -%}
     {%- set hide_classes = ("u-hide--medium u-hide--small" if hide_media_on_small_medium_breakpoints else "") -%}
@@ -144,6 +146,16 @@
     {%- endif -%}
   {% endmacro %}
 
+  {% macro _title_without_description() %}
+    {%- if has_full_width_image_below_title -%}
+      <div class="p-section--shallow">
+        {{ title_content }}
+      </div>
+    {%- else -%}
+      {{ title_content }}
+    {%- endif -%}
+  {% endmacro %}
+
   {#- Non-full-width "after_cta" media renders in its own row after the CTA. -#}
   {% macro _after_cta_media_row() %}
     {%- if has_media and media_placement == "after_cta" and not is_media_full_width -%}
@@ -207,9 +219,7 @@
         <div class="grid-row">
           {#- No description; the non-full-width media goes directly adjacent to the title -#}
           <div class="{% if not has_media or is_media_full_width %}grid-col{% else %}grid-col-4{% endif %}">
-            <div class="p-section--shallow">
-              {{ title_content }}
-            </div>
+            {{- _title_without_description() -}}
           </div>
           {% if has_media and not is_media_full_width %}
             <div class="grid-col-4 grid-col-start-large-5">
