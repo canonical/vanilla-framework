@@ -153,6 +153,7 @@ ratios</a> and a [caption](/docs/patterns/images#image-with-caption).
     "caption_html": "Optional caption with HTML",
     "is_highlighted": "Optional boolean to enable/disable background highlighting. Default is true",
     "is_cover": "Optional boolean to add 'is-cover' class to image container. Default is false",
+    "container_class": "Optional utility classes to apply to the image container",
     "attrs": {
       "src": "image-url",
       "alt": "alt-text"
@@ -167,6 +168,7 @@ ratios</a> and a [caption](/docs/patterns/images#image-with-caption).
   container</a>.
 - **`is_cover`**: Optional boolean which defaults to false. Wraps image in a <a href="/docs/patterns/images#cover-image">cover image
   container</a>.
+- **`container_class`**: Optional string of utility classes applied to the image container. Use the <a href="/docs/utilities/hide">hide utilities</a> to hide the whole container (and its reserved space) on specific screen sizes, rather than hiding only the image.
 - **`attrs`**: Dictionary of image attributes (src, alt, class, etc.). The `p-image-container__image` class is automatically applied. See [attribute forwarding docs](/docs/building-vanilla#attribute-forwarding) for more info.
 
 #### Videos
