@@ -429,10 +429,13 @@ $navigation-height: calc(map-get($settings-text-p, line-height) + 2 * $spv--larg
       margin-right: map-get($grid-margin-widths, default);
       width: 100%;
 
-      // in documentation layout navigation items need to be aligned with the grid of the content
-      // so we substract the navigation item padding from the grid margin
+      // Align the documentation navigation surface and its first label with the grid edges.
       .l-docs__main & {
-        margin-left: calc(map-get($grid-margin-widths, default) - $sph--large);
+        margin-left: 0;
+
+        .p-navigation__items:first-of-type > :first-child > .p-navigation__link {
+          padding-left: map-get($grid-margin-widths, default);
+        }
       }
     }
   }
