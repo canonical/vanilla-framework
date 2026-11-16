@@ -13,7 +13,7 @@ jobs:
   upload:
     name: Build project with proposed changes & take Percy snapshots
     if: github.event.workflow_run.conclusion=='success'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}
       pr_number: ${{ steps.get_pr_data.outputs.pr_number }}
