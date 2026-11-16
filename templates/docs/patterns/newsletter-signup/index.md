@@ -306,6 +306,23 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           Additional classes added to form submit button
         </td>
       </tr>
+      <tr>
+        <td>
+          <code>id_prefix</code>
+        </td>
+        <td>
+          No
+        </td>
+        <td>
+          <code>string</code>
+        </td>
+        <td>
+          <code>''</code>
+        </td>
+        <td>
+          Prefix added to the <code>id</code> of the email input and the default honeypot inputs, and to their labels' <code>for</code> attributes. Use it to keep ids unique when the page contains other forms, e.g. <code>'newsletter-'</code>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

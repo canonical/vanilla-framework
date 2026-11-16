@@ -11,6 +11,7 @@
       @param top_rule_variant (string) (optional): Variant of the top rule, default is "default". Options are "muted", "highlighted", "default", "none".
       @param hide_newsletter_block_rule (boolean) (optional): Whether to hide the newsletter block rule on medium/small screens. Default is false.
       @param submit_btn_class (string) (optional): Additional classes to add to the submit button.
+      @param id_prefix (string) (optional): Prefix added to the ids of the email and default honeypot inputs (and their labels' `for`), to keep them unique when the page has other forms. Default is "".
 
     All Slots:
       @slot description: Description text, one or more paragraphs
@@ -18,7 +19,7 @@
       @slot hidden_fields: Additional hidden fields to include in the form
       @slot honeypot_fields: hidden honeypot fields for spam prevention
 #}
-{%- macro vf_newsletter_signup(form_id, return_url, title_text, form_action="https://ubuntu.com/marketo/submit", input_label="Work email", checkbox_id="canonicalUpdatesOptIn", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", top_rule_variant="default", hide_newsletter_block_rule=false, submit_btn_class="js-submit-button", caller=None) -%}
+{%- macro vf_newsletter_signup(form_id, return_url, title_text, form_action="https://ubuntu.com/marketo/submit", input_label="Work email", checkbox_id="canonicalUpdatesOptIn", checkbox_label="I agree to receive information about Canonical's products and services.", layout="25-75", top_rule_variant="default", hide_newsletter_block_rule=false, submit_btn_class="js-submit-button", id_prefix="", caller=None) -%}
   {% set layout = layout | trim %}
   {% if layout not in ['50-50', '25-75', '2-col', '4-col'] %}
     {% set layout = "25-75" %}
@@ -65,9 +66,9 @@
       {% if is_section_level %}<div class="grid-col">{% endif %}
         {% if has_description %}{{ description | safe }}{% endif %}
         <form action="{{ form_action }}" method="post" id="{{ form_id }}">
-          <label class="is-required" for="email">{{ input_label }}:</label>
+          <label class="is-required" for="{{ id_prefix }}email">{{ input_label }}:</label>
           <input required
-                 id="email"
+                 id="{{ id_prefix }}email"
                  name="email"
                  maxlength="255"
                  type="email"
@@ -164,21 +165,21 @@
             {{ honeypot_fields | safe }}
           {% else %}
             <div class="u-off-screen">
-              <label class="website" for="website">Website:</label>
+              <label class="website" for="{{ id_prefix }}website">Website:</label>
               <input name="website"
                      type="text"
                      class="website"
                      autocomplete="off"
                      value=""
-                     id="website"
+                     id="{{ id_prefix }}website"
                      tabindex="-1" />
-              <label class="name" for="name">Name:</label>
+              <label class="name" for="{{ id_prefix }}name">Name:</label>
               <input name="name"
                      type="text"
                      class="name"
                      autocomplete="off"
                      value=""
-                     id="name"
+                     id="{{ id_prefix }}name"
                      tabindex="-1" />
             </div>
           {% endif %}
