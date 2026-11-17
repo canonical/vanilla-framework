@@ -213,6 +213,7 @@
 {% endmacro %}
 
 {% macro basic_section_title(title={}) %}
+  {%- if title.get("text", "") | trim | length > 0 -%}
   <h2>
     {%- if "link_attrs" in title and "href" in title.get("link_attrs", {}) -%}
       <a
@@ -224,6 +225,7 @@
       {{- title.get("text", "") -}}
     {%- endif -%}
   </h2>
+  {%- endif -%}
 {%- endmacro -%}
 
 # Params
