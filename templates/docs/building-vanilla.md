@@ -248,7 +248,7 @@ Add a build script to your `package.json` to run the webpack command:
 "build": "webpack"
 ```
 
-Now run the command with `yarn build`, which will bundle the code and put in a a `dist/` folder. At the project root, create an `index.html` with the following code:
+Now run the command with `yarn build`, which will bundle the code and put in a `dist/` folder. At the project root, create an `index.html` with the following code:
 
 ```
 <!DOCTYPE html>

@@ -19,7 +19,7 @@ This component strives to follow WCAG 2.2 (level AA guidelines), and care must b
 - Avoid adding both `aria-live="assertive"` and `role="alert"` to maximize compatibility as this causes double speaking issues in `VoiceOver` on iOS.
 - Avoid frequent notifications as frequent interruptions may inhibit usability for people with visual and cognitive impairments.
 - Place error notifications at the top of the page and use a distinctive heading so that they are easier to identify.
-- Provide the user with clear instructions on how to correct errors and and explicitly remind them of any format requirements.
+- Provide the user with clear instructions on how to correct errors and explicitly remind them of any format requirements.
 - Avoid creating a time limit, as making the notification disappear automatically can reduce accessibility for users who need longer to interact with the element.
 - An event listener should be added to hide notifications upon receiving a click on the close button.
 - Unless the alert from the screen reader is meant to break the user’s workflow, it is important that the notification does not affect keyboard focus.
