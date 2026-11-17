@@ -17,7 +17,9 @@ on:
 jobs:
   copy_artifact:
     name: Copy visual testing files to GitHub Actions artifact
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest migrated to Ubuntu 26.04, which is incompatible with the
+    # Python/Node/Percy toolchain in the percy-snapshot action.
+    runs-on: ubuntu-24.04
     steps:
       # Checkout only the files that are needed for visual testing and safe for the snapshots workflow to run
       - name: Checkout repo
