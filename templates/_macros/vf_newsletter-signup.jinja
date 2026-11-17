@@ -71,8 +71,7 @@
                  name="email"
                  maxlength="255"
                  type="email"
-                 pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$"
-                 required="required" />
+                 pattern="^[^ ]+@[^ ]+\.[a-z]{2,26}$" />
           <label class="p-checkbox is-required">
             <input required
                    class="p-checkbox__input"
@@ -95,66 +94,44 @@
             {{ hidden_fields | safe }}
           {% else %}
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="returnURL"
                    value="{{ return_url }}" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="formid"
                    value="{{ form_id }}" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="productContext"
                    id="product-context"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="utm_campaign"
                    id="utm_campaign"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="utm_medium"
                    id="utm_medium"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="utm_source"
                    id="utm_source"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="utm_content"
                    id="utm_content"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="utm_term"
                    id="utm_term"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="GCLID__c"
                    id="GCLID__c"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    name="Facebook_Click_ID__c"
                    id="Facebook_Click_ID__c"
                    value="" />
             <input type="hidden"
-                   aria-hidden="true"
-                   aria-label="hidden field"
                    id="preferredLanguage"
                    name="preferredLanguage"
                    maxlength="255"
@@ -163,7 +140,7 @@
           {% if has_honeypot_fields %}
             {{ honeypot_fields | safe }}
           {% else %}
-            <div class="u-off-screen">
+            <div class="u-off-screen" aria-hidden="true">
               <label class="website" for="website">Website:</label>
               <input name="website"
                      type="text"

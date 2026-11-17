@@ -13,8 +13,6 @@ jobs:
   upload:
     name: Build project with proposed changes & take Percy snapshots
     if: github.event.workflow_run.conclusion=='success'
-    # Pinned: ubuntu-latest migrated to Ubuntu 26.04, which is incompatible with the
-    # Python/Node/Percy toolchain in the percy-snapshot action.
     runs-on: ubuntu-24.04
     outputs:
       pr_head_sha: ${{ steps.get_pr_data.outputs.sha }}

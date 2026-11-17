@@ -115,12 +115,12 @@
   {%- macro _hero_chip_block() -%}
     {%- if chip_text|trim|length > 0 -%}
       <span class="p-chip--branded">
-        <i class="p-icon--circle-of-friends"></i>
+        <i class="p-icon--circle-of-friends" aria-hidden="true"></i>
         <span class="p-chip__value">{{ chip_text }}</span>
       </span>
     {%- elif chip_aria_label|trim|length > 0 -%}
-      <span class="p-chip--branded" aria-label="{{ chip_aria_label }}">
-        <i class="p-icon--circle-of-friends"></i>
+      <span class="p-chip--branded" role="img" aria-label="{{ chip_aria_label }}">
+        <i class="p-icon--circle-of-friends" aria-hidden="true"></i>
       </span>
     {%- endif -%}
   {%- endmacro %}
