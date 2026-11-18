@@ -5,8 +5,8 @@ on:
     types: [published]
 
 jobs:
-  build:
-    name: Build Vanilla
+  build-css:
+    name: Build Vanilla CSS
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -16,7 +16,7 @@ jobs:
       - name: Read Vanilla version from package.json
         run: |
           node -p "require('./package.json').version" > VANILLA_VERSION
-          echo "Building Vanilla v$(cat VANILLA_VERSION)"
+          echo "Building Vanilla CSS v$(cat VANILLA_VERSION)"
       - run: yarn install
       - run: yarn build
       - run: yarn test
@@ -27,6 +27,46 @@ jobs:
         with:
           name: css
           path: build/css
+
+  build-js:
+    name: Build Vanilla JS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Read Vanilla version from package.json
+        run: |
+          node -p "require('./package.json').version" > VANILLA_VERSION
+          echo "Building Vanilla JS v$(cat VANILLA_VERSION)"
+      - name: Install esbuild and dependencies
+        run: npm install esbuild
+      - name: Create esbuild configuration file
+        # This step creates a script to execute your specific esbuild configuration
+        run: |
+          echo 'require("esbuild").build({
+            entryPoints: ["templates/static/js/index.js"],
+            bundle: true,
+            outfile: "build/js/vanilla.bundle.mjs",
+            format: "esm",
+            sourcemap: true,
+            minify: true,
+            tsconfigRaw: {},
+          });' > esbuild-config.js
+      - name: Run esbuild to generate ESM bundle
+        run: node esbuild-config.js
+      - name: Show size of the build file
+        run: stat -c '%s' build/js/vanilla.bundle.mjs
+      - run: cp VANILLA_VERSION build/js
+      - uses: actions/upload-artifact@v4
+        with:
+          name: js
+          path: build/js/vanilla.bundle.mjs
+  build:
+    name: Build Vanilla CSS and JS
+    runs-on: ubuntu-latest
+    needs: [build-css, build-js]
 
   publish-npm:
     name: Publish to NPM
@@ -60,11 +100,13 @@ jobs:
           path: css
       - name: Install upload-assets snap
         run: sudo snap install upload-assets
-      - name: Upload to assets server
-        run: upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
+      - name: Upload assets to assets server
+        run: |
+          upload-assets --url-path vanilla-framework-version-$(cat css/VANILLA_VERSION).min.css css/build.css
+          upload-assets --url-path vanilla-framework-version-$(cat js/VANILLA_VERSION).min.mjs build/js/vanilla.bundle.mjs
         env:
           UPLOAD_ASSETS_API_TOKEN: ${{secrets.UPLOAD_ASSETS_API_TOKEN}}
-  
+
   notify-figma:
     name: Notify Figma library maintainers
     needs: publish-npm
