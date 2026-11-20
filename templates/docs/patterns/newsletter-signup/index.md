@@ -199,7 +199,7 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           <code>N/A</code>
         </td>
         <td>
-          The ID passed to the form element. For example <code>mktoForm_XXXX</code>
+          The numeric Marketo form ID, for example <code>4960</code>. Also used as the form element's ID.
         </td>
       </tr>
       <tr>
