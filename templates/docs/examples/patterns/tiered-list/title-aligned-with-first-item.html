@@ -1,0 +1,26 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+
+{% block title %}Tiered list / Title aligned with the first item{% endblock %}
+
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {% call(slot) vf_tiered_list(is_title_aligned_with_first_item=true, is_list_full_width_on_tablet=false) %}
+    {% if slot == 'title' %}
+      <h2>Highlights</h2>
+    {% elif slot == 'list_item_title_1' %}
+      <h3 class="p-heading--5">At a glance</h3>
+    {% elif slot == 'list_item_description_1' %}
+      <p>Ubuntu Sans and Ubuntu Sans Mono are an open-source family designed for clarity on screens.</p>
+    {% elif slot == 'list_item_title_2' %}
+      <h3 class="p-heading--5">Origins</h3>
+    {% elif slot == 'list_item_description_2' %}
+      <p>Dalton Maag designed the original Ubuntu typeface, which was released in 2010.</p>
+    {% elif slot == 'list_item_title_3' %}
+      <h3 class="p-heading--5">The 2023 update</h3>
+    {% elif slot == 'list_item_description_3' %}
+      <p>Ubuntu Sans adds variable weight and width, true small caps, and text figures.</p>
+    {% endif %}
+  {% endcall %}
+{% endblock %}
