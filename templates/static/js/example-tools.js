@@ -95,10 +95,10 @@ var activeTheme = DEFAULT_COLOR_THEME;
 
     // Update theme selector button states to reflect which one is currently active
     var themeButtonToSelect = document.getElementById(convertThemeNameToButtonIdentifier(themeToSelect));
-    themeButtonToSelect?.setAttribute('aria-selected', 'true');
+    themeButtonToSelect?.setAttribute('aria-pressed', 'true');
     if (activeTheme) {
       var themeButtonToDeselect = document.getElementById(convertThemeNameToButtonIdentifier(activeTheme));
-      themeButtonToDeselect?.setAttribute('aria-selected', 'false');
+      themeButtonToDeselect?.setAttribute('aria-pressed', 'false');
     }
 
     activeTheme = themeToSelect;
@@ -137,10 +137,10 @@ var activeTheme = DEFAULT_COLOR_THEME;
         if (SUPPORTED_THEMES?.length > 1) {
           var themeSwitcherControls = SUPPORTED_THEMES.map(
             (themeName) =>
-              `<button id="${convertThemeNameToButtonIdentifier(themeName)}" class="p-segmented-control__button p-theme-toggle__button is-dense" role="button" aria-selected="${body.classList.contains(convertThemeNameToClassName(themeName))}" data-color-theme-name="${themeName}">${titleCase(themeName)}</button>`,
+              `<button id="${convertThemeNameToButtonIdentifier(themeName)}" class="p-segmented-control__button p-theme-toggle__button is-dense" aria-pressed="${body.classList.contains(convertThemeNameToClassName(themeName))}" data-color-theme-name="${themeName}">${titleCase(themeName)}</button>`,
           );
           var themeSwitcherSegmentedControl = fragmentFromString(
-            `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list">${themeSwitcherControls.join('')}</div></div>`,
+            `<div class="p-segmented-control u-theme-toggle"><div class="p-segmented-control__list" role="group" aria-label="Color theme">${themeSwitcherControls.join('')}</div></div>`,
           );
 
           controls.appendChild(themeSwitcherSegmentedControl);
