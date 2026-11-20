@@ -3,6 +3,8 @@
 @mixin vf-p-rule {
   .p-rule,
   .p-rule--muted,
+  .p-rule--highlighted,
+  // Deprecated: .p-rule--highlight will be removed in a future release
   .p-rule--highlight {
     @extend %hr;
 
@@ -15,6 +17,8 @@
     background-color: $colors--theme--border-low-contrast;
   }
 
+  .p-rule--highlighted,
+  // Deprecated: .p-rule--highlight will be removed in a future release
   .p-rule--highlight {
     @include vf-highlight-bar($colors--theme--text-default);
 
