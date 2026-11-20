@@ -3,6 +3,8 @@
 #   desktop vs. 50/50 split between title/description
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet vs. 50/50 split between title/description
+# is_list_indented_on_medium: retain the desktop list proportions on medium screens by leaving the
+#   first column empty when is_list_full_width_on_tablet is false (default is false).
 # is_description_split_on_medium: keep the 50/50 section heading and description on medium screens
 #   when is_description_full_width_on_desktop is false (default is false).
 # padding: Type of padding to apply. Options are "deep", "shallow", "default". Default is "default".
@@ -39,12 +41,14 @@
   media_aspect_ratio="3-2",
   hide_media_on_small_medium_breakpoints=false,
   is_media_highlighted=false,
-  is_description_split_on_medium=false
+  is_description_split_on_medium=false,
+  is_list_indented_on_medium=false
   ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
   {%- set split_intro_on_medium = has_description and is_description_split_on_medium and not is_description_full_width_on_desktop -%}
+  {%- set indent_list_on_medium = is_list_indented_on_medium and not is_list_full_width_on_tablet -%}
   {%- set description_column_classes = 'grid-col-4 grid-col-start-large-5' -%}
   {%- if split_intro_on_medium -%}
     {%- set description_column_classes = description_column_classes + ' grid-col-medium-2 grid-col-start-medium-3' -%}
@@ -248,6 +252,7 @@
       When there is a CTA, we use shallow spacing to space the list away from the CTA.
       When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
     -#}
+      {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2" -%}
       {%- for number in range(1, 25) -%}
         {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
         {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
@@ -260,17 +265,16 @@
           {#- Skip the first HR -#}
           {%- if number != 1 %}
             <div class="grid-row">
-              <div class="grid-col-6 grid-col-start-large-3">
+              <div class="grid-col-6 grid-col-start-large-3{% if indent_list_on_medium %} grid-col-medium-3 grid-col-start-medium-2{% endif %}">
                 <hr class="p-rule--muted">
               </div>
             </div>
           {%- endif -%}
 
-          {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2" -%}
           <div class="grid-row">
-            <div class="{{ medium_class }} grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
+            <div class="{{ 'grid-col-medium-1 grid-col-start-medium-2' if indent_list_on_medium else medium_class }} grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
 
-            <div class="{{ medium_class }} grid-col-4">{{ list_item_description_content }}</div>
+            <div class="{{ 'grid-col-medium-2' if indent_list_on_medium else medium_class }} grid-col-4">{{ list_item_description_content }}</div>
           </div>
         {%- endif -%}
       {% endfor %}
