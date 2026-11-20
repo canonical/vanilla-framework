@@ -8,7 +8,7 @@
   - [Releasing to NPM](#releasing-to-npm)
   - [Releasing to assets server](#releasing-to-assets-server)
 - [Deploying vanillaframework.io](#deploying-vanillaframeworkio)
-- [Releasing React Components](#react-components)
+- [Releasing React Components](#releasing-react-components)
 - [Promotion](#promotion)
 
 ## Pre release tasks
