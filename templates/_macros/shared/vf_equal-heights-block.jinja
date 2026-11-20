@@ -9,6 +9,7 @@
   - image_aspect_ratio_small (string) (optional): "square" | "2-3" | "3-2" | "16-9" | "cinematic" | "auto" (default: "square").
   - image_aspect_ratio_medium (string) (optional): same options as above (default: "square").
   - image_aspect_ratio_large (string) (optional): same options as above (default: "2-3").
+  - use_parent_grid_columns (boolean) (optional): Match the columns of an enclosing Vanilla grid column (default: false).
 -#}
 {%- macro vf_equal_heights_block(
   items=[],
@@ -16,9 +17,10 @@
   highlight_images=false,
   image_aspect_ratio_small="square",
   image_aspect_ratio_medium="square",
-  image_aspect_ratio_large="2-3"
+  image_aspect_ratio_large="2-3",
+  use_parent_grid_columns=false
 ) -%}
-  <div class="p-equal-height-row--wrap">
+  <div class="p-equal-height-row--wrap{% if use_parent_grid_columns %} grid-row{% endif %}">
     {%- for item in items -%}
       {%- set image = item.get("image_html", "") | trim -%}
       {%- set title = item.get("title_text", "") | trim -%}
