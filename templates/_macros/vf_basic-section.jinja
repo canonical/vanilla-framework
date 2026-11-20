@@ -237,6 +237,7 @@
 # is_split_on_medium: Boolean to indicate if the section should be split on medium screens (default is false).
 # top_rule_variant: Type of HR to render at the top of the pattern. "default" | "muted" (default is "default").
 # attrs: A dictionary of attributes to apply to the section element.
+# image_row: Optional image configuration with an additional layout option: "full-width" (default), "inset-right", or "centered".
 {% macro vf_basic_section(
   title={},
   label_text="",
@@ -246,7 +247,8 @@
   is_split_on_medium=false,
   top_rule_variant="default",
   override_last_item_padding=false,
-  attrs={}
+  attrs={},
+  image_row={}
 ) -%}
 
   {%- set padding = padding | trim -%}
@@ -268,6 +270,8 @@
 
   {%- set has_label = label_text|length > 0 -%}
   {%- set has_subtitle = subtitle_text|length > 0 -%}
+  {%- set image_attrs = image_row.get("attrs", {}) -%}
+  {%- set has_image_row = (image_attrs.get("src") or "")|trim or (image_attrs.get("srcset") or "")|trim -%}
 
 <section class="{{ padding_classes }} {{ attrs.get("class", "") -}}" 
   {%- for attr, value in attrs.items() -%}
@@ -276,7 +280,7 @@
     {%- endif -%}
   {%- endfor -%}
 >
-  <div class="grid-row--50-50{%- if not is_split_on_medium -%}-on-large{%- endif -%}">
+  <div class="grid-row--50-50{%- if not is_split_on_medium -%}-on-large{%- endif -%}{% if has_image_row %} p-section--shallow{% endif %}">
     {{ vf_section_top_rule(top_rule_variant) }}
     <div class="grid-col">
       {%- if has_label -%}
@@ -291,6 +295,18 @@
       {{- vf_basic_section_blocks(items=items, override_last_item_padding=override_last_item_padding) -}}
     </div>
   </div>
+  {%- if has_image_row %}
+    {%- set image_column_classes = {
+      "full-width": "grid-col-8",
+      "inset-right": "grid-col-6 grid-col-start-large-3",
+      "centered": "grid-col-4 grid-col-start-large-3"
+    } -%}
+    <div class="grid-row">
+      <div class="{{ image_column_classes.get(image_row.get('layout'), image_column_classes['full-width']) }}">
+        {{- _basic_section_image(image_row) -}}
+      </div>
+    </div>
+  {%- endif %}
 </section>
 
 {%- endmacro %}
