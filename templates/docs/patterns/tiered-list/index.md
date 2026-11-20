@@ -70,6 +70,18 @@ side-by-side on tablet screen sizes.
 View example of the tiered list pattern
 </a></div>
 
+Set `is_description_split_on_medium=true` together with `is_description_full_width_on_desktop=false`
+to keep the section title and description side by side on medium screens. The child list continues to
+use its own `is_list_full_width_on_tablet` setting.
+
+Set `is_list_indented_on_medium=true` with `is_list_full_width_on_tablet=false` to leave the first medium
+grid column empty. The item title takes one column, the description takes two columns, and the dividers
+span the three occupied columns.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/50-50-description-on-medium/" class="js-example" data-lang="jinja">
+View example with a split introduction and an indented list on medium screens
+</a></div>
+
 ## Full-width without description
 
 This variant does not contain a top-level description, and both its title and
@@ -261,6 +273,13 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
         </td>
       </tr>
       <tr>
+        <td><code>is_description_split_on_medium</code></td>
+        <td>No</td>
+        <td><code>boolean</code></td>
+        <td><code>false</code></td>
+        <td>Keeps the split between the section title and description on medium screens when the desktop description uses the 50/50 layout.</td>
+      </tr>
+      <tr>
         <td>
           <code>is_list_full_width_on_tablet</code>
         </td>
@@ -276,6 +295,13 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
         <td>
           Whether the list element should be full-width on tablet
         </td>
+      </tr>
+      <tr>
+        <td><code>is_list_indented_on_medium</code></td>
+        <td>No</td>
+        <td><code>boolean</code></td>
+        <td><code>false</code></td>
+        <td>Leaves the first medium grid column empty when list items are split on tablet.</td>
       </tr>
       <tr>
         <td>
