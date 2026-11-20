@@ -11,6 +11,7 @@
   - image_aspect_ratio_medium (string) (optional): The aspect ratio for item images on medium screens. Defaults to "square". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "square".
   - image_aspect_ratio_large (string) (optional): The aspect ratio for item images on large screens. Defaults to "2-3". Can be "square", "2-3", "3-2", "16-9", "cinematic" or "auto". Defaults to "2-3".
   - items (array) (required): An array of items, each including 'image_html', 'title_text', 'description_html', and 'cta_html'.
+  - is_right_aligned_on_medium (boolean) (optional): Stack items in the right half of the grid on medium screens (default: false).
 -#}
 
 {%- macro vf_equal_heights(
@@ -22,7 +23,8 @@
   image_aspect_ratio_small="square",
   image_aspect_ratio_medium="square",
   image_aspect_ratio_large="2-3",
-  items=[]
+  items=[],
+  is_right_aligned_on_medium=false
 ) -%}
   {% set has_subtitle = subtitle_text | trim | length > 0 %}
   {% set description_content = caller('description') | trim %}
@@ -46,7 +48,7 @@
     <hr class="p-rule is-fixed-width"/>
     <div class="p-section--shallow">
     {%- if has_two_top_cols -%}
-      <div class="grid-row--50-50-on-large">
+      <div class="grid-row--50-50{% if not is_right_aligned_on_medium %}-on-large{% endif %}">
         <div class="grid-col">
     {%- endif -%}
           <h2{% if not has_two_top_cols %} class="u-fixed-width"{% endif %}>{{ title_text }}</h2>
@@ -68,7 +70,7 @@
     {%- endif -%}
     {%- if has_cta -%}
       <div class="grid-row">
-        <div class="grid-col-4 grid-col-medium-2 grid-col-start-large-5">
+        <div class="grid-col-4 grid-col-medium-2 grid-col-start-large-5{% if is_right_aligned_on_medium %} grid-col-start-medium-3{% endif %}">
           <p>
             {{- cta_content -}}
           </p>
@@ -78,14 +80,15 @@
     </div>
 
     <div class="grid-row">
-      <div class="{%- if items | length == 2 -%}grid-col-4 grid-col-start-large-5{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}grid-col-6 grid-col-start-large-3{%- else -%}grid-col-8{%- endif -%}">
+      <div class="{%- if items | length == 2 -%}grid-col-4 grid-col-start-large-5{%- elif items | length % 3 == 0 and items | length % 4 != 0 -%}grid-col-6 grid-col-start-large-3{%- else -%}grid-col-8{%- endif -%}{% if is_right_aligned_on_medium %} grid-col-medium-2 grid-col-start-medium-3{% endif %}">
         {{ vf_equal_heights_block(
           items=items,
           subtitle_heading_level=subtitle_heading_level,
           highlight_images=highlight_images,
           image_aspect_ratio_small=image_aspect_ratio_small,
           image_aspect_ratio_medium=image_aspect_ratio_medium,
-          image_aspect_ratio_large=image_aspect_ratio_large
+          image_aspect_ratio_large=image_aspect_ratio_large,
+          use_parent_grid_columns=is_right_aligned_on_medium
         ) }}
       </div>
     </div>

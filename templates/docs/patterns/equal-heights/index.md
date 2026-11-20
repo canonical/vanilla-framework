@@ -47,6 +47,21 @@ If the number of items is exactly 2, the items will be right aligned on large sc
 View example of the equal heights pattern
 </a></div>
 
+## Right-aligned items on medium screens
+
+Set `is_right_aligned_on_medium=true` to stack the items in the right half of the grid on medium screens.
+When the section has a subtitle or introductory description, it aligns with the items on medium screens.
+Mobile and desktop use the standard Equal Heights layouts.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/equal-heights/3-columns-right-aligned-on-medium" class="js-example" data-lang="jinja">
+View example of Equal Heights aligned to the right on medium screens
+</a></div>
+
+When embedding `vf_equal_heights_block` under another pattern's heading, pass `use_parent_grid_columns=true`
+and place the block in an enclosing Vanilla grid column. For example, use
+`grid-col-6 grid-col-start-large-3 grid-col-medium-2 grid-col-start-medium-3` to align three items in the
+right half on medium screens and the right three quarters on large screens.
+
 ## Minimal contents
 
 At a minimum, you should provide a title, at least 3 items, and a title and image for each item.
@@ -119,6 +134,13 @@ shown below.
         <td>
           <code>H2</code> title text.
         </td>
+      </tr>
+      <tr>
+        <td><code>is_right_aligned_on_medium</code></td>
+        <td>No</td>
+        <td>boolean</td>
+        <td><code>false</code></td>
+        <td>Stacks the items in the right half of the grid on medium screens.</td>
       </tr>
       <tr>
         <td>
