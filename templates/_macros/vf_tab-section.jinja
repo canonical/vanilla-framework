@@ -18,6 +18,7 @@
         - "divided-section" - Divided section block. See vf_divided_section_block
         - "blog" - Blog articles block. See vf_blog_block
         - "basic-section" - Basic section with content blocks. See vf_basic_section_blocks
+        - "link-list" - List of heading-sized links separated by rules (25/75 only).
     - item (Object) - Configuration specific to the block type.
       The structure depends on the type selected (see referenced macros).
     - tab_html (String) - HTML content for the tab label
@@ -39,6 +40,18 @@
         </div>
     {% elif type == "basic-section" %}
         {{ vf_basic_section_blocks(items=item.get('items', [])) }}
+    {% elif type == "link-list" %}
+        {% set links = item.get('links', []) %}
+        {% if links %}
+            <ul class="p-list u-no-margin--bottom" role="list">
+                {% for link in links %}
+                    <li>
+                        {% if not loop.first %}<hr class="p-rule" aria-hidden="true" />{% endif %}
+                        <p class="p-heading--2"><a href="{{ link.href }}">{{ link.text }}</a></p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     {% endif %}
 {%- endmacro -%}
 
@@ -68,7 +81,7 @@ Parameters:
 - layout (String, Optional) - Layout variant. One of:
     - "full-width" - Tabs span full width. Allows: quote, linked-logo, logo-block, blog
     - "50-50" - Tabs in right 50% column. Allows: linked-logo, logo-block, divided-section, blog, basic-section
-    - "25-75" - Tabs in right 75% column. Allows: linked-logo, logo-block, blog
+    - "25-75" - Tabs in right 75% column. Allows: linked-logo, logo-block, blog, link-list
     Default: "50-50"
 
 - padding (String, Optional) - Padding variant. One of:
@@ -84,11 +97,14 @@ Parameters:
     Default: "default"
 
 - tabs (Array, Required) - Array of tab configurations. Each tab object should have:
-    - type (String, Required) - Block type: "quote", "linked-logo", "logo-block", "divided-section", "blog", or "basic-section"
+    - type (String, Required) - Block type: "quote", "linked-logo", "logo-block", "divided-section", "blog", "basic-section", or "link-list"
     - item (Object, Required) - Configuration specific to the block type
     - tab_html (String, Required) - HTML for the tab control
 
 - attrs (Object, Optional) - Dictionary of attributes to apply to the section element.
+
+- is_title_aligned_with_tabs (Boolean, Optional) - In the 25/75 layout without description or CTA,
+    align the title and tabs in the same row on large screens. Default: false.
 
 Note: Some block types are only allowed in certain layouts (see allowed_blocks_per_layout).
 Unsupported blocks for a layout will silently be skipped.
@@ -101,7 +117,8 @@ Unsupported blocks for a layout will silently be skipped.
     padding="default",
     top_rule_variant="default",
     tabs=[],
-    attrs={}
+    attrs={},
+    is_title_aligned_with_tabs=false
 ) -%}
     {#- Marshall values from parameters into variables, apply safe defaults, and trim contents -#}
     {%- set title_text = title.get("text", "") | trim -%}
@@ -141,8 +158,12 @@ Unsupported blocks for a layout will silently be skipped.
     {%- endif -%}
 
     {%- set tabs_column_start = 8 - tabs_column_count + 1 -%}
+		{%- set is_aligned_25_75 = layout == "25-75" and is_title_aligned_with_tabs and not has_description and not has_cta -%}
+    {%- set tab_section_name = title_text.lower().split() | join('_') if is_aligned_25_75 else title_text | lower | replace(' ', '_') -%}
+    {%- set title_id = tab_section_name + '-heading' -%}
+
 		{%- set title_row_has_two_columns = has_description or has_cta or (layout == "50-50") -%}
-		{%- set tabs_in_title_row = not has_description and not has_cta and layout == "50-50" -%}
+		{%- set tabs_in_title_row = is_aligned_25_75 or (not has_description and not has_cta and layout == "50-50") -%}
 
     {#- Configuration: which block types are allowed per layout.
         If a layout key is present, only those block types will be rendered
@@ -152,7 +173,7 @@ Unsupported blocks for a layout will silently be skipped.
     -#}
     {%- set allowed_blocks_per_layout = {
         '50-50': [ 'linked-logo', 'logo-block', 'divided-section', 'blog', 'basic-section' ],
-        '25-75': [ 'linked-logo', 'logo-block', 'blog' ],
+        '25-75': [ 'linked-logo', 'logo-block', 'blog', 'link-list' ],
         'full-width': [ 'quote', 'linked-logo', 'logo-block', 'blog' ]
     } -%}
 
@@ -177,9 +198,8 @@ Unsupported blocks for a layout will silently be skipped.
 							in case multiple tab sections are used in a single page.
 							The user still needs to ensure that the page's section titles are unique.
 						-#}
-						{%- set name = title_text | trim | lower | replace(' ', '_') -%}
 						{%- set content_html = _tab_section_tab(tab=tab) -%}
-						{%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': name, 'tab_html': tab.get('tab_html', ''), 'content_html': content_html } ] -%}
+						{%- set ns.rendered_tabs = ns.rendered_tabs + [ { 'name': tab_section_name, 'tab_html': tab.get('tab_html', ''), 'content_html': content_html } ] -%}
 				{%- endif -%}
 		{%- endfor -%}
 
@@ -197,18 +217,22 @@ Unsupported blocks for a layout will silently be skipped.
     	{% endif %}
 				<div class="grid-row{% if title_row_has_two_columns %}--50-50-on-large{% endif %}">
 					{{ vf_section_top_rule(top_rule_variant) }}
-					<div class="grid-col">
+					<div class="grid-col{% if is_aligned_25_75 %}-2{% endif %}">
 						{%- if title_is_link -%}
 							<a {% for attr, value in title_link_attrs.items() %} {{ attr }}="{{ value }}" {% endfor %}>
 						{%- endif -%}
-						<h{{ title_heading_level }}>
+						<h{{ title_heading_level }}{% if is_aligned_25_75 %} id="{{ title_id }}"{% endif %}>
 							{{ title_text }}
 						</h{{ title_heading_level }}>
 						{%- if title_is_link -%}
 							</a>
 						{%- endif -%}
 					</div>
-					{%- if title_row_has_two_columns -%}
+					{%- if is_aligned_25_75 -%}
+                        <div class="grid-col-6">
+                            {{ vf_tabs(list={ 'tabs': ns.rendered_tabs, 'tabs_list_attrs': { 'aria-labelledby': title_id } }) }}
+                        </div>
+					{%- elif title_row_has_two_columns -%}
 						<div class="grid-col">
 							{{ vf_description_block(
 								type=description.get("type"),
