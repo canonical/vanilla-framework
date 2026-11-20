@@ -163,6 +163,20 @@ If you wish to split the items in a list into two columns above `$breakpoint-sma
 View example of the patterns list split
 </a></div>
 
+## Compact columns
+
+Use a compact list for short labels such as language names. The list flows down each column in source order. It uses two columns on small screens, four on medium screens, and eight on large screens at the [Vanilla grid breakpoints](/docs/patterns/grid#structure). Keep the list full-width so each label has room to wrap.
+
+Use the `vf_list_columns` macro from `_macros/vf_list-columns.jinja`. Pass a flat list of plain-text labels as `items`. The macro preserves their order and distributes them evenly across the columns, including when the item count does not divide evenly.
+
+The optional `attrs` dictionary accepts HTML attributes such as `aria-labelledby`, which can associate the list with a nearby heading.
+
+If you import Sass patterns individually, include `vf-p-grid-8` along with `vf-p-lists` for the compact columns layout.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/lists/lists-compact-columns/" class="js-example">
+View example of the compact list with columns
+</a></div>
+
 ## Horizontal section {{ status("new") }}
 
 <div class="p-notification--caution">

@@ -1,0 +1,23 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_list-columns.jinja" import vf_list_columns %}
+
+{% block title %}Lists / Compact columns{% endblock %}
+{% block standalone_css %}patterns_lists{% endblock %}
+
+{% block content %}
+<div class="u-fixed-width">
+  <h2 id="language-support">Supported languages</h2>
+  {{ vf_list_columns(
+    items=[
+      "Afrikaans", "Albanian", "Basque", "Belarusian", "Bosnian", "Bulgarian",
+      "Catalan", "Croatian", "Czech", "Danish", "Dutch", "English", "Estonian",
+      "Finnish", "French", "Galician", "German", "Greek", "Hungarian", "Icelandic",
+      "Indonesian", "Irish", "Italian", "Latvian", "Lithuanian", "Macedonian",
+      "Malay", "Maltese", "Norwegian", "Polish", "Portuguese", "Romanian",
+      "Russian", "Serbian", "Slovak", "Slovenian", "Spanish", "Swahili",
+      "Swedish", "Turkish", "Ukrainian", "Vietnamese"
+    ],
+    attrs={"aria-labelledby": "language-support"}
+  ) }}
+</div>
+{% endblock %}

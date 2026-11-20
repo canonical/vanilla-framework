@@ -1,0 +1,31 @@
+{#-
+  Render a compact unordered list in 2, 4 or 8 columns at Vanilla grid breakpoints.
+
+  items: A list of short text labels in reading order.
+  attrs: Optional HTML attributes for the list element. The list role is fixed.
+-#}
+{%- macro vf_list_columns(items=[], attrs={}) -%}
+  {%- if items -%}
+    {#- Assign each label to an existing Vanilla grid column at each breakpoint. -#}
+    {%- set starts = namespace(by_breakpoint=[]) -%}
+    {%- for breakpoint, count, span in [('small', 2, 2), ('medium', 4, 1), ('large', 8, 1)] -%}
+      {%- set layout = namespace(columns=[]) -%}
+      {%- for column in items | slice(count) -%}
+        {%- set start = loop.index0 * span + 1 -%}
+        {%- set layout.columns = layout.columns + [start] * (column | length) -%}
+      {%- endfor -%}
+      {%- set starts.by_breakpoint = starts.by_breakpoint + [(breakpoint, layout.columns)] -%}
+    {%- endfor -%}
+
+    <ul class="grid-row p-list--compact-columns{% if attrs.get('class') %} {{ attrs['class'] }}{% endif %}" role="list"
+      {%- for attr, value in attrs.items() if attr not in ['class', 'role'] %}
+        {{ attr }}="{{ value }}"
+      {%- endfor %}
+    >
+      {%- for item in items -%}
+        {%- set index = loop.index0 -%}
+        <li class="p-list__item grid-col-small-2 grid-col-medium-1 grid-col-1{% for breakpoint, columns in starts.by_breakpoint %} grid-col-start-{{ breakpoint }}-{{ columns[index] }}{% endfor %}">{{ item | e }}</li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+{%- endmacro -%}
