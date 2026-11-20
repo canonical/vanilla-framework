@@ -1,0 +1,27 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
+
+{% block title %}Tiered list / 50/50 section title and description on medium{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {% call(slot) vf_tiered_list(
+    is_description_full_width_on_desktop=false,
+    is_description_split_on_medium=true,
+    is_list_full_width_on_tablet=false
+  ) %}
+    {% if slot == "title" %}
+      <h2>More on typography</h2>
+    {% elif slot == "description" %}
+      <p>Explore the typography guidelines for Canonical’s products and websites.</p>
+    {% elif slot == "list_item_title_1" %}
+      <h3 class="p-heading--5">Type scale</h3>
+    {% elif slot == "list_item_description_1" %}
+      <p>Learn how the type scale establishes a clear hierarchy.</p>
+    {% elif slot == "list_item_title_2" %}
+      <h3 class="p-heading--5">Setting type</h3>
+    {% elif slot == "list_item_description_2" %}
+      <p>See guidance on alignment, line length, and accessibility.</p>
+    {% endif %}
+  {% endcall %}
+{% endblock %}

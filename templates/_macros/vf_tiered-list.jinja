@@ -3,6 +3,8 @@
 #   desktop vs. 50/50 split between title/description
 # is_list_full_width_on_tablet: whether list title/description each have their
 #   own row on tablet vs. 50/50 split between title/description
+# is_description_split_on_medium: keep the 50/50 section heading and description on medium screens
+#   when is_description_full_width_on_desktop is false (default is false).
 # padding: Type of padding to apply. Options are "deep", "shallow", "default". Default is "default".
 # top_rule_variant: Variant of the horizontal rule rendered at the top of the pattern.
 #   Options are "default", "muted", "highlighted", "none". Default is "default".
@@ -36,11 +38,17 @@
   video_attrs={},
   media_aspect_ratio="3-2",
   hide_media_on_small_medium_breakpoints=false,
-  is_media_highlighted=false
+  is_media_highlighted=false,
+  is_description_split_on_medium=false
   ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
   {%- set has_description = description_content|trim|length > 0 -%}
+  {%- set split_intro_on_medium = has_description and is_description_split_on_medium and not is_description_full_width_on_desktop -%}
+  {%- set description_column_classes = 'grid-col-4 grid-col-start-large-5' -%}
+  {%- if split_intro_on_medium -%}
+    {%- set description_column_classes = description_column_classes + ' grid-col-medium-2 grid-col-start-medium-3' -%}
+  {%- endif -%}
   {%- set cta_content = caller('cta') -%}
   {%- set has_cta = cta_content|trim|length > 0 -%}
   {%- set padding = padding | trim -%}
@@ -160,7 +168,7 @@
   {% macro _after_cta_media_row() %}
     {%- if has_media and media_placement == "after_cta" and not is_media_full_width -%}
       <div class="grid-row">
-        <div class="grid-col-4 grid-col-start-large-5">
+        <div class="{{ description_column_classes }}">
           {{- _wrapped_media() -}}
         </div>
       </div>
@@ -196,8 +204,8 @@
               {{- _description_with_media() -}}
             </div>
           </div>
-        {%- else -%} {#- (50/50 desktop layout) -#}
-          <div class="grid-row--50-50-on-large">
+        {%- else -%}
+          <div class="grid-row--50-50{% if not split_intro_on_medium %}-on-large{% endif %}">
             <div class="grid-col">
               {{ title_content }}
             </div>
@@ -209,7 +217,7 @@
         {%- endif -%}
         {% if has_cta == true -%}
           <div class="grid-row">
-            <div class="grid-col-4 grid-col-start-large-5">
+            <div class="{{ description_column_classes }}">
               {{ cta_content }}
             </div>
           </div>
