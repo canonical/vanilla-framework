@@ -23,7 +23,7 @@ Before you begin, ensure you have:
 
 ## Rockcraft
 
-The first stage of building this charm is to create a rock using [rockcraft](https://documentation.ubuntu.com/rockcraft).
+The first stage of building this charm is to create a rock using [rockcraft](https://ubuntu.com/containers/rockcraft/docs).
 
 ### Host Machine Commands
 
@@ -38,7 +38,7 @@ rockcraft pack
 rockcraft.skopeo --insecure-policy copy oci-archive:./vanillaframework-io_0.1_amd64.rock docker-daemon:vanillaframework-io:latest
 ```
 
-This will pack the application into a [rock](https://documentation.ubuntu.com/rockcraft/en/latest/explanation/rocks/) (OCI image) and upload it to the local registry.
+This will pack the application into a [rock](https://ubuntu.com/containers/rockcraft/docs/latest/explanation/rocks/) (OCI image) and upload it to the local registry.
 
 ### Local Testing
 
@@ -50,7 +50,7 @@ sudo docker run -p 8080:8000 --env-file .env -ti vanillaframework-io:latest
 
 The site should now be live at http://127.0.0.1:8080.
 
-> **Note:** The app will be served at port 8000 within the OCI container, **regardless of environment variables**. The [flask-framework extension](https://documentation.ubuntu.com/rockcraft/en/latest/reference/extensions/flask-framework/#flask-framework) always exposes port 8000.
+> **Note:** The app will be served at port 8000 within the OCI container, **regardless of environment variables**. The [flask-framework extension](https://ubuntu.com/containers/rockcraft/docs/latest/reference/extensions/flask-framework/#flask-framework) always exposes port 8000.
 
 ---
 
@@ -229,7 +229,7 @@ You should now be able to access the site at `http://vanilla.local`.
 
 ## Additional Resources
 
-- [Rockcraft Documentation](https://documentation.ubuntu.com/rockcraft)
+- [Rockcraft Documentation](https://ubuntu.com/containers/rockcraft/docs)
 - [Charmcraft Documentation](https://canonical-charmcraft.readthedocs-hosted.com/stable/)
 - [Juju Documentation](https://juju.is/docs)
 - [PAAS Charm Repository](https://github.com/canonical/paas-charm)
