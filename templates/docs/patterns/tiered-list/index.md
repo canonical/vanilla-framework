@@ -20,6 +20,7 @@ from a variety of tiered list layouts:
 - [50/50 with description](#5050-with-description)
 - [Full-width without description](#full-width-without-description)
 - [Full-width with description](#full-width-with-description)
+- [Title aligned with the first item](#title-aligned-with-the-first-item)
 
 The tiered list pattern is composed of the following elements:
 
@@ -87,6 +88,20 @@ child list are presented full-width on desktop and tablet screen sizes
 respectively.
 
 <div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/full-width-with-description/" class="js-example" data-lang="jinja">
+View example of the tiered list pattern
+</a></div>
+
+## Title aligned with the first item
+
+Set `is_title_aligned_with_first_item=true` to align the section title with
+the first list item on desktop. On tablets and smaller screens, the title sits
+above the list. Set `is_list_full_width_on_tablet=false` to keep item titles
+and descriptions side by side on tablets.
+
+Use this layout when the introduction consists of a title alone, followed by
+at least one list item with both a title and a description.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tiered-list/title-aligned-with-first-item/" class="js-example" data-lang="jinja">
 View example of the tiered list pattern
 </a></div>
 
@@ -275,6 +290,19 @@ The `vf_tiered_list` Jinja macro can be used to generate a tiered list pattern. 
         </td>
         <td>
           Whether the list element should be full-width on tablet
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <code>is_title_aligned_with_first_item</code>
+        </td>
+        <td>No</td>
+        <td><code>boolean</code></td>
+        <td><code>false</code></td>
+        <td>
+          Whether to align the section title with the first complete list item
+          on desktop. Applies to sections without an introductory description,
+          media or CTA.
         </td>
       </tr>
       <tr>
