@@ -49,7 +49,7 @@ Even though a width axis is available, allowing text to be condensed, we do not 
 
 ### Weight
 
-We use a carefully selected set of weights in our heading hierarchy. As a general rule, we reduce the weight of light headings as the font-size increases. We keep the weight of bold headings the same, thereby increasing contrast between light and bold headings as we move up the type scale. The following table provides the full list of weights we use:
+Each heading level has a default weight. H5 uses true small caps with `0.05em` letter spacing, and H6 uses upright text.
 
 <table>
   <thead>
@@ -64,20 +64,28 @@ We use a carefully selected set of weights in our heading hierarchy. As a genera
       <td>Display headings</td>
       </tr>
     <tr>
-      <td>180</td>
+      <td>200</td>
       <td>H2</td>
       </tr>
     <tr>
-      <td>275</td>
+      <td>300</td>
       <td>H4</td>
       </tr>
     <tr>
       <td>400</td>
-      <td>Small text, all UI elements, body text, H6 headings</td>
+      <td>H1, body text, small text</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>H3</td>
       </tr>
     <tr>
       <td>550</td>
-      <td>H5, H3, H1</td>
+      <td>Bold text</td>
+    </tr>
+    <tr>
+      <td>600</td>
+      <td>H5, H6</td>
     </tr>
   </tbody>
 </table>

@@ -25,6 +25,12 @@
     font-style: normal;
     margin-top: 0;
     max-width: $text-max-width;
+
+    // An explicit heading style on an h5 overrides native H5 small caps.
+    &:where(h5) {
+      font-variant-caps: normal;
+      letter-spacing: normal;
+    }
   }
 
   %vf-heading-1-2-heading-subsequent-placement {
@@ -174,6 +180,13 @@
   }
 
   %vf-heading-5 {
+    @extend %vf-heading-5-base;
+
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+  }
+
+  %vf-heading-5-base {
     @extend %vf-heading--common;
     @extend %vf-heading-5-6-heading-subsequent-placement;
 
@@ -199,7 +212,6 @@
     @extend %vf-heading-5-6-heading-subsequent-placement;
 
     font-size: #{map-get($settings-text-h6-mobile, font-size)}rem;
-    font-style: italic;
     font-weight: $font-weight-h6;
     line-height: map-get($settings-text-h6-mobile, line-height);
     margin-bottom: map-get($settings-text-h6-mobile, sp-after) - map-get($settings-text-h6-mobile, nudge);
