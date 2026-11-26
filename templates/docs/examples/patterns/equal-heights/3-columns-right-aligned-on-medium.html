@@ -1,0 +1,19 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_equal-heights.jinja" import vf_equal_heights %}
+
+{% block title %}Equal heights / Right-aligned items on medium screens{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {% call(slot) vf_equal_heights(
+    title_text="Ubuntu Sans",
+    subtitle_text="A typeface that embodies the spirit of Ubuntu.",
+    is_right_aligned_on_medium=true,
+    items=[
+      {"description_html": "<p>Canonical commissioned the original Ubuntu typeface in 2010 to capture the spirit of the operating system.</p>"},
+      {"description_html": "<p>Dalton Maag designed the original family. Type Network, DJR, and Dual Type later expanded it into a variable font.</p>"},
+      {"description_html": "<p>The 2023 update introduced variable width and weight, improved italics, and true small caps.</p>"}
+    ]
+  ) %}
+  {% endcall %}
+{% endblock %}
