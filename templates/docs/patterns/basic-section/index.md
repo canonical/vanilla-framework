@@ -20,6 +20,7 @@ The basic section pattern is composed of the following elements:
 | Title (**required**) | Main heading text (h2)                                                                  |
 | Subtitle             | Subtitle text with configurable heading level                                           |
 | Items                | Array of content blocks (descriptions, images, videos, lists, code blocks, logos, CTAs) |
+| Image row            | Optional image in its own row below the title and content blocks                        |
 
 The default basic section uses a 50/50 grid layout that splits on large screens and stacks on smaller screens.
 
@@ -61,6 +62,25 @@ Use `is_split_on_medium=true` to create a 50/50 grid layout that splits on mediu
 
 <div class="embedded-example"><a href="/docs/examples/patterns/basic-section/split-layout-responsive" class="js-example" data-lang="jinja">
 View example of the basic section pattern with split layout
+</a></div>
+
+### Image row
+
+Pass `image_row` to display an image in its own row below the title and content. The image uses the same configuration as an
+[image content block](#images), with an additional `layout` option for large screens. Provide `attrs.src` or `attrs.srcset`
+to render the row.
+
+| Layout                 | Width and position on large screens    |
+| ---------------------- | -------------------------------------- |
+| `full-width` (default) | Eight columns                          |
+| `inset-right`          | Six columns, starting at column three  |
+| `centered`             | Four columns, starting at column three |
+
+All three layouts span the row on medium and small screens. The title and content keep the section's existing split layout,
+with shallow spacing before the image.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/basic-section/image-row" class="js-example" data-lang="jinja">
+View example of the basic section pattern with an image row
 </a></div>
 
 ### Top Rule variants
@@ -654,6 +674,13 @@ below.
         <td>
           The last block will always have no additional padding, regardless of the item padding setting. This setting can be overridden by passing <code>override_last_item_padding=true</code> to the pattern.
         </td>
+      </tr>
+      <tr>
+        <td><code>image_row</code></td>
+        <td>No</td>
+        <td><code>Object</code></td>
+        <td><code>{}</code></td>
+        <td>Image configuration for a separate row below the section content. See <a href="#image-row">Image row</a>.</td>
       </tr>
     </tbody>
   </table>

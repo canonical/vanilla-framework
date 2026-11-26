@@ -1,0 +1,68 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
+
+{% block title %}Basic section / Image row{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+
+{{ vf_basic_section(
+  title={"text": "Comparing italics"},
+  items=[{
+    "type": "description",
+    "item": {"content": "This full-width specimen compares the spacing of two versions of the same typeface."}
+  }],
+  is_split_on_medium=true,
+  image_row={
+    "is_highlighted": false,
+    "is_cover": true,
+    "attrs": {
+      "src": "https://assets.ubuntu.com/v1/e691e3ef-italic_before_after_interim.png",
+      "alt": "The original Ubuntu italic in grey and the wider-spaced Ubuntu Sans italic in black.",
+      "width": 2464,
+      "height": 664
+    }
+  }
+) }}
+
+{{ vf_basic_section(
+  title={"text": "Small caps and text figures"},
+  items=[{
+    "type": "description",
+    "item": {"content": "The inset specimen aligns with the right edge of the content grid on large screens."}
+  }],
+  is_split_on_medium=true,
+  image_row={
+    "layout": "inset-right",
+    "is_highlighted": false,
+    "is_cover": true,
+    "attrs": {
+      "src": "https://assets.ubuntu.com/v1/0a8425fb-true_small_caps_and_text_figures.png",
+      "alt": "Small caps and text figures in FIPS validated 140-2, ISO 27001:2022, and 16:30 PM.",
+      "width": 1832,
+      "height": 704
+    }
+  }
+) }}
+
+{{ vf_basic_section(
+  title={"text": "Language support"},
+  items=[{
+    "type": "description",
+    "item": {"content": "Ubuntu Sans supports Latin, Cyrillic, and Greek scripts. The world map is centered on large screens."}
+  }],
+  is_split_on_medium=true,
+  image_row={
+    "layout": "centered",
+    "is_highlighted": false,
+    "is_cover": true,
+    "attrs": {
+      "src": "https://assets.ubuntu.com/v1/191bbd9f-language_support_map_2x.png",
+      "alt": "World map with location markers.",
+      "width": 1200,
+      "height": 838
+    }
+  }
+) }}
+
+{% endblock %}
