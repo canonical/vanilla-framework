@@ -18,6 +18,7 @@
 # media_aspect_ratio: aspect ratio of the media. Options are "3-2" or "16-9". Default is "3-2". If is_media_full_width is true, this will be set to "cinematic". Only applies to images, not videos. Videos always have a 16:9 aspect ratio.
 # hide_media_on_small_medium_breakpoints: whether to hide media on medium and small screens. Default is false.
 # is_media_highlighted: Whether to apply the "is-highlighted" class to the media container (default is false) (only applies to image media type).
+# is_title_aligned_with_first_item: place the title beside the first list item on desktop when there is no section description, media, or CTA (default is false).
 # Slots
 # title: top-level title element
 # description: top-level description element
@@ -36,7 +37,8 @@
   video_attrs={},
   media_aspect_ratio="3-2",
   hide_media_on_small_medium_breakpoints=false,
-  is_media_highlighted=false
+  is_media_highlighted=false,
+  is_title_aligned_with_first_item=false
   ) -%}
   {%- set title_content = caller('title') -%}
   {%- set description_content = caller('description') -%}
@@ -179,92 +181,95 @@
     {%- set cta_content = "<p>No CTA provided.</p>" -%}
   {%- endif -%}
 
+  {#- Collect complete entries so the first rendered item can include the section title. -#}
+  {%- set list_items = namespace(entries=[]) -%}
+  {%- for number in range(1, 25) -%}
+    {%- set item_title = caller('list_item_title_' + number|string) -%}
+    {%- set item_description = caller('list_item_description_' + number|string) -%}
+    {%- if item_title|trim and item_description|trim -%}
+      {%- set list_items.entries = list_items.entries + [(number, item_title, item_description)] -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- set is_title_aligned_with_first_item = is_title_aligned_with_first_item
+    and list_items.entries|length > 0 and not (has_description or has_media or has_cta) -%}
+  {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2" -%}
+
   <div class="{{ padding_classes }} u-fixed-width">
     {{ vf_section_top_rule(top_rule_variant) }}
-    {% if has_media and is_media_full_width and media_placement == "before_description" %}
-      {{- _full_width_media_row() -}}
-    {% endif %}
-    <div class="p-section--shallow">
-      {% if has_description == true -%}
-        {%- if is_description_full_width_on_desktop == true -%}
-          <div class="u-fixed-width">
-            {{ title_content }}
-          </div>
-
-          <div class="grid-row">
-            <div class="grid-col-4 grid-col-start-large-5">
-              {{- _description_with_media() -}}
-            </div>
-          </div>
-        {%- else -%} {#- (50/50 desktop layout) -#}
-          <div class="grid-row--50-50-on-large">
-            <div class="grid-col">
+    {% if not is_title_aligned_with_first_item %}
+      {% if has_media and is_media_full_width and media_placement == "before_description" %}
+        {{- _full_width_media_row() -}}
+      {% endif %}
+      <div class="p-section--shallow">
+        {% if has_description == true -%}
+          {%- if is_description_full_width_on_desktop == true -%}
+            <div class="u-fixed-width">
               {{ title_content }}
             </div>
 
-            <div class="grid-col">
-              {{- _description_with_media() -}}
-            </div>
-          </div>
-        {%- endif -%}
-        {% if has_cta == true -%}
-          <div class="grid-row">
-            <div class="grid-col-4 grid-col-start-large-5">
-              {{ cta_content }}
-            </div>
-          </div>
-        {%- endif %}
-        {{- _after_cta_media_row() -}}
-      {%- else -%} {#- No description (has_description is false) -#}
-        <div class="grid-row">
-          {#- No description; the non-full-width media goes directly adjacent to the title -#}
-          <div class="{% if not has_media or is_media_full_width %}grid-col{% else %}grid-col-4{% endif %}">
-            {{- _title_without_description() -}}
-          </div>
-          {% if has_media and not is_media_full_width %}
-            <div class="grid-col-4 grid-col-start-large-5">
-              {{- _wrapped_media() -}}
-            </div>
-          {% endif %}
-        </div>
-      {%- endif %}
-
-    {#- Always render full-width media in its own row, after the main title/description/no-description blocks -#}
-    {% if has_media and is_media_full_width and media_placement != "before_description" %}
-      {{- _full_width_media_row() -}}
-    {% endif %}
-
-    </div>
-
-    {#-
-      When there is a CTA, we use shallow spacing to space the list away from the CTA.
-      When there is no CTA, shallow spacing would combine with the pattern-level p-section padding, which introduces too much space.
-    -#}
-      {%- for number in range(1, 25) -%}
-        {%- set list_item_title_content = caller('list_item_title_' + number|string) -%}
-        {%- set has_title_content = list_item_title_content|trim|length > 0 -%}
-        {%- set list_item_description_content = caller('list_item_description_' + number|string) -%}
-        {%- set has_description_content = list_item_description_content|trim|length > 0 -%}
-
-        {#- Check to see if title/description content exist, since we're
-            iterating through 25 potential list items -#}
-        {%- if has_title_content and has_description_content -%}
-          {#- Skip the first HR -#}
-          {%- if number != 1 %}
             <div class="grid-row">
-              <div class="grid-col-6 grid-col-start-large-3">
-                <hr class="p-rule--muted">
+              <div class="grid-col-4 grid-col-start-large-5">
+                {{- _description_with_media() -}}
+              </div>
+            </div>
+          {%- else -%} {#- (50/50 desktop layout) -#}
+            <div class="grid-row--50-50-on-large">
+              <div class="grid-col">
+                {{ title_content }}
+              </div>
+
+              <div class="grid-col">
+                {{- _description_with_media() -}}
               </div>
             </div>
           {%- endif -%}
-
-          {%- set medium_class = "" if is_list_full_width_on_tablet else "grid-col-medium-2" -%}
+          {% if has_cta == true -%}
+            <div class="grid-row">
+              <div class="grid-col-4 grid-col-start-large-5">
+                {{ cta_content }}
+              </div>
+            </div>
+          {%- endif %}
+          {{- _after_cta_media_row() -}}
+        {%- else -%} {#- No description (has_description is false) -#}
           <div class="grid-row">
-            <div class="{{ medium_class }} grid-col-2 grid-col-start-large-3">{{ list_item_title_content }}</div>
-
-            <div class="{{ medium_class }} grid-col-4">{{ list_item_description_content }}</div>
+            {#- No description; the non-full-width media goes directly adjacent to the title -#}
+            <div class="{% if not has_media or is_media_full_width %}grid-col{% else %}grid-col-4{% endif %}">
+              {{- _title_without_description() -}}
+            </div>
+            {% if has_media and not is_media_full_width %}
+              <div class="grid-col-4 grid-col-start-large-5">
+                {{- _wrapped_media() -}}
+              </div>
+            {% endif %}
           </div>
-        {%- endif -%}
-      {% endfor %}
+        {%- endif %}
+
+        {#- Always render full-width media in its own row, after the main title/description/no-description blocks -#}
+        {% if has_media and is_media_full_width and media_placement != "before_description" %}
+          {{- _full_width_media_row() -}}
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+    {%- for number, item_title, item_description in list_items.entries -%}
+      {%- set is_aligned_item = is_title_aligned_with_first_item and loop.first -%}
+      {%- if number != 1 and not is_aligned_item %}
+        <div class="grid-row">
+          <div class="grid-col-6 grid-col-start-large-3">
+            <hr class="p-rule--muted">
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="grid-row">
+        {%- if is_aligned_item %}
+          <div class="grid-col-2">{{ title_content }}</div>
+        {%- endif %}
+        <div class="{{ medium_class }} grid-col-2 grid-col-start-large-3">{{ item_title }}</div>
+        <div class="{{ medium_class }} grid-col-4">{{ item_description }}</div>
+      </div>
+    {%- endfor %}
   </div>
 {%- endmacro %}
