@@ -14,8 +14,10 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 | ---------------------- | ----------------------------------------------------- |
 | `$font-base-family`    | 'Ubuntu, Arial, "libra sans", sans-serif'             |
 | `$font-monospace`      | '"Ubuntu Mono", Consolas, Monaco, Courier, monospace' |
-| `$font-base-size`      | `1rem`                                                |
+| `$base-font-sizes`     | `(base: 1rem, large: 1.125rem)`                       |
 | `$font-heading-family` | `$font-base-family`                                   |
+
+`$base-font-sizes` is a map: `base` sets the default body font size, while `large` is used on larger screens when `$increase-font-size-on-larger-screens` is enabled.
 
 ## Font weight
 
