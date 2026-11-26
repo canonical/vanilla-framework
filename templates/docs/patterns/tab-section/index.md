@@ -52,6 +52,13 @@ The 25/75 layout creates an asymmetrical two-column layout where the first colum
 View example of the tab section pattern with 25/75 layout
 </a></div>
 
+When the section has no description or call-to-action, set `is_title_aligned_with_tabs` to `true` to put the
+title and tabs in the same row on large screens. On smaller screens, the title sits above the tabs.
+
+<div class="embedded-example"><a href="/docs/examples/patterns/tab-section/25-75-aligned-links" class="js-example" data-lang="jinja">
+View example of a 25/75 tab section with an aligned title and link lists
+</a></div>
+
 ## Top Rule Variants
 
 By default, the tab section has a default horizontal rule at the top.
@@ -208,9 +215,28 @@ Always ensure your content blocks match your chosen layout:
 | Divided Section | ✗          | ✓     | ✗     |
 | Blog            | ✓          | ✓     | ✓     |
 | Basic Section   | ✗          | ✓     | ✗     |
+| Link List       | ✗          | ✗     | ✓     |
 
 Block type can be chosen with the `tabs[].type` property.
 `tabs.item` contains the block's configuration, which varies from block to block and is demonstrated in the JSON snippets below.
+
+### Link list block
+
+Lists destinations as heading-sized links separated by rules in the 25/75 layout.
+Each entry in `item.links` has a `text` label and an `href` destination.
+
+```json
+{
+  "type": "link-list",
+  "tab_html": "Google Fonts",
+  "item": {
+    "links": [
+      {"text": "Ubuntu Sans", "href": "https://fonts.google.com/specimen/Ubuntu+Sans"},
+      {"text": "Ubuntu Sans Mono", "href": "https://fonts.google.com/specimen/Ubuntu+Sans+Mono"}
+    ]
+  }
+}
+```
 
 ### Quote block
 
@@ -685,7 +711,8 @@ The `vf_tab_section` Jinja macro can be used to generate a tab section pattern. 
           <code>'logo-block'</code>,<br>
           <code>'divided-section'</code>,<br>
           <code>'blog'</code>,<br>
-          <code>'basic-section'</code>
+          <code>'basic-section'</code>,<br>
+          <code>'link-list'</code>
         </td>
         <td>
           <code>N/A</code>
@@ -744,6 +771,13 @@ The `vf_tab_section` Jinja macro can be used to generate a tab section pattern. 
         <td>
           Attributes to apply to the section element, as a dictionary. See <a href="/docs/building-vanilla#attribute-forwarding">attribute forwarding docs</a> for more info.
         </td>
+      </tr>
+      <tr>
+        <td><code>is_title_aligned_with_tabs</code></td>
+        <td>No</td>
+        <td>Boolean</td>
+        <td><code>false</code></td>
+        <td>Aligns the title and tabs in the same row on large screens with the 25/75 layout when description and CTA are omitted.</td>
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,35 @@
+{% extends "_layouts/examples.html" %}
+{% from "_macros/vf_tab-section.jinja" import vf_tab_section %}
+
+{% block title %}Tab section / 25/75 / Aligned title and links{% endblock %}
+{% block standalone_css %}patterns_all{% endblock %}
+
+{% block content %}
+  {{ vf_tab_section(
+    title={"text": "Download"},
+    layout="25-75",
+    is_title_aligned_with_tabs=true,
+    tabs=[
+      {
+        "tab_html": "Google Fonts",
+        "type": "link-list",
+        "item": {"links": [
+          {"text": "Ubuntu Sans", "href": "https://fonts.google.com/specimen/Ubuntu+Sans"},
+          {"text": "Ubuntu Sans Mono", "href": "https://fonts.google.com/specimen/Ubuntu+Sans+Mono"}
+        ]}
+      },
+      {
+        "tab_html": "GitHub",
+        "type": "link-list",
+        "item": {"links": [
+          {"text": "Ubuntu Sans", "href": "https://github.com/canonical/Ubuntu-Sans-fonts/releases"},
+          {"text": "Ubuntu Sans Mono", "href": "https://github.com/canonical/Ubuntu-Sans-Mono-fonts/releases"}
+        ]}
+      }
+    ]
+  ) }}
+{% endblock %}
+
+{% block script %}
+  <script type="module" src="/js/tabs.js"></script>
+{% endblock %}
