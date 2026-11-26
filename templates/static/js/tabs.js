@@ -15,6 +15,8 @@ const direction = {
 */
 function attachEvents(tabs) {
   tabs.forEach(function (tab, index) {
+    tab.tabIndex = tab.getAttribute('aria-selected') === 'true' ? 0 : -1;
+
     tab.addEventListener('keyup', function (e) {
       if (e.code === keys.left || e.code === keys.right) {
         switchTabOnArrowPress(e, tabs);
@@ -65,8 +67,10 @@ function switchTabOnArrowPress(event, tabs) {
 function setActiveTab(tab, tabs) {
   tabs.forEach(function (tabElement) {
     var tabContent = document.getElementById(tabElement.getAttribute('aria-controls'));
+    const isActive = tabElement === tab;
+    tabElement.tabIndex = isActive ? 0 : -1;
 
-    if (tabElement === tab) {
+    if (isActive) {
       tabElement.setAttribute('aria-selected', true);
       tabContent.removeAttribute('hidden');
     } else {
