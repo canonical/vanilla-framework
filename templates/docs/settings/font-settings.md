@@ -21,27 +21,26 @@ All Ubuntu sites and applications should use the Ubuntu font, as it has been spe
 
 Vanilla uses several font weight settings in tandem with the Ubuntu font, which can be overridden to suit your needs:
 
-| Setting                        | Default value | Notes                                                                                                  |
-| ------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------ |
-| `$font-weight-display-heading` | `100`         | This lighter font weight is used by the [display heading](/docs/base/typography#display-headings).     |
-| `$font-weight-regular-text`    | `400`         | Vanilla's default font-weight. Also used in `h6`.                                                      |
-| `$font-weight-bold`            | `550`         | Most often used on elements with very small text to make them stand out. Used in `h1`, `h3`, and `h5`. |
+| Setting                        | Default value | Notes                                                                                              |
+| ------------------------------ | ------------- | -------------------------------------------------------------------------------------------------- |
+| `$font-weight-display-heading` | `100`         | This lighter font weight is used by the [display heading](/docs/base/typography#display-headings). |
+| `$font-weight-regular-text`    | `400`         | Vanilla's default weight for body text.                                                            |
+| `$font-weight-bold`            | `550`         | Used for bold text and some small-text styles.                                                     |
 
 ### Heading levels {{ status("New") }}
 
-By default, several of Vanilla's heading levels share the same font weight.
-Others use unique font weights.
-
 To customise the font weight of each heading level, you can override the following settings:
 
-| Variable          | Default value                       |
-| ----------------- | ----------------------------------- |
-| `$font-weight-h1` | `$font-weight-bold` (`550`)         |
-| `$font-weight-h2` | `180`                               |
-| `$font-weight-h3` | `$font-weight-bold` (`550`)         |
-| `$font-weight-h4` | `275`                               |
-| `$font-weight-h5` | `$font-weight-bold` (`550`)         |
-| `$font-weight-h6` | `$font-weight-regular-text` (`400`) |
+| Variable          | Default value |
+| ----------------- | ------------- |
+| `$font-weight-h1` | `400`         |
+| `$font-weight-h2` | `200`         |
+| `$font-weight-h3` | `500`         |
+| `$font-weight-h4` | `300`         |
+| `$font-weight-h5` | `600`         |
+| `$font-weight-h6` | `600`         |
+
+If your project previously customised headings through `$font-weight-bold` or `$font-weight-regular-text`, set the corresponding heading variables before importing Vanilla. Set `$font-weight-h1`, `$font-weight-h3`, and `$font-weight-h5` to your bold weight, or `$font-weight-h6` to your regular text weight, to retain those customisations.
 
 <br>
 <hr />
