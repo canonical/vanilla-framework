@@ -257,16 +257,16 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           Variant of the top rule
           <ul class="u-no-margin--bottom">
             <li class="p-list__item">
-              Use <code>'default'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the pricing block is a standalone section
+              Use <code>'default'</code> for a <a href="/docs/patterns/rule#default">default rule</a>. This can also be used when the newsletter block is a standalone section
             </li>
             <li class="p-list__item">
-              Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the pricing block is a standalone section
+              Use <code>'highlighted'</code> for a <a href="/docs/patterns/rule#highlighted">highlighted rule</a>. This should be used when the newsletter block is a standalone section
             </li>
             <li class="p-list__item">
-              Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the pricing block is a subsection and has other subsections before it
+              Use <code>'muted'</code> for a <a href="/docs/patterns/rule#muted">muted rule</a>. This should be used when the newsletter block is a subsection and has other subsections before it
             </li>
             <li class="p-list__item">
-              Use <code>'none'</code> for no rule. This should be used when the pricing block is the first or only item in a subsection.
+              Use <code>'none'</code> for no rule. This should be used when the newsletter block is the first or only item in a subsection.
             </li>
           </ul>
         </td>
@@ -381,10 +381,10 @@ The `vf_newsletter_signup` Jinja macro can be used to generate a Newsletter sign
           Content for the neighbouring columns in the grid. Only applicable to <code>'2-col'</code> and <code>'4-col'</code> layouts.<br />
           <ul class="u-no-margin--bottom">
             <li class="p-list__item">
-              In the <code>4-col</code> variant, the newsletter block takes up 4 columns on large screens. This leaves space for two 2-column blocks, which can be populated with the `col_1` and `col_2` slots.
+              In the <code>4-col</code> variant, the newsletter block takes up 4 columns on large screens. This leaves space for two 2-column blocks, which can be populated with the <code>col_1</code> and <code>col_2</code> slots.
             </li>
             <li class="p-list__item">
-              In the <code>2-col</code> variant, the newsletter block takes up 2 columns on large screens. This leaves space for three 2-column blocks, which can be populated with the `col_1`, `col_2`, and `col_3` slots.
+              In the <code>2-col</code> variant, the newsletter block takes up 2 columns on large screens. This leaves space for three 2-column blocks, which can be populated with the <code>col_1</code>, <code>col_2</code>, and <code>col_3</code> slots.
             </li>
           </ul>
           For more information, please see the new <a href="/docs/patterns/grid">4-4-8 column grid</a>.
